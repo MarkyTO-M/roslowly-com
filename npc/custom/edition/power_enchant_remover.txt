@@ -113,7 +113,7 @@ morocc,127,34,4	script	OptionRemove#1	418,{
 	mes "[ถอดออฟชั่น]";
 	mes "ทำการล้างให้เรียบร้อย.";
 	
-	if(.@equip_card[2] >= 4700 && .@equip_card[2] <= 4916){
+	if(.@equip_card[2] >= 4700 && .@equip_card[2] <= 4999){
 		getitem2 .@part,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],0,0;
 	}else{
 		getitem2 .@part,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@equip_card[2],0;
