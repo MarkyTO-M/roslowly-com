@@ -4062,15 +4062,15 @@
 5945,Well_Chewed_Pencil,Well-Chewed Pencil,4,20,,300,,0,,0,0xFFFFFFFF,63,2,1,,30,0,931,{ bonus bStr,1; autobonus "{ bonus bAtkEle,Ele_Fire; }",50,60000,BF_WEAPON,"{ specialeffect2 EF_ENHANCE; }"; /* Unknow rate and specialeffect */ },{},{}
 5966,KarduiEar,KarduiEar,4,0,,300,,,,0,0xFFFFFFFF,63,2,512,,70,0,1357,{ .@dex = readparam(bDex); bonus bMatk,(.@dex > 10) ? .@dex/10*2 : 0; if (.@dex > 107) { bonus bVariableCastrate,-10; bonus bMatk,60; } if (.@dex > 119) { bonus bVariableCastrate,-5; bonus bMatk,100; } },{},{}
 5967,FlyingGalapago,Flying Galapago,4,0,,500,,,,0,0xFFFFFFFF,63,2,1,,110,0,1358,{ set .@bblvl,max(getskilllv("HT_BLITZBEAT"),1); set .@luk,min(readparam(bLuk),120); bonus bAgi,1; bonus3 bAutoSpell,"HT_BLITZBEAT",.@bblvl,50 + (.@luk / 3) + (.@bblvl * 2); bonus2 bSkillAtk,"HT_BLITZBEAT",getskilllv("HT_STEELCROW") * 40; },{},{}
-5968,DVAngelNurseCap,DVAngelNurseCap,4,0,,500,,10,,1,0xFFFFFFFF,63,2,256,,50,1,1359,{ if (BaseClass == Job_Acolyte) bonus bHealPower,3; bonus bNoCastCancel; .@r = getrefine(); bonus bHealPower,(.@r > 8) ? 12 : ((.@r > 6) ? 9 : ((.@r > 4) ? 6 : 0)); },{},{}
-5969,QueenAnzRevenge,QueenAnzRevenge,4,0,,400,,7,,1,0xFFFFFFFF,63,2,256,,100,1,1360,{ bonus bStr,5; .@r = getrefine(); bonus2 bAddClass,Class_All,7+(.@r > 8 ? 4 : (.@r > 6 ? 3 : (.@r > 4 ? 2 : 0))); bonus bNoSizeFix; },{},{}
+5968,DVAngelNurseCap,DVAngelNurseCap,4,0,,500,,10,,1,0xFFFFFFFF,63,2,256,,50,1,1359,{ if (BaseClass == Job_Acolyte) bonus bHealPower,3; bonus bNoCastCancel,1; .@r = getrefine(); bonus bHealPower,(.@r > 8) ? 12 : ((.@r > 6) ? 9 : ((.@r > 4) ? 6 : 0)); },{},{}
+5969,QueenAnzRevenge,QueenAnzRevenge,4,0,,400,,7,,1,0xFFFFFFFF,63,2,256,,100,1,1360,{ bonus bStr,5; .@r = getrefine(); bonus2 bAddClass,Class_All,7+(.@r > 8 ? 4 : (.@r > 6 ? 3 : (.@r > 4 ? 2 : 0))); bonus bNoSizeFix,1; },{},{}
 5971,Moon_Eyepatch,Moon Eyepatch,4,0,,100,,,,1,0xFFFFFFFF,63,2,512,,10,0,1370,{ bonus2 bSubEle,Ele_Water,5; },{},{}
 5972,Chatty_Parrot,Chatty Parrot,4,0,,100,,,,0,0xFFFFFFFF,63,2,1,,80,0,1116,{ bonus bMatkRate,BaseLevel/50; bonus bVariableCast,-readparam(bInt)/30; },{},{}
 5973,Ancient_Elven_Ear_J,Ancient Elven Ear J,4,0,,200,,,,0,0xFFFFFFFF,63,2,512,,70,0,665,{ bonus bLuk,10; bonus bMdef,10; bonus bFlee2,2; },{},{}
 5978,Syringe_Toy,Toy Syringe,4,0,,100,,3,,0,0xFFFFFFFF,63,2,1,,70,0,842,{ bonus bMdef,3; bonus2 bAddItemHealRate,545,150; bonus2 bAddItemHealRate,546,150; bonus2 bAddItemHealRate,547,150; },{},{}
 5979,C_Angel_Fluttering,C Angel Fluttering,4,0,,0,,,,0,0xFFFFFFFF,63,2,4096,,1,0,1380,{ hateffect HAT_EF_ANGEL_FLUTTERING,true; },{},{ hateffect HAT_EF_ANGEL_FLUTTERING,false; }
 5980,C_Classical_Fhat,C Classical Fhat,4,0,,0,,,,0,0xFFFFFFFF,63,2,1024,,1,0,1381,{},{},{}
-5985,Noble_Mask,Noble Mask,4,0,,200,,,,0,0xFFFFFFFF,63,2,512,,30,1,1409,{ bonus2 bSkillAtk,"PA_SACRI
+5985,Noble_Mask,Noble Mask,4,0,,200,,,,0,0xFFFFFFFF,63,2,512,,30,1,1409,{ bonus2 bSkillAtk,"PA_SACRIFICE",BaseLevel*2; bonus2 bSkillVariableCast,"PA_PRESSURE",-2000; bonus2 bSkillVariableCast,"CR_DEVOTION",-2000; if (BaseLevel > 149) { bonus bMaxHPrate,3; bonus bAspdRate,3; } else if (BaseLevel > 99) { bonus bMaxHPrate,2; bonus bAspdRate,2; } else { bonus bMaxHPrate,1; bonus bAspdRate,1; } },{},{}
 //===================================================================
 // More Etc Items
 //===================================================================
