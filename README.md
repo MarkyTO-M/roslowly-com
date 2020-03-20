@@ -8,4 +8,4 @@ https://www.apachefriends.org/download.html
 http://128.199.64.182/pp_page/roslowly-com-runserver.zip
 แตกไฟลืไว้ทที่ ROOT ของ Folder Git Repo
 เปิดเซฺิฟเวอร์ด้วยไฟล์ runserver.bat (Windows)
-1* ต้องเปิ MyhSQL Server ไว้ด้วยนะห้ามปิด
+* ต้องเปิด MyhSQL Server ไว้ด้วยนะห้ามปิด
