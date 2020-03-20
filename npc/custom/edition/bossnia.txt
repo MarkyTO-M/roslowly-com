@@ -494,7 +494,7 @@ mosk_fild02,0,0,0,0	boss_monster	Eddga	1115,3,0,0,0
 
 mosk_fild02,0,0,0,0	boss_monster	Sniper Cecil	1650,3,0,0,0
 mosk_fild02,0,0,0,0	boss_monster	Whitesmith Howard	1648,3,0,0,0
-mosk_fild02,0,0,0,0	boss_monster	Satan Morroc	1916,3,0,0,0
+mosk_fild02,0,0,0,0	boss_monster	Satan Morroc	1917,3,0,0,0
 
 
 // ตำแหน่ง NPC ->
