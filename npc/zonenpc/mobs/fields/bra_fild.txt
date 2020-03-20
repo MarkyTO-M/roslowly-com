@@ -1,0 +1,6 @@
+bra_fild01,0,0,0,0	monster	Curupira	2074,90,0,0,0
+bra_fild01,0,0,0,0	monster	Toucan	2073,90,0,0,0
+bra_fild01,0,0,0,0	monster	Jaguar	2072,90,0,0,0
+bra_fild01,0,0,0,0	monster	Headless Mule	2071,90,0,0,0
+bra_fild01,0,0,0,0	monster	Savage	1166,90,0,0,0
+bra_fild01,0,0,0,0	monster	Dokebi	1100,90,0,0,0

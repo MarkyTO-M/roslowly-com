@@ -1,0 +1,36 @@
+new_1-3,95,165,10,10	monster	Poring	1002,15,0,0,0
+new_1-3,95,165,10,10	monster	Poporing	1031,10,0,0,0
+new_1-3,95,165,10,10	monster	Drops	1113,15,0,0,0
+new_1-3,95,165,10,10	monster	Marin	1242,10,0,0,0
+
+new_1-3,100,173,4	duplicate(jobchange)	เปลี่ยนอาชีพ#start	521
+
+new_1-3,90,173,6	script	Heal	619,{
+sc_start SC_BLESSING,3600000,10;
+sc_start SC_INCREASEAGI,3600000,10;
+sc_start SC_ANGELUS,3600000,10;
+sc_start SC_MAGNIFICAT,3600000,5;
+sc_start SC_GLORIA,3600000,5;
+sc_start SC_STRFood,3600000,5;
+sc_start SC_AGIFood,3600000,5;
+sc_start SC_VITFood,3600000,5;
+sc_start SC_DEXFood,3600000,5;
+sc_start SC_INTFood,3600000,5;
+sc_start SC_LUKFood,3600000,5;
+sc_start SC_EXPBOOST,3600000,50;
+sc_start SC_ITEMBOOST,3600000,50;
+percentheal 100,100;
+end;
+}
+
+new_1-3,95,173,4	script	วาร์ปเข้าเมือง	45,1,1,{
+getitem 610,150;
+getitem 601,1;
+getitem 602,1;
+warp "morocc",160,45;
+savepoint "morocc",160,95;
+end;
+}
+
+new_1-3	mapflag	noskill
+new_1-3	mapflag	nobranch

@@ -1,0 +1,159 @@
+//============================================================
+//=สคลิปทั้งหมดในนี้
+//=เขียนขึ้นใหม่
+//=ปรับแต่งแก้ไขใหม่และแปลไทยโดย Pcmedias : by Ittiphol Live
+//============================================================
+
+morocc,155,100,3	script	อริส	1275,{
+stopnpctimer;
+mes "[อริส]";
+mes "สวัสดี "+strcharinfo(0)+" !";
+close;
+goto OnInit;
+end;
+OnInit:
+startnpctimer;
+npcspeed 200;
+end;
+OnTimer2000:
+set .@random, rand(3);
+if (.@random == 0) { npcwalkto 157,51;
+npctalk "ช่วยกันรักษาความสะอาดบ้างนะค่ะ"; }
+if (.@random == 1) { npcwalkto 155,74;
+npctalk ""; }
+if (.@random == 2) { npcwalkto 154,103;
+npctalk "อย่าทิ้งขยะลงพื้นนะค่ะ"; }
+end;
+
+OnTimer6000:
+set .@random, rand(3);
+if (.@random == 0) { npcwalkto 155,125;
+npctalk ""; }
+if (.@random == 1) { npcwalkto 156,153;
+npctalk "เมืองพรอนของเราจะได้สวยงาม ^^"; }
+if (.@random == 2) { npcwalkto 154,179;
+npctalk "สงสัยต้องหาถังขยะมาเพิ่มแล้ว"; }
+end;
+
+OnTimer13000:
+set .@random, rand(3);
+if (.@random == 0) { npcwalkto 137,202;
+npctalk ""; }
+if (.@random == 1) { npcwalkto 155,223;
+npctalk "ทำไมอากาศร้อนแบบนี้เนี่ย ไม่ไหวเลย..."; }
+if (.@random == 2) { npcwalkto 157,201;
+npctalk "ใครปล่อยหมาออกมาขี้แบบนี้"; }
+end;
+
+OnTimer1800:
+npcwalkto 160,187;
+end;
+
+OnTimer2100:
+stopnpctimer;
+initnpctimer;
+end;
+}
+morocc,143,178,3	script	นักเวทย์	937,{
+stopnpctimer;
+mes "[นักเวทย์]";
+mes "ไง.. สวัสดี "+strcharinfo(0)+" !";
+close;
+goto OnInit;
+end;
+OnInit:
+startnpctimer;
+npcspeed 200;
+end;
+OnTimer2000:
+set .@random, rand(3);
+if (.@random == 0) { npcwalkto 153,179;
+npctalk "ไปเปลี่ยนอาชีพทางไหน?"; }
+if (.@random == 1) { npcwalkto 147,162;
+npctalk ""; }
+if (.@random == 2) { npcwalkto 127,177;
+npctalk "จะวาปไปยังไงใครช่วยที"; }
+end;
+
+OnTimer7000:
+set .@random, rand(3);
+if (.@random == 0) { npcwalkto 155,167;
+npctalk "ซื้อของเติมพลังไปทางไหน..."; }
+if (.@random == 1) { npcwalkto 160,178;
+npctalk ""; }
+if (.@random == 2) { npcwalkto 148,174;
+npctalk "หลงทางงงง"; }
+end;
+
+OnTimer15000:
+set .@random, rand(3);
+if (.@random == 0) { npcwalkto 163,180;
+npctalk "นาย... ขอตังซื้อของหน่อยสิ"; }
+if (.@random == 1) { npcwalkto 152,167;
+npctalk ""; }
+if (.@random == 2) { npcwalkto 175,183;
+npctalk "เราเพิ่งเล่นใหม่อ่ะ"; }
+end;
+
+OnTimer20000:
+npcwalkto 148,92;
+end;
+
+OnTimer24000:
+stopnpctimer;
+initnpctimer;
+end;
+
+}
+morocc,148,89,3	script	นักดาบ	875,{
+stopnpctimer;
+mes "[นักดาบ]";
+mes "ไง.. สวัสดี "+strcharinfo(0)+" !";
+close;
+goto OnInit;
+end;
+OnInit:
+startnpctimer;
+npcspeed 200;
+end;
+OnTimer2000:
+set .@random, rand(3);
+if (.@random == 0) { npcwalkto 157,47;
+npctalk "สวัสดีครับ ผมเด็กใหม่นะครับ ^^"; }
+if (.@random == 1) { npcwalkto 155,70;
+npctalk ""; }
+if (.@random == 2) { npcwalkto 154,100;
+npctalk "ฝากเนื้อฝากตัวด้วยครับ"; }
+end;
+
+OnTimer6000:
+set .@random, rand(3);
+if (.@random == 0) { npcwalkto 155,120;
+npctalk ""; }
+if (.@random == 1) { npcwalkto 156,150;
+npctalk "ขอตังซื้อของหน่อยสิครับ เพิ่งเล่นตังไม่มี"; }
+if (.@random == 2) { npcwalkto 154,175;
+npctalk "ขอบคุณมากๆครับ ^^"; }
+end;
+
+
+OnTimer15000:
+set .@random, rand(3);
+if (.@random == 0) { npcwalkto 163,180;
+npctalk "นาย... ขอตังซื้อของหน่อยสิ"; }
+if (.@random == 1) { npcwalkto 152,167;
+npctalk ""; }
+if (.@random == 2) { npcwalkto 175,183;
+npctalk "เราเพิ่งเล่นใหม่อ่ะ"; }
+end;
+
+OnTimer20000:
+npcwalkto 148,89;
+end;
+
+OnTimer23000:
+stopnpctimer;
+initnpctimer;
+end;
+
+}

@@ -1,0 +1,123 @@
+-	script	stylist	-1,{
+set .@Designer_HStyle,80;
+set .@Designer_HColor,251;
+set .@Designer_CColor,553;
+
+mes "^FF0000[ แต่งตัวละคร ]^000000"; 
+mes " ทรงผม - 80 "; 
+mes " สีผม - 251 "; 
+mes " สีชุด - 553 "; 
+
+L_Index:
+menu 
+"^0000FF-^000000 เปลี่ยนทรงผม",HStyle,
+"^0000FF-^000000 เปลี่ยนสีผม",HColor,
+"^0000FF-^000000 เปลี่ยนสีชุด",CColor; 
+
+HStyle:
+menu "^0000FF-^000000 ระบุแบบทรงผม",NbStyle,"^0000FF-^000000 เลือกดูทั้งหมด",ACStyle;
+close;
+
+NbStyle:
+input @sty;
+if(@sty > .@Designer_HStyle) goto L_Error; 
+setlook 1,@sty; 
+goto L_Index;
+
+ACStyle:
+set @sty,0;
+goto GStyle;
+close;
+
+GStyle:
+setlook 1,@sty;
+dispbottom "ทรงผมแบบที่ "+@sty+".";
+goto CStyle;
+close;
+
+CStyle:
+switch(select("^0000FF-^000000 ต่อไป","^FF0000-^000000 หยุด กลับเมนูหลัก")) {
+case 1:
+if(@sty == .@Designer_HStyle) goto L_Menu;
+set @sty,@sty+1;
+goto GStyle;
+
+case 2:
+goto L_Index;
+}
+
+HColor:
+menu "^0000FF-^000000 ระบุแบบสีผม",NbHair,"^0000FF-^000000 เลือกดูทั้งหมด",ACHair;
+close;
+
+NbHair:
+input @Hair;
+if(@Hair > .@Designer_HColor) goto L_Error;
+setlook 6,@Hair; 
+goto L_Index;
+
+ACHair:
+set @Hair,0;
+goto GHair;
+close;
+
+GHair:
+setlook 6,@Hair; 
+dispbottom "สีผมแบบที่ "+@Hair+".";
+goto CHair;
+close;
+
+CHair:
+switch(select("^0000FF-^000000 ต่อไป","^FF0000-^000000 หยุด กลับเมนูหลัก")) {
+case 1:
+if(@Hair == .@Designer_HColor) goto L_Menu;
+set @Hair,@Hair+1;
+goto GHair;
+
+case 2:
+goto L_Index;
+}
+
+Ccolor:
+menu "^0000FF-^000000 ระบุแบบสีชุด",NbClothes,"^0000FF-^000000 เลือกดูทั้งหมด",ACClothes;
+close;
+
+NbClothes:
+input @Clothes;
+if(@Clothes > .@Designer_CColor) goto L_Error;
+setlook 7,@Clothes; 
+goto L_Index;
+
+ACClothes:
+set @Clothes,0;
+goto GClothes;
+close;
+
+GClothes:
+setlook 7,@Clothes; 
+dispbottom "สีชุดแบบที่ "+@Clothes+".";
+goto CClothes;
+close;
+
+CClothes:
+switch(select("^0000FF-^000000 ต่อไป","^FF0000-^000000 หยุด กลับเมนูหลัก")) {
+case 1:
+if(@Clothes == .@Designer_CColor) goto L_Menu;
+set @Clothes,@Clothes+1;
+goto GClothes;
+
+case 2:
+goto L_Index;
+}
+
+L_Menu:
+set @Hair,0;
+close;
+
+L_Error:
+close;
+
+OnInit: 
+waitingroom "๐ ช่างเสริมสวย ๐",0; 
+end;
+}

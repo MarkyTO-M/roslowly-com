@@ -1,0 +1,29 @@
+ra_san01,0,0,0,0	monster	Isilla	1772,90,0,0,0
+ra_san01,0,0,0,0	monster	Gremlin	1632,90,0,0,0
+ra_san01,0,0,0,0	monster	Hodremlin	1773,10,0,0,0
+ra_san01,0,0,0,0	monster	Beholder	1633,10,0,0,0
+ra_san01,0,0,0,0	monster	Vanberk	1771,90,0,0,0
+
+ra_san02,0,0,0,0	monster	Isilla	1772,90,0,0,0
+ra_san02,0,0,0,0	monster	Vanberk	1771,90,0,0,0
+ra_san02,0,0,0,0	monster	Gremlin	1632,90,0,0,0
+ra_san02,0,0,0,0	monster	Hodremlin	1773,90,0,0,0
+ra_san02,0,0,0,0	monster	Beholder	1633,90,0,0,0
+ra_san02,0,0,0,0	monster	Seeker	1774,90,0,0,0
+
+ra_san03,0,0,0,0	monster	Beholder	1633,90,0,0,0
+ra_san03,0,0,0,0	monster	Gremlin	1632,90,0,0,0
+ra_san03,0,0,0,0	monster	Seeker	1774,90,0,0,0
+ra_san03,0,0,0,0	monster	Hodremlin	1773,10,0,0,0
+
+ra_san04,0,0,0,0	monster	Echio	1770,90,0,0,0
+ra_san04,0,0,0,0	monster	Agav	1769,90,0,0,0
+ra_san04,0,0,0,0	monster	Seeker	1774,90,0,0,0
+ra_san04,0,0,0,0	monster	Hodremlin	1773,90,0,0,0
+
+ra_san05,0,0,0,0	monster	Agav	1769,90,0,0,0
+ra_san05,0,0,0,0	monster	Echio	1770,90,0,0,0
+ra_san05,0,0,0,0	monster	Isilla	1772,90,0,0,0
+ra_san05,0,0,0,0	monster	Seeker	1774,10,0,0,0
+ra_san05,0,0,0,0	monster	Hodremlin	1773,10,0,0,0
+ra_san05,0,0,0,0	monster	Agav	1769,90,0,0,0

@@ -1,0 +1,55 @@
+//---field renewal--//
+morocc,169,51,4	script	วาป Field Renewal	852,{
+mes "[พนักงานวาป Field]";
+mes "ท่านสามารถวาปไป ^0000FFField^000000 ใหม่";
+mes "ที่มาในยุค ^FF0000Renewal^000000 ได้ที่นี่";
+mes "ขอให้ท่านโชคดี";
+next;
+mes "[พนักงานวาป Field]";
+mes "^0000FFเลือก Field ที่ท่านต้องการไป^000000";
+menu "Bifrost Field 01",field1,"Bifrost Field 02",field2,"Brasilis Field 01",field3,"Dewata Field 01",field4,"Eclage Field 01",field5,"El Dicastes Field 01",field6,"El Dicastes Field 02",field7,"Malaya Field 01",field8,"Malaya Field 02",field9,"Moscovia Field",field10;
+
+field1:
+warp "bif_fild01",0,0;
+end;
+
+field2:
+warp "bif_fild02",0,0;
+end;
+
+field3:
+warp "bra_fild01",0,0;
+end;
+
+field4:
+warp "dew_fild01",0,0;
+end;
+
+field5:
+warp "ecl_fild01",0,0;
+end;
+
+field6:
+warp "dic_fild01",0,0;
+end;
+
+field7:
+warp "dic_fild02",0,0;
+end;
+
+field8:
+warp "ma_fild01",0,0;
+end;
+
+field9:
+warp "ma_fild02",0,0;
+end;
+
+field10:
+warp "mosk_fild02",0,0;
+end;
+
+
+}
+
+prontera,166,86,4	duplicate(วาป Field Renewal)	วาป Field Renewal#01	852

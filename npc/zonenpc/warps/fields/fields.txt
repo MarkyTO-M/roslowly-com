@@ -1,0 +1,817 @@
+hu_fild05,168,304,0	script	Column#abyss1	111,{
+	mes "^3355FFThere are 3 oddly";
+	mes "shaped grooves on";
+	mes "the surface of this";
+	mes "column. It seems that";
+	mes "certain dragon body parts";
+	mes "would fit perfectly into";
+	mes "the column grooves.^000000";
+	if((countitem(1035)) && (countitem(1036)) && (countitem(1037)))
+	{
+		next;
+		switch( select( "Insert Dragon Body Parts","Eat Dragon Body Parts" ) )
+		{
+			case 1:
+				mes "^3355FFYou carefully place a";
+				mes "Dragon Canine into one of";
+				mes "the grooves, and then you";
+				mes "hear a powerful rumbling";
+				mes "from within the column.^000000";
+				specialeffect EF_WINDHIT;
+				next;
+				mes "^3355FFYou slowly insert a";
+				mes "Dragon Scale into another";
+				mes "of the column's grooves,";
+				mes "trigerring another small";
+				mes "tremor from the column.^000000";
+				specialeffect EF_WINDHIT;
+				next;
+				mes "^3355FFYou cautiously insert";
+				mes "a Dragon Tail into the";
+				mes "final groove. Lights shine";
+				mes "forth from cracks in the";
+				mes "column's surface...^000000";
+				specialeffect EF_WINDHIT;
+				next;
+				mes "^3355FFThe ground beneath";
+				mes "your feet begins to";
+				mes "violently shake.^000000";
+				specialeffect EF_BOWLINGBASH;
+				donpcevent "AbyssWarp::OnWarp";
+				specialeffect2 EF_PORTAL;
+				delitem 1035,1;
+				delitem 1036,1;
+				delitem 1037,1;
+				close2;
+				warp "hu_fild05",184,204;
+				end;
+
+			case 2:
+				mes "^3355FFYou gingerly place a";
+				mes "Dragon's Canine, a Dragon";
+				mes "Scale, and a Dragon Tail into";
+				mes "your mouth and slowly begin";
+				mes "to chew. Nothing happens";
+				mes "and the taste of these items";
+				mes "is surprisingly putrid.^000000";
+				next;
+				emotion e_rice,1;
+				delitem 1035,1;
+				delitem 1036,1;
+				delitem 1037,1;
+				percentheal -10,0;
+				close;
+		}
+	}
+	close;
+}
+
+hu_fild05,171,211,0	script	Column#abyss2	111,1,1,{
+	mes "^3355FFThis column looks";
+	mes "very similar to the";
+	mes "one you've seen in";
+	mes "the lake. There is";
+	mes "a conspicious blue";
+	mes "groove on its surface.^000000";
+	next;
+	switch( select( "Touch the Groove","Remove Item from Groove" ) )
+	{
+		case 1:
+			mes "^3355FF*Clatter Clatter*^000000";
+			next;
+			mes "^3355FFThe light emanating from";
+			mes "the groove distorts and";
+			mes "the column starts to shake.";
+			mes "You hear a faint rumbling";
+			mes "from inside the column.^000000";
+			specialeffect EF_WINDHIT;
+			next;
+			mes "*Ggghhhhhzzzz!*";
+			mes "*BAM!*";
+			next;
+			mes "^3355FFThe light shining from";
+			mes "the column's groove grows";
+			mes "brighter as you feel the";
+			mes "ground beneath your feet";
+			mes "begin to slowly sink away...^000000";
+			next;
+			specialeffect EF_BOWLINGBASH;
+			specialeffect2 EF_PORTAL;
+			close2;
+			warp "hu_fild05",169,305;
+			end;
+
+		case 2:
+			mes "^3355FF*Ppppsssh!*";
+			mes "You accidentally";
+			mes "broke the item.^000000";
+			specialeffect EF_WINDHIT;
+			next;
+			mes "^3355FF*Gggggggghhhhhhhhzzzzzzjjjjhh!*^000000";
+			next;
+			mes "^3355FFThe light emanating from";
+			mes "the groove distorts and";
+			mes "the column starts to shake.";
+			mes "The tremors in the ground";
+			mes "make it difficult to stand";
+			mes "steadily, but suddently you";
+			mes "are warped somewhere else...^000000";
+			next;
+			specialeffect EF_BOWLINGBASH;
+			specialeffect2 EF_PORTAL;
+			close2;
+			warp "hu_fild05",157,284;
+			end;
+	}
+}
+
+hu_fild05,196,210,1	script	AbyssWarp	45,2,2,{
+
+OnInit:
+	disablenpc "AbyssWarp";
+	end;
+
+OnTouch:
+	warp "abyss_01",260,268;
+	end;
+
+OnWarp:
+	initnpctimer;
+	enablenpc "AbyssWarp";
+	end;
+
+OnTimer30000:
+	stopnpctimer;
+	disablenpc "AbyssWarp";
+	end;
+}
+
+//=====
+
+amatsu,248,292,0	warp	ama_fild1-1	1,1,ama_fild01,75,33
+ama_fild01,75,30,0	warp	ama_fild1-2	1,1,amatsu,248,289
+ama_fild01,174,331,0	warp	ama_shrine1-1	1,1,ama_in01,175,174
+ama_in01,175,171,0	warp	ama_shrine1.2	1,1,ama_fild01,174,328
+ama_fild01,330,141,0	warp	ama_craftsman1-1	1,1,ama_in01,174,124
+ama_in01,174,121,0	warp	ama_craftsman1.2	1,1,ama_fild01,330,138
+
+//=====
+
+cmd_fild01,222,24,0	warp	cmd_fild01-1	1,1,cmd_fild02,222,372
+cmd_fild01,362,73,0	warp	cmd_fild01-2	1,1,cmd_fild03,27,68
+cmd_fild01,362,263,0	warp	cmd_fild01-3	1,1,cmd_fild03,27,269
+cmd_fild02,222,376,0	warp	cmd_fild02-1	1,1,cmd_fild01,222,30
+cmd_fild02,382,269,0	warp	cmd_fild02-2	1,1,cmd_fild04,25,275
+cmd_fild02,358,95,0	warp	cmd_fild02-3	1,1,cmd_fild04,35,94
+cmd_fild03,23,269,0	warp	cmd_fild03-1	1,1,cmd_fild01,359,260
+cmd_fild03,23,68,0	warp	cmd_fild03-2	1,1,cmd_fild01,359,76
+cmd_fild03,181,17,0	warp	cmd_fild03-3	1,1,cmd_fild04,181,367
+cmd_fild03,384,165,0	warp	cmd_fild03-4	1,1,cmd_fild05,26,161
+cmd_fild04,21,275,0	warp	cmd_fild04-1	1,1,cmd_fild02,378,264
+cmd_fild04,31,92,0	warp	cmd_fild04-2	1,1,cmd_fild02,351,92
+cmd_fild04,376,287,0	warp	cmd_fild04-3	1,1,cmd_fild06,26,288
+cmd_fild04,180,372,0	warp	cmd_fild04-4	1,1,cmd_fild03,183,23
+cmd_fild05,21,163,0	warp	cmd_fild05-1	1,1,cmd_fild03,377,167
+cmd_fild05,148,19,0	warp	cmd_fild05-2	1,1,cmd_fild06,150,374
+cmd_fild06,150,380,0	warp	cmd_fild06-3	1,1,cmd_fild05,146,27
+cmd_fild06,21,285,0	warp	cmd_fild06-4	1,1,cmd_fild04,371,288
+cmd_fild06,151,27,0	warp	cmd_fild06-5	1,1,cmd_fild07,147,370
+cmd_fild06,368,96,0	warp	cmd_fild06-6	1,1,cmd_fild08,25,102
+cmd_fild06,379,174,0	warp	cmd_fild06-7	1,1,cmd_fild08,28,166
+cmd_fild06,372,359,0	warp	cmd_fild06-8	1,1,cmd_fild08,31,359
+cmd_fild07,149,379,0	warp	cmd_fild07-1	10,1,cmd_fild06,147,36
+cmd_fild07,389,186,0	warp	cmd_fild07-2	1,3,cmd_fild09,18,170
+cmd_fild08,25,355,0	warp	cmd_fild08-1	1,1,cmd_fild06,366,359
+cmd_fild08,25,170,0	warp	cmd_fild08-2	1,1,cmd_fild06,374,167
+cmd_fild08,15,102,0	warp	cmd_fild08-3	1,1,cmd_fild06,361,96
+cmd_fild08,76,31,0	warp	cmd_fild08-4	2,1,cmd_fild09,76,375
+cmd_fild08,309,48,0	warp	cmd_fild08-5	2,1,cmd_fild09,307,374
+cmd_fild08,354,324,0	warp	cmd_fild08-6	1,1,moc_fild12,26,305
+cmd_fild09,12,170,0	warp	cmd_fild09-1	1,4,cmd_fild07,382,184
+cmd_fild09,369,164,0	warp	cmd_fild09-2	2,2,moc_fild18,55,170
+cmd_fild09,309,381,0	warp	cmd_fild09-3	2,1,cmd_fild08,309,60
+cmd_fild09,75,382,0	warp	cmd_fild09-4	2,1,cmd_fild08,75,42
+moc_fild18,51,170,0	warp	moc_fild18-1	1,3,cmd_fild09,363,164
+
+//=====
+
+dic_dun01,371,44,0	warp	dic_field0001	1,1,dic_fild01,28,79
+dic_fild01,24,79,0	warp	dic_field0002	1,1,dic_dun01,367,44
+dic_fild01,69,23,0	warp	dic_field0003	1,1,dic_fild02,71,371
+dic_fild02,71,375,0	warp	dic_field0004	1,1,dic_fild01,69,27
+dicastes01,199,34,0	warp	dic_field0005	1,1,dic_fild01,150,277
+
+//=====
+
+yuno_fild04,251,21,0	warp	ein001	1,1,ein_fild06,252,363
+ein_fild06,252,365,0	warp	ein001a	1,1,yuno_fild04,251,23
+yuno_fild07,73,219,0	warp	ein002	1,1,ein_fild06,338,170
+ein_fild06,340,170,0	warp	ein002a	1,1,yuno_fild07,75,219
+yuno_fild07,56,76,0	warp	ein003	1,1,ein_fild06,354,94
+ein_fild06,356,94,0	warp	ein003a	1,1,yuno_fild07,58,76
+yuno_fild11,28,266,0	warp	ein004	1,1,ein_fild07,380,263
+ein_fild07,382,263,0	warp	ein004a	1,1,yuno_fild11,30,266
+ein_fild06,135,35,0	warp	ein005	1,1,ein_fild07,147,360
+ein_fild07,145,362,0	warp	ein005a	1,1,ein_fild06,135,37
+ein_fild07,191,42,0	warp	ein006	1,1,ein_fild10,194,370
+ein_fild10,194,372,0	warp	ein006a	1,1,ein_fild07,191,44
+ein_fild10,24,331,0	warp	ein007	1,1,ein_fild09,327,346
+ein_fild09,329,346,0	warp	ein007a	1,1,ein_fild10,26,331
+ein_fild09,34,132,0	warp	ein008	1,1,ein_fild08,361,128
+ein_fild08,363,128,0	warp	ein008a	1,1,ein_fild09,36,132
+einbech,62,29,0	warp	ein_fd03	1,1,ein_fild09,74,350
+ein_fild09,71,352,0	warp	ein_fd03a	1,1,einbech,62,32
+ein_fild04,20,251,0	warp	ein046	1,1,ein_fild03,361,257
+ein_fild03,363,257,0	warp	ein046a	1,1,ein_fild04,22,251
+ein_fild04,14,215,0	warp	ein047	1,1,ein_fild03,359,219
+ein_fild03,361,219,0	warp	ein047a	1,1,ein_fild04,16,215
+ein_fild04,14,205,0	warp	ein048	1,1,ein_fild03,359,204
+ein_fild03,361,204,0	warp	ein048a	1,1,ein_fild04,16,205
+ein_fild03,142,32,0	warp	ein049	1,1,lhz_fild02,166,365
+lhz_fild02,166,367,0	warp	ein049a	1,1,ein_fild03,142,34
+lhz_fild02,164,37,0	warp	ein050	1,1,lhz_fild03,158,347
+lhz_fild03,158,349,0	warp	ein050a	1,1,lhz_fild02,164,39
+lhz_fild03,363,283,0	warp	ein051	1,1,ein_fild08,25,275
+ein_fild08,23,275,0	warp	ein051a	1,1,lhz_fild03,361,283
+
+//=====
+
+gefenia01,37,103,0	warp	gefeniawarp014	1,1,gefenia04,283,95
+gefenia01,199,269,0	warp	gefeniawarp001	1,1,gefenia02,203,34
+gefenia01,220,256,0	warp	gefeniawarp003	1,1,gefenia02,240,23
+gefenia02,17,175,0	warp	gefeniawarp005	1,1,gefenia03,266,168
+gefenia02,19,237,0	warp	gefeniawarp007	1,1,gefenia03,264,236
+gefenia02,203,31,0	warp	gefeniawarp002	1,1,gefenia01,199,266
+gefenia02,240,20,0	warp	gefeniawarp004	1,1,gefenia01,223,256
+gefenia03,58,26,0	warp	gefeniawarp011	1,1,gefenia04,33,270
+gefenia03,145,27,0	warp	gefeniawarp009	1,1,gefenia04,130,272
+gefenia03,267,236,0	warp	gefeniawarp008	1,1,gefenia02,22,237
+gefenia03,269,168,0	warp	gefeniawarp006	1,1,gefenia02,20,175
+gefenia04,130,275,0	warp	gefeniawarp010	1,1,gefenia03,145,30
+gefenia04,33,273,0	warp	gefeniawarp012	1,1,gefenia03,58,29
+gefenia04,287,95,0	warp	gefeniawarp013	1,1,gefenia01,40,103
+
+//=====
+
+gef_fild00,267,382,0	warp	gef007	4,2,mjolnir_06,265,32
+gef_fild00,381,137,0	warp	gef008	3,9,prt_fild00,24,125
+gef_fild00,40,199,0	warp	gef009	2,7,geffen,213,119
+gef_fild01,382,111,0	warp	gef010	2,9,prt_fild04,20,114
+gef_fild01,16,102,0	warp	geff01	2,4,gef_fild09,368,92
+gef_fild01,69,17,0	warp	geff02	4,2,gef_fild03,66,379
+gef_fild02,380,156,0	warp	gef011	3,7,prt_fild07,21,143
+gef_fild02,380,289,0	warp	gef012	3,12,prt_fild07,18,289
+gef_fild02,380,68,0	warp	gef013	3,10,prt_fild07,17,64
+gef_fild02,266,18,0	warp	gef026	5,2,prt_fild10,227,296
+gef_fild02,14,78,0	warp	geff03	2,4,gef_fild03,379,77
+gef_fild02,16,275,0	warp	geff04	2,4,gef_fild03,379,277
+gef_fild03,312,16,0	warp	gef014	5,2,prt_fild11,302,298
+gef_fild03,66,382,0	warp	geff02-1	4,2,gef_fild01,69,20
+gef_fild03,382,77,0	warp	geff03-1	2,4,gef_fild02,17,78
+gef_fild03,382,277,0	warp	geff04-1	2,4,gef_fild02,19,275
+gef_fild03,18,52,0	warp	geff05	2,4,gef_fild10,367,56
+gef_fild04,187,39,0	warp	gef015	4,2,geffen,119,210
+gef_fild04,261,362,0	warp	gef016	4,2,mjolnir_01,284,21
+gef_fild04,362,322,0	warp	gef017	2,4,mjolnir_06,21,331
+gef_fild04,16,309,0	warp	geff06	2,6,gef_fild05,361,309
+gef_fild05,364,309,0	warp	geff06-1	2,8,gef_fild04,19,309
+gef_fild05,15,201,0	warp	geff07	2,4,gef_fild06,379,211
+gef_fild05,64,15,0	warp	geff08	4,2,gef_fild07,64,360
+gef_fild06,382,211,0	warp	geff07-1	2,4,gef_fild05,18,201
+gef_fild06,218,17,0	warp	geff09	4,2,gef_fild08,200,352
+gef_fild07,339,187,0	warp	gef025	2,4,geffen,29,119
+gef_fild07,64,363,0	warp	geff08-1	4,2,gef_fild05,64,18
+gef_fild07,18,191,0	warp	geff10	2,4,gef_fild08,357,187
+gef_fild07,40,19,0	warp	geff13	1,1,gef_fild13,41,369
+gef_fild08,200,355,0	warp	geff09-1	4,2,gef_fild06,218,20
+gef_fild08,360,187,0	warp	geff10-1	2,4,gef_fild07,21,191
+gef_fild08,215,18,0	warp	geff14	1,1,gef_fild12,221,369
+gef_fild09,23,56,0	warp	geff18-1	1,1,gef_fild13,376,56
+gef_fild09,225,25,0	warp	geff11	3,2,gef_fild10,251,368
+gef_fild09,368,95,0	warp	geff01-1	4,2,gef_fild01,19,102
+gef_fild10,251,371,0	warp	geff11-1	5,2,gef_fild09,225,28
+gef_fild10,104,21,0	warp	geff12	5,2,gef_fild11,114,360
+gef_fild10,370,56,0	warp	geff05-1	2,5,gef_fild03,21,52
+gef_fild10,136,331,0	warp	gef018	1,1,in_orcs01,122,171
+gef_fild10,138,284,0	warp	gef019	1,1,in_orcs01,29,114
+gef_fild10,215,51,0	warp	gef020	1,1,in_orcs01,162,53
+gef_fild10,223,205,0	warp	gef021	1,1,in_orcs01,108,89
+gef_fild10,63,337,0	warp	gef022	1,1,in_orcs01,30,157
+gef_fild10,27,219,0	warp	geff19-1	1,1,gef_fild14,367,219
+gef_fild11,377,293,0	warp	gef023	2,4,prt_fild11,20,281
+gef_fild11,111,364,0	warp	geff12-1	6,3,gef_fild10,104,24
+gef_fild12,221,374,0	warp	geff14-1	1,1,gef_fild08,215,25
+gef_fild12,368,180,0	warp	geff15	1,1,gef_fild13,29,202
+gef_fild12,372,50,0	warp	geff16	1,1,gef_fild13,29,59
+gef_fild13,200,25,0	warp	geff17	1,1,gef_fild14,180,357
+gef_fild13,25,202,0	warp	geff15-1	1,1,gef_fild12,364,180
+gef_fild13,26,59,0	warp	geff16-1	1,1,gef_fild12,370,50
+gef_fild13,380,56,0	warp	geff18	1,1,gef_fild09,27,56
+gef_fild13,41,373,0	warp	geff13-1	1,1,gef_fild07,40,23
+gef_fild14,180,360,0	warp	geff17-1	1,1,gef_fild13,200,29
+gef_fild14,371,219,0	warp	geff19	1,1,gef_fild10,31,219
+
+//=====
+
+gef_fild06,20,304,0	warp	gef027	3,3,glast_01,370,304
+gl_cas01,135,40,0	warp	gl01	1,1,gl_cas01,144,314
+gl_cas01,149,314,0	warp	gl02	1,1,gl_prison,14,70
+gl_cas01,167,191,0	warp	gl03	1,1,gl_prison,14,70
+gl_cas01,185,236,0	warp	gl06	1,1,gl_cas01,163,191
+gl_cas01,200,165,0	warp	gl10a	1,1,gl_cas02,104,25
+gl_cas01,200,18,0	warp	gl7-1	2,2,glast_01,200,294
+gl_cas01,215,236,0	warp	gl07	1,1,gl_cas01,238,192
+gl_cas01,234,192,0	warp	gl04	1,1,gl_prison,14,70
+gl_cas01,371,301,0	warp	gl05	1,1,gl_prison,14,70
+gl_cas01,372,39,0	warp	gl08	1,1,gl_cas01,367,301
+gl_cas02,104,15,0	warp	gl10-1	1,1,gl_cas01,200,160
+gl_cas02,104,193,0	warp	gl8-1	1,1,glast_01,199,325
+gl_church,156,4,0	warp	gl9-1	1,1,glast_01,200,134
+gl_church,16,299,0	warp	gl11a	1,1,gl_chyard,147,284
+gl_church,301,46,0	warp	gl12	1,1,gl_chyard,147,15
+gl_chyard,12,149,0	warp	gl22	1,1,gl_sew02,29,270
+gl_chyard,147,12,0	warp	gl12-1	1,1,gl_church,295,46
+gl_chyard,147,287,0	warp	gl11-1	1,1,gl_church,16,295
+gl_dun01,133,277,0	warp	gl25-1	1,1,gl_sew04,101,78
+gl_dun01,225,18,0	warp	gl13	1,1,gl_dun02,224,274
+gl_dun02,224,277,0	warp	gl13-1	1,1,gl_dun01,225,22
+gl_in01,106,125,0	warp	gl5-1	1,1,glast_01,219,357
+gl_in01,118,59,0	warp	gl6-1	1,1,glast_01,234,330
+gl_in01,81,68,0	warp	gl3-1	1,1,glast_01,165,330
+gl_in01,83,174,0	warp	gl4-1	1,1,glast_01,181,357
+gl_knt01,104,204,0	warp	gl15	1,1,gl_knt01,123,292
+gl_knt01,12,148,0	warp	gl14	1,1,gl_knt02,15,140
+gl_knt01,128,292,0	warp	gl15-1	1,1,gl_knt01,104,199
+gl_knt01,150,291,0	warp	gl16	1,1,gl_knt02,157,287
+gl_knt01,150,6,0	warp	gl2-1	2,2,glast_01,74,193
+gl_knt01,231,197,0	warp	gl24-1	1,1,gl_sew02,296,22
+gl_knt01,287,144,0	warp	gl17	1,1,gl_knt02,283,140
+gl_knt02,10,138,0	warp	gl14-1	1,1,gl_knt01,7,148
+gl_knt02,157,292,0	warp	gl16-1	1,1,gl_knt01,150,286
+gl_knt02,289,138,0	warp	gl17-1	1,1,gl_knt01,292,144
+gl_prison,149,183,0	warp	gl18-1	1,1,gl_prison1,150,14
+
+gl_prison,10,70,4	script	gl18-2	45,1,1,{
+if(rand(2)==1) goto w2;
+	warp "gl_cas01",236,192; end;
+w2: warp "gl_cas01",164,191; end;
+}
+
+gl_prison1,150,10,0	warp	gl18	1,1,gl_prison,149,178
+gl_prison1,62,187,0	warp	gl10	1,1,gl_sew01,258,255
+gl_sew01,19,21,0	warp	gl19	1,1,gl_sew02,108,291
+gl_sew01,258,258,0	warp	gl09	1,1,gl_prison1,61,183
+gl_sew02,109,294,0	warp	gl19-1	1,1,gl_sew01,19,24
+gl_sew02,16,26,0	warp	gl11	1,1,gl_prison1,61,183
+gl_sew02,290,156,0	warp	gl23	1,1,gl_step,117,124
+gl_sew02,296,18,0	warp	gl24	1,1,gl_knt01,231,192
+gl_sew02,299,294,0	warp	gl20	1,1,gl_sew03,171,283
+gl_sew02,30,273,0	warp	gl22-1	1,1,gl_chyard,15,149
+gl_sew03,171,286,0	warp	gl20-1	1,1,gl_sew02,295,294
+gl_sew03,64,10,0	warp	gl21	1,1,gl_sew04,68,277
+gl_sew04,104,78,0	warp	gl25	1,1,gl_dun01,133,271
+gl_sew04,68,280,0	warp	gl21-1	1,1,gl_sew03,64,13
+gl_step,120,124,0	warp	gl23-1	1,1,gl_sew02,285,158
+gl_step,8,7,0	warp	gl1-1	1,1,glast_01,54,108
+glast_01,162,330,0	warp	gl3	1,1,gl_in01,77,68
+glast_01,179,360,0	warp	gl4	1,1,gl_in01,80,174
+glast_01,199,322,0	warp	gl8	1,1,gl_cas02,104,189
+glast_01,200,137,0	warp	gl9	1,1,gl_church,156,7
+glast_01,200,297,0	warp	gl7	1,1,gl_cas01,199,29
+glast_01,220,360,0	warp	gl5	1,1,gl_in01,110,125
+glast_01,237,330,0	warp	gl6	1,1,gl_in01,122,59
+glast_01,377,304,0	warp	glst001	3,3,gef_fild06,27,304
+glast_01,51,108,0	warp	gl1	1,1,gl_step,12,7
+glast_01,77,193,0	warp	gl2	1,1,gl_knt01,150,15
+
+//=====
+
+ein_fild04,343,293,0	warp	hugel001	1,1,ein_fild05,80,294
+ein_fild05,76,294,0	warp	hugel001a	1,1,ein_fild04,336,292
+ein_fild05,376,183,0	warp	hugel002	1,1,ein_fild06,47,166
+ein_fild06,42,171,0	warp	hugel002a	1,1,ein_fild05,371,183
+ein_fild02,357,251,0	warp	hugel003-1	1,1,yuno_fild04,38,280
+yuno_fild04,33,279,0	warp	hugel003a-1	1,1,ein_fild02,350,250
+ein_fild01,349,369,0	warp	hugel003	1,1,yuno_fild05,43,346
+yuno_fild05,41,350,0	warp	hugel003a	1,1,ein_fild01,345,367
+ein_fild01,106,34,0	warp	hugel004	1,1,ein_fild02,109,358
+ein_fild02,108,364,0	warp	hugel004a	1,1,ein_fild01,106,40
+ein_fild01,234,34,0	warp	hugel005	1,1,ein_fild02,258,343
+ein_fild02,257,350,0	warp	hugel005a	1,1,ein_fild01,231,40
+ein_fild02,170,29,0	warp	hugel006	1,1,ein_fild05,172,366
+ein_fild05,172,371,0	warp	hugel006a	1,1,ein_fild02,170,37
+hu_fild01,366,185,0	warp	hugel007	1,1,hu_fild02,22,168
+hu_fild02,17,168,0	warp	hugel007a	1,1,hu_fild01,361,189
+hu_fild04,47,372,0	warp	hugel008	1,1,hu_fild02,40,27
+hu_fild02,40,22,0	warp	hugel008a	1,1,hu_fild04,48,368
+hu_fild04,294,379,0	warp	hugel009	1,1,hu_fild02,280,31
+hu_fild02,283,28,0	warp	hugel009a	1,1,hu_fild04,289,376
+hu_fild05,284,356,0	warp	hugel010	1,1,hu_fild03,288,26
+hu_fild03,288,19,0	warp	hugel010a	1,1,hu_fild05,276,346
+hu_fild05,353,126,0	warp	hugel011	1,1,hu_fild06,34,119
+hu_fild06,28,119,0	warp	hugel011a	1,1,hu_fild05,347,130
+hu_fild02,374,339,0	warp	hugel012	1,1,hu_fild03,24,337
+hu_fild03,20,338,0	warp	hugel012a	1,1,hu_fild02,370,339
+hu_fild02,378,162,0	warp	hugel013	1,1,hu_fild03,30,163
+hu_fild03,25,163,0	warp	hugel013a	1,1,hu_fild02,373,160
+yuno_fild09,377,184,0	warp	hugel014	1,1,yuno_fild10,44,183
+yuno_fild10,39,183,0	warp	hugel014a	1,1,yuno_fild09,371,184
+
+
+//=====
+
+jawaii_in,90,78,0	warp	jawaiiwarp001	1,1,jawaii,115,172
+jawaii_in,113,61,0	warp	jawaiiwarp002	1,1,jawaii,138,202
+jawaii_in,133,107,0	warp	jawaiiwarp003	1,1,jawaii,111,199
+jawaii_in,88,117,0	warp	jawaiiwarp004	1,1,jawaii,109,186
+jawaii,192,215,0	warp	jawaiiwarp005	1,1,jawaii_in,28,94
+
+jawaii_in,27,91,4	script	jawaiiwarp006	45,1,1,{
+if (getpartnerid() > 0) warp "jawaii",192,218; else warp "jawaii_in",27,94;
+}
+
+//=====
+
+lhz_fild01,210,18,0	warp	lhz043-1	1,1,lighthalzen,214,324
+lighthalzen,214,329,0	warp	lhz043a-1	1,1,lhz_fild01,210,23
+lhz_fild01,367,222,0	warp	lhz044-1	1,1,lhz_fild02,36,221
+lhz_fild02,29,219,0	warp	lhz044a-1	1,1,lhz_fild01,361,222
+
+//=====
+
+xmas_fild01,69,252,0	warp	xmas_fild1-1	10,2,xmas,149,44
+xmas_fild01,90,252,0	warp	xmax_fild1-2	10,2,xmas,149,44
+xmas_fild01,84,48,0	warp	xmas_fild2	10,2,aldebaran,140,234
+manuk,114,357,0	warp	man_fild02-3	1,1,man_fild02,138,43
+
+//=====
+moc_fild01,101,16,0	warp	mocf01-1	15,3,moc_fild20,210,342
+moc_fild01,22,242,0	warp	mocf005	2,2,prt_fild09,380,237
+moc_fild01,239,382,0	warp	mocf006	12,1,prt_fild08,233,20
+moc_fild01,301,16,0	warp	mocf02	10,1,moc_fild02,77,338
+moc_fild01,321,16,0	warp	mocf02-1	10,1,moc_fild02,77,338
+moc_fild01,341,16,0	warp	mocf02-2	10,1,moc_fild02,77,338
+moc_fild01,379,162,0	warp	mocf011	2,12,pay_fild04,20,165
+moc_fild01,56,384,0	warp	moc007a	3,2,prt_fild08,54,24
+moc_fild02,228,29,0	warp	mocf03	4,2,moc_fild13,298,367
+moc_fild02,332,19,0	warp	mocf04	5,3,moc_fild03,70,336
+moc_fild02,350,339,0	warp	mocf012	6,2,pay_fild04,194,20
+moc_fild02,67,342,0	warp	mocf02-3	11,3,moc_fild01,315,25
+moc_fild02,71,18,0	warp	mocf05	4,2,moc_fild13,146,365
+moc_fild02,92,342,0	warp	mocf02-4	11,3,moc_fild01,315,25
+moc_fild03,17,37,0	warp	mocf06	2,4,moc_fild13,305,49
+moc_fild03,179,16,0	warp	mocf013	4,2,pay_fild11,38,327
+moc_fild03,303,170,0	warp	mocf014	2,7,pay_fild01,17,152
+moc_fild03,70,341,0	warp	mocf04-1	5,2,moc_fild02,332,23
+moc_fild07,198,21,0	warp	mocf001	2,2,morocc,160,294
+moc_fild07,380,201,0	warp	mocf13-1	2,16,moc_fild20,36,177
+moc_fild11,189,360,0	warp	mocf20-1	3,2,moc_fild20,197,24
+moc_fild11,212,29,0	warp	mocf21	4,2,moc_fild17,218,366
+moc_fild11,26,161,0	warp	mocf22	2,10,moc_fild12,286,168
+moc_fild11,377,197,0	warp	mocf23	2,6,moc_fild20,36,177
+moc_fild12,118,30,0	warp	mocf24	4,2,moc_fild18,158,379
+moc_fild12,159,381,0	warp	mocf003	2,2,morocc,160,20
+moc_fild12,289,168,0	warp	mocf22-1	2,3,moc_fild11,29,161
+moc_fild13,146,368,0	warp	mocf05-1	5,2,moc_fild02,71,21
+moc_fild13,32,171,0	warp	mocf17-1	2,4,moc_fild20,349,179
+moc_fild13,298,370,0	warp	mocf03-1	4,2,moc_fild02,228,32
+moc_fild13,308,49,0	warp	mocf06-1	2,4,moc_fild03,20,37
+moc_fild16,124,381,0	warp	mocf26-1	5,2,moc_fild20,197,24
+moc_fild16,16,179,0	warp	mocf28	2,6,moc_fild17,366,272
+moc_fild16,333,380,0	warp	mocf27-1	4,2,moc_fild20,197,24
+moc_fild17,218,369,0	warp	mocf21-1	5,2,moc_fild11,212,32
+moc_fild17,30,300,0	warp	moc29	2,5,moc_fild18,379,305
+moc_fild17,369,272,0	warp	mocf28-1	2,3,moc_fild16,19,179
+moc_fild18,158,382,0	warp	mocf24-1	4,2,moc_fild12,118,33
+moc_fild18,382,305,0	warp	moc29-1	2,4,moc_fild17,33,300
+moc_fild19,169,107,0	warp	mocf004	1,4,morocc,27,164
+moc_fild19,71,170,0	warp	mocf018	8,2,moc_ruins,71,19
+moc_fild19,98,99,0	warp	mocf019	1,1,in_sphinx1,288,9
+moc_fild21,26,196,0	warp	mocf020	1,1,moc_fild20,349,179
+moc_fild22,32,196,0	warp	mocf021	1,1,moc_fild20,349,179
+
+//=====
+
+mjolnir_01,284,18,0	warp	mjol001	4,2,gef_fild04,261,359
+mjolnir_01,378,256,0	warp	mjol01	2,2,mjolnir_02,31,258
+mjolnir_02,28,258,0	warp	mjol01-1	2,2,mjolnir_01,374,256
+mjolnir_02,326,289,0	warp	mjol02	1,1,mjolnir_03,24,258
+mjolnir_02,361,18,0	warp	mjol03	4,2,mjolnir_06,366,380
+mjolnir_02,79,365,0	warp	mjol013	2,1,mjo_dun01,52,17
+mjolnir_03,21,258,0	warp	mjol02-1	2,2,mjolnir_02,323,289
+mjolnir_03,212,17,0	warp	mjol04	4,2,mjolnir_07,214,380
+mjolnir_03,242,204,0	warp	mjol05	1,1,mjolnir_04,125,208
+mjolnir_04,122,208,0	warp	mjol05-1	1,1,mjolnir_03,239,204
+mjolnir_04,160,46,0	warp	mjol06	4,2,mjolnir_08,159,370
+mjolnir_04,387,174,0	warp	mjol07	2,2,mjolnir_05,19,171
+mjolnir_05,16,171,0	warp	mjol07-1	2,2,mjolnir_04,384,174
+mjolnir_05,220,382,0	warp	mjol08	4,2,mjolnir_12,220,29
+mjolnir_05,235,16,0	warp	mjol09	4,2,mjolnir_10,235,378
+mjolnir_06,18,331,0	warp	mjol002	2,4,gef_fild04,359,322
+mjolnir_06,265,29,0	warp	mjol003	2,2,gef_fild00,267,379
+mjolnir_06,366,383,0	warp	mjol03-1	4,2,mjolnir_02,361,21
+mjolnir_06,382,377,0	warp	mjol10	2,4,mjolnir_07,19,377
+mjolnir_06,383,74,0	warp	mjol11	2,4,mjolnir_07,20,77
+mjolnir_07,156,16,0	warp	mjol004	4,2,prt_fild00,159,380
+mjolnir_07,16,377,0	warp	mjol10-1	2,4,mjolnir_06,379,377
+mjolnir_07,17,77,0	warp	mjol11-1	2,4,mjolnir_06,380,74
+mjolnir_07,214,383,0	warp	mjol04-1	4,2,mjolnir_03,212,20
+mjolnir_07,383,233,0	warp	mjol12	2,4,mjolnir_08,33,234
+mjolnir_07,383,362,0	warp	mjol13	2,4,mjolnir_08,32,346
+mjolnir_08,159,373,0	warp	mjol06a	1,1,mjolnir_04,160,49
+mjolnir_08,185,28,0	warp	mjol14	17,2,mjolnir_09,196,364
+mjolnir_08,29,346,0	warp	mjol13-1	2,4,mjolnir_07,380,362
+mjolnir_08,30,234,0	warp	mjol12-1	2,4,mjolnir_07,380,233
+mjolnir_08,369,257,0	warp	mjol15	2,4,mjolnir_10,18,258
+mjolnir_09,106,28,0	warp	mjol005	4,2,prt_fild05,105,378
+mjolnir_09,194,367,0	warp	mjol14-1	8,2,mjolnir_08,185,31
+mjolnir_09,30,249,0	warp	mjol006	2,4,prt_fild00,380,249
+mjolnir_09,300,28,0	warp	mjol007	4,2,prt_fild05,292,382
+mjolnir_09,373,288,0	warp	mjol011	2,2,prt_fild01,23,292
+mjolnir_10,15,258,0	warp	mjol15-1	2,4,mjolnir_08,366,257
+mjolnir_10,235,381,0	warp	mjol09-1	4,2,mjolnir_05,235,19
+mjolnir_10,265,13,0	warp	mjol008	3,2,prt_fild01,261,370
+mjolnir_10,384,220,0	warp	mjol16	2,4,mjolnir_11,23,220
+mjolnir_10,66,15,0	warp	mjol009	4,2,prt_fild01,66,370
+mjolnir_11,174,20,0	warp	mjol010	4,2,prt_fild02,173,379
+mjolnir_11,20,220,0	warp	mjol16-1	2,4,mjolnir_10,381,220
+mjolnir_12,199,378,0	warp	mjol012	2,2,aldebaran,138,37
+mjolnir_12,220,26,0	warp	mjol08-1	3,2,mjolnir_05,220,379
+mjolnir_12,44,17,0	warp	mjol17	1,1,prt_maze01,17,111
+
+//=====
+
+pay_fild01,13,152,0	warp	payf001	2,7,moc_fild03,299,170
+pay_fild01,278,14,0	warp	payf01	13,2,pay_fild02,83,382
+pay_fild01,353,14,0	warp	payf02	20,3,pay_fild02,160,381
+pay_fild01,379,201,0	warp	payf03	2,6,pay_fild07,23,207
+pay_fild02,134,16,0	warp	payf04	5,2,pay_fild05,127,375
+pay_fild02,16,175,0	warp	payf06	2,4,pay_fild11,294,135
+pay_fild02,167,390,0	warp	payf02-1	20,3,pay_fild01,354,18
+pay_fild02,284,108,0	warp	payf07	2,7,pay_fild03,20,110
+pay_fild02,83,386,0	warp	payf01-1	13,2,pay_fild01,278,18
+pay_fild03,15,110,0	warp	payf07-1	2,10,pay_fild02,280,108
+pay_fild03,172,281,0	warp	payf08	5,2,pay_fild07,167,20
+pay_fild03,313,16,0	warp	payf09	4,2,pay_fild06,305,372
+pay_fild03,392,63,0	warp	payf005	2,7,alberta,19,233
+pay_fild04,17,165,0	warp	payf002	2,8,moc_fild01,376,162
+pay_fild04,194,17,0	warp	payf003	7,2,moc_fild02,350,336
+pay_fild05,127,378,0	warp	payf04-1	4,2,pay_fild02,134,19
+pay_fild05,271,284,0	warp	payf10	2,4,pay_fild06,31,288
+pay_fild06,28,288,0	warp	payf10-1	2,2,pay_fild05,268,284
+pay_fild06,305,375,0	warp	payf09-1	6,2,pay_fild03,313,19
+pay_fild07,16,200,0	warp	payf03-1	3,3,pay_fild01,371,205
+pay_fild07,163,17,0	warp	payf08-1	5,2,pay_fild03,177,275
+pay_fild07,280,382,0	warp	payf11	4,2,pay_fild08,160,19
+pay_fild07,382,290,0	warp	payf12	2,5,pay_fild10,19,290
+pay_fild08,160,16,0	warp	payf11-1	4,2,pay_fild07,280,379
+pay_fild08,17,75,0	warp	payf006	1,1,payon,265,92
+pay_fild08,262,91,0	warp	payf13	2,4,pay_fild09,19,91
+pay_fild09,112,16,0	warp	pay14	4,2,pay_fild10,112,379
+pay_fild09,16,91,0	warp	payf13-1	2,4,pay_fild08,259,91
+pay_fild10,112,382,0	warp	pay14-1	3,2,pay_fild09,112,19
+pay_fild10,16,290,0	warp	payf12-1	2,5,pay_fild07,379,290
+pay_fild10,99,13,0	warp	w1034	1,1,pay_fild10,148,252
+pay_fild11,297,135,0	warp	payf06-1	2,4,pay_fild02,19,175
+pay_fild11,38,330,0	warp	payf004	4,2,moc_fild03,179,19
+
+//=====
+
+prt_fild00,159,383,0	warp	prtf007	4,2,mjolnir_07,156,19
+prt_fild00,165,18,0	warp	prtf01	9,3,prt_fild04,158,384
+prt_fild00,18,129,0	warp	prtf015	2,6,gef_fild00,376,140
+prt_fild00,317,18,0	warp	prtf02	8,2,prt_fild04,323,384
+prt_fild00,383,249,0	warp	prtf008	2,4,mjolnir_09,33,248
+prt_fild01,136,373,0	warp	prtf030	1,1,prt_maze01,99,31
+prt_fild01,199,24,0	warp	prtf001	3,2,prt_gld,159,295
+prt_fild01,20,292,0	warp	prtf009	2,3,mjolnir_09,370,288
+prt_fild01,261,373,0	warp	prtf010	6,2,mjolnir_10,265,16
+prt_fild01,380,243,0	warp	prtf03	2,5,prt_fild02,20,242
+prt_fild01,382,304,0	warp	prtf04	2,10,prt_fild02,20,305
+prt_fild01,382,351,0	warp	prtf05	2,8,prt_fild02,20,350
+prt_fild01,66,373,0	warp	prtf011	2,2,mjolnir_10,66,18
+prt_fild02,17,242,0	warp	prtf03-1	2,5,prt_fild01,377,243
+prt_fild02,17,305,0	warp	prtf04-1	2,5,prt_fild01,379,302
+prt_fild02,17,350,0	warp	prtf05-1	2,7,prt_fild01,379,351
+prt_fild02,173,382,0	warp	prtf012	4,2,mjolnir_11,174,23
+prt_fild02,305,17,0	warp	prtf06	10,2,prt_fild06,277,315
+prt_fild02,380,347,0	warp	prtf07	2,10,prt_fild03,23,249
+prt_fild03,16,249,0	warp	prtf07-1	2,10,prt_fild02,373,353
+prt_fild03,371,256,0	warp	prtf006	2,2,prt_monk,25,248
+prt_fild04,160,387,0	warp	prtf01-1	10,2,prt_fild00,164,24
+prt_fild04,17,114,0	warp	prtf016	2,10,gef_fild01,375,111
+prt_fild04,323,387,0	warp	prtf02-1	7,2,prt_fild00,315,21
+prt_fild04,378,72,0	warp	prtf08	2,6,prt_fild05,17,59
+prt_fild04,384,155,0	warp	prtf09	2,7,prt_fild05,20,134
+prt_fild04,384,334,0	warp	prtf10	2,6,prt_fild05,20,333
+prt_fild05,105,381,0	warp	prtf013	5,2,mjolnir_09,106,34
+prt_fild05,13,63,0	warp	prtf08-1	2,15,prt_fild04,374,73
+prt_fild05,134,14,0	warp	prtf11	14,3,prt_fild07,129,374
+prt_fild05,14,141,0	warp	prtf09-1	2,18,prt_fild04,380,158
+prt_fild05,15,333,0	warp	prtf10-1	2,8,prt_fild04,380,332
+prt_fild05,255,14,0	warp	prtf12	12,2,prt_fild07,248,369
+prt_fild05,292,385,0	warp	prtf014	4,2,mjolnir_09,305,33
+prt_fild05,373,205,0	warp	prtf002	3,3,prontera,26,203
+prt_fild06,23,193,0	warp	prtf003	2,3,prontera,285,203
+prt_fild06,277,320,0	warp	prtf06-1	10,2,prt_fild02,305,22
+prt_fild07,13,64,0	warp	prtf017	3,8,gef_fild02,376,69
+prt_fild07,132,381,0	warp	prtf11-1	9,3,prt_fild05,142,18
+prt_fild07,14,289,0	warp	prtf018	3,10,gef_fild02,375,292
+prt_fild07,17,145,0	warp	prtf019	3,12,gef_fild02,376,156
+prt_fild07,206,12,0	warp	prtf13	4,2,prt_fild09,224,377
+prt_fild07,248,376,0	warp	prtf12-1	8,2,prt_fild05,257,18
+prt_fild07,383,239,0	warp	prtf14	3,20,prt_fild08,20,239
+prt_fild07,385,186,0	warp	prtf15	3,20,prt_fild08,20,186
+prt_fild07,84,13,0	warp	prtf16	4,2,prt_fild09,87,377
+prt_fild08,16,187,0	warp	prtf15-1	3,17,prt_fild07,380,186
+prt_fild08,16,239,0	warp	prtf14-1	3,15,prt_fild07,379,239
+prt_fild08,170,378,0	warp	prtf004	3,2,prontera,156,26
+prt_fild08,233,16,0	warp	prtf023	12,1,moc_fild01,238,378
+prt_fild08,371,212,0	warp	prtf005	3,3,izlude,35,78
+prt_fild08,55,21,0	warp	prtf024	4,2,moc_fild01,56,380
+prt_fild09,14,124,0	warp	prtf17	2,6,prt_fild10,336,126
+prt_fild09,14,139,0	warp	prtf17-1	2,8,prt_fild10,336,126
+prt_fild09,224,380,0	warp	prtf13-1	4,2,prt_fild07,206,15
+prt_fild09,246,17,0	warp	prtf025	7,2,moc_fild20,209,333
+prt_fild09,383,223,0	warp	prtf026	2,15,moc_fild01,25,242
+prt_fild09,383,251,0	warp	prtf027	2,15,moc_fild01,25,242
+prt_fild09,87,380,0	warp	prtf16-1	5,2,prt_fild07,84,16
+prt_fild09,95,19,0	warp	prtf028	7,2,moc_fild20,209,333
+prt_fild10,20,122,0	warp	prtf19	2,4,prt_fild11,359,111
+prt_fild10,20,196,0	warp	prtf20	2,4,prt_fild11,358,184
+prt_fild10,227,299,0	warp	prtf020	5,2,gef_fild02,266,21
+prt_fild10,263,22,0	warp	prtf029	6,2,moc_fild20,209,333
+prt_fild10,339,126,0	warp	prtf17-2	2,8,prt_fild09,17,133
+prt_fild11,17,281,0	warp	prtf021	2,4,gef_fild11,374,293
+prt_fild11,302,301,0	warp	prtf022	5,2,gef_fild03,312,19
+prt_fild11,361,184,0	warp	prtf20-1	2,5,prt_fild10,23,196
+prt_fild11,362,111,0	warp	prtf19-1	2,6,prt_fild10,23,122
+
+monk_in,128,46,0	warp	monk03	1,3,monk_in,161,38
+monk_in,128,84,0	warp	monk04	1,3,monk_in,161,90
+monk_in,159,38,0	warp	monk03-1	1,3,monk_in,126,46
+monk_in,159,90,0	warp	monk04-1	1,3,monk_in,126,84
+monk_in,40,38,0	warp	monk05	1,3,monk_in,71,46
+monk_in,40,92,0	warp	monk06	1,3,monk_in,71,84
+monk_in,69,46,0	warp	monk05-1	1,3,monk_in,38,38
+monk_in,69,84,0	warp	monk06-1	1,3,monk_in,38,92
+monk_in,98,186,0	warp	monk02-1	3,2,prt_monk,245,139
+monk_in,98,27,0	warp	monk01-1	5,2,prt_monk,245,104
+monk_in,99,102,0	warp	monk07	5,1,monk_in,99,143
+monk_in,99,141,0	warp	monk07-1	3,1,monk_in,99,100
+
+prt_monk,22,248,0	warp	monk001	2,2,prt_fild03,368,256
+prt_monk,245,106,0	warp	monk01	1,1,monk_in,98,30
+prt_monk,245,137,0	warp	monk02	1,1,monk_in,98,183
+
+//=====
+
+ra_fild01,233,333,0	warp	ra000	1,1,ice_dun01,157,15
+ra_fild01,306,38,0	warp	ra001	1,1,ra_fild04,322,371
+ra_fild04,322,378,0	warp	ra002	1,1,ra_fild01,306,43
+ra_fild04,362,351,0	warp	ra003	1,1,ra_fild05,39,353
+ra_fild05,33,353,0	warp	ra004	1,1,ra_fild04,356,351
+ra_fild05,27,13,0	warp	ra005	1,1,ra_fild09,30,337
+ra_fild09,29,343,0	warp	ra006	1,1,ra_fild05,31,17
+ra_fild04,263,54,0	warp	ra007	1,1,ra_fild08,287,365
+ra_fild08,287,370,0	warp	ra008	1,1,ra_fild04,263,60
+ra_fild09,27,238,0	warp	ra009	1,1,ra_fild08,360,234
+ra_fild08,368,234,0	warp	ra010	1,1,ra_fild09,35,238
+ra_fild04,23,176,0	warp	ra011	1,1,ra_fild03,370,172
+ra_fild03,374,168,0	warp	ra012	1,1,ra_fild04,29,176
+ra_fild05,348,274,0	warp	ra013	1,1,ra_fild06,24,277
+ra_fild06,19,277,0	warp	ra014	1,1,ra_fild05,341,273
+ra_fild06,294,21,0	warp	ra015	1,1,lhz_fild01,296,376
+lhz_fild01,296,382,0	warp	ra016	1,1,ra_fild06,298,25
+ra_fild12,36,225,0	warp	ra017	1,1,rachel,270,125
+ra_fild08,165,29,0	warp	ra018	1,1,ra_fild12,149,369
+ra_fild12,149,374,0	warp	ra019	1,1,ra_fild08,165,36
+ra_fild12,303,27,0	warp	ra020	1,1,ra_fild13,295,341
+ra_fild13,295,346,0	warp	ra021	1,1,ra_fild12,303,33
+ra_fild11,360,226,0	warp	ra022	1,1,rachel,30,125
+ra_fild11,21,290,0	warp	ra023	1,1,ra_fild10,379,283
+ra_fild10,384,287,0	warp	ra024	1,1,ra_fild11,28,290
+ra_fild11,202,335,0	warp	ra025a	1,1,ra_fild07,215,32
+ra_fild07,215,27,0	warp	ra025b	1,1,ra_fild11,201,329
+ra_fild07,168,353,0	warp	ra026	1,1,ra_fild02,171,45
+ra_fild02,168,36,0	warp	ra027	1,1,ra_fild07,168,349
+ra_fild02,373,275,0	warp	ra028	1,1,ra_fild03,28,294
+ra_fild03,23,294,0	warp	ra029	1,1,ra_fild02,367,270
+
+
+//=====
+
+spl_fild02,6,241,0	warp	spl_fild02-7	1,1,splendide,386,251
+splendide,388,252,0	warp	spl_fild02-8	1,1,spl_fild02,8,241
+spl_fild02,293,379,0	warp	spl_fild02-9	1,1,spl_fild01,289,30
+
+//=====
+
+cmd_fild01,77,366,0	warp	um_fild1-1	1,1,um_fild03,114,53
+cmd_fild01,178,370,0	warp	um_fild1-2	1,1,um_fild03,243,29
+um_fild01,31,274,0	warp	um_fild1-3	1,1,beach_dun2,254,244
+beach_dun2,258,244,0	warp	um_fild1-4	1,1,um_fild01,35,276
+um_fild01,369,277,0	warp	um_fild1-5	1,1,um_fild02,25,272
+um_fild02,22,272,0	warp	um_fild2-1	1,1,um_fild01,366,277
+um_fild02,188,374,0	warp	um_fild2-2	1,1,um_fild04,182,16
+um_fild02,373,329,0	warp	um_fild2-3	1,1,um_fild03,23,334
+um_fild02,373,148,0	warp	um_fild2-4	1,1,um_fild03,36,145
+um_fild03,19,334,0	warp	um_fild3-1	1,1,um_fild02,370,329
+um_fild03,32,145,0	warp	um_fild3-2	1,1,um_fild02,370,148
+um_fild03,114,50,0	warp	um_fild3-3	1,1,cmd_fild01,74,363
+um_fild03,243,26,0	warp	um_fild3-4	1,1,cmd_fild01,176,367
+um_fild04,182,13,0	warp	um_fild4-1	1,1,um_fild02,190,371
+um_fild04,215,339,0	warp	um_fild4-2	1,1,umbala,130,82
+umbala,130,79,0	warp	um_fild4-3	1,1,um_fild04,215,336
+
+//=====
+
+ve_fild01,366,267,0	warp	ve_fild1-1	1,1,ve_fild02,36,263
+ve_fild01,184,20,0	warp	ve_fild1-2	1,1,ve_fild04,174,334
+ra_fild11,233,27,0	warp	ve_fild1-3	1,1,ve_fild01,243,363
+ve_fild01,243,368,0	warp	ve_fild1-4	1,1,ra_fild11,232,32
+ve_fild01,350,92,0	warp	ve_fild1-5	1,1,ve_fild02,78,133
+ra_fild13,29,308,0	warp	ve_fild2-1	1,1,ve_fild02,380,308
+ve_fild02,385,308,0	warp	ve_fild2-2	1,1,ra_fild13,34,308
+ve_fild02,195,382,0	warp	ve_fild2-3	1,1,rachel,130,25
+ve_fild02,31,263,0	warp	ve_fild2-4	1,1,ve_fild01,361,267
+ve_fild02,73,133,0	warp	ve_fild2-5	1,1,ve_fild01,345,92
+ve_fild03,355,223,0	warp	ve_fild3-1	1,1,ve_fild04,49,249
+ve_fild03,222,43,0	warp	ve_fild3-2	1,1,ve_fild05,200,325
+ve_fild04,174,339,0	warp	ve_fild4-1	1,1,ve_fild01,184,25
+ve_fild04,44,249,0	warp	ve_fild4-2	1,1,ve_fild03,350,220
+ve_fild04,115,50,0	warp	ve_fild4-3	1,1,ve_fild06,80,183
+ve_fild05,200,330,0	warp	ve_fild5-1	1,1,ve_fild03,222,48
+ve_fild05,359,192,0	warp	ve_fild5-2	1,1,ve_fild06,80,183
+ve_fild06,153,220,0	warp	ve_fild6-1	1,1,veins,218,355
+
+ve_fild06,81,177,0	script	ve_fild6-2	45,1,1,{
+	if (rand(2))
+		warp "ve_fild04",115,55;
+	else
+		warp "ve_fild05",354,191;
+	end;
+}
+
+ve_fild07,147,371,0	warp	ve_fild7-1	1,1,veins,146,28
+
+//=====
+
+yuno_fild02,18,337,0	warp	yunfild03	1,1,yuno_fild03,381,331
+yuno_fild03,383,331,0	warp	yunfild03-1	1,1,yuno_fild02,20,337
+yuno_fild03,19,79,0	warp	yunfild04	1,1,yuno_fild04,373,84
+yuno_fild04,375,84,0	warp	yunfild04-1	1,1,yuno_fild03,21,79
+yuno_fild03,20,155,0	warp	yunfild05	1,1,yuno_fild04,373,150
+yuno_fild04,375,150,0	warp	yunfild05-1	1,1,yuno_fild03,22,155
+yuno_fild04,231,288,0	warp	yunfild-yun	1,1,yuno,158,17
+yuno_fild03,32,139,0	warp	yunfild-mag01	1,1,mag_dun01,126,68
+yuno_fild01,26,246,0	warp	newjun01	1,1,yuno_fild12,373,239
+yuno_fild12,375,239,0	warp	newjun01a	1,1,yuno_fild01,28,246
+yuno_fild12,23,338,0	warp	newjun02	1,1,yuno_fild11,366,361
+yuno_fild11,368,361,0	warp	newjun02a	1,1,yuno_fild12,25,338
+yuno_fild12,24,225,0	warp	newjun03	1,1,yuno_fild11,363,218
+yuno_fild11,365,218,0	warp	newjun03a	1,1,yuno_fild12,24,227
+yuno_fild07,92,12,0	warp	newjun04	1,1,yuno_fild11,92,369
+yuno_fild11,92,371,0	warp	newjun04a	1,1,yuno_fild07,92,14
+yuno_fild12,193,371,0	warp	newjun05	1,1,yuno_fild08,143,21
+yuno_fild08,145,21,0	warp	newjun05a	1,1,yuno_fild12,195,371
+yuno_fild01,70,378,0	warp	newjun06	1,1,yuno_fild09,70,19
+yuno_fild09,70,17,0	warp	newjun06a	1,1,yuno_fild01,70,376
+yuno_fild01,286,368,0	warp	newjun07	1,1,yuno_fild09,280,30
+yuno_fild09,280,28,0	warp	newjun07a	1,1,yuno_fild01,286,366
+yuno_fild09,19,194,0	warp	newjun08	1,1,yuno_fild08,374,193
+yuno_fild08,376,193,0	warp	newjun08a	1,1,yuno_fild09,21,194
+yuno_fild08,20,278,0	warp	newjun09	1,1,yuno_fild07,352,291
+yuno_fild07,354,291,0	warp	newjun09a	1,1,yuno_fild08,22,278
+yuno_fild08,31,58,0	warp	newjun10	1,1,yuno_fild07,358,72
+yuno_fild07,360,72,0	warp	newjun10a	1,1,yuno_fild08,33,58
+yuno_fild07,179,354,0	warp	newjun11	1,1,yuno_fild03,179,17
+yuno_fild03,179,15,0	warp	newjun11a	1,1,yuno_fild07,179,352
+yuno_fild08,74,376,0	warp	newjun12	1,1,yuno_fild02,70,25
+yuno_fild02,70,23,0	warp	newjun12a	1,1,yuno_fild08,74,374
+yuno_fild08,286,386,0	warp	newjun13	1,1,yuno_fild02,294,26
+yuno_fild02,294,24,0	warp	newjun13a	1,1,yuno_fild08,286,384
+yuno_fild04,42,369,0	warp	newjun14	1,1,yuno_fild05,59,30
+yuno_fild05,59,28,0	warp	newjun14a	1,1,yuno_fild04,42,367
+aldebaran,140,244,0	warp	alde-yunfild	1,1,yuno_fild01,208,19
+yuno_fild01,208,17,0	warp	yunfild-alde	1,1,aldebaran,140,242
+yuno_fild05,372,325,0	warp	hu001	1,1,yuno_fild06,42,319
+yuno_fild06,40,319,0	warp	hu001a	1,1,yuno_fild05,370,325
+yuno_fild06,217,27,0	warp	hu002	1,1,yuno_fild03,214,381
+yuno_fild03,214,383,0	warp	hu002a	1,1,yuno_fild06,217,29
+yuno_fild06,369,136,0	warp	hu003	1,1,hu_fild04,28,126
+hu_fild04,26,126,0	warp	hu003a	1,1,yuno_fild06,367,136
+hu_fild04,121,26,0	warp	hu004	1,1,yuno_fild02,118,374
+yuno_fild02,118,376,0	warp	hu004a	1,1,hu_fild04,121,28
+yuno_fild06,149,369,0	warp	hu005	1,1,hu_fild01,139,37
+hu_fild01,139,35,0	warp	hu005a	1,1,yuno_fild06,151,369
+hu_fild04,381,187,0	warp	hu006	1,1,hu_fild05,34,202
+hu_fild05,32,202,0	warp	hu006a	1,1,hu_fild04,379,187
+hu_fild05,91,42,0	warp	hu007	1,1,hu_fild07,80,369
+hu_fild07,80,371,0	warp	hu007a	1,1,hu_fild05,91,44
+hu_fild07,35,351,0	warp	hu008	1,1,yuno_fild02,384,338
+yuno_fild02,384,340,0	warp	hu008a	1,1,hu_fild07,37,351
+hu_fild07,56,36,0	warp	hu009	1,1,yuno_fild09,47,375
+yuno_fild09,47,377,0	warp	hu009a	1,1,hu_fild07,56,38
+hu_fild07,226,36,0	warp	hu010	1,1,yuno_fild09,220,372
+yuno_fild09,220,374,0	warp	hu010a	1,1,hu_fild07,226,38

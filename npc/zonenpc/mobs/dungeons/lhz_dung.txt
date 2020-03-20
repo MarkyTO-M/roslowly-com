@@ -1,0 +1,27 @@
+lhz_dun01,0,0,0,0	monster	Metaling	1613,90,0,0,0
+lhz_dun01,0,0,0,0	monster	Anopheles	1627,90,0,0,0
+lhz_dun01,0,0,0,0	monster	Remover	1682,90,0,0,0
+lhz_dun01,0,0,0,0	monster	Egnigem Cenia	1652,90,0,0,0
+lhz_dun01,0,0,0,0	monster	Wickebine Tres	1653,10,0,0,0
+lhz_dun01,0,0,0,0	monster	Armeyer Dinze	1654,90,0,0,0
+lhz_dun01,0,0,0,0	monster	Errende Ebecee	1655,90,0,0,0
+lhz_dun01,0,0,0,0	monster	Kavach Icarus	1656,90,0,0,0
+lhz_dun01,0,0,0,0	monster	Laurell Weinder	1657,90,0,0,0
+lhz_dun01,0,0,0,0	monster	Gemini-S58	1681,180,0,0,0
+
+lhz_dun02,0,0,0,0	monster	Egnigem Cenia	1652,90,0,0,0
+lhz_dun02,0,0,0,0	monster	Wickebine Tres	1653,90,0,0,0
+lhz_dun02,0,0,0,0	monster	Armeyer Dinze	1654,90,0,0,0
+lhz_dun02,0,0,0,0	monster	Errende Ebecee	1655,90,0,0,0
+lhz_dun02,0,0,0,0	monster	Kavach Icarus	1656,90,0,0,0
+lhz_dun02,0,0,0,0	monster	Laurell Weinder	1657,90,0,0,0
+lhz_dun02,0,0,0,0	monster	Remover	1682,180,0,0,0
+lhz_dun02,0,0,0,0	monster	Eremes Guile	1635,90,0,0,0
+lhz_dun02,0,0,0,0	monster	Gemini-S58	1681,180,0,0,0
+
+lhz_dun03,0,0,0,0	monster	Seyren Windsor	1634,90,0,0,0
+lhz_dun03,0,0,0,0	monster	Eremes Guile	1635,90,0,0,0
+lhz_dun03,0,0,0,0	monster	Howard Alt-Eisen	1636,90,0,0,0
+lhz_dun03,0,0,0,0	monster	Margaretha Sorin	1637,90,0,0,0
+lhz_dun03,0,0,0,0	monster	Cecil Damon	1638,180,0,0,0
+lhz_dun03,0,0,0,0	monster	Kathryne Keyron	1639,90,0,0,0

@@ -1,0 +1,19 @@
+-	script	rentvehicle	-1,{
+menu "^0000FF-^000000 เช่า Pecopeco",Repeco,"^0000FF-^000000 เช่า Falcon",Refal,"^0000FF-^000000 เช่า Cart",Recart;
+
+Repeco:
+if ((Class == 7) || (Class == 14) || (Class == 4008) || (Class == 4015) || (Class == 4030) || (Class == 4037)) { setriding; close; }
+close;
+
+Refal:
+if ((Class == 11) || (Class == 4012) || (Class == 4034)) { setfalcon; close; }
+close;
+
+Recart:
+if((Class == 5) || (Class == 10) || (Class == 23) || (Class == 18) || (Class == 4006) || (Class == 4011) || (Class == 4019) || (Class == 4028) || (Class == 4033) || (Class == 4041) || (Class == 4045)) { setcart; close; }
+close;
+
+OnInit: 
+waitingroom "๐ เช่าพาหนะ ๐",0; 
+end;
+}

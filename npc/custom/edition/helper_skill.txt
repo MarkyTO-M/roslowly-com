@@ -1,0 +1,40 @@
+morocc,182,98,4	script	XHelperSkill	533,{
+mes "สกิลของท่านจะอยู่ในช่อง แทบ Skill Misc";
+
+if (checkfalcon() || checkcart() || checkriding() || ismounting()) {
+	mes "กรุณาถอดการติดตั้ง " +
+		((checkfalcon()) ? "falcon" : "") +
+		((checkcart()) ? "cart" : "") +
+		((checkriding()) ? "Peco" : "") +
+		((ismounting()) ? "mount" : "") +
+		" ก่อนใช้บริการ.";
+	end;
+}
+
+set .@menu, select(" - รับสกิล: - ยกเลิกสกิล");
+if(.@menu == 1){
+	if(BaseLevel != 99 && JobLevel != 70 && Class != 0 && Class != 4001 && Class != 4023 && Class != 4025 && Class != 4033 && Class != 4041
+	 && Class != 4019 && Class != 4011){
+		mes "!! อาชีพพ่อค้าไม่สามารถรับได้";
+		mes "คุณต้องมี Level 99 และ Job 70 ก่อน!! ";
+		end;
+	}
+	if(BaseClass != Job_Merchant && BaseClass != Job_Blacksmith && BaseClass != Job_Alchemist){
+		skill "MC_PUSHCART",10,SKILL_PERM_GRANT;
+		skill "MC_CHANGECART",10,SKILL_PERM_GRANT;
+		skill "MC_VENDING",10,SKILL_PERM_GRANT;
+		setcart;
+		end;
+	}
+}
+if(.@menu == 2){
+	skill "MC_PUSHCART",0,0;
+	skill "MC_CHANGECART",0,0;
+	skill "MC_VENDING",0,0;
+}
+
+OnInit:
+waitingroom "รับสกิลค้าขาย ทุกอาชีพ",0;
+end;
+
+}

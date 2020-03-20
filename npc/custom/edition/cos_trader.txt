@@ -1,0 +1,118 @@
+//===== rAthena Script =======================================
+//= Card Trader
+//===== By: ==================================================
+//= Euphy
+//===== Current Version: =====================================
+//= 1.1 
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= Exchange cards for points.
+//============================================================
+ 
+morocc,130,110,4	script	Cos Trader	419,{
+	
+	mes "[^995050Costume Trader^000000]";
+	mes "Hi, "+strcharinfo(0)+"!";
+	mes "คุณต้องการทำอะไรหรอ ?";
+	next;
+	switch(select(" > ขาย Costume: > แลกคะแนน shop (^0055FF"+getd(.Points$)+"^000000): > ออก")) {
+	case 1:
+		mes "[^995050Costume Trader^000000]";
+		mes "กรุณาเลือกไอเทมที่ต้องการขาย";
+		deletearray @sold_nameid[0],getarraysize(@sold_nameid);
+		callshop "costume_trader_shop",2;
+		npcshopattach "costume_trader_shop";
+		end;
+	case 2:
+		mes "[^995050Costume Trader^000000]";
+		mes "You have ^0055FF"+getd(.Points$)+"^000000 Point"+((getd(.Points$) == 1)?".":"s.");
+		callshop "costume_trader_shop",1;
+		npcshopattach "costume_trader_shop";
+		end;
+	case 3:
+		mes "[^995050Costume Trader^000000]";
+		mes "*yawn*";
+		mes "แล้วพบกันใหม่";
+		emotion e_yawn;
+		close;		
+	}
+end;
+OnSellItem:
+	mes "Costume to sell:";
+	mes "-----------------------------------";
+	for(set .@i,0; .@i<getarraysize(@sold_nameid); set .@i,.@i+1)
+		if (@sold_nameid[.@i] >= 25524 && @sold_nameid[.@i] <= 25798) {
+			//25570,first_star_ballon
+			//25589,I_Love_Rock
+			if(@sold_nameid[.@i] != 25570 && @sold_nameid[.@i] != 25589 && @sold_nameid[.@i] != 25555 && @sold_nameid[.@i] != 25576 && @sold_nameid[.@i] != 25603 && @sold_nameid[.@i] != 25604 && @sold_nameid[.@i] != 25775){
+				set .@a_cos_id[getarraysize(.@a_cos_id)], @sold_nameid[.@i];
+				set .@a_cos_amt[getarraysize(.@a_cos_amt)], @sold_quantity[.@i];
+				mes "C "+@sold_quantity[.@i]+"x "+getitemname(@sold_nameid[.@i])+"^000000";
+				set .@cos_total, .@cos_total+ ( @sold_quantity[.@i]* 100 );
+			}
+		}
+	deletearray @sold_nameid[0], getarraysize(@sold_nameid);
+	deletearray @sold_quantity[0], getarraysize(@sold_quantity);
+	if (!.@a_cos_id) {
+		mes "  ^777777(none)^000000";
+		emotion e_swt;
+		close;
+	}
+	mes " ";
+	mes "---------- รวม : ^0055FF"+.@cos_total+" pt.^000000 -------";
+	next;
+	if(select(" > ^0055FFตกลง^000000: > ^777777ยกเลิก^000000") == 2) {
+		mes "[^995050Costume Trader^000000]";
+		mes "Oh, okay...";
+		emotion e_hmm;
+		close;
+	}
+	for(set .@i,0; .@i<getarraysize(.@a_cos_id); set .@i,.@i+1){delitem .@a_cos_id[.@i],.@a_cos_amt[.@i];}
+	setd .Points$, getd(.Points$)+.@cos_total;
+	mes "[^995050Costume Trader^000000]";
+	mes "เรียบร้อย";
+	emotion e_ho;
+	close;
+end;
+OnBuyItem:
+	for(set .@i,0; .@i<getarraysize(@bought_nameid); set .@i,.@i+1)
+		for(set .@j,0; .@j<getarraysize(.Shop); set .@j,.@j+2)
+			if (@bought_nameid[.@i] == .Shop[.@j]) {
+				set .@cost, .@cost+(.Shop[.@j+1]*@bought_quantity[.@i]);
+				break;
+			}
+	if (.@cost > getd(.Points$)) {
+		mes "[^995050Costume Trader^000000]";
+		mes "คุณมีคะแนนไม่เพียงพอ";
+		emotion e_omg;
+	}
+	else {
+		if(.@cost <= 0){
+			end;
+		}
+		mes "Items purchased:";
+		mes "-----------------------------------";
+		for(set .@i,0; .@i<getarraysize(@bought_nameid); set .@i,.@i+1) {
+			getitem @bought_nameid[.@i], @bought_quantity[.@i];
+			mes "  ^777777"+@bought_quantity[.@i]+"x "+getitemname(@bought_nameid[.@i])+"^000000";
+		}
+		mes " ";
+		mes "---------- รวม : ^0055FF"+.@cost+" pt.^000000 -------";
+		setd .Points$, getd(.Points$)-.@cost;
+		emotion e_cash;
+	}
+	deletearray @bought_nameid[0], getarraysize(@bought_nameid);
+	deletearray @bought_quantity[0], getarraysize(@bought_quantity);
+	close;
+end;
+OnInit:
+	waitingroom "รับซื้อ Costume ",0;
+	set .Points$,"#Costume_Points";	// Variable to store points.
+	setarray .Shop[0], 7647,1,677,2;
+	
+	npcshopdelitem "costume_trader_shop",909;
+	// for(set .@i,0; .@i<getarraysize(.Shop); set .@i,.@i+2){npcshopadditem "costume_trader_shop",.Shop[.@i],.Shop[.@i+1];}
+	end;
+}
+-	shop	costume_trader_shop	-1,7647:1,677:2

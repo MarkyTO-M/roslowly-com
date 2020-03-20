@@ -1,0 +1,210 @@
+//===== Developers Script ===================================
+//= Server Rate
+//===== Current Version =====================================
+//= 1.0
+//===== Description =========================================
+//= Server Rate
+//===== Additional Comments =================================
+//= 1.0 Start Version
+//= 1.1 Edit By Ragnarok PVP GVG
+//===========================================================
+
+aldeg_cas01	mapflag	gvg_castle
+aldeg_cas01	mapflag	nobranch
+aldeg_cas01	mapflag	noicewall
+aldeg_cas01	mapflag	nomemo
+aldeg_cas01	mapflag	nosave	SavePoint
+aldeg_cas01	mapflag	noteleport
+aldeg_cas01	mapflag	nowarp
+aldeg_cas01	mapflag	nowarpto
+aldeg_cas01	mapflag	nodrop
+
+aldeg_cas02	mapflag	gvg_castle
+aldeg_cas02	mapflag	nobranch
+aldeg_cas02	mapflag	noicewall
+aldeg_cas02	mapflag	nomemo
+aldeg_cas02	mapflag	nosave	SavePoint
+aldeg_cas02	mapflag	noteleport
+aldeg_cas02	mapflag	nowarp
+aldeg_cas02	mapflag	nowarpto
+aldeg_cas02	mapflag	nodrop
+
+aldeg_cas03	mapflag	gvg_castle
+aldeg_cas03	mapflag	nobranch
+aldeg_cas03	mapflag	noicewall
+aldeg_cas03	mapflag	nomemo
+aldeg_cas03	mapflag	nosave	SavePoint
+aldeg_cas03	mapflag	noteleport
+aldeg_cas03	mapflag	nowarp
+aldeg_cas03	mapflag	nowarpto
+aldeg_cas03	mapflag	nodrop
+
+aldeg_cas04	mapflag	gvg_castle
+aldeg_cas04	mapflag	nobranch
+aldeg_cas04	mapflag	noicewall
+aldeg_cas04	mapflag	nomemo
+aldeg_cas04	mapflag	nosave	SavePoint
+aldeg_cas04	mapflag	noteleport
+aldeg_cas04	mapflag	nowarp
+aldeg_cas04	mapflag	nowarpto
+aldeg_cas04	mapflag	nodrop
+
+aldeg_cas05	mapflag	gvg_castle
+aldeg_cas05	mapflag	nobranch
+aldeg_cas05	mapflag	noicewall
+aldeg_cas05	mapflag	nomemo
+aldeg_cas05	mapflag	nosave	SavePoint
+aldeg_cas05	mapflag	noteleport
+aldeg_cas05	mapflag	nowarp
+aldeg_cas05	mapflag	nowarpto
+aldeg_cas05	mapflag	nodrop
+
+gefg_cas01	mapflag	gvg_castle
+gefg_cas01	mapflag	nobranch
+gefg_cas01	mapflag	noicewall
+gefg_cas01	mapflag	nomemo
+gefg_cas01	mapflag	nosave	SavePoint
+gefg_cas01	mapflag	noteleport
+gefg_cas01	mapflag	nowarp
+gefg_cas01	mapflag	nowarpto
+gefg_cas01	mapflag	nodrop
+
+gefg_cas02	mapflag	gvg_castle
+gefg_cas02	mapflag	nobranch
+gefg_cas02	mapflag	noicewall
+gefg_cas02	mapflag	nomemo
+gefg_cas02	mapflag	nosave	SavePoint
+gefg_cas02	mapflag	noteleport
+gefg_cas02	mapflag	nowarp
+gefg_cas02	mapflag	nowarpto
+gefg_cas02	mapflag	nodrop
+
+gefg_cas03	mapflag	gvg_castle
+gefg_cas03	mapflag	nobranch
+gefg_cas03	mapflag	noicewall
+gefg_cas03	mapflag	nomemo
+gefg_cas03	mapflag	nosave	SavePoint
+gefg_cas03	mapflag	noteleport
+gefg_cas03	mapflag	nowarp
+gefg_cas03	mapflag	nowarpto
+gefg_cas03	mapflag	nodrop
+
+gefg_cas04	mapflag	gvg_castle
+gefg_cas04	mapflag	nobranch
+gefg_cas04	mapflag	noicewall
+gefg_cas04	mapflag	nomemo
+gefg_cas04	mapflag	nosave	SavePoint
+gefg_cas04	mapflag	noteleport
+gefg_cas04	mapflag	nowarp
+gefg_cas04	mapflag	nowarpto
+gefg_cas04	mapflag	nodrop
+
+gefg_cas05	mapflag	gvg_castle
+gefg_cas05	mapflag	nobranch
+gefg_cas05	mapflag	noicewall
+gefg_cas05	mapflag	nomemo
+gefg_cas05	mapflag	nosave	SavePoint
+gefg_cas05	mapflag	noteleport
+gefg_cas05	mapflag	nowarp
+gefg_cas05	mapflag	nowarpto
+gefg_cas05	mapflag	nodrop
+
+payg_cas01	mapflag	gvg_castle
+payg_cas01	mapflag	nobranch
+payg_cas01	mapflag	noicewall
+payg_cas01	mapflag	nomemo
+payg_cas01	mapflag	nosave	SavePoint
+payg_cas01	mapflag	noteleport
+payg_cas01	mapflag	nowarp
+payg_cas01	mapflag	nowarpto
+payg_cas01	mapflag	nodrop
+
+payg_cas02	mapflag	gvg_castle
+payg_cas02	mapflag	nobranch
+payg_cas02	mapflag	noicewall
+payg_cas02	mapflag	nomemo
+payg_cas02	mapflag	nosave	SavePoint
+payg_cas02	mapflag	noteleport
+payg_cas02	mapflag	nowarp
+payg_cas02	mapflag	nowarpto
+payg_cas02	mapflag	nodrop
+
+payg_cas03	mapflag	gvg_castle
+payg_cas03	mapflag	nobranch
+payg_cas03	mapflag	noicewall
+payg_cas03	mapflag	nomemo
+payg_cas03	mapflag	nosave	SavePoint
+payg_cas03	mapflag	noteleport
+payg_cas03	mapflag	nowarp
+payg_cas03	mapflag	nowarpto
+payg_cas03	mapflag	nodrop
+
+payg_cas04	mapflag	gvg_castle
+payg_cas04	mapflag	nobranch
+payg_cas04	mapflag	noicewall
+payg_cas04	mapflag	nomemo
+payg_cas04	mapflag	nosave	SavePoint
+payg_cas04	mapflag	noteleport
+payg_cas04	mapflag	nowarp
+payg_cas04	mapflag	nowarpto
+payg_cas04	mapflag	nodrop
+
+payg_cas05	mapflag	gvg_castle
+payg_cas05	mapflag	nobranch
+payg_cas05	mapflag	noicewall
+payg_cas05	mapflag	nomemo
+payg_cas05	mapflag	nosave	SavePoint
+payg_cas05	mapflag	noteleport
+payg_cas05	mapflag	nowarp
+payg_cas05	mapflag	nowarpto
+payg_cas05	mapflag	nodrop
+
+prtg_cas01	mapflag	gvg_castle
+prtg_cas01	mapflag	nobranch
+prtg_cas01	mapflag	noicewall
+prtg_cas01	mapflag	nomemo
+prtg_cas01	mapflag	nosave	SavePoint
+prtg_cas01	mapflag	noteleport
+prtg_cas01	mapflag	nowarp
+prtg_cas01	mapflag	nowarpto
+prtg_cas01	mapflag	nodrop
+
+prtg_cas02	mapflag	gvg_castle
+prtg_cas02	mapflag	nobranch
+prtg_cas02	mapflag	noicewall
+prtg_cas02	mapflag	nomemo
+prtg_cas02	mapflag	nosave	SavePoint
+prtg_cas02	mapflag	noteleport
+prtg_cas02	mapflag	nowarp
+prtg_cas02	mapflag	nowarpto
+prtg_cas02	mapflag	nodrop
+
+prtg_cas03	mapflag	gvg_castle
+prtg_cas03	mapflag	nobranch
+prtg_cas03	mapflag	noicewall
+prtg_cas03	mapflag	nomemo
+prtg_cas03	mapflag	nosave	SavePoint
+prtg_cas03	mapflag	noteleport
+prtg_cas03	mapflag	nowarp
+prtg_cas03	mapflag	nowarpto
+prtg_cas03	mapflag	nodrop
+
+prtg_cas04	mapflag	gvg_castle
+prtg_cas04	mapflag	nobranch
+prtg_cas04	mapflag	noicewall
+prtg_cas04	mapflag	nomemo
+prtg_cas04	mapflag	nosave	SavePoint
+prtg_cas04	mapflag	noteleport
+prtg_cas04	mapflag	nowarp
+prtg_cas04	mapflag	nowarpto
+prtg_cas04	mapflag	nodrop
+
+prtg_cas05	mapflag	gvg_castle
+prtg_cas05	mapflag	nobranch
+prtg_cas05	mapflag	noicewall
+prtg_cas05	mapflag	nomemo
+prtg_cas05	mapflag	nosave	SavePoint
+prtg_cas05	mapflag	noteleport
+prtg_cas05	mapflag	nowarp
+prtg_cas05	mapflag	nowarpto
+prtg_cas05	mapflag	nodrop

@@ -1,0 +1,47 @@
+-	script	DDNPCPlayer	-1,{
+
+OnInit:
+
+	setarray $@mob_pvp_x[0],217,141,150,210;
+	setarray $@mob_pvp_y[0],94,50,106,54;
+	
+	setarray $@mob_pvp_id[0],1661,1661,1661,1661,1661,1661;
+	setarray $@mob_pvp_class[0],4011,4020,4013,4019,4009,4011;
+	
+	setarray $@mob_pvp_topper[0],433,273,272,475,395,38;
+	
+	for(set .@i,0; .@i<5; set .@i,.@i+1){
+		set .@r,rand(getarraysize($@mob_pvp_x));
+		set .@r_mod,rand(getarraysize($@mob_pvp_id));
+		.@mobid = bg_monster( 0 , "morocc", $@mob_pvp_x[.@r] , $@mob_pvp_y[.@r] , "ผู้ช่วย ที่ "+.@i, 1661);
+		setunitdata .@mobid, UMOB_CLASS, $@mob_pvp_class[.@r_mod]; // CLASS
+		setunitdata .@mobid, UMOB_RACE, 10;
+		// setunitdata .@mobid, UMOB_MODE, 0x0010008; // 0x0000008
+		setunitdata .@mobid, UMOB_AI, 0x0081 ; //0x1089
+		setunitdata .@mobid, UMOB_HEADTOP, $@mob_pvp_topper[rand(getarraysize($@mob_pvp_topper))];
+	}
+	
+end;
+OnMinute60:
+	setarray $@mob_pvp_x[0],217,141,150,210;
+	setarray $@mob_pvp_y[0],94,50,106,54;
+	
+	setarray $@mob_pvp_id[0],1661,1661,1661,1661,1661,1661;
+	setarray $@mob_pvp_class[0],4011,4020,4013,4019,4009,4011;
+	
+	setarray $@mob_pvp_topper[0],433,273,272,475,395,38;
+	set .@r,rand(4,6);
+	for(set .@i,0; .@i<.@r; set .@i,.@i+1){
+		set .@r,rand(getarraysize($@mob_pvp_x));
+		set .@r_mod,rand(getarraysize($@mob_pvp_id));
+		.@mobid = bg_monster( 0 , "morocc", $@mob_pvp_x[.@r] , $@mob_pvp_y[.@r] , "ผู้ช่วย ที่ "+.@i, 1661);
+		setunitdata .@mobid, UMOB_CLASS, $@mob_pvp_class[.@r_mod]; // CLASS
+		setunitdata .@mobid, UMOB_RACE, 10;
+		// setunitdata .@mobid, UMOB_MODE, 0x0010008;
+		setunitdata .@mobid, UMOB_AI, 0x0081 ; //0x1089
+		setunitdata .@mobid, UMOB_HEADTOP, $@mob_pvp_topper[rand(getarraysize($@mob_pvp_topper))];
+		
+	}
+end;
+
+}

@@ -1,0 +1,25 @@
+morocc,148,86,4	script	รับโบนัสพลังโจมตี 1	704,{
+	if(true) {
+		specialeffect2 EF_INCAGILITY;
+		specialeffect2 EF_BLESSING;
+		skilleffect 29,0;
+		Announce "!! จากระบบใหม่ ผู้เล่นได้รับพลังโจมตีเพิ่มขึ้น 220% , ป้องกันผู้เล่น 10% , ASPD 10% (ไม่จำเป็นต้องรับซ้ำ) ",bc_self,0xFFFF00;
+		bonus_script "{ bonus bAtkRate,220; bonus bMatkRate,220; bonus2 bSubRace,RC_Player,10; bonus bAspdRate,10; }",86400,8;
+	}
+	OnInit:
+	waitingroom "- พลังเสริม -",0;
+	end;
+}
+
+morocc,207,73,4	script	รับโบนัสพลังโจมตี 2	704,{
+	if(true) {
+		specialeffect2 EF_INCAGILITY;
+		specialeffect2 EF_BLESSING;
+		skilleffect 29,0;
+		Announce "!! จากระบบใหม่ ผู้เล่นได้รับพลังโจมตีเพิ่มขึ้น 220% , ป้องกันผู้เล่น 10% , ASPD 10% (ไม่จำเป็นต้องรับซ้ำ) ",bc_self,0xFFFF00;
+		bonus_script "{ bonus bAtkRate,220; bonus bMatkRate,220; bonus2 bSubRace,RC_Player,10; bonus bAspdRate,10; }",86400,8;
+	}
+	OnInit:
+	waitingroom "- พลังเสริม -",0;
+	end;
+}

@@ -1,0 +1,74 @@
+//---PVP---//
+morocc,141,85,5	script	พนักงานวาป PVP	419,{
+mes "[พนักงานวาป PvP]";
+mes "ข้าสามารถวาปท่านไปห้อง PvP ได้";
+mes "ขอให้ท่านโชคดี";
+set #Mission_PVP_DIE, 0;
+if(#Mission_PVP_DIE_MAX > 30){
+	mes "คุณแพ้ PVP 30 แล้วไม่สามารถเข้าสู้ห้องได้";
+	mes "กรุณาไว้รอวันถัดไป";
+	end;
+}
+next;
+mes "[พนักงานวาป PvP]";
+mes "ความแค้นของท่านจะได้รับการชำระ";
+
+// menu "^0000FFวาปไปห้อง PVP Izlude^000000 มีคนอยู่ข้างใน [" + getmapusers("pvp_y_8-2") + "] คน",map1,"^FF0000วาปไปห้อง GVG RWC^000000 มีคนอยู่ข้างใน [" + getmapusers("guild_vs2") + "] คน",map2;
+menu "^0000FFวาปไปห้อง PVP Izlude^000000 มีคนอยู่ข้างใน [" + getmapusers("pvp_y_8-2") + "] คน",map1;
+
+map1:
+if(BaseLevel != 99 && JobLevel != 70){
+	mes "คุณต้องมี Level 99 และ Job 70 ก่อน!!";
+	end;
+}
+announce "** ผู้กล้า [ "+strcharinfo(0)+" ] ได้เข้าสู่ห้อง PVP แล้ว **",0,0x0DFF0D;
+warp "pvp_y_8-2",0,0;
+end;
+
+map2:
+warp "guild_vs2",0,0;
+end;
+
+OnInit:
+waitingroom "PVP ทั่วไป",0;
+end;
+
+}
+
+-	script	back morocc	419,{
+
+OnTouch:
+warp "morocc",169,44;
+end;
+
+OnInit:
+waitingroom "กลับ Morocc",0;
+end;
+
+}
+
+prontera,165,75,4	duplicate(พนักงานวาป PVP)	พนักงานวาป PVP#2	419
+morocc,165,49,4	duplicate(พนักงานวาป PVP)	พนักงานวาป PVP#3	419
+hugel,106,155,4	duplicate(พนักงานวาป PVP)	พนักงานวาป PVP#4	419
+rachel,114,140,5	duplicate(พนักงานวาป PVP)	พนักงานวาป PVP#5	419
+alberta,106,65,4	duplicate(พนักงานวาป PVP)	พนักงานวาป PVP#6	419
+gonryun,147,141,4	duplicate(พนักงานวาป PVP)	พนักงานวาป PVP#7	419
+moscovia,225,207,4	duplicate(พนักงานวาป PVP)	พนักงานวาป PVP#8	419
+lighthalzen,149,102,5	duplicate(พนักงานวาป PVP)	พนักงานวาป PVP#9	419
+ayothaya,58,145,5	duplicate(พนักงานวาป PVP)	พนักงานวาป PVP#10	419
+morocc,147,253,5	duplicate(พนักงานวาป PVP)	พนักงานวาป PVP#11	419
+xmas,139,134,5	duplicate(พนักงานวาป PVP)	พนักงานวาป PVP#12	419
+
+pvp_y_8-2,133,255,5	duplicate(back morocc)	พนักงานวาป PVP#14	419
+pvp_y_8-2,83,264,5	duplicate(back morocc)	พนักงานวาป PVP#15	419
+pvp_y_8-2,179,255,5	duplicate(back morocc)	พนักงานวาป PVP#16	419
+pvp_y_8-2,200,174,5	duplicate(back morocc)	พนักงานวาป PVP#17	419
+pvp_y_8-2,134,49,5	duplicate(back morocc)	พนักงานวาป PVP#18	419
+pvp_y_8-2,44,106,5	duplicate(back morocc)	พนักงานวาป PVP#19	419
+pvp_y_8-2,43,169,5	duplicate(back morocc)	พนักงานวาป PVP#20	419
+
+guild_vs2,42,26,5	duplicate(back morocc)	พนักงานวาป PVP#21	419
+guild_vs2,57,73,5	duplicate(back morocc)	พนักงานวาป PVP#22	419
+guild_vs2,26,59,5	duplicate(back morocc)	พนักงานวาป PVP#23	419
+guild_vs2,73,40,5	duplicate(back morocc)	พนักงานวาป PVP#24	419
+

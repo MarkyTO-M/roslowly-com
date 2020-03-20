@@ -1,0 +1,199 @@
+home1	mapflag	nomemo
+home1	mapflag	noteleport
+home1	mapflag	loadevent
+
+home2	mapflag	nomemo
+home2	mapflag	noteleport
+home2	mapflag	loadevent
+
+home3	mapflag	nomemo
+home3	mapflag	noteleport
+home3	mapflag	loadevent
+
+home4	mapflag	nomemo
+home4	mapflag	noteleport
+home4	mapflag	loadevent
+
+home5	mapflag	nomemo
+home5	mapflag	noteleport
+home5	mapflag	loadevent
+
+home6	mapflag	nomemo
+home6	mapflag	noteleport
+home6	mapflag	loadevent
+
+home7	mapflag	nomemo
+home7	mapflag	noteleport
+home7	mapflag	loadevent
+
+home8	mapflag	nomemo
+home8	mapflag	noteleport
+home8	mapflag	loadevent
+
+home9	mapflag	nomemo
+home9	mapflag	noteleport
+home9	mapflag	loadevent
+
+home10	mapflag	nomemo
+home10	mapflag	noteleport
+home10	mapflag	loadevent
+
+home11	mapflag	nomemo
+home11	mapflag	noteleport
+home11	mapflag	loadevent
+
+home12	mapflag	nomemo
+home12	mapflag	noteleport
+home12	mapflag	loadevent
+
+home13	mapflag	nomemo
+home13	mapflag	noteleport
+home13	mapflag	loadevent
+
+home14	mapflag	nomemo
+home14	mapflag	noteleport
+home14	mapflag	loadevent
+
+home15	mapflag	nomemo
+home15	mapflag	noteleport
+home15	mapflag	loadevent
+
+home16	mapflag	nomemo
+home16	mapflag	noteleport
+home16	mapflag	loadevent
+
+home17	mapflag	nomemo
+home17	mapflag	noteleport
+home17	mapflag	loadevent
+
+home18	mapflag	nomemo
+home18	mapflag	noteleport
+home18	mapflag	loadevent
+
+home19	mapflag	nomemo
+home19	mapflag	noteleport
+home19	mapflag	loadevent
+
+home20	mapflag	nomemo
+home20	mapflag	noteleport
+home20	mapflag	loadevent
+
+home21	mapflag	nomemo
+home21	mapflag	noteleport
+home21	mapflag	loadevent
+
+home22	mapflag	nomemo
+home22	mapflag	noteleport
+home22	mapflag	loadevent
+
+home23	mapflag	nomemo
+home23	mapflag	noteleport
+home23	mapflag	loadevent
+
+home24	mapflag	nomemo
+home24	mapflag	noteleport
+home24	mapflag	loadevent
+
+home25	mapflag	nomemo
+home25	mapflag	noteleport
+home25	mapflag	loadevent
+
+home26	mapflag	nomemo
+home26	mapflag	noteleport
+home26	mapflag	loadevent
+
+home27	mapflag	nomemo
+home27	mapflag	noteleport
+home27	mapflag	loadevent
+
+home28	mapflag	nomemo
+home28	mapflag	noteleport
+home28	mapflag	loadevent
+
+home29	mapflag	nomemo
+home29	mapflag	noteleport
+home29	mapflag	loadevent
+
+home30	mapflag	nomemo
+home30	mapflag	noteleport
+home30	mapflag	loadevent
+
+home31	mapflag	nomemo
+home31	mapflag	noteleport
+home31	mapflag	loadevent
+
+home32	mapflag	nomemo
+home32	mapflag	noteleport
+home32	mapflag	loadevent
+
+home33	mapflag	nomemo
+home33	mapflag	noteleport
+home33	mapflag	loadevent
+
+home34	mapflag	nomemo
+home34	mapflag	noteleport
+home34	mapflag	loadevent
+
+home35	mapflag	nomemo
+home35	mapflag	noteleport
+home35	mapflag	loadevent
+
+home36	mapflag	nomemo
+home36	mapflag	noteleport
+home36	mapflag	loadevent
+
+home37	mapflag	nomemo
+home37	mapflag	noteleport
+home37	mapflag	loadevent
+
+home38	mapflag	nomemo
+home38	mapflag	noteleport
+home38	mapflag	loadevent
+
+home39	mapflag	nomemo
+home39	mapflag	noteleport
+home39	mapflag	loadevent
+
+home40	mapflag	nomemo
+home40	mapflag	noteleport
+home40	mapflag	loadevent
+
+home41	mapflag	nomemo
+home41	mapflag	noteleport
+home41	mapflag	loadevent
+
+home42	mapflag	nomemo
+home42	mapflag	noteleport
+home42	mapflag	loadevent
+
+home43	mapflag	nomemo
+home43	mapflag	noteleport
+home43	mapflag	loadevent
+
+home44	mapflag	nomemo
+home44	mapflag	noteleport
+home44	mapflag	loadevent
+
+home45	mapflag	nomemo
+home45	mapflag	noteleport
+home45	mapflag	loadevent
+
+home46	mapflag	nomemo
+home46	mapflag	noteleport
+home46	mapflag	loadevent
+
+home47	mapflag	nomemo
+home47	mapflag	noteleport
+home47	mapflag	loadevent
+
+home48	mapflag	nomemo
+home48	mapflag	noteleport
+home48	mapflag	loadevent
+
+home49	mapflag	nomemo
+home49	mapflag	noteleport
+home49	mapflag	loadevent
+
+home50	mapflag	nomemo
+home50	mapflag	noteleport
+home50	mapflag	loadevent

@@ -1,0 +1,15 @@
+xmas_dun01,0,0,0,0	monster	Marin	1242,10,0,0,0
+xmas_dun01,0,0,0,0	monster	Poring	1002,10,0,0,0
+xmas_dun01,0,0,0,0	monster	Drops	1113,10,0,0,0
+xmas_dun01,0,0,0,0	monster	Poporing	1031,10,0,0,0
+xmas_dun01,0,0,0,0	monster	Cookie	1265,90,0,0,0
+xmas_dun01,0,0,0,0	monster	Christmas Cookie	1246,90,0,0,0
+xmas_dun01,0,0,0,0	monster	Myst Case	1249,10,0,0,0
+xmas_dun01,0,0,0,0	monster	Chepet	1250,10,0,0,0
+xmas_dun01,0,0,0,0	monster	Mastering	1090,10,0,0,0
+
+xmas_dun02,0,0,0,0	monster	Christmas Cookie	1246,90,0,0,0
+xmas_dun02,0,0,0,0	monster	Cookie	1265,10,0,0,0
+xmas_dun02,0,0,0,0	monster	Cruiser	1248,90,0,0,0
+xmas_dun02,0,0,0,0	monster	Myst Case	1249,90,0,0,0
+xmas_dun02,0,0,0,0	monster	Garm Baby	1515,10,0,0,0

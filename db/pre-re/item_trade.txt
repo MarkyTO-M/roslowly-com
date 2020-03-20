@@ -1,0 +1,4 @@
+12902,451,100	// Bubble_Gum_Box
+12900,451,100	// Battle_Manual_Box
+12210,451,100	// Bubble_Gum
+12208,451,100	// Battle_Manual

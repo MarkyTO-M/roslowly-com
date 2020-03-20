@@ -1,0 +1,95 @@
+tha_t01,0,0,0,0	monster	Alice	1275,90,0,0,0
+tha_t01,0,0,0,0	monster	Plasma	1695,10,0,0,0
+tha_t01,0,0,0,0	monster	Rideword	1195,10,0,0,0
+tha_t01,0,0,0,0	monster	Mimic	1191,10,0,0,0
+tha_t01,0,0,0,0	monster	Lady Solace	1703,10,0,0,0
+
+tha_t02,0,0,0,0	monster	Alice	1275,90,0,0,0
+tha_t02,0,0,0,0	monster	Plasma	1697,10,0,0,0
+tha_t02,0,0,0,0	monster	Mimic	1191,10,0,0,0
+tha_t02,0,0,0,0	monster	Ancient Mimic	1699,90,0,0,0
+tha_t02,0,0,0,0	monster	Rideword	1195,10,0,0,0
+tha_t02,0,0,0,0	monster	Death Word	1698,10,0,0,0
+tha_t02,0,0,0,0	monster	Elder	1377,90,0,0,0
+tha_t02,0,0,0,0	monster	Baroness of Retribution	1702,90,0,0,0
+
+tha_t03,0,0,0,0	monster	Plasma	1696,90,0,0,0
+tha_t03,0,0,0,0	monster	Rideword	1195,90,0,0,0
+tha_t03,0,0,0,0	monster	Death Word	1698,90,0,0,0
+tha_t03,0,0,0,0	monster	Mimic	1191,90,0,0,0
+tha_t03,0,0,0,0	monster	Ancient Mimic	1699,90,0,0,0
+tha_t03,0,0,0,0	monster	Elder	1377,90,0,0,0
+tha_t03,0,0,0,0	monster	Mistress of Shelter	1701,90,0,0,0
+
+tha_t04,0,0,0,0	monster	Plasma	1694,10,0,0,0
+tha_t04,0,0,0,0	monster	Rideword	1195,90,0,0,0
+tha_t04,0,0,0,0	monster	Death Word	1698,90,0,0,0
+tha_t04,0,0,0,0	monster	Mimic	1191,10,0,0,0
+tha_t04,0,0,0,0	monster	Ancient Mimic	1699,90,0,0,0
+tha_t04,0,0,0,0	monster	Elder	1377,10,0,0,0
+tha_t04,0,0,0,0	monster	Owl Baron	1295,90,0,0,0
+tha_t04,0,0,0,0	monster	Owl Duke	1320,90,0,0,0
+tha_t04,0,0,0,0	monster	Dame of Sentinel	1700,10,0,0,0
+
+tha_t05,0,0,0,0	monster	Elder	1377,90,0,0,0
+tha_t05,0,0,0,0	monster	Plasma	1697,10,0,0,0
+tha_t05,0,0,0,0	monster	Death Word	1698,90,0,0,0
+tha_t05,0,0,0,0	monster	Ancient Mimic	1699,90,0,0,0
+tha_t05,0,0,0,0	monster	Owl Baron	1295,90,0,0,0
+tha_t05,0,0,0,0	monster	Owl Duke	1320,90,0,0,0
+tha_t05,0,0,0,0	monster	Dolor of Thanatos	1707,90,0,0,0
+
+tha_t06,0,0,0,0	monster	Elder	1377,10,0,0,0
+tha_t06,0,0,0,0	monster	Plasma	1697,10,0,0,0
+tha_t06,0,0,0,0	monster	Death Word	1698,10,0,0,0
+tha_t06,0,0,0,0	monster	Ancient Mimic	1699,90,0,0,0
+tha_t06,0,0,0,0	monster	Owl Baron	1295,90,0,0,0
+tha_t06,0,0,0,0	monster	Owl Duke	1320,90,0,0,0
+tha_t06,0,0,0,0	monster	Maero of Thanatos	1706,90,0,0,0
+
+tha_t07,0,0,0,0	monster	Death Word	1698,10,0,0,0
+tha_t07,0,0,0,0	monster	Ancient Mimic	1699,90,0,0,0
+tha_t07,0,0,0,0	monster	Lady Solace	1703,10,0,0,0
+tha_t07,0,0,0,0	monster	Mistress of Shelter	1701,90,0,0,0
+tha_t07,0,0,0,0	monster	Baroness of Retribution	1702,10,0,0,0
+tha_t07,0,0,0,0	monster	Dame of Sentinel	1700,10,0,0,0
+tha_t07,0,0,0,0	monster	Despero of Thanatos	1705,10,0,0,0
+
+tha_t08,0,0,0,0	monster	Death Word	1698,10,0,0,0
+tha_t08,0,0,0,0	monster	Ancient Mimic	1699,10,0,0,0
+tha_t08,0,0,0,0	monster	Lady Solace	1703,10,0,0,0
+tha_t08,0,0,0,0	monster	Mistress of Shelter	1701,90,0,0,0
+tha_t08,0,0,0,0	monster	Baroness of Retribution	1702,10,0,0,0
+tha_t08,0,0,0,0	monster	Dame of Sentinel	1700,10,0,0,0
+tha_t08,0,0,0,0	monster	Odium of Thanatos	1704,90,0,0,0
+
+tha_t09,0,0,0,0	monster	Plasma	1694,10,0,0,0
+tha_t09,0,0,0,0	monster	Lady Solace	1703,10,0,0,0
+tha_t09,0,0,0,0	monster	Baroness of Retribution	1702,10,0,0,0
+tha_t09,0,0,0,0	monster	Mistress of Shelter	1701,90,0,0,0
+tha_t09,0,0,0,0	monster	Dame of Sentinel	1700,10,0,0,0
+tha_t09,0,0,0,0	monster	Dolor of Thanatos	1707,10,0,0,0
+tha_t09,0,0,0,0	monster	Dolor of Thanatos	1712,10,0,0,0
+
+tha_t10,0,0,0,0	monster	Plasma	1697,10,0,0,0
+tha_t10,0,0,0,0	monster	Baroness of Retribution	1702,10,0,0,0
+tha_t10,0,0,0,0	monster	Lady Solace	1703,10,0,0,0
+tha_t10,0,0,0,0	monster	Mistress of Shelter	1701,90,0,0,0
+tha_t10,0,0,0,0	monster	Dame of Sentinel	1700,10,0,0,0
+tha_t10,0,0,0,0	monster	Maero of Thanatos	1706,10,0,0,0
+tha_t10,0,0,0,0	monster	Maero of Thanatos	1711,10,0,0,0
+
+tha_t11,0,0,0,0	monster	Plasma	1695,10,0,0,0
+tha_t11,0,0,0,0	monster	Mistress of Shelter	1701,90,0,0,0
+tha_t11,0,0,0,0	monster	Lady Solace	1703,10,0,0,0
+tha_t11,0,0,0,0	monster	Baroness of Retribution	1702,10,0,0,0
+tha_t11,0,0,0,0	monster	Dame of Sentinel	1700,10,0,0,0
+tha_t11,0,0,0,0	monster	Despero of Thanatos	1705,10,0,0,0
+tha_t11,0,0,0,0	monster	Despero of Thanatos	1710,10,0,0,0
+
+tha_t12,0,0,0,0	monster	Plasma	1693,10,0,0,0
+tha_t12,0,0,0,0	monster	Dame of Sentinel	1700,10,0,0,0
+tha_t12,0,0,0,0	monster	Lady Solace	1703,10,0,0,0
+tha_t12,0,0,0,0	monster	Mistress of Shelter	1701,90,0,0,0
+tha_t12,0,0,0,0	monster	Baroness of Retribution	1702,10,0,0,0
+tha_t12,0,0,0,0	monster	Odium of Thanatos	1709,90,0,0,0

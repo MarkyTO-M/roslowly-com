@@ -1,0 +1,154 @@
+poring_c01	mapflag	nomemo
+poring_c01	mapflag	noteleport
+poring_c01	mapflag	nosave
+poring_c01	mapflag	nobranch
+poring_c01	mapflag	nopenalty
+poring_c01	mapflag	notrade
+poring_c01	mapflag	noskill
+poring_c01	mapflag	nowarp
+poring_c01	mapflag	nobaseexp
+poring_c01	mapflag	nojobexp
+poring_c01	mapflag	nowarpto
+poring_c01	mapflag	nodrop
+poring_c01	mapflag	novending
+poring_c01	mapflag	noexppenalty
+poring_c01	mapflag	noloot
+
+-	script	Plant Ball	-1,{
+set .@name$, "^FF0000[Plant Ball]^000000";
+
+mes .@name$;
+mes "ของรางวัลกิจกรรม";
+mes "- Poring Coin ครับ";
+next;
+menu "^0000FF-^000000 เข้ากิจกรรม",-,"^0000FF-^000000 รายละเอียด",index;
+if ($toplay_plant == 0) {mes .@name$; mes "ยังไม่ถึงเวลากิจกรรมครับ"; close;}
+warp "poring_c01",93,101;
+end;
+
+index:
+mes .@name$;
+mes "รอบ 01. 01.25 || รอบ 02. 02.25 ";
+mes "รอบ 03. 03.25 || รอบ 04. 04.25 ";
+mes "รอบ 05. 05.25 || รอบ 06. 06.25 ";
+mes "รอบ 07. 07.25 || รอบ 08. 08.25 ";
+mes "รอบ 09. 09.25 || รอบ 10. 10.25 ";
+mes "รอบ 11. 11.25 || รอบ 12. 12.25 ";
+mes "รอบ 13. 13.25 || รอบ 14. 14.25 ";
+mes "รอบ 15. 15.25 || รอบ 16. 16.25 ";
+mes "รอบ 17. 17.25 || รอบ 18. 18.25 ";
+mes "รอบ 19. 19.25 || รอบ 20. 20.25 ";
+mes "รอบ 21. 21.25 || รอบ 22. 22.25 ";
+mes "รอบ 23. 23.25 || รอบ 24. 00.25 ";
+close;
+
+OnInit:
+waitingroom "๐ Plant Ball ๐",0;
+end;
+}
+
+-	script	EV_QUEST2	-1,{
+
+OnMinute25:
+set $toplay_plant,1;
+announce "[ กิจกรรม Plant Ball จะเริ่มใน 3 นาที ]",0;
+initnpctimer;
+end;
+
+OnTimer60000:
+announce "[ กิจกรรม Plant Ball จะเริ่มใน 2 นาที ]",0;
+end;
+
+OnTimer120000:
+announce "[ กิจกรรม Plant Ball จะเริ่มใน 1 นาที ]",0;
+end;
+
+OnTimer180000:
+set $rpball,rand(7365,7390);
+set $toplay_plant,0;
+announce "[ กิจกรรม Plant Ball เริ่มแล้ว ]",0;
+end;
+
+OnTimer200000:
+announce "",0;
+end;
+
+OnTimer210000:
+monster "poring_c01",0,0,"Plant",1078,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1079,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1080,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1081,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1082,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1083,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1081,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1082,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1083,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1080,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1078,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1079,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1080,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1081,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1082,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1083,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1081,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1082,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1083,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1080,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1078,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1079,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1080,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1081,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1082,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1083,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1081,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1082,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1083,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1080,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1078,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1079,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1080,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1081,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1082,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1083,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1081,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1082,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1083,1,"EV_QUEST1::OnWinner";
+monster "poring_c01",0,0,"Plant",1080,1,"EV_QUEST1::OnWinner";
+announce "",0;
+sleep2 3000;
+announce "",0;
+sleep2 5000;
+announce "",0;
+end;
+
+OnTimer530000:
+killmonsterall "poring_c01";
+announce "[ กิจกรรม Plant Ball จบลงแล้ว ]",0;
+mapwarp "poring_c01","SavePoint",0,0;
+set $toplay_plant,0;
+set $rpball,0;
+set $mem_plant,0;
+stopnpctimer;
+end;
+}
+
+-	script	EV_QUEST1	-1,{
+OnWinner:
+set @rball,rand(7365,7390);
+getitem @rball,1;
+if (@rball == $rpball) goto fill;
+set @plantmball,rand(1078,1083);
+delitem @rball,1;
+monster "poring_c01",0,0,"Plant",@plantmball,1,"EV_QUEST1::OnWinner";
+dispbottom "ต้องการบอลหมายเลข "+getitemname($rpball)+" ครับ";
+close;
+
+fill:
+getitem @rball,1;
+dispbottom "ต้องการบอลหมายเลข "+getitemname(@rball)+" ครับ";
+getitem 7539,50;
+delitem @rball,1;
+set $mem_plant,$mem_plant+1;
+announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล Plant Ball แล้ว ]",0;
+close;
+}

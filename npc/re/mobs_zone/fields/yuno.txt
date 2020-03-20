@@ -1,0 +1,52 @@
+//===== eAthena Script =======================================
+//= Yuno Fields Monster Spawn Script
+//===== By: ==================================================
+//= Athena (1.0)
+//===== Current Version: =====================================
+//= 1.1
+//===== Compatible With: =====================================
+//= Any Athena Version
+//===== Description: =========================================
+//= Monster Spawns for Yuno Fields
+//===== Additional Comments: =================================
+//= 1.1 fixed tabs, names [Lupus]
+//============================================================
+
+//==================================================
+// yuno_fild01 - Border Posts 
+//==================================================
+yuno_fild01,0,0,0,0	monster	Poring	1002,40,0,0,0
+yuno_fild01,0,0,0,0	monster	Poporing	1031,30,0,0,0
+yuno_fild01,0,0,0,0	monster	Dustiness	1114,20,0,0,0
+yuno_fild01,0,0,0,0	monster	Grand Peco	1369,20,0,0,0
+
+// Multiple Balance Count by [Lelouzh] (110%)
+//==================================================
+// yuno_fild02 - Kiel Hyre's Cottage
+//==================================================
+yuno_fild02,0,0,0,0	monster	Poring	1002,45,0,0,0
+yuno_fild02,0,0,0,0	monster	Dustiness	1114,22,0,0,0
+yuno_fild02,0,0,0,0	monster	Driller	1380,11,0,0,0
+yuno_fild02,0,0,0,0	monster	Geographer	1368,11,0,0,0
+yuno_fild02,0,0,0,0	monster	Grand Peco	1369,11,0,0,0
+yuno_fild02,0,0,0,0	monster	Sleeper	1386,6,0,0,0
+yuno_fild02,0,0,0,0	monster	Arch Angeling	1388,1,3600000,300000,0
+
+//==================================================
+// yuno_fild03 - El Mes Plateau
+//==================================================
+yuno_fild03,0,0,0,0	monster	Demon Pungus	1378,20,0,0,0
+yuno_fild03,0,0,0,0	monster	Geographer	1368,10,0,0,0
+yuno_fild03,0,0,0,0	monster	Sleeper	1386,5,0,0,0
+yuno_fild03,0,0,0,0	monster	Goat	1372,20,0,0,0
+yuno_fild03,0,0,0,0	monster	Harpy	1376,5,0,0,0
+
+//==================================================
+// yuno_fild04 - El Mes Plateau
+//==================================================
+yuno_fild04,0,0,0,0	monster	Poring	1002,40,0,0,0
+yuno_fild04,0,0,0,0	monster	Driller	1380,10,0,0,0
+yuno_fild04,0,0,0,0	monster	Geographer	1368,10,0,0,0
+yuno_fild04,0,0,0,0	monster	Sleeper	1386,5,0,0,0
+yuno_fild04,0,0,0,0	monster	Goat	1372,10,0,0,0
+yuno_fild04,0,0,0,0	monster	Harpy	1376,5,0,0,0

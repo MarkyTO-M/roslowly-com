@@ -1,0 +1,172 @@
+morocc,132,34,4	script	Power Garment	418,{
+set .@nombre$, "[เสริมพลัง ผ้าคลุม]";
+mes .@nombre$;
+mes "สวัสดีครับ ยินดีให้บริการครับ";
+mes "^FF0000มีโอกาศ 15% ที่จะถูกทำลาย^000000";
+mes "[ ค่าใช้จ่าย ]"; 
+mes "* Platinum Coin 10 EA";
+mes "หาได้จาก มอนเตอร์ทั่วไป หรือ MVP";
+
+next;
+if (select("^009933•^000000 ดำเนินการ:^FF0000•^000000 ดูรายละเอียด") == 2) {
+	mes .@nombre$;
+	mes "จะสุ่ม พลัง";
+	end;
+	/*
+	mes "จะแบ่ง ผ้าคลุม เป็น 3 ระดับ ";
+	mes "^FF0000Garment Lv.1^000000";
+	for (set .@c, 0; .@c < getarraysize(.ids1); set .@c, .@c + 1){
+		mes "- " + getitemname(.ids1[.@c]) + "";
+		}
+	next;
+	mes .@nombre$;
+	mes "^FF0000Garment Lv.2^000000";
+	for (set .@c, 0; .@c < getarraysize(.ids2); set .@c, .@c + 1){
+		mes "- " + getitemname(.ids2[.@c]) + "";
+		}
+	next;
+	mes .@nombre$;
+	mes "^FF0000Garment Lv.3^000000";
+	for (set .@c, 0; .@c < getarraysize(.ids3); set .@c, .@c + 1){
+		mes "- " + getitemname(.ids3[.@c]) + "";
+		}
+	*/
+	end;
+} // End if
+/*
+	switch (select("^009933•^000000 ผ้าคลุม Lv.1:^009933•^000000 ผ้าคลุม Lv.2:^009933•^000000 ผ้าคลุม Lv.3")) {
+		case 1:
+			set .@j, 1;
+			break;
+
+		case 2:
+			set .@j, 2;
+			break;
+
+		case 3:
+			set .@j, 3;
+			break;
+	} // End switch
+	for (set .@c, 0; .@c < getarraysize(getd(".ids" + .@j)); set .@c, .@c + 1)
+		if (isequipped(getd(".ids" + .@j + "[" + .@c +"]")) == 1)
+			set .@s, .@c;
+*/
+mes .@nombre$;
+
+if (!getequipisequiped(EQI_GARMENT)) {mes "ท่านไม่ได้สวมใส่อุปกรณ์";end;}
+
+/*
+	if (!.@s) {
+		if (atoi(getequipname(EQI_GARMENT)) == -1)
+			mes "ท่านไม่ได้สวมใส่ ผ้าคลุม";
+		else
+			mes "ผ้าคลุม นี้ เสริมพลัง ไม่ได้";
+		end;
+	} // End if
+*/
+
+if (countitem(677) < 10)	{
+	mes "ท่านไม่มี Platinum Coin 10 EA";
+	end;
+} // End if
+if (checkweight(1201,1) == 0) {
+	mes "คุณมีไอเทมมากเกินไป";
+	end;
+}
+if (MaxWeight - Weight < 500) {
+	mes "กรุณาตรวจสอบน้ำหนักด้วย";
+	end;
+}
+
+mes "ไอเทม ["+getequipname(EQI_GARMENT)+"]";
+mes "ขอให้ เสริมพลัง ติดนะครับ";
+next;
+
+set .@part,getequipid(EQI_GARMENT);
+set .@part_del,EQI_GARMENT;
+set .@equip_refine, getequiprefinerycnt(.@part_del);
+setarray .@equip_card[0], getequipcardid(.@part_del,0), getequipcardid(.@part_del,1), getequipcardid(.@part_del,2), getequipcardid(.@part_del,3);
+
+if (.@equip_card[3]) {
+	mes "คุณเสริมพลัง หรือ ใส่ การ์ด ไปแล้วนิ";
+	end;
+}
+
+delitem 677,10;
+specialeffect 101;
+specialeffect2 9;
+progressbar "ffff00",3;
+
+delequip .@part_del;
+
+set .@rand, rand(500);
+mes .@nombre$;
+
+if (.@rand >= 0 && .@rand < 75) { // Break 15%
+	specialeffect2 306;
+	mes "ฉันเสียใจด้วยจริงๆ ";
+	mes "^FF0000 มันล้มเหลว...^000000";
+	mes "ไอเทมของคุณหายไปแล้ว !!";
+	end;
+} else { // 20%
+	if(rand(100) <= 75){
+		setarray .@level[0],rand(4700,4999); // RandomAll
+		setarray .@level_2[0],rand(4700,4999);
+	}else{
+		setarray .@level[0],rand(4951,4999); // RandomAll
+		setarray .@level_2[0],rand(4951,4999);
+	}
+}
+
+set .@runa, .@level[rand(getarraysize(.@level))];
+set .@runa_2, .@level_2[rand(getarraysize(.@level_2))];
+
+if(.@runa == 4973 || .@runa == 4974 || .@runa == 4962 || .@runa == 4963){set .@runa,4953;}
+if(.@runa_2 == 4973 || .@runa_2 == 4974 || .@runa_2 == 4962 || .@runa_2 == 4963){set .@runa_2,4953;}
+
+specialeffect2 305;
+if(rand(1,100) >= 10){
+	getitem2 .@part,1,1,.@equip_refine,0,.@equip_card[0],0,0,.@runa;
+}else{
+	getitem2 .@part,1,1,.@equip_refine,0,.@equip_card[0],0,.@runa_2,.@runa;
+}
+
+//equip .@part;
+
+mes "Wow! เสร็จเรียบร้อย";
+end;
+
+OnInit:
+
+waitingroom "เสริมพลังผ้าคลุม",0;
+
+set .zeny, 150000;
+
+setarray .ids1[0],2507,
+				2513, 
+				2506, 
+				2504, 
+				2512, 
+				2514;
+setarray .ids2[0],2521, 
+				2527, 
+				2530, 
+				2536,
+				2515, 
+				2542, 
+				2544, 
+				2545, 
+				2509, 
+				2523, 
+				2528; 
+setarray .ids3[0],2538, 
+				2539, 
+				2553, 
+				2537, 
+				2549, 
+				2532,
+				2554, 
+				2531,
+				2524;
+end;
+} // End Script

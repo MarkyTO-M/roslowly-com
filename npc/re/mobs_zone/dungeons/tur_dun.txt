@@ -1,0 +1,60 @@
+//===== eAthena Script =======================================
+//= Turtle Island Monster Spawn Script
+//===== By: ==================================================
+//= Athena (1.0)
+//===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: =====================================
+//= Any Athena Version
+//===== Description: =========================================
+//= Monster Spawns for Turtle Island
+//===== Additional Comments: =================================
+//=
+//============================================================
+
+//==================================================
+// tur_dun01 - Turtle Island
+//==================================================
+tur_dun01,0,0,0,0	monster	Thara Frog	1034,10,0,0,0
+tur_dun01,0,0,0,0	monster	Pest	1256,15,0,0,0
+tur_dun01,0,0,0,0	monster	Perimeter	1314,10,0,0,0
+tur_dun01,0,0,0,0	monster	Dragon Tail	1321,25,0,0,0
+tur_dun01,0,0,0,0	monster	Spring Rabbit	1322,25,0,0,0
+
+//==================================================
+// tur_dun02 - Turtle Island Dungeon
+//==================================================
+tur_dun02,0,0,0,0	monster	Pest	1256,15,0,0,0
+tur_dun02,0,0,0,0	monster	Perimeter	1314,40,0,0,0
+tur_dun02,0,0,0,0	monster	Soldier	1316,40,0,0,0
+tur_dun02,0,0,0,0	monster	Freezer	1319,20,0,0,0
+
+// Multiple Balance Count by [Lelouzh] (150%)
+//==================================================
+// tur_dun03 - Good Turtles Village
+//==================================================
+tur_dun03,0,0,0,0	monster	Perimeter	1314,21,0,0,0
+tur_dun03,0,0,0,0	monster	Assaulter	1315,47,0,0,0
+tur_dun03,0,0,0,0	monster	Heater	1318,14,0,0,0
+tur_dun03,0,0,0,0	monster	Freezer	1319,53,0,0,0
+
+// Multiple Balance Count by [Lelouzh] (125%)
+//==================================================
+// tur_dun04 - Turtle Palace
+//==================================================
+tur_dun04,0,0,0,0	monster	Wanderer	1208,2,0,0,0
+tur_dun04,0,0,0,0	monster	Perimeter	1314,9,0,0,0
+tur_dun04,0,0,0,0	monster	Assaulter	1315,22,0,0,0
+tur_dun04,0,0,0,0	monster	Heater	1318,35,0,0,0
+tur_dun04,0,0,0,0	monster	Freezer	1319,18,0,0,0
+tur_dun04,100,93,20,20	monster	Assaulter	1315,18,120000,60000,0
+tur_dun04,100,93,20,20	monster	Heater	1318,6,120000,60000,0
+tur_dun04,100,93,20,20	monster	Freezer	1319,9,120000,60000,0
+tur_dun04,99,92,10,10	monster	Wanderer	1208,1,60000,30000,0
+
+//==================================================
+// tur_dun05 - Underground Swamp Zone
+//==================================================
+tur_dun05,0,0,0,0	monster	Perimeter	1314,3,20000,0,0
+tur_dun05,0,0,0,0	monster	Assaulter	1315,1,20000,0,0
+tur_dun05,0,0,0,0	monster	Freezer	1319,5,30000,0,0

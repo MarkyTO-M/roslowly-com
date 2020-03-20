@@ -1,0 +1,31 @@
+-	script	Neuschwanstein#a1-2::Neuschwanstein2	722,{
+set .@GID, GetCastleData("aldeg_cas01",1);
+if (.@GID == 0) {
+}
+else {
+if (getcharid(2) == .@GID) {
+if (select("^0000FF-^000000 เข้าปราสาท") == 1) {
+if (getcharid(2) == GetCastleData("aldeg_cas01",1)) {
+warp "aldeg_cas01",218,170;
+end;
+}
+}
+close;
+}
+mes "^FF0000[Neuschwanstein]^000000";
+mes "ถูกครอบครองโดยกิลด์ : " + GetGuildName(.@GID) + "";
+}
+close;
+
+OnRecvCastleA01:
+FlagEmblem GetCastleData("aldeg_cas01",1);
+end;
+}
+
+aldeg_cas01,216,24,0	duplicate(Gld_Agit_Manager)	Agit#aldeg_cas01	-1
+aldeg_cas01,218,175,0	duplicate(Gld_Mngr_Template)	Alfredo#aldeg_cas01	55
+aldeg_cas01,218,175,0	duplicate(Gld_Guard_Template)	Guardian#aldeg_cas01	-1
+aldeg_cas01,218,170,0	duplicate(Gld_Kafra_Template)	Kafra Staff#aldeg_cas01	117
+aldeg_cas01,118,223,0	duplicate(Gld_Trea_Protect)	ban_warp#aldeg_cas01	-1,8,8
+aldeg_cas01,118,223,0	duplicate(Gld_Trea_Spawn)	Treasure#aldeg_cas01	-1
+aldeg_cas01,211,181,0	duplicate(Gld_Dun_Template)	#aldeg_cas01	111

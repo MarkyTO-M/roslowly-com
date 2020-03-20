@@ -1,0 +1,73 @@
+//===== Hercules Script ======================================
+//= Spirit Liquor trader.
+//===== By: ==================================================
+//= rAthena Dev Team
+//===== Current Version: =====================================
+//= 1.0
+//===== Description: =========================================
+//= [Official Conversion]
+//= Trade Broken Liquor Jars and alcohol for wanderer
+//= pet food, 'Spirit Liquor'
+//===== Additional Comments: =================================
+//= 1.0 First version 
+//============================================================
+
+prontera,218,218,3	script	Pet Enthusiast	4W_KID,{
+	mes "[Pet Enthusiast Jenny]";
+	mes " โอ้, สวัสดีทุกๆ ท่าน!";
+	mes " คุณเป็นคนรักสัตว์เหมือนผมไหม?";
+	next;
+	mes "[Pet Enthusiast Jenny]";
+	mes " ข้ารู้มันเป็นเรื่องที่ยากที่จะทำให้สัตว์เลี้ยงของคุณมีความสุข";
+	mes " เรื่องของอาหารก็รวมอยู่ในนั้นด้วย";
+	next;
+	mes "[Pet Enthusiast Jenny]";
+	mes " บางครั้งมันอาจจะยากที่เราจะต้องเลือกอาหารที่เหมาะสมให้กับสัตว์เลี้ยง";
+	next;
+	mes "[Pet Enthusiast Jenny]";
+	mes " คุณกำลังมองหาอาหารของสัตว์เลี้ยงอยู่หรือไม่?";
+	next;
+	switch(select(" แน่นอน: ไม่มีอะไร")) {
+	case 1:
+		if ((countitem(7158) > 19) && (countitem(970) > 0)) {
+			mes "[Pet Enthusiast Jenny]";
+			mes " โอ้, คุณมี ^ff000020 Broken Liquor Jar^000000s และ ^ff00001 Alcohol^000000!";
+			mes " คุณต้องการจะแลกเปลี่ยนเป็น";
+			mes "^ff000020 Spirit Liquor^000000 สำหรับสัตว์เลี้ยงของคุณไหม?";
+			next;
+			switch(select(" ใช่, แน่นอนอยู่แล้ว!: ไม่เป็นไร ขอบคุณ")) {
+			case 1:
+				mes "[Pet Enthusiast Jenny]";
+				mes " ตกลง รับนี่ไว้";
+				mes " ข้าหวังว่ามันจะช่วยให้สัตว์เลี้ยงที่น่ารักของคุณมีความสุข";
+				delitem 7158,20; //Broken_Wine_Vessel
+				delitem 970,1; //Alchol
+				getitem 7824,20; //Spirit_Liquor
+				close;
+			case 2:
+				mes "[Pet Enthusiast Jenny]";
+				mes " ฮีฮี่, หากท่านเปลี่ยนใจเมื่อใด กลับมาหาข้าได้ทุกเมื่อนะ";
+				close;
+			}
+		}
+		else {
+			mes "[Pet Enthusiast Jenny]";
+			mes " ที่จริงแล้ว, ตอนนี้ข้าสามารถช่วยให้คุณหา Spirit Liquor สำหรับสัตว์เลี้ยงของคุณได้";
+			next;
+			mes "[Pet Enthusiast Jenny]";
+			mes " แต่ข้าต้องใช้บางสิ่งบางอย่าง นั่นก็คือ ^FF0000 20 Broken Liquor Jars^000000 และ ^FF0000 1 Alcohol^000000.";
+			mes " และข้าจะมอบ ^FF0000 20 Spirit Liquor^000000 ให้ทันที";
+			next;
+			mes "[Pet Enthusiast Jenny]";
+			mes " คุณสามารถหา Broken Liquor Jars ได้จาก Tengu ใน Amatsu dungeon.";
+			close;
+		}
+	case 2:
+		close;
+	}
+}
+
+prontera,220,218,3	script	Berry Toe	4_DONKEY,{
+	specialeffect EF_CHANGEDARK;
+	end;
+}

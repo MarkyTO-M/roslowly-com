@@ -1,0 +1,31 @@
+-	script	Bright Arbor#f1-3::BrightArbor2	722,{
+set .@GID, GetCastleData("payg_cas01",1);
+if (.@GID == 0) {
+}
+else {
+if (getcharid(2) == .@GID) {
+if (select("^009933-^000000 เข้าปราสาท") == 1) {
+if (getcharid(2) == GetCastleData("payg_cas01",1)) {
+warp "payg_cas01",212,108;
+end;
+}
+}
+close;
+}
+mes "^FF0000[Bright Arbor]^000000";
+mes "ถูกครอบครองโดยกิลด์ : " + GetGuildName(.@GID) + "";
+}
+close;
+
+OnRecvCastlePy01:
+FlagEmblem GetCastleData("payg_cas01",1);
+end;
+}
+
+payg_cas01,139,139,0	duplicate(Gld_Agit_Manager)	Agit#payg_cas01	-1
+payg_cas01,120,58,4	duplicate(Gld_Mngr_Template)	Kurunnadi#payg_cas01	55
+payg_cas01,120,58,4	duplicate(Gld_Guard_Template)	Guardian#payg_cas01	-1
+payg_cas01,128,58,3	duplicate(Gld_Kafra_Template)	Kafra Staff#payg_cas01	117
+payg_cas01,291,8,0	duplicate(Gld_Trea_Protect)	ban_warp#payg_cas01	-1,6,6
+payg_cas01,291,8,0	duplicate(Gld_Trea_Spawn)	Treasure#payg_cas01	-1
+payg_cas01,101,25,0	duplicate(Gld_Dun_Template)	#payg_cas01	111

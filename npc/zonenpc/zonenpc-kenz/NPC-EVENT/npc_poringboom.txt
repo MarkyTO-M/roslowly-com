@@ -1,0 +1,207 @@
+morocc,119,102,6	script	Poring Boom#open	620,{
+set .@name$, "^FF0000[Poring Boom]^000000";
+mes .@name$;
+mes "ของรางวัลกิจกรรม";
+mes "- Poring Coin ครับ";
+next;
+menu "^0000FF-^000000 เข้ากิจกรรม",-,"^0000FF-^000000 รายละเอียด",info;
+
+if($@isPoringCmdStart == 1){
+mes .@name$;
+mes "ยังไม่ถึงเวลากิจกรรมครับ";
+close;
+}
+if (countitem(7621) > 0) goto Lcancel;
+if (countitem(610) > 0) goto Lcancel;
+if (countitem(607) > 0) goto Lcancel;
+set poringCmdFlag, $poringCmdFlag;
+warp $@poringCmdMap$,0,0;
+close;
+
+info:
+mes .@name$;
+mes "รอบ 01. 01.30 || รอบ 02. 02.30 ";
+mes "รอบ 03. 03.30 || รอบ 04. 04.30 ";
+mes "รอบ 05. 05.30 || รอบ 06. 06.30 ";
+mes "รอบ 07. 07.30 || รอบ 08. 08.30 ";
+mes "รอบ 09. 09.30 || รอบ 10. 10.30 ";
+mes "รอบ 11. 11.30 || รอบ 12. 12.30 ";
+mes "รอบ 13. 13.30 || รอบ 14. 14.30 ";
+mes "รอบ 15. 15.30 || รอบ 16. 16.30 ";
+mes "รอบ 17. 17.30 || รอบ 18. 18.30 ";
+mes "รอบ 19. 19.30 || รอบ 20. 20.30 ";
+mes "รอบ 21. 21.30 || รอบ 22. 22.30 ";
+mes "รอบ 23. 23.30 || รอบ 24. 00.30 ";
+close;
+
+Lcancel:
+mes .@name$;
+mes "ห้ามพก Token of Ziegfried ครับ";
+mes "ห้ามพก Yggdrasil Leaf ครับ";
+mes "ห้ามพก Yggdrasil Berry ครับ";
+close;
+
+OnSpawn:
+announce "[ กิจกรรม Poring Boom เริ่มแล้ว ]",0;
+monster $@poringCmdMap$,0,0,"Poring",.poringMobID[0],.spawnMax[0],"Poring Boom#open::OnPoringDie";
+end;
+
+OnPoringDie:
+end;
+
+OnPCLogoutEvent:
+getmapxy .@map$, .@x, .@y, 0;
+if(.@map$ == ("guild_vs5")){
+warp "SavePoint",0,0;
+}
+end;
+
+OnPCDieEvent:
+getmapxy .@map$, .@x, .@y, 0;
+if(.@map$ == ("guild_vs5") || ("poringCmdFlag") == ("$poringCmdFlag")){
+announce "",0;
+getitem 7539,.IZPCMD[(gettimetick(2)-.startTime)/60];
+warp "SavePoint",0,0;
+sleep2 200;
+atcommand "@alive "+strcharinfo(0);
+}
+end;
+
+OnActivate:
+set .min, 0;
+set $poringCmdFlag, rand(100000,999999);
+set .timerMode, 0;
+set $@isPoringCmdStart, 0;
+hideoffnpc "Poring Boom#open";
+hideonnpc "Poring Boom#prize";
+hideonnpc "Poring Boom";
+maprespawnguildid $@poringCmdMap$,0,0;
+initnpctimer;
+end;
+
+OnTimer60000:
+if(.timerMode == 0){
+set .min, .min+1;
+if(.min==.prepareTime){
+set .startTime, gettimetick(2);
+set .timerMode, 1;
+set .oldMin, 0;
+set $@isPoringCmdStart, 1;
+initnpctimer;
+hideonnpc "Poring Boom#open";
+hideoffnpc "Poring Boom";
+goto OnSpawn;
+}
+else {
+announce "[ กิจกรรม Poring Boom จะเริ่มใน " + (.prepareTime-.min) + " นาที ]",0;
+initnpctimer;
+}
+}
+end;
+
+OnTimer500:
+if(.timerMode == 1){
+set .poringAlive, mobcount($@poringCmdMap$,"Poring Boom#open::OnPoringDie");
+set .curMin, (gettimetick(2)-.startTime)/60;
+if(.oldMin != .curMin){
+set .oldMin, .curMin;
+announce "",0;
+if(.@curMin%3 == 0)
+killmonsterall $@poringCmdMap$;
+}
+set .@end, 0;
+if(.curMin >= .maxMin) set .@end, 1;
+else if(getmapusers($@poringCmdMap$)==0) set .@end, 2;
+if(.@end){
+switch(.@end){
+case 1:
+set .IZPCMD,0;
+break;
+
+case 2:
+announce "[ กิจกรรม Poring Boom จบลงแล้ว ]",0;
+set .IZPCMD,0;
+break;
+}
+killmonsterall $@poringCmdMap$;
+hideoffnpc "Poring Boom#prize";
+stopnpctimer;
+end;
+}
+if(.poringAlive < .spawnMax[.curMin]){
+monster $@poringCmdMap$,0,0,"Poring",.poringMobID[(.curMin/3)],1,"Poring Boom#open::OnPoringDie";
+}
+initnpctimer;
+}
+end;
+OnMinute30:
+donpcevent "Poring Boom#open::OnActivate";
+end;
+OnInit:
+hideonnpc "Poring Boom#open";
+set $poringCmdFlag, rand(100000,999999);
+set .timerMode, 0;
+set .IZPCMD,0;
+
+setarray .IZPCMD[0],50,100,150,200,250,300,350,400,450,500,550,600,650,700,750,800;
+setarray .spawnMax[0],300,300,300,300,300,400,400,400,400,400,500,500,500,500,500;
+set $@poringCmdMap$,"guild_vs5";
+
+set .prepareTime, 4;
+set .maxMin, getarraysize(.IZPCMD);
+set $@maxPrize, .IZPCMD[.maxMin-1];
+setarray .poringMobID[0],3951,3952,3953,3954,3955;
+end;
+}
+
+guild_vs5,50,75,4	script	Poring Boom#prize	620,{
+if(poringCmdFlag){
+getitem 7539,$@maxPrize;
+set poringCmdFlag, 0;
+close2;
+}
+announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล Poring Boom แล้ว ]",0;
+warp "SavePoint",0,0;
+end;
+}
+
+morocc,119,103,6	script	Poring Boom	626,{
+set .@name$, "^FF0000[Poring Boom]^000000";
+mes .@name$;
+mes "ของรางวัลกิจกรรม";
+mes "- Poring Coin ครับ";
+next;
+menu "^0000FF-^000000 เข้ากิจกรรม",-,"^0000FF-^000000 รายละเอียด",info;
+mes .@name$; 
+mes "ยังไม่ถึงเวลากิจกรรมครับ"; 
+close;
+
+info:
+mes .@name$;
+mes "รอบ 01. 01.30 || รอบ 02. 02.30 ";
+mes "รอบ 03. 03.30 || รอบ 04. 04.30 ";
+mes "รอบ 05. 05.30 || รอบ 06. 06.30 ";
+mes "รอบ 07. 07.30 || รอบ 08. 08.30 ";
+mes "รอบ 09. 09.30 || รอบ 10. 10.30 ";
+mes "รอบ 11. 11.30 || รอบ 12. 12.30 ";
+mes "รอบ 13. 13.30 || รอบ 14. 14.30 ";
+mes "รอบ 15. 15.30 || รอบ 16. 16.30 ";
+mes "รอบ 17. 17.30 || รอบ 18. 18.30 ";
+mes "รอบ 19. 19.30 || รอบ 20. 20.30 ";
+mes "รอบ 21. 21.30 || รอบ 22. 22.30 ";
+mes "รอบ 23. 23.30 || รอบ 24. 00.30 ";
+close;
+
+OnInit:
+waitingroom "๐ Poring Boom ๐",0;
+end;
+}
+
+guild_vs5	mapflag	nobranch
+guild_vs5	mapflag	noicewall
+guild_vs5	mapflag	nomemo
+guild_vs5	mapflag	nosave	SavePoint
+guild_vs5	mapflag	noteleport
+guild_vs5	mapflag	nowarp
+guild_vs5	mapflag	nowarpto
+guild_vs5	mapflag	noskill

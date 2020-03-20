@@ -1,0 +1,12 @@
+ein_dun01,0,0,0,0	monster	Pitman	1616,90,0,0,0
+ein_dun01,0,0,0,0	monster	Noxious	1620,180,0,0,0
+ein_dun01,0,0,0,0	monster	Porcellio	1619,90,0,0,0
+ein_dun01,0,0,0,0	monster	Venomous	1621,10,0,0,0
+ein_dun01,0,0,0,0	monster	Old Stove	1617,90,0,0,0
+ein_dun01,0,0,0,0	monster	Ungoliant	1618,90,0,0,0
+
+ein_dun02,0,0,0,0	monster	Obsidian	1615,10,0,0,0
+ein_dun02,0,0,0,0	monster	Mineral	1614,90,0,0,0
+ein_dun02,0,0,0,0	monster	Teddy Bear	1622,10,0,0,0
+ein_dun02,0,0,0,0	monster	Old Stove	1617,90,0,0,0
+ein_dun02,0,0,0,0	monster	Noxious	1620,90,0,0,0

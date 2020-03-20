@@ -1,0 +1,75 @@
+
+prt_in,118,34,7	script	Pcmedias Gift	756,{
+
+.@weight = 100 * Weight / MaxWeight;
+    if (50 <= .@weight)
+	{
+	mes "[Pcmedias Gift]";
+     mes "^FF3355ดูเหมือนว่าน้ำหนักคุณจะเกิน.^000000";
+	 mes "ตอนนี้น้ำหนักคุณอยู่ที่ :"+.@weight;
+	 mes "กรุณาเก็บของเข้าคลังก่อนกลับมาใหม่.";
+     close;
+    }
+
+//- Delay (seconds)
+.@DL = 1800:
+//- ID item(s)
+setarray .@It[0], 501;
+setarray .@It[1], 601;
+setarray .@It[2], 602;
+//- How much each
+setarray .@Cn[0], 30;
+setarray .@Cn[1], 20;
+setarray .@Cn[2], 2;
+
+if( getarraysize( .@It ) != getarraysize( .@Cn ) ) {
+mes "[Pcmedias Gift]";
+	mes "เกิดข้อผิดพลาด.";
+	close; }
+
+// dispbottom #Giftchoidk_$;
+mes "[Pcmedias Gift]";
+mes "สวัสดี ^0000FF" + strcharinfo(0) + "^000000";
+mes "ท่านสามารถมารับรางวัล";
+mes "ได้ที่นี่ ^FF0000ทุกๆ 30 นาที^000000";
+next;
+mes "[Pcmedias Gift]";
+mes "-- รางวัลคือ --";
+mes "• <ITEM>Red Potion<INFO>501</INFO> x 30</ITEM>";
+mes "• <ITEM>Fly Wing<INFO>601</INFO> x 20</ITEM>";
+mes "• <ITEM>Butterfly Wing<INFO>602</INFO> x 2</ITEM>";
+next;
+
+explode(.@UI_$, #Giftchoidk_$, "|");
+if( gettime(8) != atoi(.@UI_$[0]) ) {
+	.@UI_$[0] = gettime(8);
+	.@UI_$[2] = 1;
+} else {
+	if( atoi(.@UI_$[2]) > 4 ) {
+		mes "[Pcmedias Gift]";
+		mes "คุณได้รับสูงสุดแล้วในวันนี้.";
+		close; }
+	if( ( .@T = atoi(.@UI_$[1]) - gettimetick(2) ) > 0  ) {
+		mes "[Pcmedias Gift]";
+		mes "ตอนนี้ยังไม่ถึงเวลา";
+		mes "----------------------------";
+		mes "คุณต้องรออีก ^FF0000"+ (.@T/60) +" นาที.^000000";
+		mes "----------------------------";
+		close; }
+	.@UI_$[2] = atoi(.@UI_$[2]) + 1;
+}
+.@UI_$[1] = gettimetick(2) + .@DL;
+set #Giftchoidk_$, implode(.@UI_$,"|");
+
+mes "[Pcmedias Gift]";
+mes "สำหรับคุณ ออนไลน์ครบ 30 นาที";
+
+for( .@i = 0; .@i < getarraysize( .@It ); .@i++ )
+	getitem .@It[.@i], .@Cn[.@i];
+close;
+
+OnInit:
+	delwaitingroom;
+	waitingroom "ฟรี! รางวัลผู้เล่น Online",0;
+	end;
+}

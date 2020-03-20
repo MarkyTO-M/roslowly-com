@@ -1,0 +1,32 @@
+-	script	บ้าน Holy Shadow 02::gvg04	-1,{
+if (@GW_guest) end;
+set .@GID, GetCastleData("gvg_cas04",1);
+if (.@GID == 0) {
+}
+else {
+if (getcharid(2) == .@GID) {
+if (select("^0000FF-^000000 เข้าปราสาท") == 1) {
+if (getcharid(2) == GetCastleData("gvg_cas04",1)) {
+warp "gvg_cas04",9,288;
+end;
+}
+}
+close;
+}
+mes "^FF0000[บ้าน Holy Shadow 02]^000000";
+mes "กิลด์ : " + GetGuildName(.@GID) + "";
+}
+close;
+
+OnRecvCastleZc04:
+FlagEmblem GetCastleData("gvg_cas04",1);
+end;
+}
+
+gvg_cas04,269,265,0	duplicate(Gld_Agit_Manager)	Agit#gvg_cas04	-1
+gvg_cas04,10,277,0	duplicate(Gld_Mngr_Template)	Gheriot#gvg_cas04	55
+gvg_cas04,10,277,0	duplicate(Gld_Guard_Template)	Guardian#gvg_cas04	-1
+gvg_cas04,9,263,5	duplicate(Gld_Kafra_Template)	Kafra Staff#gvg_cas04	117
+gvg_cas04,159,168,0	duplicate(Gld_Trea_Protect)	ban_warp#gvg_cas04	-1,6,6
+gvg_cas04,159,168,0	duplicate(Gld_Trea_Spawn)	Treasure#gvg_cas04	-1
+gvg_cas04,20,44,0	duplicate(Gld_Dun_Template)	#gvg_cas04	111

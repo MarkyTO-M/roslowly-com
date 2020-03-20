@@ -1,0 +1,46 @@
+// -	script	DamageEmperium	-1,{
+// end;
+// 
+// OnInit:
+// // monster "morocc",107,107,"EmperiumTEST1",1288,1,"DamageEmperium::OnEmperiumxTEST1";
+// // monster "morocc",112,107,"EmperiumTEST2",1288,1,"DamageEmperium::OnEmperiumxTEST2";
+// // monster "morocc",117,107,"EmperiumTEST3",1288,1,"DamageEmperium::OnEmperiumxTEST3";
+// // monster "morocc",122,107,"EmperiumTEST4",1288,1,"DamageEmperium::OnEmperiumxTEST4";
+// agitstart;
+// sleep 1000;
+// sleep2 1000;
+// agitend;
+// end;
+// 
+// OnAgitEnd:
+// monster "morocc",107,107,"EmperiumTEST1",1288,1,"DamageEmperium::OnEmperiumxTEST1";
+// monster "morocc",112,107,"EmperiumTEST2",1288,1,"DamageEmperium::OnEmperiumxTEST2";
+// monster "morocc",117,107,"EmperiumTEST3",1288,1,"DamageEmperium::OnEmperiumxTEST3";
+// monster "morocc",122,107,"EmperiumTEST4",1288,1,"DamageEmperium::OnEmperiumxTEST4";
+// end;
+// 
+// OnAgitStart:
+// monster "morocc",107,107,"EmperiumTEST1",1288,1,"DamageEmperium::OnEmperiumxTEST1";
+// monster "morocc",112,107,"EmperiumTEST2",1288,1,"DamageEmperium::OnEmperiumxTEST2";
+// monster "morocc",117,107,"EmperiumTEST3",1288,1,"DamageEmperium::OnEmperiumxTEST3";
+// monster "morocc",122,107,"EmperiumTEST4",1288,1,"DamageEmperium::OnEmperiumxTEST4";
+// end;
+// 
+// OnEmperiumxTEST1:
+// 	monster "morocc",107,107,"EmperiumTEST1",1288,1,"DamageEmperium::OnEmperiumxTEST1";
+// 	end;
+// 
+// OnEmperiumxTEST2:
+// 	monster "morocc",112,107,"EmperiumTEST2",1288,1,"DamageEmperium::OnEmperiumxTEST2";
+// 	end;
+// 
+// OnEmperiumxTEST3:
+// 	monster "morocc",117,107,"EmperiumTEST3",1288,1,"DamageEmperium::OnEmperiumxTEST3";
+// 	end;
+// 
+// OnEmperiumxTEST4:
+// 	monster "morocc",122,107,"EmperiumTEST4",1288,1,"DamageEmperium::OnEmperiumxTEST4";
+// 	end;
+// }
+// 
+// morocc	mapflag	gvg	off

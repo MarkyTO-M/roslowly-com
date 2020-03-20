@@ -1,0 +1,113 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// NPC - Ranking System					//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//		 Written By HIME_meaw			//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=Ver 1.17=-=-=-=-=-=-=-=-=-=-=-=-=-= //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// V.1.00
+// - เริ่มเขียนสคริปต์ เทสเพื่อหาบั๊กและเตรียมแก้ไข
+// V. 1.01
+// - แก้ไขชื่อ Rank ใหม่หมด
+// - เพิ่มอันดับ Rank ให้เยอะกว่าเดิม เดี๋ยวก็เก็บเต็มกันหมดอยู่ดีแหละ
+// V.1.02
+// - รีมูฟส่วนเปลี่ยนชื่อตอนเข้าเกมออก ยาวเกินมองเห้นแต่แร้งค์ ไม่เห็นชื่อ ใครอยากใช้เอา // หน้าบรรทัดนั้นออกเอง
+// **ถ้าให้เปลี่ยนชื่อตอนเข้าเกม รู้สึกจะพิมพ์คำสั่งเกี่ยวกับชื่อไม่ได้ มันจะบอกว่าไม่เจอผู้เล่น เลยไม่อยากให้ใช้เท่าไหร่
+// V.1.04
+// - แก้ Code บางส่วนที่ทำให้ติดบั๊กไม่ยอกรับแร้งค์เวลาเข้าเกม				
+// - แก้ให้ซัพพอตเซิฟเวอร์ TXT
+// V.1.10
+// - แก้บั๊กไม่อ่านสคริปเวลาเพลเยอร์ฆ่ามอนตาย
+// - รีมูฟประกาศเวลาฆ่ามอนได้ออก ประกาศเกร่อมองอะไรไม่เห็นพอดี
+// - เปลี่ยนประกาศเวลาฆ่ามอนเป็นโชว์ว่าฆ่าตัวไรตายด้านล่างแทน
+// V.1.14
+// - เอาประกาศด้านล่างเวลาฆ่ามอนออก เนื่องจากเกร่อเกินไปอีกนั้นแหละ ใครอยากใช้ตามเดิม เอา // หน้าบรรทัดออก
+// - เพิ่มระบบแจกรางวัลเวลาแร้งค์อัพ ของแจกเป็น TCG Card
+// V.1.15
+// - แก้บั๊กสคริปแจปรางวัลไม่อ่าน
+// - เพิ่มระบบประกาศเวลาแรงค์อัพ จะได้รู้ว่าทำไมอยู่ๆตัวหนักกระทันหัน
+// V.1.17
+// - Fixed บั๊กทั้งหมด เทสครั้งสุดท้าย
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// For : Eathena Svn  .. เออๆ ใช้ๆไปเหอะมันไม่ได้ซับซ้อนไรขนาดนั้น	//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	-	script	Rank::RcheckingaSet	-1,{
+OnPCLoginEvent:
+if ((RankKillPoints >= 4000)) set AKRank$,"ผู้บัญชาการกองทัพ";
+if ((RankKillPoints <= 3999) && (RankKillPoints >= 3200)) set AKRank$,"พลเอก";
+if ((RankKillPoints <= 3199) && (RankKillPoints >= 2500)) set AKRank$,"พลโท";
+if ((RankKillPoints <= 2499) && (RankKillPoints >= 2000)) set AKRank$,"พลตรี";
+if ((RankKillPoints <= 1999) && (RankKillPoints >= 1700)) set AKRank$,"พันเอกพิเศษ";
+if ((RankKillPoints <= 1699) && (RankKillPoints >= 1400)) set AKRank$,"พันเอก";
+if ((RankKillPoints <= 1399) && (RankKillPoints >= 1200)) set AKRank$,"พันโท";
+if ((RankKillPoints <= 1199) && (RankKillPoints >= 1000)) set AKRank$,"พันตรี";
+if ((RankKillPoints <= 999) && (RankKillPoints >= 900)) set AKRank$,"ร้อยเอก";
+if ((RankKillPoints <= 899) && (RankKillPoints >= 800)) set AKRank$,"ร้อยโท";
+if ((RankKillPoints <= 799) && (RankKillPoints >= 700)) set AKRank$,"ร้อยตรี";
+if ((RankKillPoints <= 699) && (RankKillPoints >= 600)) set AKRank$,"จ่าสิบเอกพิเศษ";
+if ((RankKillPoints <= 599) && (RankKillPoints >= 500)) set AKRank$,"จ่าสิบเอก";
+if ((RankKillPoints <= 499) && (RankKillPoints >= 400)) set AKRank$,"จ่าสิบโท";
+if ((RankKillPoints <= 399) && (RankKillPoints >= 300)) set AKRank$,"จ่าสิบตรี";
+if ((RankKillPoints <= 299) && (RankKillPoints >= 200)) set AKRank$,"สิบเอก";
+if ((RankKillPoints <= 199) && (RankKillPoints >= 100)) set AKRank$,"สิบโท";
+if ((RankKillPoints <= 99) && (RankKillPoints >= 1)) set AKRank$,"สิบตรี";
+if ((RankKillPoints == 0)) set AKRank$,"พลทหาร";
+// if (AKRank$ != "")  atcommand "@fakename ["+AKRank$ +"] " + strcharinfo(0) + ""; //เปลี่ยนชื่อตอนเข้าเกมส์
+if (AKRank$ != "") {
+	// announce "ผู้เล่น "+ strcharinfo(0) +" ได้เข้าสู่เกมแล้ว !!",0,0xFF9999;
+	sleep2 1000;
+	set @GID,getcastledata("payg_cas01",1);
+	if(@GID == getcharid(2)){
+		announce "ผู้ปกครองปราสาท "+ strcharinfo(0) +" [Bright Arbor] ได้เข้าสู่เกมแล้ว !!",0,0xFF9999;
+	}else{
+		announce "ผู้เล่น "+ strcharinfo(0) +" ได้เข้าสู่เกมแล้ว !!",0,0xFF9999;
+	}
+}
+end;
+
+}
+
+// 
+// 	-	script	Ranking#ForUPrank	-1,{
+// OnNPCKillEvent:
+// 			//dispbottom ""+ strcharinfo(0) +" ได้กำจัด "+getmonsterinfo(killedrid,0)+" แล้ว! คะแนนรวมอยู่ที่ "+RankKillPoints+" แต้ม!",bc_self,0x66CCFF;
+// 			//set RankKillPoints,RankKillPoints + 1;
+// 			//if (Houses == 1) set $GryffndoreP,$GryffndoreP +1;
+// 			//if (Houses == 2) set $SlytherinP,$SlytherinP +1;
+// 			//if (Houses == 3) set $RavenclawP,$RavenclawP +1;
+// 			//if (Houses == 4) set $HufflepuffP,$HufflepuffP +1;
+// 			//callfunc "HE_Checking";
+// 			end;
+// }
+// 
+
+function	script	HE_Checking	{
+//////+-+-+-+-+-+-เช็คและอัพเดตเรตติ้งของผู้เล่น-+-+-+-+-+-+\\\\\\
+if ((RankKillPoints >= 4000)) set AKRank$,"Warfare Guardian of Rune-Midgard";
+if ((RankKillPoints == 0)) set AKRank$,"Thalita's Beginner";
+if ((RankKillPoints == 100) || (RankKillPoints == 200) || (RankKillPoints == 300) || (RankKillPoints == 400) || (RankKillPoints == 500) || (RankKillPoints == 600) || 
+(RankKillPoints == 700) || (RankKillPoints == 800) || (RankKillPoints == 900) || (RankKillPoints == 1000) || (RankKillPoints == 1100) || (RankKillPoints == 1200) || 
+(RankKillPoints == 1300) || (RankKillPoints == 1400) || (RankKillPoints == 1500) || (RankKillPoints == 1600) || (RankKillPoints == 1700) || (RankKillPoints == 1800) || 
+(RankKillPoints == 1900) || (RankKillPoints == 2000) || (RankKillPoints == 2100) || (RankKillPoints == 2200) || (RankKillPoints == 2300) || (RankKillPoints == 2400) || 
+(RankKillPoints == 2500) || (RankKillPoints == 2600) || (RankKillPoints == 2700) || (RankKillPoints == 2800) || (RankKillPoints == 2900) || (RankKillPoints == 3000) || 
+(RankKillPoints == 3100) || (RankKillPoints == 3200) || (RankKillPoints == 3300) || (RankKillPoints == 3400) || (RankKillPoints == 3500) || (RankKillPoints == 3600) || 
+(RankKillPoints == 3700) || (RankKillPoints == 3800) || (RankKillPoints == 3900) || (RankKillPoints == 4000) || (RankKillPoints == 1)) {
+set @GetPoints,rand(10,70);
+if (RankKillPoints == 4000) { announce "[ "+ strcharinfo(0) +" ] ได้พัฒนาสู่ระดับสูงสุด - ["+AKRank$+"] - และทำแต้มพิเศษแก่บ้าน [ "+Housename$+" ] จำนวน [ "+@GetPoints+" ] แต้ม!!!",0,0xFF99CC; }
+if ((RankKillPoints >= 1) && (RankKillPoints <= 3999)) { announce "[ "+ strcharinfo(0) +" ] ได้พัฒนาถึงระดับ ["+AKRank$+"] และทำแต้มพิเศษแก่บ้าน [ "+Housename$+" ] จำนวน [ "+@GetPoints+" ] แต้ม!!!",0,0xBCEE68;
+callfunc "RA_Reward";
+end;
+}
+end;
+}
+end;
+}
+
+function	script	RA_Reward	{
+if (RankKillPoints == 4000) { set @itemamount,1500; set @RaRewID,7227; }
+if ((RankKillPoints >= 1) && (RankKillPoints <= 4000)) { announce "[ "+ strcharinfo(0) +" ] ได้รับรางวัลในการพัฒนาระดับเป็น "+getitemname(@RaRewID)+" นวน "+@itemamount+" ea, ขอแสดงความยินดีด้วย!!!",0x7CCD7C;
+getitem @RaRewID,@itemamount;
+end;
+}
+end;
+}

@@ -1,0 +1,46 @@
+//===== Developers Script ===================================
+//= Server Rate
+//===== Current Version =====================================
+//= 1.0
+//===== Description =========================================
+//= Server Rate
+//===== Additional Comments =================================
+//= 1.0 Start Version
+//= 1.1 Edit By Ragnarok PVP GVG
+//===========================================================
+
+-	shop	Packbox	-1,13889:-1,13890:-1
+
+-	script	packboxx	-1,{
+
+npcshopattach "Packbox";
+callshop "Packbox",1;
+close;
+
+OnBuyItem:
+if(@bought_nameid==13890){
+if(countitem(984)>= 10*@bought_quantity){
+getitem 13890,1*@bought_quantity;
+delitem 984,10*@bought_quantity;
+close;
+}
+mes "ต้องใช้ Oridecon จำนวน 10 อัน";
+close;
+}
+
+if(@bought_nameid==13889){
+if(countitem(985)>= 10*@bought_quantity){
+getitem 13889,1*@bought_quantity;
+delitem 985,10*@bought_quantity;
+close;
+}
+mes "ต้องใช้ Elunium จำนวน 10 อัน";
+close;
+}
+
+OnInit: 
+waitingroom "อัดกล่อง",0;
+end;
+}
+
+morocc,107,56,4	duplicate(packboxx)	อัดกล่อง#1	953

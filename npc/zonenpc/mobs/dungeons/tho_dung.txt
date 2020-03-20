@@ -1,0 +1,19 @@
+thor_v01,0,0,0,0	monster	Magmaring	1836,10,0,0,0
+thor_v01,0,0,0,0	monster	Fire Imp	1837,10,0,0,0
+thor_v01,0,0,0,0	monster	Kasa	1833,90,0,0,0
+thor_v01,0,0,0,0	monster	Sword Master	1829,10,0,0,0
+thor_v01,0,0,0,0	monster	Salamander	1831,90,0,0,0
+thor_v01,0,0,0,0	monster	Bow Master	1830,10,0,0,0
+
+thor_v02,0,0,0,0	monster	Magmaring	1836,10,0,0,0
+thor_v02,0,0,0,0	monster	Fire Imp	1837,90,0,0,0
+thor_v02,0,0,0,0	monster	Kaho	1072,90,0,0,0
+thor_v02,0,0,0,0	monster	Knocker	1838,90,0,0,0
+thor_v02,0,0,0,0	monster	Salamander	1831,10,0,0,0
+thor_v02,0,0,0,0	monster	Sword Master	1829,10,0,0,0
+thor_v02,0,0,0,0	monster	Bow Master	1830,10,0,0,0
+
+thor_v03,0,0,0,0	monster	Kasa	1833,90,0,0,0
+thor_v03,0,0,0,0	monster	Salamander	1831,90,0,0,0
+thor_v03,0,0,0,0	monster	Sword Master	1829,10,0,0,0
+thor_v03,0,0,0,0	monster	Bow Master	1830,10,0,0,0

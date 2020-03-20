@@ -1,0 +1,25 @@
+c_tower1,0,0,0,0	monster	Punk	1199,90,0,0,0
+c_tower1,0,0,0,0	monster	Rideword	1195,90,0,0,0
+c_tower1,0,0,0,0	monster	Clock Tower Manager	1270,90,0,0,0
+c_tower1,0,0,0,0	monster	Bathory	1102,90,0,0,0
+
+c_tower2,0,0,0,0	monster	Punk	1199,90,0,0,0
+c_tower2,0,0,0,0	monster	Clock	1269,90,0,0,0
+c_tower2,0,0,0,0	monster	Rideword	1195,90,0,0,0
+c_tower2,0,0,0,0	monster	Mimic	1191,90,0,0,0
+c_tower2,0,0,0,0	monster	Clock Tower Manager	1270,90,0,0,0
+c_tower2,0,0,0,0	monster	Elder	1377,90,0,0,0
+
+c_tower3,0,0,0,0	monster	Alarm	1193,180,0,0,0
+c_tower3,0,0,0,0	monster	Rideword	1195,90,0,0,0
+c_tower3,0,0,0,0	monster	Mimic	1191,10,0,0,0
+c_tower3,0,0,0,0	monster	Clock Tower Manager	1270,90,0,0,0
+
+c_tower4,0,0,0,0	monster	Clock Tower Manager	1270,90,0,0,0
+c_tower4,0,0,0,0	monster	Whisper	1179,90,0,0,0
+c_tower4,0,0,0,0	monster	Elder	1377,180,0,0,0
+c_tower4,0,0,0,0	monster	Alarm	1193,90,0,0,0
+c_tower4,0,0,0,0	monster	Clock	1269,90,0,0,0
+c_tower4,0,0,0,0	monster	Owl Duke	1320,90,0,0,0
+c_tower4,0,0,0,0	monster	Rideword	1195,90,0,0,0
+c_tower4,0,0,0,0	monster	Mimic	1191,10,0,0,0

@@ -1,0 +1,120 @@
+eventzone,22,57,4	script	 #zone	111,{
+
+OnPBG_main:
+if (getgmlevel() < 99) end;
+
+mes "^FF0000[กิจกรรม]^000000";
+mes " ";
+mes "ปาร์ตี้ที่ 1. "+.@GuildName_1$;
+mes "ปาร์ตี้ที่ 2. "+.@GuildName_2$;
+mes " ";
+mes " ";
+mes "สถานะระบบ : "+(($@PBG_ready)?"^009933เปิด^000000":"^FF0000ปิด^000000")+"";
+next;
+switch(select("^0000FF-^000000 เปิดกิจกรรม","^0000FF-^000000 ปิดกิจกรรม","^0000FF-^000000 ลงทะเบียน","","")){
+
+Case 1:
+set $@PBG_ready,1;
+atcommand "@gvgon";
+disablenpc "WALL#1b";
+disablenpc "WALL#2b";
+disablenpc "WALL#3b";
+disablenpc "WALL#4b";
+disablenpc "WALL#5b";
+disablenpc "WALL#6b";
+disablenpc "WALL#7b";
+disablenpc "WALL#8b";
+disablenpc "WALL#9b";
+disablenpc "WALL#10b";
+disablenpc "WALL#11b";
+disablenpc "WALL#12b";
+disablenpc "WALL#13b";
+disablenpc "WALL#14b";
+disablenpc "WALL#15b";
+disablenpc "WALL#16b";
+setcell "eventzone",21,43,21,36,cell_walkable,1;
+setcell "eventzone",58,43,58,36,cell_walkable,1;
+disablenpc "Recall#zone1";
+disablenpc "Recall#zone2";
+goto OnPBG_main;
+
+Case 2:
+set $@PBG_ready,0;
+atcommand "@gvgoff";
+enablenpc "WALL#1b";
+enablenpc "WALL#2b";
+enablenpc "WALL#3b";
+enablenpc "WALL#4b";
+enablenpc "WALL#5b";
+enablenpc "WALL#6b";
+enablenpc "WALL#7b";
+enablenpc "WALL#8b";
+enablenpc "WALL#9b";
+enablenpc "WALL#10b";
+enablenpc "WALL#11b";
+enablenpc "WALL#12b";
+enablenpc "WALL#13b";
+enablenpc "WALL#14b";
+enablenpc "WALL#15b";
+enablenpc "WALL#16b";
+setcell "eventzone",21,43,21,36,cell_walkable,0;
+setcell "eventzone",58,43,58,36,cell_walkable,0;
+enablenpc "Recall#zone1";
+enablenpc "Recall#zone2";
+goto OnPBG_main;
+
+Case 3:
+mes "^FF0000[กิจกรรม]^000000";
+mes " ";
+mes "กรอกรหัสปาร์ตี้ที่ 1 ครับ";
+input .@GuildName_1;
+set .@GuildName_1$,getpartyname(.@GuildName_1);
+next;
+mes "^FF0000[กิจกรรม]^000000";
+mes " ";
+mes "กรอกรหัสปาร์ตี้ที่ 2 ครับ";
+input .@GuildName_2;
+set .@GuildName_2$,getpartyname(.@GuildName_2);
+next;
+mes "^FF0000[กิจกรรม]^000000";
+mes " ";
+mes "ปาร์ตี้ที่ 1. "+.@GuildName_1$;
+mes "ปาร์ตี้ที่ 2. "+.@GuildName_2$;
+next;
+warpparty "eventzone",16,40,.@GuildName_1;
+warpparty "eventzone",63,40,.@GuildName_2;
+next;
+goto OnPBG_main;
+
+}
+}
+
+-	script	zonewall	-1,{end;}
+
+eventzone,21,43,4	duplicate(zonewall)	WALL#1b	1905
+eventzone,21,42,4	duplicate(zonewall)	WALL#2b	1905
+eventzone,21,41,4	duplicate(zonewall)	WALL#3b	1905
+eventzone,21,40,4	duplicate(zonewall)	WALL#4b	1905
+eventzone,21,39,4	duplicate(zonewall)	WALL#5b	1905
+eventzone,21,38,4	duplicate(zonewall)	WALL#6b	1905
+eventzone,21,37,4	duplicate(zonewall)	WALL#7b	1905
+eventzone,21,36,4	duplicate(zonewall)	WALL#8b	1905
+
+eventzone,58,43,4	duplicate(zonewall)	WALL#9b	1905
+eventzone,58,42,4	duplicate(zonewall)	WALL#10b	1905
+eventzone,58,41,4	duplicate(zonewall)	WALL#11b	1905
+eventzone,58,40,4	duplicate(zonewall)	WALL#12b	1905
+eventzone,58,39,4	duplicate(zonewall)	WALL#13b	1905
+eventzone,58,38,4	duplicate(zonewall)	WALL#14b	1905
+eventzone,58,37,4	duplicate(zonewall)	WALL#15b	1905
+eventzone,58,36,4	duplicate(zonewall)	WALL#16b	1905
+
+eventzone	mapflag	nowarp	40
+eventzone	mapflag	nowarpto	40
+eventzone	mapflag	noteleport	40
+eventzone	mapflag	nocommand	40
+eventzone	mapflag	nomemo	40
+eventzone	mapflag	nobranch	40
+eventzone	mapflag	noreturn	40
+eventzone	mapflag	nosave	40
+eventzone	mapflag	nodrop	40

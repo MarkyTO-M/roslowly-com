@@ -1,0 +1,79 @@
+prt_fild00,0,0,0,0	monster	Creamy	1018,10,0,0,0
+prt_fild00,0,0,0,0	monster	Fabre	1007,90,0,0,0
+prt_fild00,0,0,0,0	monster	Pupa	1008,90,0,0,0
+prt_fild00,0,0,0,0	monster	Lunatic	1063,90,0,0,0
+prt_fild00,0,0,0,0	monster	Poring	1002,10,0,0,0
+prt_fild00,0,0,0,0	monster	Hornet	1004,90,0,0,0
+prt_fild00,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+prt_fild00,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+
+prt_fild01,0,0,0,0	monster	Thief Bug	1051,10,0,0,0
+prt_fild01,0,0,0,0	monster	Fabre	1007,90,0,0,0
+prt_fild01,0,0,0,0	monster	Pupa	1008,10,0,0,0
+prt_fild01,0,0,0,0	monster	Lunatic	1063,90,0,0,0
+prt_fild01,0,0,0,0	monster	Poring	1002,90,0,0,0
+prt_fild01,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+prt_fild01,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+
+prt_fild02,0,0,0,0	monster	Mandragora	1020,90,0,0,0
+prt_fild02,0,0,0,0	monster	Fabre	1007,90,0,0,0
+prt_fild02,0,0,0,0	monster	Pupa	1008,10,0,0,0
+prt_fild02,0,0,0,0	monster	Lunatic	1063,10,0,0,0
+prt_fild02,0,0,0,0	monster	Poring	1002,10,0,0,0
+prt_fild02,0,0,0,0	monster	Eclipse	1093,10,0,0,0
+prt_fild02,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+
+prt_fild03,0,0,0,0	monster	Yoyo	1057,90,0,0,0
+prt_fild03,0,0,0,0	monster	Smokie	1056,90,0,0,0
+prt_fild03,0,0,0,0	monster	Choco	1214,10,0,0,0
+prt_fild03,0,0,0,0	monster	Poporing	1031,10,0,0,0
+prt_fild03,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+prt_fild03,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+
+prt_fild04,0,0,0,0	monster	Rocker	1052,90,0,0,0
+prt_fild04,0,0,0,0	monster	Creamy	1018,90,0,0,0
+prt_fild04,0,0,0,0	monster	Pupa	1008,10,0,0,0
+prt_fild04,0,0,0,0	monster	Poring	1002,90,0,0,0
+prt_fild04,0,0,0,0	monster	Vocal	1088,10,0,0,0
+prt_fild04,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+
+prt_fild05,0,0,0,0	monster	Poring	1002,90,0,0,0
+prt_fild05,0,0,0,0	monster	Thief Bug Egg	1048,90,0,0,0
+prt_fild05,0,0,0,0	monster	Lunatic	1063,10,0,0,0
+prt_fild05,0,0,0,0	monster	Pupa	1008,10,0,0,0
+prt_fild05,0,0,0,0	monster	Thief Bug	1051,10,0,0,0
+
+prt_fild06,0,0,0,0	monster	Lunatic	1063,90,0,0,0
+prt_fild06,0,0,0,0	monster	Thief Bug Egg	1048,10,0,0,0
+prt_fild06,0,0,0,0	monster	Thief Bug	1051,10,0,0,0
+prt_fild06,0,0,0,0	monster	Pupa	1008,90,0,0,0
+prt_fild06,0,0,0,0	monster	Poring	1002,90,0,0,0
+
+prt_fild07,0,0,0,0	monster	Rocker	1052,90,0,0,0
+prt_fild07,0,0,0,0	monster	Poporing	1031,90,0,0,0
+prt_fild07,0,0,0,0	monster	Vocal	1088,10,0,0,0
+
+prt_fild08,0,0,0,0	monster	Lunatic	1063,90,0,0,0
+prt_fild08,0,0,0,0	monster	Pupa	1008,90,0,0,0
+prt_fild08,0,0,0,0	monster	Poring	1002,90,0,0,0
+prt_fild08,0,0,0,0	monster	Drops	1113,10,0,0,0
+
+prt_fild09,0,0,0,0	monster	Savage Babe	1167,90,0,0,0
+prt_fild09,0,0,0,0	monster	Baby Desert Wolf	1107,90,0,0,0
+prt_fild09,0,0,0,0	monster	Peco Peco Egg	1047,90,0,0,0
+prt_fild09,0,0,0,0	monster	Picky	1049,90,0,0,0
+prt_fild09,0,0,0,0	monster	Condor	1009,10,0,0,0
+
+prt_fild10,0,0,0,0	monster	Savage	1166,90,0,0,0
+prt_fild10,0,0,0,0	monster	Savage Babe	1167,90,0,0,0
+prt_fild10,0,0,0,0	monster	Poporing	1031,90,0,0,0
+prt_fild10,0,0,0,0	monster	Thief Bug	1051,90,0,0,0
+
+prt_fild11,0,0,0,0	monster	Goblin	1122,10,0,0,0
+prt_fild11,0,0,0,0	monster	Goblin	1123,90,0,0,0
+prt_fild11,0,0,0,0	monster	Goblin	1124,90,0,0,0
+prt_fild11,0,0,0,0	monster	Goblin	1125,90,0,0,0
+prt_fild11,0,0,0,0	monster	Goblin	1126,90,0,0,0
+prt_fild11,0,0,0,0	monster	Goblin Archer	1258,10,0,0,0
+prt_fild11,0,0,0,0	monster	Panzer Goblin	1308,10,0,0,0
+prt_fild11,0,0,0,0	monster	Goblin Steamrider	1280,10,0,0,0

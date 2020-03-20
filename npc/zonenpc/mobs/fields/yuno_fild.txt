@@ -1,0 +1,101 @@
+yuno_fild01,0,0,0,0	monster	Dustiness	1114,90,0,0,0
+yuno_fild01,0,0,0,0	monster	Poring	1002,90,0,0,0
+yuno_fild01,0,0,0,0	monster	Poporing	1031,90,0,0,0
+yuno_fild01,0,0,0,0	monster	Grand Peco	1369,90,0,0,0
+yuno_fild01,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+yuno_fild01,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+yuno_fild01,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+yuno_fild01,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+
+yuno_fild02,0,0,0,0	monster	Beetle King	1494,90,0,0,0
+yuno_fild02,0,0,0,0	monster	Horn	1128,90,0,0,0
+yuno_fild02,0,0,0,0	monster	Dustiness	1114,90,0,0,0
+yuno_fild02,0,0,0,0	monster	Hunter Fly	1035,90,0,0,0
+yuno_fild02,0,0,0,0	monster	Wild Rose	1261,90,0,0,0
+yuno_fild02,0,0,0,0	monster	Novus	1715,90,0,0,0
+yuno_fild02,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+yuno_fild02,0,0,0,0	monster	Yellow Plant	1081,10,0,0
+yuno_fild02,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+
+yuno_fild03,0,0,0,0	monster	Poporing	1031,90,0,0,0
+yuno_fild03,0,0,0,0	monster	Drops	1113,90,0,0,0
+yuno_fild03,0,0,0,0	monster	Poring	1002,90,0,0,0
+yuno_fild03,0,0,0,0	monster	Marin	1242,90,0,0,0
+yuno_fild03,0,0,0,0	monster	Geographer	1368,90,0,0,0
+yuno_fild03,0,0,0,0	monster	Side Winder	1037,10,0,0,0
+yuno_fild03,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+yuno_fild03,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+yuno_fild03,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+yuno_fild03,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+yuno_fild03,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+
+yuno_fild04,0,0,0,0	monster	Poring	1002,90,0,0,0
+yuno_fild04,0,0,0,0	monster	Drops	1113,180,0,0,0
+yuno_fild04,0,0,0,0	monster	Condor	1009,10,0,0,0
+yuno_fild04,0,0,0,0	monster	Pupa	1008,10,0,0,0
+yuno_fild04,0,0,0,0	monster	Mastering	1090,10,0,0,0
+yuno_fild04,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+yuno_fild04,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+yuno_fild04,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+
+yuno_fild05,0,0,0,0	monster	Rafflesia	1162,90,0,0,0
+yuno_fild05,0,0,0,0	monster	Dustiness	1114,90,0,0,0
+yuno_fild05,0,0,0,0	monster	Horn	1128,180,0,0,0
+yuno_fild05,0,0,0,0	monster	Beetle King	1494,10,0,0,0
+
+yuno_fild05,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+yuno_fild05,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+yuno_fild05,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+yuno_fild05,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+yuno_fild05,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+
+yuno_fild06,0,0,0,0	monster	Sleeper	1386,90,0,0,0
+yuno_fild06,0,0,0,0	monster	Goat	1372,90,0,0,0
+yuno_fild06,0,0,0,0	monster	Demon Pungus	1378,10,0,0,0
+yuno_fild06,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+yuno_fild06,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+yuno_fild06,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+
+yuno_fild07,0,0,0,0	monster	Goat	1372,10,0,0,0
+yuno_fild07,0,0,0,0	monster	Geographer	1368,90,0,0,0
+yuno_fild07,0,0,0,0	monster	Driller	1380,10,0,0,0
+yuno_fild07,0,0,0,0	monster	Harpy	1376,90,0,0,0
+yuno_fild07,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+yuno_fild07,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+yuno_fild07,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+
+yuno_fild08,0,0,0,0	monster	Wild Rose	1261,90,0,0,0
+yuno_fild08,0,0,0,0	monster	Grand Peco	1369,90,0,0,0
+yuno_fild08,0,0,0,0	monster	Geographer	1368,90,0,0,0
+yuno_fild08,0,0,0,0	monster	Dustiness	1114,90,0,0,0
+yuno_fild08,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+yuno_fild08,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+yuno_fild08,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+
+yuno_fild09,0,0,0,0	monster	Beetle King	1494,10,0,0,0
+yuno_fild09,0,0,0,0	monster	Horn	1128,180,0,0,0
+yuno_fild09,0,0,0,0	monster	Stainer	1174,10,0,0,0
+yuno_fild09,0,0,0,0	monster	Dustiness	1114,10,0,0,0
+yuno_fild09,0,0,0,0	monster	Hunter Fly	1035,10,0,0,0
+yuno_fild09,0,0,0,0	monster	Wild Rose	1261,90,0,0,0
+yuno_fild09,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+yuno_fild09,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+yuno_fild09,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+
+yuno_fild10,0,0,0,0	monster	Beetle King	1494,10,0,0,0
+yuno_fild10,0,0,0,0	monster	Stainer	1174,10,0,0,0
+yuno_fild10,0,0,0,0	monster	Dustiness	1114,10,0,0,0
+yuno_fild10,0,0,0,0	monster	Geographer	1368,10,0,0,0
+yuno_fild10,0,0,0,0	monster	Hunter Fly	1035,10,0,0,0
+
+yuno_fild11,0,0,0,0	monster	Sleeper	1386,90,0,0,0
+yuno_fild11,0,0,0,0	monster	Demon Pungus	1378,90,0,0,0
+yuno_fild11,0,0,0,0	monster	Geographer	1368,90,0,0,0
+yuno_fild11,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+yuno_fild11,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+yuno_fild11,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+
+yuno_fild12,0,0,0,0	monster	Dustiness	1114,90,0,0,0
+yuno_fild12,0,0,0,0	monster	Demon Pungus	1378,90,0,0,0
+yuno_fild12,0,0,0,0	monster	Poporing	1031,10,0,0,0
+yuno_fild12,0,0,0,0	monster	Geographer	1368,10,0,0,0

@@ -1,0 +1,15 @@
+abbey01,0,0,0,0	monster	Banshee	1867,90,0,0,0
+abbey01,0,0,0,0	monster	Ragged Zombie	1865,90,0,0,0
+abbey01,0,0,0,0	monster	Hell Poodle	1866,90,0,0,0
+abbey01,0,0,0,0	monster	Zombie Slaughter	1864,90,0,0,0
+abbey01,0,0,0,0	monster	Flame Skull	1869,90,0,0,0
+abbey01,0,0,0,0	monster	Ghoul	1036,90,0,0,0
+
+abbey02,0,0,0,0	monster	Ragged Zombie	1865,90,0,0,0
+abbey02,0,0,0,0	monster	Zombie Slaughter	1864,90,0,0,0
+abbey02,0,0,0,0	monster	Flame Skull	1869,90,0,0,0
+abbey02,0,0,0,0	monster	Necromancer	1870,90,0,0,0
+
+abbey03,0,0,0,0	monster	Necromancer	1870,90,0,0,0
+abbey03,0,0,0,0	monster	Banshee	1867,90,0,0,0
+abbey03,0,0,0,0	monster	Flame Skull	1869,90,0,0,0

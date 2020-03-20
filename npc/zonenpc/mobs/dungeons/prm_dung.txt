@@ -1,0 +1,77 @@
+prt_maze01,0,0,0,0	monster	Poring	1002,10,0,0,0
+prt_maze01,0,0,0,0	monster	Lunatic	1063,10,0,0,0
+prt_maze01,0,0,0,0	monster	Fabre	1007,10,0,0,0
+prt_maze01,0,0,0,0	monster	Creamy	1018,10,0,0,0
+prt_maze01,0,0,0,0	monster	Pupa	1008,10,0,0,0
+prt_maze01,0,0,0,0	monster	Poporing	1031,10,0,0,0
+prt_maze01,0,0,0,0	monster	Rocker	1052,10,0,0,0
+prt_maze01,0,0,0,0	monster	Bigfoot	1060,10,0,0,0
+prt_maze01,0,0,0,0	monster	Smokie	1056,10,0,0,0
+prt_maze01,0,0,0,0	monster	Boa	1025,10,0,0,0
+prt_maze01,0,0,0,0	monster	Wolf	1013,10,0,0,0
+prt_maze01,0,0,0,0	monster	Argiope	1099,10,0,0,0
+prt_maze01,0,0,0,0	monster	Argos	1100,10,0,0,0
+prt_maze01,0,0,0,0	monster	Chonchon	1011,10,0,0,0
+prt_maze01,0,0,0,0	monster	Horn	1128,10,0,0,0
+prt_maze01,0,0,0,0	monster	Hunter Fly	1035,10,0,0,0
+prt_maze01,0,0,0,0	monster	Mantis	1139,10,0,0,0
+prt_maze01,0,0,0,0	monster	Stainer	1174,10,0,0,0
+prt_maze01,0,0,0,0	monster	Side Winder	1037,10,0,0,0
+prt_maze01,0,0,0,0	monster	Yoyo	1057,10,0,0,0
+prt_maze01,0,0,0,0	monster	Choco	1214,10,0,0,0
+prt_maze01,0,0,0,0	monster	Steel Chonchon	1042,10,0,0,0
+prt_maze01,0,0,0,0	monster	Coco	1104,10,0,0,0
+prt_maze01,0,0,0,0	monster	Caramel	1103,10,0,0,0
+prt_maze01,0,0,0,0	monster	Dustiness	1114,10,0,0,0
+prt_maze01,0,0,0,0	monster	Martin	1145,10,0,0,0
+prt_maze01,0,0,0,0	monster	Savage	1166,10,0,0,0
+prt_maze01,0,0,0,0	monster	Savage	1166,10,0,0,0
+prt_maze01,0,0,0,0	monster	Hunter Fly	1035,10,0,0,0
+prt_maze01,0,0,0,0	monster	Vagabond Wolf	1092,10,0,0,0
+prt_maze01,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+prt_maze01,0,0,0,0	monster	White Plant	1082,10,0,0,0
+prt_maze01,0,0,0,0	monster	White Plant	1082,10,0,0,0
+prt_maze01,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+prt_maze01,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+prt_maze01,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+prt_maze01,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+prt_maze01,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+prt_maze01,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+prt_maze01,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+prt_maze01,0,0,0,0	monster	Black Mushroom	1084,10,0,0,0
+prt_maze01,0,0,0,0	monster	Black Mushroom	1084,10,0,0,0
+prt_maze01,0,0,0,0	monster	Red Mushroom	1085,10,0,0,0
+prt_maze01,0,0,0,0	monster	Red Mushroom	1085,10,0,0,0
+
+prt_maze02,0,0,0,0	monster	Poporing	1031,90,0,0,0
+prt_maze02,0,0,0,0	monster	Bigfoot	1060,10,0,0,0
+prt_maze02,0,0,0,0	monster	Sasquatch	1243,90,0,0,0
+prt_maze02,0,0,0,0	monster	Leib Olmai	1306,10,0,0,0
+
+prt_maze03,0,0,0,0	monster	Poporing	1031,90,0,0,0
+prt_maze03,0,0,0,0	monster	Side Winder	1037,10,0,0,0
+prt_maze03,0,0,0,0	monster	Hunter Fly	1035,90,0,0,0
+prt_maze03,0,0,0,0	monster	Killer Mantis	1294,10,0,0,0
+prt_maze03,0,0,0,0	monster	Side Winder	1037,90,0,0,0
+prt_maze03,0,0,0,0	monster	Vocal	1088,10,0,0,0
+prt_maze03,0,0,0,0	monster	Stem Worm	1215,90,0,0,0
+prt_maze03,0,0,0,0	monster	Vagabond Wolf	1092,10,0,0,0
+prt_maze03,0,0,0,0	monster	Mantis	1139,90,0,0,0
+prt_maze03,0,0,0,0	monster	Eclipse	1093,10,0,0,0
+prt_maze03,0,0,0,0	monster	Mastering	1090,10,0,0,0
+prt_maze03,0,0,0,0	monster	Baphomet Jr.	1101,100,0,0,0
+prt_maze03,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+prt_maze03,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+prt_maze03,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+prt_maze03,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+prt_maze03,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+prt_maze03,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+prt_maze03,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+prt_maze03,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+prt_maze03,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+prt_maze03,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+prt_maze03,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+prt_maze03,0,0,0,0	monster	Black Mushroom	1084,10,0,0,0
+prt_maze03,0,0,0,0	monster	Black Mushroom	1084,10,0,0,0
+prt_maze03,0,0,0,0	monster	Red Mushroom	1085,10,0,0,0
+prt_maze03,0,0,0,0	monster	Red Mushroom	1085,10,0,0,0

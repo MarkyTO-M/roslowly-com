@@ -1,0 +1,47 @@
+morocc,143,57,6	script	จัดการกิลด์วอร์	429,{
+if (getgmlevel() < 99) end;
+main:
+menu
+"^0000FF-^000000 เปิดวอร์1-1",g01;
+
+g01:
+atcommand "@agitstart";
+atcommand "@load";
+announce "[ สงคราม Guild War Of Emperium รอบพิเศษ เริ่มต้นขึ้นแล้ว !! ]",8;
+	sleep2 55*60*1000;
+	announce "[ สงคราม Guild War 5 นาทีสุดท้าย ]",0;
+	sleep2 1*60*1000;
+	announce "[ สงคราม Guild War 4 นาทีสุดท้าย ]",0;
+	sleep2 1*60*1000;
+	announce "[ สงคราม Guild War 3 นาทีสุดท้าย ]",0;
+	sleep2 1*60*1000;
+	announce "[ สงคราม Guild War 2 นาทีสุดท้าย ]",0;
+	sleep2 1*60*1000;
+	announce "[ สงคราม Guild War 1 นาทีสุดท้าย ]",0;
+	sleep2 50000;
+	announce "[ สงคราม Guild War 10 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 9 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 8 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 7 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 6 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 5 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 4 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 3 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 2 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 1 วินาทีสุดท้าย ]",0;
+	atcommand "@agitend";
+	Announce "[ สงคราม Guild War Of Emperium 1-1 จบลงแล้ว ]",8;
+	end;
+OnInit:
+waitingroom "๐ จัดการกิลด์วอร์ ๐",0;
+end;
+}

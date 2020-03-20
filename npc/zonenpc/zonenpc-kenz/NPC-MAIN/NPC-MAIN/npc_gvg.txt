@@ -1,0 +1,226 @@
+-	script	warexpress	-1,{
+callfunc "warexpress";
+end;
+}
+
+function	script	warexpress	{
+mes "^FF0000[War Service]^000000";
+		mes "ข้าคือผู้ให้บริการทางด้านกิลวอร์";
+		mes "เจ้าอยากจะไปหลังไหนจงบอกข้า";
+		mes "เมื่อถึงเวลาและกำหนดบ้านเสร็จ";
+		mes "วาร์ปของบ้านหลังนั้นๆขึ้นมาเท่านั้น";
+		mes "เพื่อความสะดวกสบายในการหาบ้าน";
+menu
+"^0000FF-^000000 Last Map War",lastmap,
+"^0000FF-^000000 บ้านวอร์ปกติ",WAR1,
+"^0000FF-^000000 บ้านเล่นหน้าบ้าน",WAR3,
+"^0000FF-^000000 บ้านBaby-Class2-แจม",WAR4,
+"^0000FF-^000000 บ้านวอร์ 1-1",WAR2;
+
+lastmap:
+if(lastmapwar$=="") { close; }
+warp lastmapwar$,lastwarx,lastwary;
+end;
+
+WAR1:
+menu
+" [^0000FF" + getmapusers("aldeg_cas01") + "^000000] คน Aldebaran - Neuschwanstein",case19,
+" [^0000FF" + getmapusers("aldeg_cas02") + "^000000] คน Aldebaran - Hohenschwangau",case01,
+" [^0000FF" + getmapusers("aldeg_cas03") + "^000000] คน Aldebaran - Nuenberg",case02,
+" [^0000FF" + getmapusers("aldeg_cas05") + "^000000] คน Aldebaran - Rothenburg",case04,
+" [^0000FF" + getmapusers("gefg_cas02") + "^000000] คน Geffen - Eeyolbriggar",case05,
+" [^0000FF" + getmapusers("gefg_cas03") + "^000000] คน Geffen - Yesnelph",case06,
+" [^0000FF" + getmapusers("gefg_cas04") + "^000000] คน Geffen - Bergel",case07,
+" [^0000FF" + getmapusers("gefg_cas05") + "^000000] คน Geffen - Mersetzdeitz",case08,
+" [^0000FF" + getmapusers("payg_cas01") + "^000000] คน Payon - Bright Arbor",case20,
+" [^0000FF" + getmapusers("payg_cas02") + "^000000] คน Payon - Scarlet Palace",case09,
+" [^0000FF" + getmapusers("payg_cas03") + "^000000] คน Payon - Holy Shadow",case10,
+" [^0000FF" + getmapusers("payg_cas04") + "^000000] คน Payon - Sacred Altar",case11,
+" [^0000FF" + getmapusers("payg_cas05") + "^000000] คน Payon - Bamboo Grove Hill",case12,
+" [^0000FF" + getmapusers("prtg_cas01") + "^000000] คน Prontera - Bright Kriemhild",case18,
+" [^0000FF" + getmapusers("prtg_cas02") + "^000000] คน Prontera - Swanhild",case13,
+" [^0000FF" + getmapusers("prtg_cas04") + "^000000] คน Prontera - Skoegul",case15,
+" [^0000FF" + getmapusers("prtg_cas05") + "^000000] คน Prontera - Gondul",case16,
+" ยกเลิก",w06;
+
+case01:
+set lastmapwar$,"alde_gld"; 
+set lastwarx,95; 
+set lastwary,247; 
+warp "alde_gld",95,247; 
+end;
+
+case02: 
+set lastmapwar$,"alde_gld"; 
+set lastwarx,142; 
+set lastwary,84; 
+warp "alde_gld",142,84; 
+end;
+case04: 
+set lastmapwar$,"alde_gld"; 
+set lastwarx,268; 
+set lastwary,89; 
+warp "alde_gld",268,89; 
+end;
+case05: 
+set lastmapwar$,"gef_fild13"; 
+set lastwarx,308; 
+set lastwary,241; 
+warp "gef_fild13",308,241; 
+end;
+case06: 
+set lastmapwar$,"gef_fild13"; 
+set lastwarx,83; 
+set lastwary,181; 
+warp "gef_fild13",83,181; 
+end;
+case07: 
+set lastmapwar$,"gef_fild13"; 
+set lastwarx,193; 
+set lastwary,278; 
+warp "gef_fild13",193,278; 
+end;
+case08: 
+set lastmapwar$,"gef_fild13"; 
+set lastwarx,252; 
+set lastwary,57; 
+warp "gef_fild13",252,57; 
+end;
+case09: 
+set lastmapwar$,"pay_gld"; 
+set lastwarx,294; 
+set lastwary,116; 
+warp "pay_gld",294,116; 
+end;
+case10: 
+set lastmapwar$,"pay_gld"; 
+set lastwarx,319; 
+set lastwary,293; 
+warp "pay_gld",319,293; 
+end;
+case11: 
+set lastmapwar$,"pay_gld"; 
+set lastwarx,140; 
+set lastwary,160; 
+warp "pay_gld",140,160; 
+end;
+case12: 
+set lastmapwar$,"pay_gld"; 
+set lastwarx,204; 
+set lastwary,266; 
+warp "pay_gld",204,266; 
+end;
+case13: 
+set lastmapwar$,"prt_gld"; 
+set lastwarx,140; 
+set lastwary,128; 
+warp "prt_gld",240,128; 
+end;
+case15: 
+set lastmapwar$,"prt_gld"; 
+set lastwarx,123; 
+set lastwary,239; 
+warp "prt_gld",123,239; 
+end;
+case16: 
+set lastmapwar$,"prt_gld"; 
+set lastwarx,196; 
+set lastwary,239; 
+warp "prt_gld",196,239; 
+end;
+case18: 
+set lastmapwar$,"prt_gld"; 
+set lastwarx,135; 
+set lastwary,60; 
+warp "prt_gld",135,60; 
+end;
+case19: 
+set lastmapwar$,"pay_gld"; 
+set lastwarx,48; 
+set lastwary,83; 
+warp "alde_gld",48,83; 
+end;
+case20: 
+set lastmapwar$,"pay_gld"; 
+set lastwarx,122; 
+set lastwary,234; 
+warp "pay_gld",122,234; 
+end;
+
+WAR2:
+menu
+"^0000FF-^000000 บ้าน Sacred Altar 01",gvg_cas01,
+"^0000FF-^000000 บ้าน Sacred Altar 02",gvg_cas02,
+"^0000FF-^000000 บ้าน Holy Shadow 01",gvg_cas03,
+"^0000FF-^000000 บ้าน Holy Shadow02",gvg_cas04;
+
+gvg_cas01: 
+set lastmapwar$,"valrain"; 
+set lastwarx,145; 
+set lastwary,133; 
+warp "valrain",145,133; 
+end;
+gvg_cas03: 
+set lastmapwar$,"valrain"; 
+set lastwarx,150; 
+set lastwary,133; 
+warp "valrain",150,133; 
+end;
+gvg_cas02: 
+set lastmapwar$,"valrain"; 
+set lastwarx,155; 
+set lastwary,133; 
+warp "valrain",155,133; 
+end;
+gvg_cas04: 
+set lastmapwar$,"valrain"; 
+set lastwarx,160; 
+set lastwary,133; 
+warp "valrain",160,133; 
+end;
+
+WAR3:
+menu
+" [^0000FF" + getmapusers("play_cas01") + "^000000] คน บ้านเล่นหน้าบ้าน 01",play_cas01,
+" [^0000FF" + getmapusers("play_cas02") + "^000000] คน บ้านเล่นหน้าบ้าน 02",play_cas02;
+play_cas01: 
+set lastmapwar$,"sch_gld"; 
+set lastwarx,288; 
+set lastwary,249; 
+warp "sch_gld",288,249; 
+end;
+play_cas02: 
+set lastmapwar$,"sch_gld"; 
+set lastwarx,137; 
+set lastwary,85; 
+warp "sch_gld",137,85; 
+end;
+
+WAR4:
+menu
+" [^0000FF" + getmapusers("aldeg_cas04") + "^000000] คน Aldebaran - Wuerzburg เบบี้",case03,
+" [^0000FF" + getmapusers("gefg_cas01") + "^000000] คน Geffen - Repherion Class2",case17,
+" [^0000FF" + getmapusers("prtg_cas03") + "^000000] คน Prontera - Fadhgridh แจม",case14;
+
+case03: 
+set lastmapwar$,"alde_gld"; 
+set lastwarx,237; 
+set lastwary,242; 
+warp "alde_gld",237,242; 
+end;
+case14: 
+set lastmapwar$,"prt_gld"; 
+set lastwarx,153; 
+set lastwary,138; 
+warp "prt_gld",153,138; 
+end;
+case17: 
+set lastmapwar$,"gef_fild13"; 
+set lastwarx,213; 
+set lastwary,75; 
+warp "gef_fild13",213,75; 
+end;
+
+w06:
+close;
+}

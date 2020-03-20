@@ -1,0 +1,10 @@
+-	script	ReSeverAgit	-1,{
+	end;
+	OnInit: 
+		agitstart;
+		sleep 1000;
+		agitend;
+		end;
+		end;
+	end;
+}

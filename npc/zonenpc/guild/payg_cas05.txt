@@ -1,0 +1,31 @@
+-	script	Bamboo Grove Hill#f5-3::BambooGroveHill2	722,{
+set .@GID, GetCastleData("payg_cas05",1);
+if (.@GID == 0) {
+}
+else {
+if (getcharid(2) == .@GID) {
+if (select("^0000FF-^000000 เข้าปราสาท") == 1) {
+if (getcharid(2) == GetCastleData("payg_cas05",1)) {
+warp "payg_cas05",276,227;
+end;
+}
+}
+close;
+}
+mes "^FF0000[Bamboo Grove Hill]^000000";
+mes "ถูกครอบครองโดยกิลด์ : " + GetGuildName(.@GID) + "";
+}
+close;
+
+OnRecvCastlePy05:
+FlagEmblem GetCastleData("payg_cas05",1);
+end;
+}
+
+payg_cas05,30,30,0	duplicate(Gld_Agit_Manager)	Agit#payg_cas05	-1
+payg_cas05,277,249,3	duplicate(Gld_Mngr_Template)	Nahzarf#payg_cas05	55
+payg_cas05,277,249,3	duplicate(Gld_Guard_Template)	Guardian#payg_cas05	-1
+payg_cas05,276,227,1	duplicate(Gld_Kafra_Template)	Kafra Staff#payg_cas05	117
+payg_cas05,157,132,0	duplicate(Gld_Trea_Protect)	ban_warp#payg_cas05	-1,6,6
+payg_cas05,157,132,0	duplicate(Gld_Trea_Spawn)	Treasure#payg_cas05	-1
+payg_cas05,248,14,0	duplicate(Gld_Dun_Template)	#payg_cas05	111

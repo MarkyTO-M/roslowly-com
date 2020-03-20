@@ -1,0 +1,32 @@
+pay_gld	mapflag	nobranch
+gef_fild13	mapflag	nobranch
+pay_gld	mapflag	nobranch
+prt_gld	mapflag	nobranch
+
+pvp_y_1-3	mapflag	nosave	SavePoint	40
+pvp_y_1-3	mapflag	noreturn	40
+pvp_y_1-3	mapflag	noskill	40
+pvp_y_1-3	mapflag	nomemo	40
+pvp_y_1-3	mapflag	nobranch	40
+pvp_y_1-3	mapflag	noteleport	40
+pvp_y_1-3	mapflag	nocommand	40
+
+new_3-2	mapflag	nosave	SavePoint	40
+new_3-2	mapflag	noreturn	40
+new_3-2	mapflag	noskill	40
+new_3-2	mapflag	nomemo	40
+new_3-2	mapflag	nobranch	40
+new_3-2	mapflag	noteleport	40
+new_3-2	mapflag	nocommand	40
+
+
+
+morocc	mapflag	noicewall
+morocc	mapflag	nodrop
+morocc	mapflag	nobranch
+
+valrain	mapflag	noicewall
+valrain	mapflag	nodrop
+valrain	mapflag	nobranch
+
+

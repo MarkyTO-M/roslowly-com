@@ -1,0 +1,31 @@
+-	script	Rothenburg#a5-2::Rothenburg2	722,{
+set .@GID, GetCastleData("aldeg_cas05",1);
+if (.@GID == 0) {
+}
+else {
+if (getcharid(2) == .@GID) {
+if (select("^009933-^000000 เข้าปราสาท") == 1) {
+if (getcharid(2) == GetCastleData("aldeg_cas05",1)) {
+warp "aldeg_cas05",31,190;
+end;
+}
+}
+close;
+}
+mes "^FF0000[Rothenburg]^000000";
+mes "ถูกครอบครองโดยกิลด์ : " + GetGuildName(.@GID) + "";
+}
+close;
+
+OnRecvCastleA05:
+FlagEmblem GetCastleData("aldeg_cas05",1);
+end;
+}
+
+aldeg_cas05,28,102,0	duplicate(Gld_Agit_Manager)	Agit#aldeg_cas05	-1
+aldeg_cas05,52,179,0	duplicate(Gld_Mngr_Template)	Blemhemsen#aldeg_cas05	55
+aldeg_cas05,52,179,0	duplicate(Gld_Guard_Template)	Guardian#aldeg_cas05	-1
+aldeg_cas05,31,190,0	duplicate(Gld_Kafra_Template)	Kafra Staff#aldeg_cas05	117
+aldeg_cas05,62,12,0	duplicate(Gld_Trea_Protect)	ban_warp#aldeg_cas05	-1,8,8
+aldeg_cas05,62,12,0	duplicate(Gld_Trea_Spawn)	Treasure#aldeg_cas05	-1
+aldeg_cas05,22,205,0	duplicate(Gld_Dun_Template)	#aldeg_cas05	111

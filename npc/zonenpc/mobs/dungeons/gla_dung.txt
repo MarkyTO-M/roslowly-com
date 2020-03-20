@@ -1,0 +1,98 @@
+gl_cas01,0,0,0,0	monster	Sage Worm	1281,10,0,0,0
+gl_cas01,0,0,0,0	monster	Carat	1267,90,0,0,0
+gl_cas01,0,0,0,0	monster	Rideword	1195,10,0,0,0
+gl_cas01,0,0,0,0	monster	Dark Frame	1260,10,0,0,0
+gl_cas01,0,0,0,0	monster	Whisper	1179,10,0,0,0
+gl_cas01,0,0,0,0	monster	Alice	1275,10,0,0,0
+gl_cas01,0,0,0,0	monster	Owl Baron	1295,90,0,0,0
+gl_cas01,0,0,0,0	monster	Owl Duke	1320,90,0,0,0
+
+gl_cas02,0,0,0,0	monster	Wanderer	1208,90,0,0,0
+gl_cas02,0,0,0,0	monster	Raydric	1163,90,0,0,0
+gl_cas02,0,0,0,0	monster	Rideword	1195,90,0,0,0
+gl_cas02,0,0,0,0	monster	Raydric Archer	1276,90,0,0,0
+gl_cas02,0,0,0,0	monster	Abysmal Knight	1219,10,0,0,0
+gl_cas02,0,0,0,0	monster	Mysteltainn	1203,1,1800000,0,0
+gl_cas02,0,0,0,0	monster	Whisper	1185,10,0,0,0
+gl_cas02,0,0,0,0	monster	Evil Druid	1117,90,0,0,0
+gl_cas02,0,0,0,0	monster	Mimic	1191,10,0,0,0
+gl_cas02,0,0,0,0	monster	Alice	1275,10,0,0,0
+gl_cas02,0,0,0,0	monster	Khalitzburg	1132,90,0,0,0
+
+gl_in01,0,0,0,0	monster	Marionette	1143,10,0,0,0
+gl_in01,0,0,0,0	monster	Rideword	1195,10,0,0,0
+gl_in01,0,0,0,0	monster	Wanderer	1208,90,0,0,0
+gl_in01,0,0,0,0	monster	Alice	1275,10,0,0,0
+gl_in01,0,0,0,0	monster	Dark Frame	1260,10,0,0,0
+gl_in01,0,0,0,0	monster	Sage Worm	1281,10,0,0,0
+
+gl_prison,0,0,0,0	monster	Injustice	1257,90,0,0,0
+gl_prison,0,0,0,0	monster	Hunter Fly	1035,10,0,0,0
+gl_prison,0,0,0,0	monster	Zombie Prisoner	1197,90,0,0,0
+gl_prison,0,0,0,0	monster	Rybio	1201,90,0,0,0
+
+gl_prison1,0,0,0,0	monster	Skeleton Prisoner	1196,90,0,0,0
+gl_prison1,0,0,0,0	monster	Cramp	1209,90,0,0,0
+gl_prison1,0,0,0,0	monster	Hunter Fly	1035,10,0,0,0
+gl_prison1,0,0,0,0	monster	Injustice	1257,90,0,0,0
+gl_prison1,0,0,0,0	monster	Zealotus	1200,10,0,0,0
+gl_prison1,0,0,0,0	monster	Rybio	1201,90,0,0,0
+gl_prison1,0,0,0,0	monster	Phendark	1202,10,0,0,0
+
+glast_01,0,0,0,0	monster	Abysmal Knight	1219,10,0,0,0
+glast_01,0,0,0,0	monster	Gargoyle	1253,10,0,0,0
+glast_01,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+glast_01,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+glast_01,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+
+gl_church,0,0,0,0	monster	Wraith	1192,90,0,0,0
+gl_church,0,0,0,0	monster	Evil Druid	1117,90,0,0,0
+gl_church,0,0,0,0	monster	Ghoul	1036,90,0,0,0
+gl_church,0,0,0,0	monster	Mimic	1191,10,0,0,0
+
+gl_chyard,0,0,0,0	monster	Ghoul	1036,90,0,0,0
+gl_chyard,0,0,0,0	monster	Zombie	1015,90,0,0,0
+gl_chyard,0,0,0,0	monster	Wraith	1192,90,0,0,0
+gl_chyard,0,0,0,0	monster	Evil Druid	1117,90,0,0,0
+gl_chyard,0,0,0,0	monster	Hunter Fly	1035,10,0,0,0
+gl_chyard,0,0,0,0	monster	Mimic	1191,10,0,0,0
+
+gl_sew01,0,0,0,0	monster	Gargoyle	1253,10,0,0,0
+gl_sew01,0,0,0,0	monster	Arclouze	1194,10,0,0,0
+gl_sew01,0,0,0,0	monster	Whisper	1179,90,0,0,0
+
+gl_sew02,0,0,0,0	monster	Gargoyle	1253,90,0,0,0
+gl_sew02,0,0,0,0	monster	Cramp	1209,90,0,0,0
+
+gl_sew03,0,0,0,0	monster	Sting	1207,90,0,0,0
+gl_sew03,0,0,0,0	monster	Gargoyle	1253,90,0,0,0
+
+gl_sew04,0,0,0,0	monster	Anolian	1206,90,0,0,0
+gl_sew04,0,0,0,0	monster	Gargoyle	1253,10,0,0,0
+gl_sew04,0,0,0,0	monster	Drainliar	1111,10,0,0,0
+
+gl_step,0,0,0,0	monster	Mimic	1191,10,0,0,0
+gl_step,0,0,0,0	monster	Raydric Archer	1276,90,0,0,0
+gl_step,0,0,0,0	monster	Wind Ghost	1263,90,0,0,0
+
+gl_knt01,0,0,0,0	monster	Raydric	1163,90,0,0,0
+gl_knt01,0,0,0,0	monster	Raydric Archer	1276,90,0,0,0
+gl_knt01,0,0,0,0	monster	Khalitzburg	1132,90,0,0,0
+gl_knt01,0,0,0,0	monster	Abysmal Knight	1219,10,0,0,0
+gl_knt01,0,0,0,0	monster	Alice	1275,10,0,0,0
+gl_knt01,0,0,0,0	monster	Giant Whisper	1186,10,0,0,0
+gl_knt01,0,0,0,0	monster	Rideword	1195,10,0,0,0
+gl_knt01,0,0,0,0	monster	Black Mushroom	1084,10,0,0,0
+
+gl_knt02,0,0,0,0	monster	Raydric	1163,90,0,0,0
+gl_knt02,0,0,0,0	monster	Raydric Archer	1276,90,0,0,0
+gl_knt02,0,0,0,0	monster	Bloody Knight	1268,10,0,0,0
+gl_knt02,0,0,0,0	monster	Alice	1275,1,0,0,0
+gl_knt02,0,0,0,0	monster	Abysmal Knight	1219,10,0,0,0
+gl_knt02,0,0,0,0	monster	Khalitzburg	1132,90,0,0,0
+
+gl_dun01,0,0,0,0	monster	Arclouze	1194,90,0,0,0
+gl_dun01,0,0,0,0	monster	Sting	1207,90,0,0,0
+
+gl_dun02,0,0,0,0	monster	Majoruros	1310,90,0,0,0
+gl_dun02,0,0,0,0	monster	Gargoyle	1253,10,0,0,0

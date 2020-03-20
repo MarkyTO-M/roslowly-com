@@ -1,0 +1,371 @@
+-	script	Aha Team	-1,{
+if($Open_Dun_aha==1){end;}
+set .@name$, "^FF0000[Aha Team]^000000";
+mes .@name$;
+mes "ของรางวัลกิจกรรม";
+mes "- Poring Coin ครับ";
+next; 
+menu "^0000FF-^000000 เข้ากิจกรรม",-,"^0000FF-^000000 รายละเอียด",Info;
+
+if($iatd == 1) goto L_go; 
+goto L_eror;
+
+L_go: 
+menu "^0000FF-^000000 ห้อง 1 จำนวน ["+$ppatd1+"] คน",roomatd1,"^0000FF-^000000 ห้อง 2 จำนวน ["+$ppatd2+"] คน",roomatd2,"^0000FF-^000000 ห้อง 3 จำนวน ["+$ppatd3+"] คน",roomatd3,"^0000FF-^000000 ห้อง 4 จำนวน ["+$ppatd4+"] คน",roomatd4;
+
+roomatd1:
+if($ppatd1>=6){goto L_eror;}
+set $ppatd1,$ppatd1+1;
+warp "force_2-3.gat",20,120; 
+end;
+
+roomatd2:
+if($ppatd2>=6){goto L_eror;}
+set $ppatd2,$ppatd2+1;
+warp "force_2-3.gat",140,80; 
+end;
+
+roomatd3:
+if($ppatd3>=6){goto L_eror;}
+set $ppatd3,$ppatd3+1;
+warp "force_2-3.gat",100,40; 
+end;
+
+roomatd4:
+if($ppatd4>=6){goto L_eror;}
+set $ppatd4,$ppatd4+1;
+warp "force_2-3.gat",80,100; 
+end;
+
+L_eror: 
+mes .@name$;
+mes "ยังไม่ถึงเวลากิจกรรมครับ";
+close; 
+
+Info: 
+mes .@name$;
+mes "รอบ 01. 03.35 || รอบ 02. 06.35";
+mes "รอบ 03. 09.35 || รอบ 04. 12.35";
+mes "รอบ 05. 15.35 || รอบ 06. 18.35";
+mes "รอบ 07. 21.35 || รอบ 08. 00.35";
+close; 
+
+OnInit:
+waitingroom "๐ Aha Team ๐",0;
+end;
+
+} 
+
+-	script	CekATD	-1,{ 
+if($Open_Dun_aha==1){end;}
+OnTimer30000: 
+if (getmapusers("force_2-3.gat") == 0) announce "[ กิจกรรม Aha Team จบลงแล้ว ]",0; 
+if (getmapusers("force_2-3.gat") == 0) { set $atdstatus,1; set $ppatd1,0; set $ppatd2,0; set $ppatd3,0; set $ppatd4,0;}
+if (getmapusers("force_2-3.gat") == 0) killmonsterall "force_2-3.gat"; 
+if (getmapusers("force_2-3.gat") == 0) end; 
+initnpctimer; 
+end; 
+OnInit:setnpctimer 0;stopnpctimer;end;
+} 
+
+-	script	HiddenNpcATD	-1,{ 
+if($Open_Dun_aha==1){end;}
+OnClock0335:
+OnClock0635:
+OnClock0935:
+OnClock1235:
+OnClock1535:
+OnClock1835:
+OnClock2135:
+OnClock0035:
+
+announce "[ กิจกรรม Aha Team จะเริ่มใน 5 นาที ]",0; 
+initnpctimer; 
+set $iatd,1; 
+set $atdstatus,0; 
+killmonsterall "force_2-3.gat"; 
+end; 
+
+OnTimer60000: 
+announce "[ กิจกรรม Aha Team จะเริ่มใน 4 นาที ]",0;  
+end; 
+
+OnTimer120000: 
+announce "[ กิจกรรม Aha Team จะเริ่มใน 3 นาที ]",0;  
+end; 
+
+OnTimer180000: 
+announce "[ กิจกรรม Aha Team จะเริ่มใน 2 นาที ]",0; 
+end; 
+
+OnTimer240000: 
+announce "[ กิจกรรม Aha Team จะเริ่มใน 1 นาที ]",0; 
+end; 
+
+OnTimer300000:
+announce "[ กิจกรรม Aha Team เริ่มแล้ว ]",0; 
+initnpctimer "CekATD";
+setnpctimer 0;
+stopnpctimer;
+set $iatd,0;
+set $stepatd,1;
+set $atd1room1,0;
+set $atd1room2,0;
+set $atd1room3,0;
+set $atd1room4,0;
+monster "force_2-3.gat",20,140,"Obsidian",1615,10,"HiddenNpcATD::On1room1";
+monster "force_2-3.gat",20,140,"Orc Archer",1189,10,"HiddenNpcATD::On1room1";
+monster "force_2-3.gat",20,140,"Merman",1264,10,"HiddenNpcATD::On1room1";
+monster "force_2-3.gat",140,100,"Obsidian",1615,10,"HiddenNpcATD::On1room2";
+monster "force_2-3.gat",140,100,"Orc Archer",1189,10,"HiddenNpcATD::On1room2";
+monster "force_2-3.gat",140,100,"Merman",1264,10,"HiddenNpcATD::On1room2";
+monster "force_2-3.gat",100,60,"Obsidian",1615,10,"HiddenNpcATD::On1room3";
+monster "force_2-3.gat",100,60,"Orc Archer",1189,10,"HiddenNpcATD::On1room3";
+monster "force_2-3.gat",100,60,"Merman",1264,10,"HiddenNpcATD::On1room3";
+monster "force_2-3.gat",60,100,"Obsidian",1615,10,"HiddenNpcATD::On1room4";
+monster "force_2-3.gat",60,100,"Orc Archer",1189,10,"HiddenNpcATD::On1room4";
+monster "force_2-3.gat",60,100,"Merman",1264,10,"HiddenNpcATD::On1room4";
+end;
+
+On1room1:
+if($stepatd==1)
+{set $atd1room1,$atd1room1+1;
+if($atd1room1>=30){goto Onroom2;}
+}
+end;
+
+On1room2:
+if($stepatd==1)
+{set $atd1room2,$atd1room2+1;
+if($atd1room2>=30){goto Onroom2;}
+}
+end;
+
+On1room3:
+if($stepatd==1)
+{set $atd1room3,$atd1room3+1;
+if($atd1room3>=30){goto Onroom2;}
+}
+end;
+
+On1room4:
+if($stepatd==1)
+{set $atd1room4,$atd1room4+1;
+if($atd1room4>=25){goto Onroom2;}
+}
+end;
+
+Onroom2:
+mapannounce "force_2-3.gat","[ เริ่มด่านที่ 2 แล้ว ]",bc_map;  
+set $stepatd,2;
+set $atd2room1,0;
+set $atd2room2,0;
+set $atd2room3,0;
+set $atd2room4,0;
+monster "force_2-3.gat",20,100,"WRAITH",1192,10,"HiddenNpcATD::On2room1";
+monster "force_2-3.gat",20,100,"MIMIC",1191,10,"HiddenNpcATD::On2room1";
+monster "force_2-3.gat",20,100,"Rideword",1195,20,"HiddenNpcATD::On2room1";
+monster "force_2-3.gat",20,100,"Raydric",1163,10,"HiddenNpcATD::On2room1";
+monster "force_2-3.gat",140,60,"WRAITH",1192,10,"HiddenNpcATD::On2room2";
+monster "force_2-3.gat",140,60,"MIMIC",1191,10,"HiddenNpcATD::On2room2";
+monster "force_2-3.gat",140,60,"Rideword",1195,20,"HiddenNpcATD::On2room2";
+monster "force_2-3.gat",140,60,"Raydric",1163,10,"HiddenNpcATD::On2room2";
+monster "force_2-3.gat",100,20,"WRAITH",1192,10,"HiddenNpcATD::On2room3";
+monster "force_2-3.gat",100,20,"MIMIC",1191,10,"HiddenNpcATD::On2room3";
+monster "force_2-3.gat",100,20,"Rideword",1195,20,"HiddenNpcATD::On2room3";
+monster "force_2-3.gat",100,20,"Raydric",1163,10,"HiddenNpcATD::On2room3";
+monster "force_2-3.gat",100,100,"WRAITH",1192,10,"HiddenNpcATD::On2room4";
+monster "force_2-3.gat",100,100,"MIMIC",1191,10,"HiddenNpcATD::On2room4";
+monster "force_2-3.gat",100,100,"Rideword",1195,20,"HiddenNpcATD::On2room4";
+monster "force_2-3.gat",100,100,"Raydric",1163,10,"HiddenNpcATD::On2room4";
+end;
+
+On2room1:
+if($stepatd==2)
+{set $atd2room1,$atd2room1+1;
+if($atd2room1>=50){goto Onroom3;}
+}
+end;
+
+On2room2:
+if($stepatd==2)
+{set $atd2room2,$atd2room2+1;
+if($atd2room2>=50){goto Onroom3;}
+}
+end;
+
+On2room3:
+if($stepatd==2)
+{set $atd2room3,$atd2room3+1;
+if($atd2room3>=50){goto Onroom3;}
+}
+end;
+
+On2room4:
+if($stepatd==2)
+{set $atd2room4,$atd2room4+1;
+if($atd2room4>=50){goto Onroom3;}
+}
+end;
+
+Onroom3:
+mapannounce "force_2-3.gat","[ เริ่มด่านที่ 3 แล้ว ]",bc_map; 
+set $stepatd,3;
+set $atd3room1,0;
+set $atd3room2,0;
+set $atd3room3,0;
+set $atd3room4,0;
+monster "force_2-3.gat",20,140,"Bloodyknight",1268,10,"HiddenNpcATD::On3room1";
+monster "force_2-3.gat",20,140,"Abysknight",1219,10,"HiddenNpcATD::On3room1";
+monster "force_2-3.gat",20,140,"Phreeoni",1159,2,"HiddenNpcATD::On3room1";
+monster "force_2-3.gat",140,100,"Bloodyknight",1268,10,"HiddenNpcATD::On3room2";
+monster "force_2-3.gat",140,100,"Abysknight",1219,10,"HiddenNpcATD::On3room2";
+monster "force_2-3.gat",140,100,"Phreeoni",1159,2,"HiddenNpcATD::On3room2";
+monster "force_2-3.gat",100,60,"Bloodyknight",1268,10,"HiddenNpcATD::On3room3";
+monster "force_2-3.gat",100,60,"Abysknight",1219,10,"HiddenNpcATD::On3room3";
+monster "force_2-3.gat",100,60,"Phreeoni",1159,2,"HiddenNpcATD::On3room3";
+monster "force_2-3.gat",60,100,"Bloodyknight",1268,10,"HiddenNpcATD::On3room4";
+monster "force_2-3.gat",60,100,"Abysknight",1219,10,"HiddenNpcATD::On3room4";
+monster "force_2-3.gat",60,100,"Phreeoni",1159,2,"HiddenNpcATD::On3room4";
+end;
+
+On3room1:
+if($stepatd==3)
+{set $atd3room1,$atd3room1+1;
+if($atd3room1>=21){goto Onroom4;}
+}
+end;
+
+On3room2:
+if($stepatd==3)
+{set $atd3room2,$atd3room2+1;
+if($atd3room2>=21){goto Onroom4;}
+}
+end;
+
+On3room3:
+if($stepatd==3)
+{set $atd3room3,$atd3room3+1;
+if($atd3room3>=21){goto Onroom4;}
+}
+end;
+
+On3room4:
+if($stepatd==3)
+{set $atd3room4,$atd3room4+1;
+if($atd3room4>=21){goto Onroom4;}
+}
+end;
+
+Onroom4:
+mapannounce "force_2-3.gat","[ เริ่มด่านที่ 4 แล้ว ]",bc_map;
+set $stepatd,4;
+set $atd4room1,0;
+set $atd4room2,0;
+set $atd4room3,0;
+set $atd4room4,0;
+monster "force_2-3.gat",20,100,"Owl Baron,Owl",1295,10,"HiddenNpcATD::On4room1";
+monster "force_2-3.gat",20,100,"Mini Demon",1292,10,"HiddenNpcATD::On4room1";
+monster "force_2-3.gat",20,100,"Majoruros",1310,10,"HiddenNpcATD::On4room1";
+monster "force_2-3.gat",20,100,"Atroce",1785,1,"HiddenNpcATD::On4room2";
+monster "force_2-3.gat",140,60,"Owl Baron,Owl",1295,10,"HiddenNpcATD::On4room2";
+monster "force_2-3.gat",140,60,"Mini Demon",1292,10,"HiddenNpcATD::On4room2";
+monster "force_2-3.gat",140,60,"Majoruros",1310,10,"HiddenNpcATD::On4room2";
+monster "force_2-3.gat",140,60,"Atroce",1785,1,"HiddenNpcATD::On4room2";
+monster "force_2-3.gat",100,20,"Owl Baron,Owl",1295,10,"HiddenNpcATD::On4room3";
+monster "force_2-3.gat",100,20,"Mini Demon",1292,10,"HiddenNpcATD::On4room3";
+monster "force_2-3.gat",100,20,"Majoruros",1310,10,"HiddenNpcATD::On4room3";
+monster "force_2-3.gat",100,20,"Atroce",1785,1,"HiddenNpcATD::On4room3";
+monster "force_2-3.gat",100,100,"Owl Baron,Owl",1295,10,"HiddenNpcATD::On4room4";
+monster "force_2-3.gat",100,100,"Mini Demon",1292,10,"HiddenNpcATD::On4room4";
+monster "force_2-3.gat",100,100,"Majoruros",1310,10,"HiddenNpcATD::On4room4";
+monster "force_2-3.gat",100,100,"Atroce",1785,1,"HiddenNpcATD::On4room4";
+end;
+
+On4room1:
+if($stepatd==4)
+{set $atd4room1,$atd4room1+1;
+if($atd4room1>=20){set $atd4room1,-100;
+monster "force_2-3.gat",20,120,"Treasure Box",1325,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",20,122,"Treasure Box",1325,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",20,124,"Treasure Box",1329,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",20,126,"Treasure Box",1331,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",20,128,"Treasure Box",1333,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",20,118,"Treasure Box",1337,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",20,116,"Treasure Box",1339,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",20,114,"Treasure Box",1341,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",20,112,"Treasure Box",1343,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",20,110,"Treasure Box",1345,1,"HiddenNpcATD::Onboxdead"; 
+}
+}
+end;
+
+On4room2:
+if($stepatd==4)
+{set $atd4room2,$atd4room2+1;
+if($atd4room2>=20){set $atd4room2,-100;
+monster "force_2-3.gat",140,80,"Treasure Box",1347,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",140,82,"Treasure Box",1349,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",140,84,"Treasure Box",1353,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",140,86,"Treasure Box",1355,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",140,88,"Treasure Box",1357,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",140,78,"Treasure Box",1359,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",140,76,"Treasure Box",1361,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",140,74,"Treasure Box",1363,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",140,72,"Treasure Box",1325,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",140,70,"Treasure Box",1325,1,"HiddenNpcATD::Onboxdead"; 
+}
+}
+end;
+
+On4room3:
+if($stepatd==4)
+{set $atd4room3,$atd4room3+1;
+if($atd4room3>=20){set $atd4room3,-100;
+monster "force_2-3.gat",100,40,"Treasure Box",1329,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",100,42,"Treasure Box",1331,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",100,44,"Treasure Box",1333,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",100,46,"Treasure Box",1335,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",100,48,"Treasure Box",1337,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",100,38,"Treasure Box",1339,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",100,36,"Treasure Box",1341,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",100,34,"Treasure Box",1343,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",100,32,"Treasure Box",1345,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",100,30,"Treasure Box",1347,1,"HiddenNpcATD::Onboxdead"; 
+}
+}
+end;
+
+On4room4:
+if($stepatd==4)
+{set $atd4room4,$atd4room4+1;
+if($atd4room4>=20){set $atd4room4,-100;
+monster "force_2-3.gat",80,100,"Treasure Box",1349,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",82,100,"Treasure Box",1353,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",84,100,"Treasure Box",1355,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",86,100,"Treasure Box",1357,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",88,100,"Treasure Box",1359,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",78,100,"Treasure Box",1361,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",76,100,"Treasure Box",1363,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",74,100,"Treasure Box",1325,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",72,100,"Treasure Box",1325,1,"HiddenNpcATD::Onboxdead"; 
+monster "force_2-3.gat",70,100,"Treasure Box",1329,1,"HiddenNpcATD::Onboxdead"; 
+}
+}
+end;
+
+Onboxdead: 
+if ($atdstatus == 1) end;  
+announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล Aha Team แล้ว ]",0;  
+getitem 7539,50;
+end; 
+OnInit:setnpctimer 0;stopnpctimer;end;
+}
+
+force_2-3	mapflag	nowarp 
+force_2-3	mapflag	nowarpto 
+force_2-3	mapflag	noteleport 
+force_2-3	mapflag	nosave	SavePoint 
+force_2-3	mapflag	nomemo 
+force_2-3	mapflag	nobranch 
+force_2-3	mapflag	noreturn

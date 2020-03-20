@@ -1,0 +1,145 @@
+//=============================================================
+// - Edit Version - 1.1
+// - BY exsoulionzzzz
+//=============================================================
+
+-	script	MVPKilllerSystem	-1,{
+
+OnInit:
+	set $mob_live,0;
+	setarray $@MBKSmob_id[0],1038,1112,1115,
+		1147,1157,1159,1190,1251,1252,1272,1312,1373,
+		1389,1418,1492,1511,1583,1623,1630,1658,
+		1685,1688,1708,1719,1734,1751,1768,1779,1785;
+
+	setarray $@MBKSmap$[0],"pvp_y_8-2","pvp_y_8-2";
+	
+	setarray $@mob_pvp_x[0],111,152,174,201,165,191,127,125,77,90,49,91,133,156,91,50,131,178,178;
+	setarray $@mob_pvp_y[0],52,93,213,209,178,161,218,251,249,181,167,133,133,133,96,101,79,65,65;
+	
+	setarray $@mob_pvp_id[0],1636,2226,1800,2229,1655,1636;
+	setarray $@mob_pvp_class[0],4011,4020,4013,4019,4009,1636;
+	
+	goto TestRun;
+end;
+
+OnClock1500:
+goto TestRun;
+end;
+
+OnClock1530:
+goto KillBossTestRun;
+end;
+
+OnClock1700:
+goto TestRun;
+end;
+
+OnClock1730:
+goto KillBossTestRun;
+end;
+
+OnClock1800:
+goto TestRun;
+end;
+
+OnClock1830:
+goto KillBossTestRun;
+end;
+
+OnClock1900:
+goto TestRun;
+end;
+
+OnClock1930:
+goto KillBossTestRun;
+end;
+
+OnClock2000:
+goto TestRun;
+end;
+
+OnClock2030:
+goto KillBossTestRun;
+end;
+
+OnClock2100:
+goto TestRun;
+end;
+
+OnClock2130:
+goto KillBossTestRun;
+end;
+
+OnClock2200:
+goto TestRun;
+end;
+
+OnClock2230:
+goto KillBossTestRun;
+end;
+
+OnClock2300:
+goto TestRun;
+end;
+
+OnClock2330:
+goto KillBossTestRun;
+end;
+
+KillBossTestRun:
+	killmonsterall "pvp_y_8-2";
+	set $mob_live,0;
+	for(set .@i,0; .@i<5; set .@i,.@i+1){
+		set .@r,rand(getarraysize($@mob_pvp_x)-1);
+		set .@r_mod,rand(getarraysize($@mob_pvp_id)-1);
+		.@mobid = bg_monster( 0 , "pvp_y_8-2", $@mob_pvp_x[.@r] , $@mob_pvp_y[.@r] , "--ja--", $@mob_pvp_id[.@r_mod], strnpcinfo(0)+"::OnPvpMobKill" );
+		setunitdata .@mobid, UMOB_CLASS, $@mob_pvp_class[.@r_mod]; // CLASS
+		setunitdata .@mobid, UMOB_RACE, 10;
+	}
+	announce "** ขณะนี้มอนเตอร์ [PVP] ได้เกิดขึ้นแล้ว >.< **",0,0x00FFFF;
+end;
+
+TestRun:
+	if($mob_live == 0){
+		set .@mob_id,rand(0,getarraysize($@MBKSmob_id)-1);
+		set .@map,rand(0,getarraysize($@MBKSmap$)-1);
+		// announce "[ MVP Killer ] : ขณะนี้ [ "+strmobinfo(2,$@MBKSmob_id[.@mob_id])+" ] ได้ถือกำเนิดขึ้นที่แมพ [ "+$@MBKSmap$[.@map]+" ] มีเวลา 30นาทีในการกำจัด",0,0x0DFF0D;
+		announce "[ MVP Killer ] : ขณะนี้ [ "+strmobinfo(2,$@MBKSmob_id[.@mob_id])+" ] ได้ถือกำเนิดขึ้นที่แมพ [ PVP ] มีเวลา 30นาทีในการกำจัด",0,0x0DFF0D;
+		set $mob_live,1;
+		monster $@MBKSmap$[.@map],0,0,strmobinfo(2,$@MBKSmob_id[.@mob_id]),$@MBKSmob_id[.@mob_id],1,"MVPKilllerSystem::OnKillBoss";
+	}
+	end;
+	
+OnPvpMobKill:
+	if(Mission_PVP_DIE > 0){
+		set Mission_PVP_DIE, Mission_PVP_DIE-1;
+	}
+	set Mission_PVP_KILLER, Mission_PVP_KILLER+1;
+	getitem 7647,5; //Lucky Coin
+	announce "** "+strcharinfo(0)+" ได้รับรางวัลจากกิจกรรม 5 CC จาก PVP >.< **",0,0x00FFFF;
+	end;
+	
+OnKillBoss:
+	set $mob_live,0;
+	getmapxy(.@map$, .@x, .@y, 0, strcharinfo(0));
+	announce "[ MVP Killer ] : ผู้กล้า [ "+strcharinfo(0)+" ] กำจัด Boss Monster ที่แมพ [ "+.@map$+" ] เรียบร้อยแล้ว",0,0x0DFF0D;
+	getitem 6045,1;
+	getitem 7647,15;
+	getitem 677,15;
+	addrid(1);
+	getitem 6045,1;
+	addrid(1);
+	getitem 7647,5;
+	addrid(1);
+	getitem 677,5;
+	for(set .@i,0; .@i<5; set .@i,.@i+1){
+		set .@r,rand(getarraysize($@mob_pvp_x)-1);
+		set .@r_mod,rand(getarraysize($@mob_pvp_id)-1);
+		.@mobid = bg_monster( 0 , "pvp_y_8-2", $@mob_pvp_x[.@r] , $@mob_pvp_y[.@r] , "--ja--", $@mob_pvp_id[.@r_mod], strnpcinfo(0)+"::OnPvpMobKill" );
+		setunitdata .@mobid, UMOB_CLASS, $@mob_pvp_class[.@r_mod]; // CLASS
+		setunitdata .@mobid, UMOB_RACE, 10;
+	}
+	announce "** ขณะนี้มอนเตอร์ PVP ได้เกิดขึ้นแล้ว จัดการได้ รับ 5 CC ไปเลย>.< **",0,0x00FFFF;	
+	end;
+}

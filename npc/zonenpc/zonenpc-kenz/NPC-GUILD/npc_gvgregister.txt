@@ -1,0 +1,239 @@
+// หลังที่ 01
+
+morocc,138,54,0	script	 #gvg1	45,1,1,{
+OnTouch:
+set .npcname$,"^FF0000[ลงทะเบียนกิลด์วอร์]^000000";
+if ( getgmlevel() == 99 ) {
+mes .npcname$;
+if ( $@GuildEvent1 == 0 ) {
+mes "ลงทะเบียนกิลด์วอร์";
+next;
+if ( select ( "^0000FF-^000000 ลงทะเบียน:" ) == 1 ) {
+
+New_Name:
+next;
+mes .npcname$;
+mes "กรอกรหัสกิลด์ที่ 1 ครับ";
+next;
+input .@GuildName_1;
+set .@GuildName_1$,getguildname(.@GuildName_1);
+
+next;
+mes .npcname$;
+mes "กรอกรหัสกิลด์ที่ 2 ครับ";
+next;
+input .@GuildName_2;
+set .@GuildName_2$,getguildname(.@GuildName_2);
+
+next;
+mes .npcname$;
+mes " ";
+mes "1) "+.@GuildName_1$;
+mes "2) "+.@GuildName_2$;
+next;
+menu "^0000FF-^000000 ตกลง",-,"^FF0000-^000000 ยกเลิก",New_Name;
+
+mes .npcname$;
+setarray $@GuildName$[1],.@GuildName_1$,.@GuildName_2$;
+set $@GuildEvent1,1;
+Announce "[ กิลด์ "+.@GuildName_1$+" vs กิลด์ "+.@GuildName_2$+" บ้าน 22 คน Sacred Altar ]",0;  
+close;
+}
+
+} else {
+
+next;
+if ( select ( "^0000FF-^000000 ดูกิจกรรม:^FF0000-^000000 ยกเลิกกิจกรรม" ) == 1 )
+warp "gvg_cas01",40,235;
+else {
+set $@GuildEvent1,0;
+close;
+}
+}
+} else if ( $@GuildEvent1 == 1 && ( strcharinfo(2) == $@GuildName$[1] || strcharinfo(2) == $@GuildName$[2] ) ) {
+if( agitcheck() ) { 
+warp "gvg_cas01",250,273;
+}
+}
+close;
+}
+
+// หลังที่ 02
+
+morocc,133,54,0	script	 #gvg2	45,1,1,{
+OnTouch:
+set .npcname$,"^FF0000[ลงทะเบียนกิลด์วอร์]^000000";
+if ( getgmlevel() == 99 ) {
+mes .npcname$;
+if ( $@GuildEvent2 == 0 ) {
+mes "ลงทะเบียนกิลด์วอร์";
+next;
+if ( select ( "^0000FF-^000000 ลงทะเบียน:" ) == 1 ) {
+
+New_Name:
+next;
+mes .npcname$;
+mes "กรอกรหัสกิลด์ที่ 1 ครับ";
+next;
+input .@GuildName_3;
+set .@GuildName_3$,getguildname(.@GuildName_3);
+
+next;
+mes .npcname$;
+mes "กรอกรหัสกิลด์ที่ 2 ครับ";
+next;
+input .@GuildName_4;
+set .@GuildName_4$,getguildname(.@GuildName_4);
+
+next;
+mes .npcname$;
+mes " ";
+mes "1) "+.@GuildName_3$;
+mes "2) "+.@GuildName_4$;
+next;
+menu "^0000FF-^000000 ตกลง",-,"^FF0000-^000000 ยกเลิก",New_Name;
+
+mes .npcname$;
+setarray $@GuildName$[3],.@GuildName_3$,.@GuildName_4$;
+set $@GuildEvent2,1;
+Announce "[ กิลด์ "+.@GuildName_3$+" vs กิลด์ "+.@GuildName_4$+" บ้าน 25 คน Sacred Altar ]",0;  
+close;
+}
+
+} else {
+
+next;
+if ( select ( "^0000FF-^000000 ดูกิจกรรม:^FF0000-^000000 ยกเลิกกิจกรรม" ) == 1 )
+warp "gvg_cas02",40,235;
+else {
+set $@GuildEvent2,0;
+close;
+}
+}
+} else if ( $@GuildEvent2 == 1 && ( strcharinfo(2) == $@GuildName$[3] || strcharinfo(2) == $@GuildName$[4] ) ) {
+if( agitcheck() ) { 
+warp "gvg_cas02",250,273;
+}
+}
+close;
+}
+
+// หลังที่ 03
+
+morocc,128,54,0	script	 #gvg3	45,1,1,{
+OnTouch:
+set .npcname$,"^FF0000[ลงทะเบียนกิลด์วอร์]^000000";
+if ( getgmlevel() == 99 ) {
+mes .npcname$;
+if ( $@GuildEvent3 == 0 ) {
+mes "ลงทะเบียนกิลด์วอร์";
+next;
+if ( select ( "^0000FF-^000000 ลงทะเบียน:" ) == 1 ) {
+
+New_Name:
+next;
+mes .npcname$;
+mes "กรอกรหัสกิลด์ที่ 1 ครับ";
+next;
+input .@GuildName_5;
+set .@GuildName_5$,getguildname(.@GuildName_5);
+
+next;
+mes .npcname$;
+mes "กรอกรหัสกิลด์ที่ 2 ครับ";
+next;
+input .@GuildName_6;
+set .@GuildName_6$,getguildname(.@GuildName_6);
+
+next;
+mes .npcname$;
+mes " ";
+mes "1) "+.@GuildName_5$;
+mes "2) "+.@GuildName_6$;
+next;
+menu "^0000FF-^000000 ตกลง",-,"^FF0000-^000000 ยกเลิก",New_Name;
+
+mes .npcname$;
+setarray $@GuildName$[5],.@GuildName_5$,.@GuildName_6$;
+set $@GuildEvent3,1;
+Announce "[ กิลด์ "+.@GuildName_5$+" vs กิลด์ "+.@GuildName_6$+" บ้าน 22 คน Holy Shadow ]",0;  
+close;
+}
+
+} else {
+
+next;
+if ( select ( "^0000FF-^000000 ดูกิจกรรม:^FF0000-^000000 ยกเลิกกิจกรรม" ) == 1 )
+warp "gvg_cas03",9,288;
+else {
+set $@GuildEvent3,0;
+close;
+}
+}
+} else if ( $@GuildEvent3 == 1 && ( strcharinfo(2) == $@GuildName$[5] || strcharinfo(2) == $@GuildName$[6] ) ) {
+if( agitcheck() ) { 
+warp "gvg_cas03",225,25;
+}
+}
+close;
+}
+
+// หลังที่ 04
+
+morocc,123,54,0	script	 #gvg4	45,1,1,{
+OnTouch:
+set .npcname$,"^FF0000[ลงทะเบียนกิลด์วอร์]^000000";
+if ( getgmlevel() == 99 ) {
+mes .npcname$;
+if ( $@GuildEvent4 == 0 ) {
+mes "ลงทะเบียนกิลด์วอร์";
+next;
+if ( select ( "^0000FF-^000000 ลงทะเบียน:" ) == 1 ) {
+
+New_Name:
+next;
+mes .npcname$;
+mes "กรอกรหัสกิลด์ที่ 1 ครับ";
+next;
+input .@GuildName_7;
+set .@GuildName_7$,getguildname(.@GuildName_7);
+
+next;
+mes .npcname$;
+mes "กรอกรหัสกิลด์ที่ 2 ครับ";
+next;
+input .@GuildName_8;
+set .@GuildName_8$,getguildname(.@GuildName_8);
+
+next;
+mes .npcname$;
+mes " ";
+mes "1) "+.@GuildName_7$;
+mes "2) "+.@GuildName_8$;
+next;
+menu "^0000FF-^000000 ตกลง",-,"^FF0000-^000000 ยกเลิก",New_Name;
+
+mes .npcname$;
+setarray $@GuildName$[7],.@GuildName_7$,.@GuildName_8$;
+set $@GuildEvent4,1;
+Announce "[ กิลด์ "+.@GuildName_7$+" vs กิลด์ "+.@GuildName_8$+" บ้าน 25 คน Holy Shadow ]",0;  
+close;
+}
+
+} else {
+
+next;
+if ( select ( "^0000FF-^000000 ดูกิจกรรม:^FF0000-^000000 ยกเลิกกิจกรรม" ) == 1 )
+warp "gvg_cas04",9,288;
+else {
+set $@GuildEvent4,0;
+close;
+}
+}
+} else if ( $@GuildEvent4 == 1 && ( strcharinfo(2) == $@GuildName$[7] || strcharinfo(2) == $@GuildName$[8] ) ) {
+if( agitcheck() ) { 
+warp "gvg_cas04",225,25;
+}
+}
+close;
+}

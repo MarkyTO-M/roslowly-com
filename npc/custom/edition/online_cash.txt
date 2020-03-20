@@ -1,0 +1,299 @@
+//=============================================================
+// - Edit Version - 1.1
+// - BY exsoulionzzzz
+//=============================================================
+
+-	script	OnlineBonus2	-1,{
+OnInIt:
+	set .time_count, 30;	// ออนไลน์นานเท่าไหร่ จึงจะได้ Cash (นาที)
+	set .time_count_bot, 45;	// ออนไลน์นานเท่าไหร่ จึงจะได้ Cash (นาที)
+	set .time_count_pvp, 15;
+	end;
+
+OnClock0000:
+	addrid(0);
+	set #MOB_MAX_POINT,0;
+	addrid(0);
+	set #MOB_MAX_POINT_ONLINE,0;
+	query_sql("UPDATE `acc_reg_num` SET `value` = 0 WHERE `key` = '#MOB_MAX_POINT'");
+	query_sql("UPDATE `acc_reg_num` SET `value` = 0 WHERE `key` = '#MOB_MAX_POINT_ONLINE'");
+end;
+
+OnPCLoginEvent:
+	dispbottom "[ รายละเอียด Online Bonus ผู้เล่น !! ]";
+	dispbottom "[ Event Server ] : เมื่อคุณ Online ตัวละครครบ 30 นาที !! จะได้รับ 10 Cash";
+	initnpctimer getcharid(3);
+	end;
+
+OnTimer120000:
+	stopnpctimer;
+	initnpctimer;
+	getmapxy( .@map$, .@x, .@y, 0 );
+	if ( .@map$ != @map$ || .@x != @x || .@y != @y ) {	// ถ้าไม่ขยับไปไหน จะพักเวลาไว้
+		set @map$, .@map$;
+		set @x, .@x;
+		set @y, .@y;
+		set @count, @count+2;
+		if ( @count >= .time_count ) {
+			set @count, 0;
+			if(#MOB_MAX_POINT_ONLINE < 50){
+				atcommand "@cash 10";
+				set #MOB_MAX_POINT_ONLINE,#MOB_MAX_POINT_ONLINE + 10;
+				dispbottom "!!! คุณ ได้รับรางวัลออนไลน์ครบ "+#MOB_MAX_POINT_ONLINE+"/50P แล้ว !!!";
+			}
+		}
+		set @count_bot, @count_bot+2;
+		if ( @count_bot >= .time_count_bot ) {
+			set @count_bot, 0;
+			callfunc "Antibot";
+		}
+		if(@count == 15){
+			dispbottom "!!! เหลืออีก 15นาทีคุณจะได้รับรางวัล แล้ว !!!";
+		}
+	}
+	if(false){
+		if(true){
+			mes "[ ระบบรับเข้าสู้กิจกรรม ]";
+			mes "Talent Match Guard กำลังเริ่มขึ้นแล้ว";
+			set .@menu, select(" - แน่นอน: - ไม่");
+			atcommand strcharinfo(0) + "@hide";
+			sc_end SC_FREEZE;
+		}
+	}
+end;
+
+}
+
+
+// eAthena Special NPC
+
+function	script	Antibot	{
+	
+	sc_start SC_FREEZE,1000000,100000;
+	atcommand strcharinfo(0) + "@hide";
+	mes "[ ระบบตรวจบอท ]";
+	mes "^0000FFยินดีต้อนรับสู่  ระบบตรวจสอบ^000000";
+	mes "^FF3333ข้อบังคับ : โปรดใส่ตัวเลขที่ท่านเห็น^000000";
+	mes "^FF3333หากพิมพ์เลขผิดท่านจะหลุดจากเกมทันที^000000";
+	mes "^006600ทั้งนี้เพื่อเป็นการตรวจสอบโปรแกรมโกงเกม^000000";
+	mes "^006600ว่าท่านเป็นคนเล่นจริงหรือบอท^000000";
+	set @scrand,rand(1,20);
+	if(@scrand == 1) set @scode,947;
+	if(@scrand == 2) set @scode,883;
+	if(@scrand == 3) set @scode,893;
+	if(@scrand == 4) set @scode,871;
+	if(@scrand == 5) set @scode,349;
+	if(@scrand == 6) set @scode,462;
+	if(@scrand == 7) set @scode,393;
+	if(@scrand == 8) set @scode,541;
+	if(@scrand == 9) set @scode,724;
+	if(@scrand == 10) set @scode,453;
+	if(@scrand == 11) set @scode,843;
+	if(@scrand == 12) set @scode,113;
+	if(@scrand == 13) set @scode,121;
+	if(@scrand == 14) set @scode,747;
+	if(@scrand == 15) set @scode,954;
+	if(@scrand == 16) set @scode,944;
+	if(@scrand == 17) set @scode,119;
+	if(@scrand == 18) set @scode,783;
+	if(@scrand == 19) set @scode,722;
+	if(@scrand == 20) set @scode,263;
+	next;
+	mes "[ ระบบตรวจบอท]";
+	if(@scode == 947 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###";
+	mes "^000000#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	mes "^000000###^f7f7f7#^f7f7f7#^000000#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^f7f7f7#^000000#^f7f7f7#";
+	mes "^f7f7f7##^000000#^f7f7f7#^000000###^f7f7f7#^f7f7f7#^000000#^f7f7f7##";
+	mes "^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7#^000000#^f7f7f7##";
+	goto F_icode;
+	}
+	if(@scode == 883 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^000000#^f7f7f7##^000000#^f7f7f7#^000000#^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#";
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^000000#^f7f7f7##^000000#^f7f7f7#^000000#^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#";
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^000000###";
+	goto F_icode;
+	}
+	if(@scode == 893 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^000000#^f7f7f7##^000000#^f7f7f7#^000000#^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#";
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^000000#^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#";
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^000000###";
+	goto F_icode;
+	}
+	if(@scode == 871 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^f7f7f7#^000000#^f7f7f7#";
+	mes "^000000#^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	mes "^000000###^f7f7f7#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	mes "^000000#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000#^f7f7f7##^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	mes "^000000###^f7f7f7#^f7f7f7#^000000#^f7f7f7##^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	goto F_icode;
+	}
+	if(@scode == 349 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^000000#^f7f7f7##^000000#";
+	mes "^000000###^f7f7f7#^f7f7f7#^000000#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^000000###";
+	mes "^f7f7f7##^000000#^f7f7f7#^000000###^f7f7f7#^f7f7f7##^000000#";
+	mes "^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###";
+	goto F_icode;
+	}
+	if(@scode == 462 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^f7f7f7#^000000#^f7f7f7#^f7f7f7#^000000#^f7f7f7##^f7f7f7#^f7f7f7##^000000#";
+	mes "^f7f7f7#^000000#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^000000###^f7f7f7#^000000#^f7f7f7##^000000#^f7f7f7#^000000#^f7f7f7##";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###^f7f7f7#^000000###";
+	goto F_icode;
+	}
+	if(@scode == 393 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^f7f7f7##^000000#^f7f7f7#^000000#^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#";
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#";
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^000000###";
+	goto F_icode;
+	}
+	if(@scode == 541 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7#^000000#^f7f7f7#";
+	mes "^000000#^f7f7f7##^f7f7f7#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	mes "^000000###^f7f7f7#^f7f7f7#^000000#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	mes "^f7f7f7##^000000#^f7f7f7#^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	mes "^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	goto F_icode;
+	}
+	if(@scode == 724 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000#^f7f7f7#";
+	mes "^f7f7f7#^000000#^f7f7f7#^f7f7f7#^000000###^f7f7f7#^f7f7f7#^000000#^f7f7f7#^000000#^f7f7f7#";
+	mes "^f7f7f7#^000000#^f7f7f7##^f7f7f7#^000000#^f7f7f7##^f7f7f7#^000000###";
+	mes "^f7f7f7#^000000#^f7f7f7##^f7f7f7#^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	goto F_icode;
+	}
+	if(@scode == 453 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^f7f7f7#^000000#^f7f7f7#^f7f7f7#^000000#^f7f7f7##^f7f7f7#^f7f7f7##^000000#";
+	mes "^f7f7f7#^000000#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###^f7f7f7#^000000###";
+	goto F_icode;
+	}
+	if(@scode == 843 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###";
+	mes "^000000#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#";
+	mes "^000000###^f7f7f7#^f7f7f7#^000000#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^000000###";
+	mes "^000000#^f7f7f7##^000000#^f7f7f7#^000000###^f7f7f7#^f7f7f7##^000000#";
+	mes "^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###";
+	goto F_icode;
+	}
+	if(@scode == 113 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^f7f7f7#^000000#^f7f7f7#^f7f7f7#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^000000###";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###";
+	goto F_icode;
+	}
+	if(@scode == 121 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^f7f7f7#^000000#^f7f7f7#^f7f7f7#^000000###^f7f7f7#^f7f7f7#^000000#^f7f7f7#";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000#^f7f7f7##^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	goto F_icode;
+	}
+	if(@scode == 747 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	mes "^f7f7f7#^000000#^f7f7f7#^f7f7f7#^f7f7f7#^000000#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^f7f7f7#^000000#^f7f7f7#";
+	mes "^f7f7f7#^000000#^f7f7f7##^f7f7f7#^000000###^f7f7f7#^f7f7f7#^000000#^f7f7f7##";
+	mes "^f7f7f7#^000000#^f7f7f7##^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7#^000000#^f7f7f7##";
+	goto F_icode;
+	}
+	if(@scode == 954 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	mes "^000000#^f7f7f7##^000000#^f7f7f7#^000000#^f7f7f7##^f7f7f7#^f7f7f7#^000000#^f7f7f7#";
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^f7f7f7#^000000#^f7f7f7#^000000#^f7f7f7#";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#^f7f7f7#^000000###";
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	goto F_icode;
+	}
+	if(@scode == 944 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	mes "^000000#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^f7f7f7#^000000#^f7f7f7#";
+	mes "^000000###^f7f7f7#^f7f7f7#^000000#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^f7f7f7#^000000#^f7f7f7#^000000#^f7f7f7#";
+	mes "^f7f7f7##^000000#^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^000000###^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#";
+	goto F_icode;
+	}
+	if(@scode == 119 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^f7f7f7#^000000#^f7f7f7#^f7f7f7#^f7f7f7#^000000#^f7f7f7#^f7f7f7#^000000###";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000#^f7f7f7##^000000#";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000###";
+	goto F_icode;
+	}
+	if(@scode == 783 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^000000#^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#";
+	mes "^f7f7f7#^000000#^f7f7f7#^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^f7f7f7#^000000#^f7f7f7##^f7f7f7#^000000#^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#";
+	mes "^f7f7f7#^000000#^f7f7f7##^f7f7f7#^000000###^f7f7f7#^000000###";
+	goto F_icode;
+	}
+	if(@scode == 722 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^f7f7f7##^000000#^f7f7f7#^f7f7f7#^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#";
+	mes "^f7f7f7#^000000#^f7f7f7#^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^f7f7f7#^000000#^f7f7f7##^f7f7f7#^000000#^f7f7f7##^f7f7f7#^000000#^f7f7f7##";
+	mes "^f7f7f7#^000000#^f7f7f7##^f7f7f7#^000000###^f7f7f7#^000000###";
+	goto F_icode;
+	}
+	if(@scode == 263 ){
+	Announce "ให้ท่านใส่ตัวเลขที่เห็น กรุณากรอกให้ถูกต้องด้วย",bc_self,0xFFFF00;
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^f7f7f7##^000000#^f7f7f7#^000000#^f7f7f7##^f7f7f7#^f7f7f7##^000000#";
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^000000###";
+	mes "^000000#^f7f7f7##^f7f7f7#^000000#^f7f7f7##^000000#^f7f7f7#^f7f7f7##^000000#";
+	mes "^000000###^f7f7f7#^000000###^f7f7f7#^000000###";
+	goto F_icode;
+	}
+	F_icode:
+	next;
+	input icode;
+	if(icode != @scode) {
+	atcommand strcharinfo(0) + "@hide";
+	sc_end SC_FREEZE;
+	atcommand strcharinfo(0) + " : @kick " + strcharinfo(0);
+	} else {
+	announce "ขอขอบคุณที่สละเวลาจ้าาา..",19;
+	atcommand strcharinfo(0) + "@hide";
+	sc_end SC_FREEZE;
+	mes "[ ระบบตรวจบอท]";
+	mes "ยินดีต้อนรับคุณ ^4233F4"+strcharinfo(0)+"^000000!";
+	mes "คุณผ่านการตรวจสอบ ขอให้โชคดี";
+	end;
+	}
+}

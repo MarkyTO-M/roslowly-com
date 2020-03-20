@@ -1,0 +1,16 @@
+odin_tem01,0,0,0,0	monster	Breeze	1692,10,0,0,0
+odin_tem01,0,0,0,0	monster	Plasma	1697,10,0,0,0
+odin_tem01,0,0,0,0	monster	Frus	1753,10,0,0,0
+odin_tem01,0,0,0,0	monster	Skogul	1752,90,0,0,0
+
+odin_tem02,0,0,0,0	monster	Plasma	1693,10,0,0,0
+odin_tem02,0,0,0,0	monster	Skeggiold	1754,90,0,0,0
+odin_tem02,0,0,0,0	monster	Skeggiold	1755,90,0,0,0
+odin_tem02,0,0,0,0	monster	Frus	1753,10,0,0,0
+odin_tem02,0,0,0,0	monster	Skogul	1752,90,0,0,0
+
+odin_tem03,0,0,0,0	monster	Plasma	1693,10,0,0,0
+odin_tem03,0,0,0,0	monster	Skeggiold	1754,90,0,0,0
+odin_tem03,0,0,0,0	monster	Skeggiold	1755,90,0,0,0
+odin_tem03,0,0,0,0	monster	Frus	1753,10,0,0,0
+odin_tem03,0,0,0,0	monster	Skogul	1752,90,0,0,0

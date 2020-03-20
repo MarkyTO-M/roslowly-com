@@ -1,0 +1,223 @@
+morocc,159,126,4	script	แลก True Coin	564,{
+mes "^FF0000[ระบบของสถานะ]^000000";
+mes "เมื่อคุณใส่แล้วจะบวกสถานะเท่านั้น";
+mes "^FF0000* จะไม่เห็นรูปของหมวก หู ปาก *^000000";
+mes "ให้ไปใส่ครอสตูมเอาครับจะเห็นค่าหมวกตามปกติเข้าใจตรงกันตามนี้นะครับ";
+next;
+function Add; function Chk; function Slot; function A_An;
+
+	if(.Shops$ != "") set .@i,1;
+	else {
+	set .@menu$,"";
+	for(set .@i,1; .@i<=getarraysize(.Shops$); set .@i,.@i+1)
+	set .@menu$, .@menu$+.Shops$[.@i]+":";
+	set .@i, select(.@menu$); }
+	callshop "trueshop"+.@i,1;
+	npcshopattach "trueshop"+.@i;
+	end;
+
+function Add {
+	if (getitemname(getarg(1))=="null") {
+	debugmes "Quest reward #"+getarg(1)+" invalid (skipped)."; return; }
+	for(set .@n,5; .@n<127; set .@n,.@n+2) {
+	if (!getarg(.@n,0)) break;
+	if (getitemname(getarg(.@n))=="null") {
+	debugmes "Quest requirement #"+getarg(.@n)+" invalid (skipped)."; return; } }
+	for(set .@i,2; .@i<.@n; set .@i,.@i+1)
+	set getd(".q_"+getarg(1)+"["+(.@i-2)+"]"), getarg(.@i);
+	npcshopadditem "trueshop"+getarg(0),getarg(1),((.ShowZeny)?getarg(3):0);
+	sleep 1;
+	return; }
+
+function Chk {
+	if (getarg(0)<getarg(1)) { set @qe0,1; return ""; }
+	else return ""; }
+
+function Slot {
+	set .@s$,getitemname(getarg(0));
+	switch(.ShowSlot){
+	case 1: if (!getitemslots(getarg(0))) return .@s$;
+	case 2: if (getiteminfo(getarg(0),11)>0) return .@s$+" ["+getitemslots(getarg(0))+"]";
+	default: return .@s$; } }
+
+function A_An {
+	setarray .@A$[0],"a","e","i","o","u";
+	set .@B$, "_"+getarg(0);
+	for(set .@i,0; .@i<5; set .@i,.@i+1)
+	if (compare(.@B$,"_"+.@A$[.@i])) return "an "+getarg(0);
+	return "a "+getarg(0); }
+
+OnBuyItem:
+	set .@q[0],@bought_nameid;
+	copyarray .@q[1],getd(".q_"+@bought_nameid+"[0]"),getarraysize(getd(".q_"+@bought_nameid+"[0]"));
+	if (!.@q[1]) { message strcharinfo(0),""; end; }
+	mes "^FF0000[แลกรางวัล True Coin]^000000";
+	if (.@q[3]) mes ""+Chk(getd(.Points$[0]),.@q[3])+.@q[3]+" "+.Points$[1]+" ("+getd(.Points$[0])+" / "+.@q[3]+")";
+	if (.@q[4]) for(set .@i,4; .@i<getarraysize(.@q); set .@i,.@i+2)
+	mes "ต้องการ "+Chk(countitem(.@q[.@i]),.@q[.@i+1])+((.DisplayID)?"{"+.@q[.@i]+"} ":"")+Slot(.@q[.@i])+" "+.@q[.@i+1]+" ea ครับ";
+	next;
+	set @qe1, getiteminfo(.@q[0],5); set @qe2, getiteminfo(.@q[0],11);
+	addtimer 7000, strnpcinfo(3)+"::OnEnd";
+	while(1){
+	switch(select("^0000FF-^000000 แลก:"+((((@qe1&1) || (@qe1&256) || (@qe1&512) || (@qe1&1024) || (@qe1&2048) || (@qe1&4096)) && @qe2>0 && !@qe6)?"^0000FF-^000000 ทดลอง":"")+"")) {
+	//switch(select("^0000FF-^000000 แลก:"+((((@qe1&1) || (@qe1&256) || (@qe1&512) || (@qe1&1024) || (@qe1&2048) || (@qe1&4096)) && @qe2>0 && !@qe6)?"":"")+"")) {
+	
+	case 1:
+	if (@qe0) { 
+	mes "^FF0000[แลกรางวัล True Coin]^000000";
+	if (.@q[3]) mes ""+Chk(getd(.Points$[0]),.@q[3])+.@q[3]+" "+.Points$[1]+" ("+getd(.Points$[0])+" / "+.@q[3]+")";
+	if (.@q[4]) for(set .@i,4; .@i<getarraysize(.@q); set .@i,.@i+2)
+	mes "ต้องการ "+Chk(countitem(.@q[.@i]),.@q[.@i+1])+((.DisplayID)?"{"+.@q[.@i]+"} ":"")+Slot(.@q[.@i])+" "+.@q[.@i+1]+" ea ครับ";
+	close; }
+	if (!checkweight(.@q[0],.@q[1])) {
+	mes "";
+	mes "";
+	close; }
+	if (.@q[3]) setd .Points$[0], getd(.Points$[0])-.@q[3];
+	if (.@q[4]) for(set .@i,4; .@i<getarraysize(.@q); set .@i,.@i+2)
+	delitem .@q[.@i],.@q[.@i+1];
+	getitem .@q[0],.@q[1];				
+	specialeffect2 699;
+	close;
+
+	case 2:
+	set @qe3, getlook(3); set @qe4, getlook(4); set @qe5, getlook(5);
+	if (@qe1&1) atcommand "@changelook 3 "+@qe2;
+	if (@qe1&256) atcommand "@changelook 1 "+@qe2;
+	if (@qe1&512) atcommand "@changelook 2 "+@qe2;
+	if (@qe1&4096) atcommand "@changelook 3 "+@qe2;
+	if (@qe1&1024) atcommand "@changelook 1 "+@qe2;
+	if (@qe1&2048) atcommand "@changelook 2 "+@qe2;
+	set @qe6,1;
+	close;
+
+	case 3:
+	close; 
+	} 
+}
+
+OnEnd:
+	if (@qe6) { atcommand "@changelook 3 "+@qe3; atcommand "@changelook 1 "+@qe4; atcommand "@changelook 2 "+@qe5; }
+	for(set .@i,0; .@i<7; set .@i,.@i+1) setd "@qe"+.@i,0;
+	end;
+
+OnInit:
+	setarray .Points$[0],"#CASHPOINTS","แคช";
+	set .Announce,0;
+	set .ShowSlot,2;
+	set .DisplayID,0;
+	set .ShowZeny,1;
+	waitingroom "๐ แลก True Coin ๐",0;
+
+setarray .Shops$[1],
+"^0000FF-^000000 แลกรางวัล True Coin ส่วนหัว",
+"^0000FF-^000000 แลกรางวัล True Coin ส่วนหู",
+"^0000FF-^000000 แลกรางวัล True Coin ส่วนปาก";
+
+Add(1,17300,1,25,0,31022,25);
+Add(1,17301,1,25,0,31022,25);
+Add(1,17302,1,25,0,31022,25);
+Add(1,17303,1,25,0,31022,25);
+Add(1,17304,1,25,0,31022,25);
+Add(1,17305,1,25,0,31022,25);
+Add(1,17306,1,25,0,31022,25);
+Add(1,17307,1,25,0,31022,25);
+Add(1,17308,1,25,0,31022,25);
+Add(1,17309,1,25,0,31022,25);
+Add(1,17310,1,25,0,31022,25);
+Add(1,17311,1,25,0,31022,25);
+Add(1,17312,1,25,0,31022,25);
+Add(1,17313,1,25,0,31022,25);
+Add(1,17314,1,25,0,31022,25);
+Add(1,17315,1,25,0,31022,25);
+Add(1,17316,1,25,0,31022,25);
+Add(1,17317,1,25,0,31022,25);
+Add(1,17318,1,25,0,31022,25);
+Add(1,17319,1,25,0,31022,25);
+Add(1,17320,1,25,0,31022,25);
+Add(1,17321,1,25,0,31022,25);
+Add(1,17322,1,25,0,31022,25);
+Add(1,17323,1,25,0,31022,25);
+Add(1,17324,1,25,0,31022,25);
+Add(1,17325,1,25,0,31022,25);
+Add(1,17326,1,25,0,31022,25);
+Add(1,17327,1,25,0,31022,25);
+Add(1,17328,1,25,0,31022,25);
+Add(1,17329,1,25,0,31022,25);
+Add(1,17330,1,25,0,31022,25);
+Add(1,17331,1,25,0,31022,25);
+Add(1,17332,1,25,0,31022,25);
+Add(1,17333,1,25,0,31022,25);
+Add(1,17334,1,25,0,31022,25);
+Add(1,17335,1,25,0,31022,25);
+Add(1,17336,1,25,0,31022,25);
+Add(1,17337,1,25,0,31022,25);
+Add(1,17338,1,25,0,31022,25);
+Add(1,17339,1,25,0,31022,25);
+Add(1,17340,1,25,0,31022,25);
+Add(1,17341,1,25,0,31022,25);
+Add(1,17342,1,25,0,31022,25);
+Add(1,17343,1,25,0,31022,25);
+
+Add(2,17400,1,20,0,31022,20);
+Add(2,17401,1,20,0,31022,20);
+Add(2,17402,1,20,0,31022,20);
+Add(2,17403,1,20,0,31022,20);
+Add(2,17404,1,20,0,31022,20);
+Add(2,17405,1,20,0,31022,20);
+Add(2,17406,1,20,0,31022,20);
+Add(2,17407,1,20,0,31022,20);
+Add(2,17408,1,20,0,31022,20);
+Add(2,17409,1,20,0,31022,20);
+Add(2,17410,1,20,0,31022,20);
+Add(2,17411,1,20,0,31022,20);
+Add(2,17412,1,20,0,31022,20);
+Add(2,17413,1,20,0,31022,20);
+Add(2,17414,1,20,0,31022,20);
+Add(2,17415,1,20,0,31022,20);
+Add(2,17416,1,20,0,31022,20);
+Add(2,17417,1,20,0,31022,20);
+Add(2,17418,1,20,0,31022,20);
+
+
+Add(3,17500,1,20,0,31022,20);
+Add(3,17501,1,20,0,31022,20);
+Add(3,17502,1,20,0,31022,20);
+Add(3,17503,1,20,0,31022,20);
+Add(3,17504,1,20,0,31022,20);
+Add(3,17505,1,20,0,31022,20);
+Add(3,17506,1,20,0,31022,20);
+Add(3,17507,1,20,0,31022,20);
+Add(3,17508,1,20,0,31022,20);
+Add(3,17509,1,20,0,31022,20);
+Add(3,17510,1,20,0,31022,20);
+Add(3,17511,1,20,0,31022,20);
+Add(3,17512,1,20,0,31022,20);
+Add(3,17513,1,20,0,31022,20);
+Add(3,17514,1,20,0,31022,20);
+Add(3,17515,1,20,0,31022,20);
+Add(3,17516,1,20,0,31022,20);
+Add(3,17517,1,20,0,31022,20);
+Add(3,17518,1,20,0,31022,20);
+
+
+
+
+for(set .@i,1; .@i<=getarraysize(.Shops$); set .@i,.@i+1)
+npcshopdelitem "trueshop"+.@i,909;
+end;
+}
+
+-	shop	trueshop1	-1,909:-1
+-	shop	trueshop2	-1,909:-1
+-	shop	trueshop3	-1,909:-1
+
+-	shop	trueshop4	-1,909:-1
+-	shop	trueshop5	-1,909:-1
+-	shop	trueshop6	-1,909:-1
+-	shop	trueshop7	-1,909:-1
+-	shop	trueshop8	-1,909:-1
+-	shop	trueshop9	-1,909:-1
+
+-	shop	trueshop10	-1,909:-1
+-	shop	trueshop11	-1,909:-1

@@ -1,0 +1,24 @@
+juperos_01,0,0,0,0	monster	Venatu	1679,90,0,0,0
+juperos_01,0,0,0,0	monster	Venatu	1676,90,0,0,0
+juperos_01,0,0,0,0	monster	Venatu	1677,90,0,0,0
+juperos_01,0,0,0,0	monster	Venatu	1678,90,0,0,0
+juperos_01,0,0,0,0	monster	Dimik	1670,90,0,0,0
+juperos_01,0,0,0,0	monster	Dimik	1671,90,0,0,0
+juperos_01,0,0,0,0	monster	Dimik	1672,90,0,0,0
+juperos_01,0,0,0,0	monster	Dimik	1673,90,0,0,0
+juperos_01,0,0,0,0	monster	Dimik	1670,90,0,0,0
+
+juperos_02,0,0,0,0	monster	Venatu	1679,90,0,0,0
+juperos_02,0,0,0,0	monster	Venatu	1676,90,0,0,0
+juperos_02,0,0,0,0	monster	Venatu	1677,90,0,0,0
+juperos_02,0,0,0,0	monster	Venatu	1678,90,0,0,0
+juperos_02,0,0,0,0	monster	Apocalypse	1365,90,0,0,0
+
+jupe_core,0,0,0,0	monster	Venatu	1676,90,0,0,0
+jupe_core,0,0,0,0	monster	Venatu	1677,90,0,0,0
+jupe_core,0,0,0,0	monster	Venatu	1678,90,0,0,0
+jupe_core,0,0,0,0	monster	Dimik	1670,90,0,0,0
+jupe_core,0,0,0,0	monster	Dimik	1671,90,0,0,0
+jupe_core,0,0,0,0	monster	Dimik	1672,90,0,0,0
+jupe_core,0,0,0,0	monster	Dimik	1673,90,0,0,0
+jupe_core,0,0,0,0	monster	Archdam	1668,90,0,0,0

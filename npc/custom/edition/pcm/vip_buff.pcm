@@ -1,0 +1,297 @@
+//============================================================
+//=สคลิปทั้งหมดในนี้
+//=เขียนขึ้นใหม่
+//=ปรับแต่งแก้ไขใหม่และแปลไทยโดย Pcmedias : by Ittiphol Live
+//============================================================
+
+
+-	script	VipB	-1,{
+if (getgroupid()<4) {
+goto Geustz;
+}
+
+set .@Timer, vip_status(VIP_STATUS_EXPIRE);
+mes "[VIP Pcmedias System]";
+mes "ยินดีต้อนรับ "+strcharinfo(0)+",";
+mes "^FF0000สถานะ VIP ของคุณจะหมดใน:^000000";
+mes gettimestr("%Y-%m/%d %H:%M:%S",21,vip_status(VIP_STATUS_EXPIRE));
+mes "^FF0000เหลืออีก: ^000000" + callfunc("Time2Str",.@Timer);
+next;
+mes "[VIP-Buffer]";
+mes "สวัสดี ^0000FF" + strcharinfo(0) + "^000000";
+mes "ข้าคือตัวแทนบริษัท";
+mes "Pcmedias Corporation ";
+mes " ";
+mes "^FF0000[บริการฟรีสำหรับ VIP]^000000";
+emotion 21;
+OnTouch:
+specialeffect2 EF_HEAL2; percentheal 1000,1000;
+	if( @delay_buff ) end;
+	percentheal 100,100;
+	skilleffect 33,0; sc_start SC_ANGELUS,3600000,10;
+	skilleffect 74,0; sc_start SC_MAGNIFICAT,3600000,10;
+	skilleffect 75,0; sc_start SC_GLORIA,3600000,10;
+	skilleffect 66,0; sc_start SC_IMPOSITIO,3600000,10;
+	skilleffect 34,0; sc_start SC_BLESSING,3600000,10;
+	skilleffect 29,0; sc_start SC_INCREASEAGI,3600000,10;
+	@delay_buff++;
+	sleep2 1000;
+	@delay_buff = 0;
+emotion 21;
+next;
+		mes "[VIP-Buffer]";
+		mes "พิเศษสำหรับ VIP สามารถเลือกบัพเพิ่ม.";
+		mes "สามารถเลือกตามต้องการตามรายการนี้";
+		next;
+		goto buff;
+		buff:
+		menu "+ ^FF0000STR+8, AGI+6, DEX+4, ATK+32^000000",First,"+ ^FF0000INT+8, DEX+6, VIT+4, MATK+40^000000",Second,"+ ^FF0000Dex+8, AGI+6, LUK+4, ATK+24, MATK+24^000000",Third,"+ ^FF0000All Stat +6, ATK+24, MATK+24^000000",Fourth;
+
+First:
+sc_start SC_STRFOOD,3600000,8;
+sc_start SC_AGIFOOD,3600000,6;
+sc_start SC_DEXFOOD,3600000,4;
+sc_start SC_ATKPOTION,3600000,32;
+percentheal 100,100;
+emotion 21;
+next;
+goto buffx;
+
+Second:
+sc_start SC_INTFOOD,3600000,8;
+sc_start SC_DEXFOOD,3600000,6;
+sc_start SC_VITFOOD,3600000,4;
+sc_start SC_MATKPOTION,3600000,40;
+percentheal 100,100;
+emotion 21;
+next;
+goto buffx;
+
+Third:
+sc_start SC_DEXFOOD,3600000,8;
+sc_start SC_AGIFOOD,3600000,6;
+sc_start SC_LUKFOOD,3600000,4;
+sc_start SC_ATKPOTION,3600000,24;
+sc_start SC_MATKPOTION,3600000,24;
+percentheal 100,100;
+emotion 21;
+next;
+goto buffx;
+
+Fourth:
+sc_start SC_STRFOOD,3600000,6;
+sc_start SC_AGIFOOD,3600000,6;
+sc_start SC_VITFOOD,3600000,6;
+sc_start SC_INTFOOD,3600000,6;
+sc_start SC_DEXFOOD,3600000,6;
+sc_start SC_LUKFOOD,3600000,6;
+sc_start SC_ATKPOTION,3600000,24;
+sc_start SC_MATKPOTION,3600000,24;
+percentheal 100,100;
+emotion 21;
+next;
+goto buffx;
+
+buffx:
+mes "[VIP-Buffer]";
+mes "พลังจงอยู่กับเจ้า....! .. !";
+	end;
+
+Geustz:
+mes "[VIP-Buffer]";
+mes "สวัสดี ^0000FF" + strcharinfo(0) + "^000000";
+mes "ข้าคือตัวแทนบริษัท";
+mes "Pcmedias Corporation ";
+mes "ข้าเพิ่มพลังให้เจ้าเวลา 1 ชั่วโมง";
+mes "^FF0000[บริการฟรีสำหรับ VIP]^000000";
+mes "ที่ให้เจ้ามีดังรายการนี้";
+next;
+mes "^FF0000ฟื้น HP และ SP ^000000";
+mes "^0000FFBuff ANGELUS ";
+mes "Buff MAGNIFICAT";
+mes "Buff GLORIA";
+mes "Buff IMPOSITIO";
+mes "Buff BLESSING";
+mes "Buff INCREASEAGI^000000";
+next;
+mes "^FF0000[ถ้าไม่ใช่ VIP]^000000";
+mes "ฟื้น HP และ SP";
+mes "Buff BLESSING";
+mes "Buff INCREASEAGI^000000";
+mes "ข้าสามารถเพิ่มพลังให้เจ้า";
+mes "ติดตัวเจ้าเป็นเวลา 10 นาที";
+mes "คิดค่าบริการครั้งละ 500z";
+next;
+	switch(select("ไม่ดีกว่า:^FF3355ซื้อบัพ^000000:^FF0000[สมัคร VIP]^000000")) {
+		case 1:
+			mes "[VIP-Buffer]";
+			mes "ข้าช่วยเจ้าได้เยอะนะ ตัดสินใจแล้วกัน";
+				close;
+		case 2:
+				if (Zeny < 500) {
+				mes "[VIP-Buffer]";
+				mes "ขออภัยคุณมี Zeny ไม่เพียงพอ";
+				close;
+						}
+			mes "[VIP-Buffer]";
+			mes "พลังจงอยู่กับเจ้า....! .. !";
+			set Zeny,zeny-500;
+specialeffect2 EF_HEAL2; percentheal 1000,1000;
+	if( @delay_buff ) end;
+	percentheal 100,100;
+	skilleffect 34,0; sc_start SC_BLESSING,620000,10;
+	skilleffect 29,0; sc_start SC_INCREASEAGI,620000,10;
+	@delay_buff++;
+	sleep2 1000;
+	@delay_buff = 0;
+emotion 21;
+	end;
+
+
+case 3:
+
+set .@day,5;
+set .@week,20;
+set .@month,50;
+set .required,7179;
+if (getgroupid()>60) {
+mes "[VIP Pcmedias System]";
+mes "เสียใจด้วย,GM และเจ้าหน้าที่ไม่สามารถใช้ได้.";
+close;
+}
+
+mes "[VIP Pcmedias System]";
+mes "สวัสดี "+strcharinfo(0)+",";
+mes "สนใจจะสมัคร VIP ระยะยาวไหม?";
+mes "จะได้สิทธิ์พิเศษ EXP/JOB/Drop ที่มากขึ้น";
+mes "พื้นที่เก็บของที่มากขึ้นและอื่นๆ";
+next;
+mes "[VIP Pcmedias System]";
+mes "นี่คือราคาสำหรับ VIP Service.";
+mes "24 ชั่วโมง ^FF0000"+.@day+"^000000 Cash point";
+mes "1 อาทิตย์ ^FF0000"+.@week+"^000000 Cash point";
+mes "1 เดือน ^FF0000"+.@month+"^000000 Cash point";
+mes "====================";
+mes "แต้มที่คุณมี ^FF0000"+#CASHPOINTS+"^000000.";
+next;
+switch(select("สมัคร 24 ชั่วโมง:สมัคร 1 อาทิตย์:สมัคร 1 เดือน:ไม่ละ, ขอบคุณ.")) {
+case 1:
+if (#CASHPOINTS < .@day) {
+mes "[VIP Pcmedias System]";
+mes "คะแนนของคุณไม่พอ,";
+mes ""+.@day+" คะแนนสำหรับ VIP Service.";
+close;
+}
+set #CASHPOINTS, #CASHPOINTS - .@day;
+atcommand "@vip +24h "+strcharinfo(0)+"";
+getitem 12263,1;
+getitem 12264,1;
+getitem 12265,1;
+getitem 25627,1;
+mes "[VIP Pcmedias System]";
+mes "ขอให้สนุกกับ VIP Service.";
+dispbottom "ตอนนี้คุณมีคะแนนอยู่ "+#CASHPOINTS+".";
+close;
+ 
+case 2:
+if (#CASHPOINTS < .@week) {
+mes "[VIP Pcmedias System]";
+mes "คะแนนของคุณไม่พอ,";
+mes ""+.@week+" คะแนนสำหรับ VIP Service.";
+close;
+}
+set #CASHPOINTS, #CASHPOINTS - .@week;
+atcommand "@vip +7d "+strcharinfo(0)+"";
+getitem 12263,5;
+getitem 12264,5;
+getitem 12265,5;
+getitem 25627,10;
+mes "[VIP Pcmedias System]";
+mes "ขอให้สนุกกับ VIP Service.";
+dispbottom "ตอนนี้คุณมีคะแนนอยู่"+#CASHPOINTS+".";
+close;
+ 
+case 3:
+if (#CASHPOINTS < .@month) {
+mes "[VIP Pcmedias System]";
+mes "คะแนนของคุณไม่พอ,";
+mes ""+.@month+" คะแนนสำหรับ VIP Service.";
+close;
+}
+set #CASHPOINTS, #CASHPOINTS - .@month;
+atcommand "@vip +1m "+strcharinfo(0)+"";
+getitem 12263,10;
+getitem 12264,10;
+getitem 12265,10;
+getitem 25627,50;
+mes "[VIP Pcmedias System]";
+mes "ขอให้สนุกกับ VIP Service.";
+dispbottom "ตอนนี้คุณมีคะแนนอยู่"+#CASHPOINTS+".";
+close;
+ 
+case 4:
+mes "[VIP Pcmedias System]";
+mes "Ok, ขอบคุณที่ใช้บริการ.";
+close;
+}
+}
+		
+
+OnInit:
+while (1) {
+	sleep 8000;
+	npctalk "บริการ [VIP] บัพ แค่ถือ VIP ก็ได้รับความสบายมากมาย.";
+}
+end;
+}
+
+
+
+prontera,150,108,5	script	Healera	139,1,1,{
+	end;
+OnTouch_:
+specialeffect2 EF_HEAL2; percentheal 1000,1000;
+	if( @delay_buff ) end;
+	percentheal 100,100;
+	@delay_buff++;
+	sleep2 1000;
+	@delay_buff = 0;
+		
+	
+	end;
+}
+
+
+prontera,146,108,4	duplicate(VipB)	VIP-Buffer#pro	109
+izlude,125,148,3	duplicate(VipB)	VIP-Buffer#izl	109
+geffen,136,56,3	duplicate(VipB)	VIP-Buffer#gef	109
+payon,174,119,3	duplicate(VipB)	VIP-Buffer#pay	109
+morocc,166,97,3	duplicate(VipB)	VIP-Buffer#mBufr	109
+morocc,167,258,3	duplicate(VipB)	VIP-Buffer#m0rW	109
+alberta,106,74,3	duplicate(VipB)	VIP-Buffer#alb	109
+comodo,215,148,3	duplicate(VipB)	VIP-Buffer#com	109
+umbala,95,162,3	duplicate(VipB)	VIP-Buffer#umb	109
+aldebaran,146,117,3	duplicate(VipB)	VIP-Buffer#ald	109
+yuno,150,122,3	duplicate(VipB)	VIP-Buffer#yun	109
+mjolnir_02,88,358,3	duplicate(VipB)	VIP-Buffer#mjo	109
+xmas,138,142,3	duplicate(VipB)	VIP-Buffer#xma	109
+amatsu,102,162,3	duplicate(VipB)	VIP-Buffer#ama	109
+gonryun,155,122,3	duplicate(VipB)	VIP-Buffer#gon	109
+niflheim,206,179,3	duplicate(VipB)	VIP-Buffer#nif	109
+louyang,210,108,3	duplicate(VipB)	VIP-Buffer#lou	109
+ayothaya,206,169,3	duplicate(VipB)	VIP-Buffer#ayo	109
+einbroch,55,203,3	duplicate(VipB)	VIP-Buffer#ein	109
+lighthalzen,167,104,3	duplicate(VipB)	VIP-Buffer#lig	109
+einbech,186,123,3	duplicate(VipB)	VIP-Buffer#ein2	109
+hugel,84,149,3	duplicate(VipB)	VIP-Buffer#hug	109
+rachel,127,135,3	duplicate(VipB)	VIP-Buffer#rac	109
+veins,210,135,3	duplicate(VipB)	VIP-Buffer#vei	109
+moscovia,220,191,3	duplicate(VipB)	VIP-Buffer#mos	109
+brasilis,194,221,3	duplicate(VipB)	VIP-Buffer#bra	109
+dewata,202,190,3	duplicate(VipB)	VIP-Buffer#dew	109
+malaya,228,195,3	duplicate(VipB)	VIP-Buffer#mal	109
+lasagna,204,196,3	duplicate(VipB)	VIP-Buffer#las	109
+glast_01,191,273,3	duplicate(VipB)	VIP-Buffer#gla	109
+dicastes01,188,213,3	duplicate(VipB)	VIP-Buffer#dic	109
+mid_camp,202,288,4	duplicate(VipB)	VIP-Buffer#mid	109
+

@@ -1,0 +1,52 @@
+-	script	disablebuff	-1,{
+OnPCLoadMapEvent:
+
+	getmapxy @map$,@x,@y,0;
+	
+	if (@map$ == "aldeg_cas04" || @map$ == "payg_cas04"|| @map$ == "prtg_cas03" || @map$ == "gefg_cas04" || @map$ == "payg_cas01" || @map$ == "gefg_cas01" 
+	  || @map$ == "payg_cas03" || @map$ == "gefg_cas02" || @map$ == "aldeg_cas05" || @map$ == "aldeg_cas03" || @map$ == "prtg_cas04" || @map$ == "prtg_cas01")
+	{
+		if (agitcheck() || agitcheck2()){
+			bonus_script_clear 1;
+			dispbottom "[Bonus ปิดการใช้งาน ท่านสามารถรับกัลบคืนได้ที่ NPC]";
+			sc_end 181;
+			sc_end 113;
+			sc_end 114;
+			sc_end 175;
+			sc_end SC_SERVICE4U;
+			sc_end SC_POEMBRAGI;
+			sc_end SC_GOSPEL;
+		}
+		end;
+	}
+	if (@map$ == "pvp_y_8-2" || @map$ == "guild_vs2")
+	{
+		sleep2  700;
+		bonus_script_clear 1;
+		dispbottom "[Bonus ปิดการใช้งาน ท่านสามารถรับกัลบคืนได้ที่ NPC]";
+		sc_end 181;
+		sc_end 113;
+		sc_end 114;
+		sc_end 175;
+		sc_end SC_SERVICE4U;
+		sc_end SC_POEMBRAGI;
+		sc_end SC_GOSPEL;
+		end;
+	}
+}
+
+pvp_y_8-2	mapflag	 loadevent
+guild_vs2	mapflag	 loadevent
+
+aldeg_cas04	mapflag	 loadevent
+payg_cas04	mapflag	 loadevent
+prtg_cas03	mapflag	 loadevent
+gefg_cas04	mapflag	 loadevent
+payg_cas01	mapflag	 loadevent
+gefg_cas01	mapflag	 loadevent
+payg_cas03	mapflag	 loadevent
+gefg_cas02	mapflag	 loadevent
+aldeg_cas05	mapflag	 loadevent
+aldeg_cas03	mapflag	 loadevent
+prtg_cas04	mapflag	 loadevent
+prtg_cas01	mapflag	 loadevent

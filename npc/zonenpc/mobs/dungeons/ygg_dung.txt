@@ -1,0 +1,6 @@
+yggdrasil01,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+yggdrasil01,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+yggdrasil01,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+yggdrasil01,0,0,0,0	monster	White Plant	1082,10,0,0,0
+yggdrasil01,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+yggdrasil01,0,0,0,0	monster	Red Plant	1078,10,0,0,0

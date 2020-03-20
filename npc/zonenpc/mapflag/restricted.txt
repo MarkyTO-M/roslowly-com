@@ -1,0 +1,40 @@
+alde_tt02	mapflag	restricted	1
+turbo_n_1	mapflag	restricted	1
+turbo_n_4	mapflag	restricted	1
+turbo_n_8	mapflag	restricted	1
+turbo_n_16	mapflag	restricted	1
+turbo_e_4	mapflag	restricted	1
+turbo_e_8	mapflag	restricted	1
+turbo_e_16	mapflag	restricted	1
+
+sec_pri	mapflag	restricted	2
+
+force_1-1	mapflag	restricted	3
+force_2-1	mapflag	restricted	3
+force_3-1	mapflag	restricted	3
+force_4-1	mapflag	restricted	3
+force_5-1	mapflag	restricted	3
+force_1-2	mapflag	restricted	3
+force_1-3	mapflag	restricted	3
+
+schg_cas01	mapflag	restricted	4
+schg_cas02	mapflag	restricted	4
+schg_cas03	mapflag	restricted	4
+schg_cas04	mapflag	restricted	4
+schg_cas05	mapflag	restricted	4
+arug_cas01	mapflag	restricted	4
+arug_cas02	mapflag	restricted	4
+arug_cas03	mapflag	restricted	4
+arug_cas04	mapflag	restricted	4
+arug_cas05	mapflag	restricted	4
+
+1@cata	mapflag	restricted	5
+2@cata	mapflag	restricted	5
+
+gvg_cas01	mapflag	restricted	6
+gvg_cas02	mapflag	restricted	6
+gvg_cas03	mapflag	restricted	6
+gvg_cas04	mapflag	restricted	6
+
+morocc	mapflag	restricted	7
+valrain	mapflag	restricted	7

@@ -1,0 +1,9 @@
+dic_dun01,0,0,0,0	monster	One-Horn Scaraba	2083,90,0,0,0
+dic_dun01,0,0,0,0	monster	Two-Horn Scaraba	2084,90,0,0,0
+dic_dun01,0,0,0,0	monster	One-Horn Scaraba Egg	2088,10,0,0,0
+dic_dun01,0,0,0,0	monster	Two-Horn Scaraba Egg	2089,10,0,0,0
+
+dic_dun02,0,0,0,0	monster	Antler Scaraba	2085,90,0,0,0
+dic_dun02,0,0,0,0	monster	Rake Scaraba	2086,90,0,0,0
+dic_dun02,0,0,0,0	monster	Antler Scaraba Egg	2090,10,0,0,0
+dic_dun02,0,0,0,0	monster	Rake Scaraba Egg	2091,10,0,0,0

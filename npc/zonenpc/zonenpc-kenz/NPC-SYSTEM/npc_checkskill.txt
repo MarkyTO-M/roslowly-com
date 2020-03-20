@@ -1,0 +1,23 @@
+-	script	checkskill	-1,{
+end;
+
+OnPCLoadMapEVent:
+	for(set .@i,0; .@i < getarraysize(.maps$); set .@i,.@i+1)
+	{
+		if(strcharinfo(3) == .maps$[.@i])
+		{
+			sc_end SC_SERVICE4U;
+			sc_end SC_POEMBRAGI;
+			end;
+		}
+	}
+	end;
+    
+OnInit:
+	setarray .maps$[0],
+	"pvp_y_5-2",
+	"";
+	end;
+}
+
+pvp_y_5-2	mapflag	loadevent

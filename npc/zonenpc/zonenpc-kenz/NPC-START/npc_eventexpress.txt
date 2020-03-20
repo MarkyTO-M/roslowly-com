@@ -1,0 +1,47 @@
+-	script	eventexpress	-1,{
+callfunc "eventexpress";
+end;
+
+OnInit:
+waitingroom "๐ ชมกิจกรรม ๐", 0;
+end;
+}
+
+function	script	eventexpress	{
+if(Baselevel > 1) goto no;
+if (Class > 0) goto no;
+
+
+menu
+"^0000FF-^000000 กิจกรรมทั่วไป",event,
+"^0000FF-^000000 1-1 Guildwar",gvg;
+
+event:
+menu
+"^0000FF-^000000 ["+getmapusers("eventpvp")+"] คน - PvP",w1,
+"^0000FF-^000000 ["+getmapusers("eventzone")+"] คน - RTC",w2,
+"^0000FF-^000000 ["+getmapusers("eventzone")+"] คน - Zone",w3;
+
+gvg:
+menu
+"^0000FF-^000000 [" + getmapusers("gvg_cas01") + "] คน - Sacred Altar 01",gvg_cas01,
+"^0000FF-^000000 [" + getmapusers("gvg_cas02") + "] คน - Sacred Altar 02",gvg_cas02,
+"^0000FF-^000000 [" + getmapusers("gvg_cas03") + "] คน - Holy Shadow 01",gvg_cas03,
+"^0000FF-^000000 [" + getmapusers("gvg_cas04") + "] คน - Holy Shadow 02",gvg_cas04;
+
+w1: setaudience  "eventpvp"; warp "eventpvp",40,40; end;
+w2: setaudience  "eventzone";  warp "eventzone",40,40; end;
+w3: setaudience  "eventzone";  warp "eventzone",40,40; end;
+gvg_cas01: setaudience "gvg_cas01"; warp "gvg_cas01",40,235; end;
+gvg_cas02: setaudience "gvg_cas02"; warp "gvg_cas02",40,235;  end;
+gvg_cas03: setaudience "gvg_cas03"; warp "gvg_cas03",9,288; end;
+gvg_cas04: setaudience "gvg_cas04"; warp "gvg_cas04",9,288; end;
+
+no:
+mes "^FF0000[ชมกิจกรรม]^000000";
+mes "ต้องเป็น Novice";
+mes "และเลเวล 1 เท่านั้น";
+
+close;
+
+}

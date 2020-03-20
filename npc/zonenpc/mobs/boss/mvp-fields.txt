@@ -1,0 +1,27 @@
+pay_fild04,0,0,0,0	monster	Angeling	1096,1,3600000,0,0
+yuno_fild03,0,0,0,0	monster	Angeling	1096,1,3600000,0,0
+yuno_fild05,0,0,0,0	monster	Arc Angeling	1388,1,3600000,0,0
+pay_fild04,0,0,0,0	monster	Deviling	1582,1,3600000,0,0
+yuno_fild03,0,0,0,0	monster	Deviling	1582,1,3600000,0,0
+pay_fild04,0,0,0,0	monster	Ghostring	1120,1,3600000,0,0
+cmd_fild03,0,0,0,0	monster	Mutant Dragonoid	1262,1,1800000,0,0
+cmd_fild08,0,0,0,0	monster	Gryphon	1259,1,1800000,0,0
+hu_fild05,0,0,0,0	monster	Mutant Dragonoid	1262,1,1800000,0,0
+man_fild03,0,0,0,0	monster	Hardrock Mammoth	1990,1,1800000,0,0
+spl_fild03,0,0,0,0	monster	Tendril Lion	1991,1,1800000,0,0
+um_fild03,0,0,0,0	monster	Gryphon	1259,1,1800000,0,0
+
+gef_fild02,0,0,0,0	monster	Orc Hero	1087,1,7200000,0,0
+gef_fild10,0,0,0,0	monster	Orc Lord	1190,1,7200000,0,0
+gef_fild14,0,0,0,0	monster	Orc Hero	1087,1,7200000,0,0
+xmas_fild01,0,0,0,0	monster	Garm	1252,1,7200000,0,0
+mjolnir_04,0,0,0,0	monster	Mistress	1059,1,7200000,0,0
+moc_fild17,0,0,0,0	monster	Phreeoni	1159,1,7200000,0,0
+pay_fild11,0,0,0,0	monster	Eddga	1115,1,7200000,0,0
+ra_fild02,0,0,0,0	monster	Atroce	1785,1,7200000,0,0
+ra_fild03,0,0,0,0	monster	Atroce	1785,1,7200000,0,0
+ra_fild04,0,0,0,0	monster	Atroce	1785,1,7200000,0,0
+ve_fild01,0,0,0,0	monster	Atroce	1785,1,7200000,0,0
+ve_fild02,0,0,0,0	monster	Atroce	1785,1,7200000,0,0
+
+moc_fild22,0,0,0,0	monster	Wounded Satan Morroc	1917,1,28800000,0,0

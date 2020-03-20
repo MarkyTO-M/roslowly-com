@@ -1,0 +1,162 @@
+-	script	Auto rewardkillmonster	-1,{
+	set $mob_active_rate,1;
+OnInIt:
+	set $mob_active_rate,1;
+end;
+	
+OnClock0000:
+	addrid(0);
+	set $mob_active_rate,0;
+	addrid(0);
+	set #MOB_ACTIVE_RATE_MAX,0;
+	query_sql("UPDATE `acc_reg_num` SET `value` = 0 WHERE `key` = '#MOB_ACTIVE_RATE_MAX'");
+end;
+
+OnClock0900:
+	set $mob_active_rate,1;
+end;
+
+OnNPCKillEvent:
+	sleep2 1000;
+	if ( killedrid == 1086 || killedrid == 1112 || killedrid == 1115 || killedrid == 1150 || killedrid == 1159 || killedrid == 1252 || killedrid == 1583 || killedrid == 1038 || killedrid == 1046 || killedrid == 1087 || killedrid == 1147 || killedrid == 1251 || killedrid == 1492 || killedrid == 1157 || killedrid == 1312 || killedrid == 1389 || killedrid == 1418 || killedrid == 1658 || killedrid == 1885 || killedrid == 1039 || killedrid == 1190 || killedrid == 1373 || killedrid == 1272 || killedrid == 1623 || killedrid == 1630 || killedrid == 1685 || killedrid == 1719 || killedrid == 1785 || killedrid == 1734 || killedrid == 1059 || killedrid == 1511 || killedrid == 1688 || killedrid == 1708 || killedrid == 1646 || killedrid == 1648 || killedrid == 1647 || killedrid == 1649 || killedrid == 1751 || killedrid == 1779 || killedrid == 1650 || killedrid == 1871 || killedrid == 1768 || killedrid == 1651 || killedrid == 1832 || killedrid == 1874 || killedrid == 1916 || killedrid == 1956 ) {
+		goto MVP;
+	}else{
+		if( getmonsterinfo(killedrid, 21) & 0x0020 ) { // getmonsterinfo(killedrid, 21) & 0x0020
+			goto Mini;
+		}else{
+			goto normal;
+		}
+	}
+MVP:
+	set .@r,rand(1,500);
+	set .@r2,rand(1,20);
+	if(.@r <= 50){		// โอกาสดรอป 25%
+		getitem 677,2; // Platinum Coin
+	}
+	if(.@r <= 25){
+		getitem 7647,1; // Lucky Coin
+	}
+	if(.@r <= 5){
+		getitem 7647,5; //Lucky Coin
+	}
+	if(.@r2 == 4){
+		if(.@r == 8){
+			getitem 6234,1; // Ticket +7 Armor
+		}
+		if(.@r == 9){
+			getitem 6230,1; // Ticket +7 Weapon
+		}
+	}
+	
+	// Event Addition
+	if($mob_active_rate == 1 && #MOB_ACTIVE_RATE_MAX < 175){
+		if(.@r >= 200 && .@r < 300){
+			getitem 603,1; // Old Blue Box
+		}
+		if(.@r >= 300 && .@r < 400){
+			getitem 617,1; // Old Violet _Box
+		}
+		if(.@r >= 400){
+			getitem 7647,1; // Lucky Coin
+			set #MOB_ACTIVE_RATE_MAX, #MOB_ACTIVE_RATE_MAX+1;
+		}
+	}
+end;
+
+Mini:
+	set .@r,rand(1,500);
+	set .@r2,rand(1,4);
+	if(.@r == 1){
+		getitem 677,1; // Platinum Coin // 0.20%
+	}
+	if(.@r == 2){
+		getitem 7647,1; // Lucky Coin // 0.20%
+	}
+	if(.@r == 3){
+		getitem 603,1; // Old Blue Box // 0.20%
+	}
+	if(.@r == 4){
+		getitem 616,1; // Old Card Album // 0.20%
+	} 
+	if(.@r == 5){
+		getitem 12106,1; // Jewelry Box // 0.20%
+	}
+	// Event Addition
+	if($mob_active_rate == 1 && #MOB_ACTIVE_RATE_MAX < 150){
+		if(.@r == 6 && .@r2 == 2){
+			getitem 6457,1; // Ticket +5 Armor
+		}
+		if(.@r == 7 && .@r2 == 2){
+			getitem 6456,1; // Ticket +5 Weapon
+		}
+		// Event Addition
+		if(.@r >= 12 && .@r < 25){
+			getitem 603,1; // Old Blue Box
+		}
+		if(.@r >= 50 && .@r < 52){
+			getitem 617,1; // Old Violet _Box
+		}
+		if(.@r >= 75 && .@r < 90){
+			getitem 677,1; // Platinum Coin
+			set #MOB_ACTIVE_RATE_MAX, #MOB_ACTIVE_RATE_MAX+1;
+		}
+		if(.@r >= 90 && .@r < 95){
+			getitem 7647,1; // Lucky Coin
+			set #MOB_ACTIVE_RATE_MAX, #MOB_ACTIVE_RATE_MAX+1;
+		}
+	}
+end;
+
+normal:
+	set .@r,rand(1,500);
+	set .@r2,rand(1,4);
+	if(.@r >= 7 && .@r < 12){
+		getitem 677,1; // Platinum Coin // 0.20%
+	}
+	if(.@r == 2){
+		getitem 7647,1; // Lucky Coin // 0.20%
+	}
+	if(.@r >= 12 && .@r < 17){
+		getitem 603,1; // Old Blue Box // 0.20%
+	}
+	if(.@r == 4){
+		getitem 616,1; // Old Card Album // 0.20%
+	} 
+	if(.@r == 5){
+		getitem 12106,1; // Jewelry Box // 0.20%
+	}
+	// Event Addition
+	if($mob_active_rate == 1 && #MOB_ACTIVE_RATE_MAX < 150){
+		if(.@r == 6 && .@r2 == 2){
+			getitem 6457,1; // Ticket +5 Armor
+		}
+		if(.@r == 7 && .@r2 == 2){
+			getitem 6456,1; // Ticket +5 Weapon
+		}
+		// Event Addition
+		if(.@r >= 8 && .@r < 12){
+			getitem 677,1; // Platinum Coin
+			set #MOB_ACTIVE_RATE_MAX, #MOB_ACTIVE_RATE_MAX+1;
+		}
+		if(.@r >= 12 && .@r < 25){
+			getitem 603,1; // Old Blue Box
+		}
+		if(.@r >= 50 && .@r < 52){
+			getitem 617,1; // Old Violet _Box
+		}
+		if(.@r >= 75 && .@r < 90){
+			getitem 677,1; // Platinum Coin
+			set #MOB_ACTIVE_RATE_MAX, #MOB_ACTIVE_RATE_MAX+1;
+		}
+		if(.@r >= 90 && .@r < 95){
+			getitem 7647,1; // Lucky Coin
+			set #MOB_ACTIVE_RATE_MAX, #MOB_ACTIVE_RATE_MAX+1;
+		}
+	}
+end;
+
+end;
+
+//------------------------------------------------------
+
+}

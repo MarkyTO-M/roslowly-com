@@ -1,0 +1,31 @@
+-	script	GEFFEN#g1-2::Repherion2	-1,{
+set .@GID, GetCastleData("gefg_cas01",1);
+if (.@GID == 0) {
+}
+else {
+if (getcharid(2) == .@GID) {
+if (select("^0000FF-^000000 เข้าปราสาท") == 1) {
+if (getcharid(2) == GetCastleData("gefg_cas01",1)) {
+warp "gefg_cas01",83,47;
+end;
+}
+}
+close;
+}
+mes "^FF0000[Repherion]^000000";
+mes "ถูกครอบครองโดยกิลด์ : " + GetGuildName(.@GID) + "";
+}
+close;
+
+OnRecvCastleG01:
+FlagEmblem GetCastleData("gefg_cas01",1);
+end;
+}
+
+gefg_cas01,198,182,0	duplicate(Gld_Agit_Manager)	Agit#gefg_cas01	-1
+gefg_cas01,40,48,5	duplicate(Gld_Mngr_Template)	Gnahcher#gefg_cas01	55
+gefg_cas01,40,48,5	duplicate(Gld_Guard_Template)	Guardian#gefg_cas01	-1
+gefg_cas01,84,47,0	duplicate(Gld_Kafra_Template)	Kafra Staff#gefg_cas01	117
+gefg_cas01,154,112,0	duplicate(Gld_Trea_Protect)	ban_warp#gefg_cas01	-1,6,6
+gefg_cas01,154,112,0	duplicate(Gld_Trea_Spawn)	Treasure#gefg_cas01	-1
+gefg_cas01,78,84,0	duplicate(Gld_Dun_Template)	#gefg_cas01	111

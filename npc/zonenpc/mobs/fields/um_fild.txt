@@ -1,0 +1,32 @@
+um_fild01,0,0,0,0	monster	Wootan Fighter	1499,10,0,0,0
+um_fild01,0,0,0,0	monster	Stem Worm	1215,10,0,0,0
+um_fild01,0,0,0,0	monster	Harpy	1376,10,0,0,0
+um_fild01,0,0,0,0	monster	Dryad	1493,10,0,0,0
+um_fild01,0,0,0,0	monster	Dustiness	1114,10,0,0,0
+um_fild01,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+um_fild01,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+um_fild01,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+
+um_fild02,0,0,0,0	monster	Coco	1104,10,0,0,0
+um_fild02,0,0,0,0	monster	Choco	1214,10,0,0,0
+um_fild02,0,0,0,0	monster	Beetle King	1494,90,0,0,0
+um_fild02,0,0,0,0	monster	Dustiness	1114,10,0,0,0
+um_fild02,0,0,0,0	monster	Wootan Fighter	1499,90,0,0,0
+um_fild02,0,0,0,0	monster	Stone Shooter	1495,90,0,0,0
+um_fild02,0,0,0,0	monster	Flora	1118,10,0,0,0
+um_fild02,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+um_fild02,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+
+um_fild03,0,0,0,0	monster	Parasite	1500,90,0,0,0
+um_fild03,0,0,0,0	monster	Dragon Tail	1321,90,0,0,0
+um_fild03,0,0,0,0	monster	Alligator	1271,90,0,0,0
+um_fild03,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+um_fild03,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+um_fild03,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+
+um_fild04,0,0,0,0	monster	Beetle King	1494,90,0,0,0
+um_fild04,0,0,0,0	monster	Horn	1128,90,0,0,0
+um_fild04,0,0,0,0	monster	Choco	1214,10,0,0,0
+um_fild04,0,0,0,0	monster	Wootan Shooter	1498,90,0,0,0
+um_fild04,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+um_fild04,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0

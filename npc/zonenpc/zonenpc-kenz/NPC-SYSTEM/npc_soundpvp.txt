@@ -1,0 +1,82 @@
+morocc,0,0,0	script	pvp_ranking	111,{
+OnPCKillEvent:
+set @PlayersKilledStreak,@PlayersKilledStreak + 1;
+if ( !attachrid(killedrid) ) end;
+message strcharinfo(0),"Kill By "+rid2name(killerrid);
+
+if ( @PlayersKilledStreak >= 15 ) set .@streakname$,"";
+else if ( @PlayersKilledStreak == 14 ) set .@streakname$,"";
+else if ( @PlayersKilledStreak == 13 ) set .@streakname$,"";
+else if ( @PlayersKilledStreak == 12 ) set .@streakname$,"";
+else if ( @PlayersKilledStreak == 11 ) set .@streakname$,"";
+else if ( @PlayersKilledStreak == 10 ) set .@streakname$,"";
+else if ( @PlayersKilledStreak == 9 ) set .@streakname$,"";
+else if ( @PlayersKilledStreak == 8 ) set .@streakname$,"";
+else if ( @PlayersKilledStreak == 7 ) set .@streakname$,"";
+else if ( @PlayersKilledStreak == 6 ) set .@streakname$,"";
+else if ( @PlayersKilledStreak == 5 ) set .@streakname$,"";
+else if ( @PlayersKilledStreak == 4 ) set .@streakname$,"";
+else if ( @PlayersKilledStreak == 3 ) set .@streakname$,"";
+else if ( @PlayersKilledStreak == 2 ) set .@streakname$,"";
+if ( @PlayersKilledStreak >= 2 )
+
+set @PlayersKilledStreak,0;
+set @dota_multikills,0;
+if (!attachrid(killerrid)) end;
+
+if (@PlayersKilledStreak == 2) setarray .@streakname$,"2_kills.wav","","";
+else if (@PlayersKilledStreak == 3)
+setarray .@streakname$,"3_kills.wav","","";
+else if (@PlayersKilledStreak == 4)
+setarray .@streakname$,"4_kills.wav","","";
+else if (@PlayersKilledStreak == 5)
+setarray .@streakname$,"5_kills.wav","","";
+else if (@PlayersKilledStreak == 6)
+setarray .@streakname$,"6_kills.wav","","";
+else if (@PlayersKilledStreak == 7)
+setarray .@streakname$,"7_kills.wav","","";
+else if (@PlayersKilledStreak == 8)
+setarray .@streakname$,"8_kills.wav","","";
+else if (@PlayersKilledStreak == 9)
+setarray .@streakname$,"9_kills.wav","","";
+else if (@PlayersKilledStreak == 10)
+setarray .@streakname$,"10_kills.wav","","";
+else if (@PlayersKilledStreak == 11)
+setarray .@streakname$,"11_kills.wav","","";
+else if (@PlayersKilledStreak == 12)
+setarray .@streakname$,"12_kills.wav","","";
+else if (@PlayersKilledStreak == 13)
+setarray .@streakname$,"13_kills.wav","";
+else if (@PlayersKilledStreak == 14)
+setarray .@streakname$,"14_kills.wav","";
+else if (@PlayersKilledStreak >= 15 && @PlayersKilledStreak % 1 == 0)
+setarray .@streakname$,"15_kills.wav","";	
+else goto OnWhisperGlobal;
+
+announce "",0;
+
+if ( .sound == 1 ) soundeffectall .@streakname$[0],0,.@map$;
+if ( .sound == 2 ) soundeffectall .@streakname$[0],0;
+if ( .sound == 3 ) soundeffect .@streakname$[0],0;
+
+OnWhisperGlobal:
+dispbottom "";
+dispbottom "";
+dispbottom "";
+dispbottom "";
+
+set @dota_multikills, @dota_multikills + 1;
+deltimer "pvp_ranking::OnStreakReset";
+
+sleep2 2500;
+if ( @dota_multikills == 1 )
+end;
+
+OnInit:
+set.sound, 2;
+end;
+
+OnStreakReset:
+set @dota_multikills,0;
+end;
+}

@@ -1,0 +1,41 @@
+-	script	check	-1,{
+if (getgmlevel() < 99) goto main;
+menu "^0000FF-^000000 เช็คจำนวนของ",ch1,"^0000FF-^000000 เช็คจำนวนแคชสูงสุด",ch2;
+main:
+menu "^0000FF-^000000 เช็คจำนวนของ",ch1;
+ch1:
+input .@item_id;
+query_sql( "SELECT SUM(`amount`) FROM `inventory` WHERE `nameid` = '"+.@item_id+"';", .@inventory );
+query_sql( "SELECT SUM(`amount`) FROM `cart_inventory` WHERE `nameid` = '"+.@item_id+"';", .@cart );
+query_sql( "SELECT SUM(`amount`) FROM `storage` WHERE `nameid` = '"+.@item_id+"';", .@storage );
+query_sql( "SELECT SUM(`amount`) FROM `guild_storage` WHERE `nameid` = '"+.@item_id+"';", .@g_storage );
+dispbottom "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=";
+dispbottom ""+.@item_id+" - "+getitemname(.@item_id)+"";
+dispbottom ""+.@inventory+" ea : ในตัวละคร";
+dispbottom ""+.@cart+" ea : ในรถเข็น";
+dispbottom ""+.@storage+" ea : ในคลังเก็บของ";
+dispbottom ""+(.@inventory+.@cart+.@storage+.@g_storage)+" ea : ทั้งหมดในSv.";
+dispbottom "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=";
+close;
+
+ch2:
+if (getgmlevel() < 99) end;
+query_sql "SELECT `char`.`name`, CAST(`value` AS UNSIGNED) FROM global_reg_value " + 
+"LEFT JOIN `char` ON global_reg_value.account_id=`char`.account_id " + 
+"WHERE global_reg_value.`str`='#CASHPOINTS' GROUP BY `char`.account_id " + 
+"ORDER BY CAST(`value` AS UNSIGNED) DESC LIMIT 50", 
+.@name$, .@cash;
+dispbottom "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=";
+for (set .@i,0; .@i<getarraysize(.@name$); set .@i,.@i+1) {
+query_sql "SELECT `char`.`account_id` FROM `char` WHERE `name` = '"+escape_sql(.@name$[.@i])+"'", .@aid;
+dispbottom "อันดับที่ "+(.@i+1)+". "+.@aid+" | "+.@cash[.@i]+" | "+.@name$[.@i]+"";
+dispbottom "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=";
+}
+OnInit:
+waitingroom "๐ เชคจำนวนของ ๐",0;
+end;
+close;
+}
+
+
+

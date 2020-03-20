@@ -1,0 +1,55 @@
+
+-	script	Agit_Event1	-1,{
+end;
+
+OnClock2000:
+goto L_Start;
+end;
+
+OnClock2100:
+goto L_End;
+end;
+
+L_Start:
+	if (!agitcheck())
+	AgitStart;
+	announce "[ สงคราม Guild War Of Emperium เริ่มแล้ว ]",0;
+	sleep2 55*60*1000;
+	announce "[ สงคราม Guild War 5 นาทีสุดท้าย ]",0;
+	sleep2 1*60*1000;
+	announce "[ สงคราม Guild War 4 นาทีสุดท้าย ]",0;
+	sleep2 1*60*1000;
+	announce "[ สงคราม Guild War 3 นาทีสุดท้าย ]",0;
+	sleep2 1*60*1000;
+	announce "[ สงคราม Guild War 2 นาทีสุดท้าย ]",0;
+	sleep2 1*60*1000;
+	announce "[ สงคราม Guild War 1 นาทีสุดท้าย ]",0;
+	sleep2 50000;
+	announce "[ สงคราม Guild War 10 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 9 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 8 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 7 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 6 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 5 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 4 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 3 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 2 วินาทีสุดท้าย ]",0;
+	sleep2 1000;
+	announce "[ สงคราม Guild War 1 วินาทีสุดท้าย ]",0;
+	end;
+
+L_End:
+	if (agitcheck())
+	AgitEnd;
+	Announce "[ สงคราม Guild War Of Emperium จบลงแล้ว ]",0;
+	end;
+
+}

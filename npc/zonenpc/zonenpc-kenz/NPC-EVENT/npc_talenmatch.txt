@@ -1,0 +1,396 @@
+-	script	Talent Match	-1,{
+set .@npcname$,"^FF0000[Talent Match]^000000";
+mes .@npcname$;
+mes "ของรางวัลกิจกรรม";
+mes "- Poring Coin ครับ";
+next; 
+switch(select("^0000FF-^000000 เข้ากิจกรรม","^0000FF-^000000 รายละเอียด"))
+{
+mes .@npcname$;
+case 1:
+if(Baselevel < 80)
+{
+mes "ต้องมี Lv. มากกว่า 80 เท่านั้นครับ";
+break;
+} 
+if($@tmisstart == 1 || $@tm_forcestart)
+{
+ percentheal 100,100; 
+warp "force_1-3",100,185; 
+break; 		
+}
+mes "ยังไม่ถึงเวลากิจกรรมครับ";
+break;
+
+case 2:
+mes "รอบ 01. 02.40 || รอบ 02. 05.40";
+mes "รอบ 03. 08.40 || รอบ 04. 11.40";
+mes "รอบ 05. 14.40 || รอบ 06. 17.40";
+mes "รอบ 07. 20.40 || รอบ 08. 23.40";
+break;
+
+case 3:
+break; 
+}
+close;
+
+OnInit:
+waitingroom "๐ Talent  Match ๐",0;
+end;
+}
+
+
+-	script	TalMa	-1,{ 
+OnTimer30000: 
+if (getmapusers("force_1-3") == 0)
+{
+if (getmapusers("force_1-3") == 0) announce "[ กิจกรรม Talent Match จบลงแล้ว ]",0; 
+set $@tm_status,1; 
+killmonsterall "force_1-3"; 
+stopnpctimer;
+end; 
+}
+announce "",0; 
+setnpctimer 0;
+initnpctimer; 
+end; 
+
+OnInit:
+set $@tm_forcestart,0;
+stopnpctimer;
+end;
+} 
+
+force_1-3,100,185,5	script	HiddenTalMa	-1,{ 
+OnClock0240:
+OnClock0540:
+OnClock0840:
+OnClock1140:
+OnClock1440:
+OnClock1740:
+OnClock2040:
+OnClock2340:
+
+OnStart:
+announce "[ กิจกรรม Talent Match จะเริ่มใน 5 นาที ]",0;
+disablenpc "AtoB";
+disablenpc "BtoC";
+disablenpc "CtoD";
+disablenpc "DtoE";
+disablenpc "EtoF";
+disablenpc "FtoG";
+disablenpc "GtoH";
+disablenpc "KeyD";
+disablenpc "GOD";
+initnpctimer; 
+set $@tm_status,0;
+set $@tmisstart,1;
+killmonsterall "force_1-3"; 
+end; 
+
+OnTimer60000: 
+announce "[ กิจกรรม Talent Match จะเริ่มใน 4 นาที ]",0;
+end; 
+
+OnTimer120000: 
+announce "[ กิจกรรม Talent Match จะเริ่มใน 3 นาที ]",0;
+end; 
+
+OnTimer180000: 
+announce "[ กิจกรรม Talent Match จะเริ่มใน 2 นาที ]",0;
+end; 
+
+OnTimer240000: 
+announce "[ กิจกรรม Talent Match จะเริ่มใน 1 นาที ]",0;
+end; 
+
+OnTimer300000:
+announce "[ กิจกรรม Talent Match เริ่มแล้ว ]",0;
+
+set $@tm_forcestart,0;
+initnpctimer "TalMa";
+stopnpctimer;
+set $@tmkey,0;
+set $@tmisstart,0;
+set $@tm_mob,10; 
+
+	areamonster "force_1-3",106,189,107,190,"[TL] Mushroom",1084,1,"HiddenTalMa::OnA";
+	areamonster "force_1-3",100,184,101,185,"[TL] Mushroom",1084,1,"HiddenTalMa::OnA";
+	areamonster "force_1-3",96,186,97,187,"[TL] Mushroom",1084,1,"HiddenTalMa::OnA";
+	areamonster "force_1-3",93,182,94,183,"[TL] Mushroom",1084,1,"HiddenTalMa::OnA";
+	areamonster "force_1-3",96,177,97,178,"[TL] Mushroom",1084,1,"HiddenTalMa::OnA";
+	areamonster "force_1-3",109,177,110,178,"[TL] Mushroom",1084,1,"HiddenTalMa::OnA";
+	areamonster "force_1-3",114,182,115,183,"[TL] Mushroom",1084,1,"HiddenTalMa::OnA";
+	areamonster "force_1-3",97,189,98,190,"[TL] Mushroom",1084,1,"HiddenTalMa::OnA";
+	areamonster "force_1-3",87,178,88,179,"[TL] Mushroom",1084,1,"HiddenTalMa::OnA";
+	areamonster "force_1-3",102,187,103,188,"[TL] Mushroom",1084,1,"HiddenTalMa::OnA";
+end;
+
+OnA: 
+set $@tm_mob,$@tm_mob-1; 
+if($mob == 9) announce "",0; 
+if($@tm_mob == 0) 
+{
+announce "",0; 
+enablenpc "AtoB";
+	monster "force_1-3",100,186,"Treasure Box",1333,1,"HiddenTalMa::OnboxA";
+set $@tm_mob,15;
+	monster "force_1-3",99,137,"[TL] Hode",1127,10,"HiddenTalMa::OnB";
+	monster "force_1-3",99,137,"[TL] Sandman",1165,5,"HiddenTalMa::OnB";  
+}
+end;
+
+OnB: 
+set $@tm_mob,$@tm_mob-1; 
+if($@tm_mob == 14) announce "",0; 
+if($@tm_mob == 1) announce "",0; 
+if($@tm_mob == 0) 
+{
+announce "",0; 
+	monster "force_1-3",99,137,"[TL] MvP",1159,1,"HiddenTalMa::OnB1";
+	monster "force_1-3",100,185,"[TL] Hero",1708,2,"HiddenTalMa::OnDeadSure";
+enablenpc "BtoC";
+set $@tm_mob,42;
+	monster "force_1-3",86,103,"[TL] Guardian",1285,1,"HiddenTalMa::OnC";
+	monster "force_1-3",86,97,"[TL] Guardian",1285,1,"HiddenTalMa::OnC";
+	monster "force_1-3",73,100,"[TL] Raydric",1276,20,"HiddenTalMa::OnC";
+	monster "force_1-3",54,100,"[TL] Raydric",1163,20,"HiddenTalMa::OnC";
+}
+end; 
+
+OnB1:
+	monster "force_1-3",105,137,"Treasure Box",1333,1,"HiddenTalMa::OnboxB";
+end;
+
+OnC: 
+set $@tm_mob,$@tm_mob-1; 
+if($@tm_mob == 41) announce "",0;  
+if($@tm_mob == 40) 
+{
+announce "",0;
+	monster "force_1-3",99,137,"[TL] Hero",1708,2,"HiddenTalMa::OnDeadSure";
+}
+if($@tm_mob == 20) announce "",0;  
+if($@tm_mob == 10) announce "",0; 
+if($@tm_mob == 0)
+{
+announce "",0; 
+enablenpc "CtoD";
+enablenpc "KeyD";
+	monster "force_1-3",60,100,"Treasure Box",1333,1,"HiddenTalMa::OnboxC";
+	monster "force_1-3",52,105,"Treasure Box",1333,1,"HiddenTalMa::OnboxC";
+	monster "force_1-3",52,92,"Treasure Box",1333,1,"HiddenTalMa::OnboxC";
+	monster "force_1-3",66,92,"Treasure Box",1333,1,"HiddenTalMa::OnboxC";
+	monster "force_1-3",66,106,"Treasure Box",1333,1,"HiddenTalMa::OnboxC";
+set $@tm_mob,50;
+	monster "force_1-3",16,136,"[TL] Mummy",1297,5,"HiddenTalMa::OnD";
+	monster "force_1-3",23,136,"[TL] Mummy",1297,5,"HiddenTalMa::OnD";
+	monster "force_1-3",20,132,"[TL] Mummy",1297,1,"HiddenTalMa::OnD1";  
+}
+end;
+
+
+OnD1:
+	set $@tmkey,1;
+	announce "",0; 
+	end;
+
+OnD: 
+if ($@tm_status == 1) end; 
+set $@tm_mob,$@tm_mob-1; 
+if($@tm_mob == 49) announce "",0;  
+if($@tm_mob == 40)
+{
+announce "",0;
+	monster "force_1-3",54,100,"[TL] Hero",1708,2,"HiddenTalMa::OnDeadSure";
+	monster "force_1-3",15,104,"...",1268,5,"HiddenTalMa::OnD";
+	monster "force_1-3",24,104,"...",1208,15,"HiddenTalMa::OnD";
+	monster "force_1-3",24,96,"...",1219,5,"HiddenTalMa::OnD";
+	monster "force_1-3",15,96,"...",1197,15,"HiddenTalMa::OnD";
+}
+if($@tm_mob == 5) announce "",0; 
+if($@tm_mob == 0)
+{
+set $@tmkey,2;
+announce "",0;
+
+	monster "force_1-3",16,103,"Treasure Box",1333,1,"HiddenTalMa::OnboxA";
+	monster "force_1-3",23,103,"Treasure Box",1333,1,"HiddenTalMa::OnboxA";
+	monster "force_1-3",21,103,"Treasure Box",1333,1,"HiddenTalMa::OnboxA";
+	monster "force_1-3",18,103,"Treasure Box",1333,1,"HiddenTalMa::OnboxA";
+	set $@tm_mob,45;
+	monster "force_1-3",41,60,"[TL] Goddess",1412,15,"HiddenTalMa::OnE";
+	monster "force_1-3",32,60,"[TL] Demon",1504,15,"HiddenTalMa::OnE";
+	monster "force_1-3",48,60,"[TL] Animal",1037,15,"HiddenTalMa::OnE";
+	monster "force_1-3",65,58,"[TL] Human",1638,1,"HiddenTalMa::OnboxB";
+	monster "force_1-3",65,58,"[TL] Human",1634,1,"HiddenTalMa::OnboxB";
+	monster "force_1-3",65,58,"[TL] Human",1635,1,"HiddenTalMa::OnboxB";
+}
+end;
+
+OnE: 
+set $@tm_mob,$@tm_mob-1; 
+if($@tm_mob == 44) announce "",0;  
+if($@tm_mob == 15) announce "",0;  
+if($@tm_mob == 0)
+{
+announce "",0;
+enablenpc "EtoF";
+	monster "force_1-3",18,60,"Treasure Box",1333,1,"HiddenTalMa::OnboxA";
+	monster "force_1-3",15,60,"Treasure Box",1333,1,"HiddenTalMa::OnboxA";
+	monster "force_1-3",21,60,"Treasure Box",1333,1,"HiddenTalMa::OnboxA";
+	monster "force_1-3",24,60,"Treasure Box",1333,1,"HiddenTalMa::OnboxA";
+set $@tm_mob,46;
+	monster "force_1-3",99,61,"[TL] Hero",1639,1,"HiddenTalMa::OnF";
+	monster "force_1-3",100,16,"[TL] Angel",1725,1,"HiddenTalMa::OnDeadSure";
+	monster "force_1-3",100,16,"[TL] Hero",1725,9,"HiddenTalMa::OnF1";
+}
+end;
+
+OnDeadSure:
+	monster "force_1-3",100,20,"[TL] Hero",1708,1,"HiddenTalMa::OnDeadSure";
+end;
+
+OnF1:
+	monster "force_1-3",100,61,"[TL] Hero",1693,2,"HiddenTalMa::OnF";
+	monster "force_1-3",100,61,"[TL] Hero",1694,2,"HiddenTalMa::OnF";
+	monster "force_1-3",100,61,"[TL] Hero",1698,1,"HiddenTalMa::OnF";
+	monster "force_1-3",100,61,"[TL] Hero",1701,1,"HiddenTalMa::OnboxA";
+	monster "force_1-3",100,61,"[TL] Hero",1702,1,"HiddenTalMa::OnboxA";
+end;
+
+OnF: 
+set $@tm_mob,$@tm_mob-1; 
+if($@tm_mob == 45) announce "",0;  
+if($@tm_mob == 0)
+{
+announce "",0;
+enablenpc "FtoG";
+set $@tm_mob,9;
+	monster "force_1-3",138,20,"[TL] Hero",1634,1,"HiddenTalMa::OnG";
+	monster "force_1-3",161,20,"[TL] Hero",1634,1,"HiddenTalMa::OnG";
+	monster "force_1-3",185,20,"[TL] Hero",1634,1,"HiddenTalMa::OnG";
+	monster "force_1-3",185,20,"[TL] Hero",1635,1,"HiddenTalMa::OnG";
+	monster "force_1-3",185,20,"[TL] Hero",1636,2,"HiddenTalMa::OnG";
+	monster "force_1-3",185,20,"[TL] Hero",1637,2,"HiddenTalMa::OnG";
+	monster "force_1-3",185,20,"[TL] Hero",1638,1,"HiddenTalMa::OnG";
+}
+end;
+
+OnG: 
+if ($@tm_status == 1) end; 
+set $@tm_mob,$@tm_mob-1; 
+if($@tm_mob == 7) announce "",0;  
+if($@tm_mob == 6) announce "",0;  
+if($@tm_mob == 0)
+{
+announce "",0;
+enablenpc "GOD";
+enablenpc "GtoH";
+	monster "force_1-3",186,24,"Treasure Box",1333,1,"HiddenTalMa::OnboxA";
+	monster "force_1-3",186,15,"Treasure Box",1333,1,"HiddenTalMa::OnboxA";
+	monster "force_1-3",174,15,"Treasure Box",1333,1,"HiddenTalMa::OnboxA";
+	monster "force_1-3",174,24,"Treasure Box",1333,1,"HiddenTalMa::OnboxA";
+	monster "force_1-3",179,19,"Treasure Box",1333,1,"HiddenTalMa::OnboxB";
+	monster "force_1-3",18,180,"[TL] Hero",1726,5,"HiddenTalMa::OnDeadSureSure";
+	monster "force_1-3",24,174,"Treasure Box",1333,1,"HiddenTalMa::OnboxAB";
+	monster "force_1-3",21,174,"Treasure Box",1333,1,"HiddenTalMa::OnboxAB";
+	monster "force_1-3",17,174,"Treasure Box",1333,1,"HiddenTalMa::OnboxAB";
+	monster "force_1-3",14,174,"Treasure Box",1333,1,"HiddenTalMa::OnboxAB";
+}
+end;
+
+OnDeadSureSure:
+	monster "force_1-3",18,180,"Hero",1708,1,"HiddenTalMa::OnDeadSure";
+end;
+
+OnDeadSureSure1:
+	getitem 7539,50;
+end;
+OnboxA: 
+	getitem 7539,50;
+end;
+OnboxB: 
+	getitem 7539,50;
+end;
+OnboxC: 
+	getitem 7539,50;
+end;
+OnboxAB: 
+	announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล Talent Match แล้ว ]",0;
+	getitem 7539,50;
+end;
+
+OnInit:
+set $@tmisstart,0; 
+setnpctimer 0;
+stopnpctimer;
+end;
+} 
+
+force_1-3,19,100,5	script	KeyD	626,{  
+if (select("^0000FF-^000000 เริ่มด่านต่อไป")-1)
+{
+mes "^FF0000[Talent Match]^000000";
+mes "ต้องการ Key 1 ea ครับ";
+close;
+}
+if (!$@tmkey)
+{
+mes "^FF0000[Talent Match]^000000";
+mes "ต้องการ Key 1 ea ครับ";
+close;
+}
+if($@tmkey != 2)
+{
+mes "^FF0000[Talent Match]^000000";
+mes "ต้องการ Key 1 ea ครับ";
+close;
+}
+
+set $@tmkey,0;
+disablenpc "KeyD";
+enablenpc "DtoE";
+close; 
+}
+
+force_1-3,99,164,5	script	AtoB	45,1,1,{
+	warp "force_1-3",100,147; 
+	close; 
+}
+force_1-3,99,128,5	script	BtoC	45,1,1,{
+	warp "force_1-3",109,99; 
+	close; 
+}
+force_1-3,59,109,5	script	CtoD	45,1,1,{
+	warp "force_1-3",20,147; 
+	close; 
+}
+force_1-3,19,90,5	script	DtoE	45,1,1,{
+	warp "force_1-3",19,69; 
+	close; 
+}
+force_1-3,69,60,5	script	EtoF	45,1,1,{
+	warp "force_1-3",99,69; 
+	close; 
+}
+force_1-3,109,19,5	script	FtoG	45,1,1,{  
+	warp "force_1-3",130,20; 
+	close; 
+}
+force_1-3,180,29,5	script	GtoH	45,1,1,{
+	warp "force_1-3",20,189; 
+	close; 
+}
+force_1-3,29,179,5	script	GOD	45,1,1,{
+warp "SavePoint",0,0;
+close; 
+}
+
+force_1-3	mapflag	nowarp 
+force_1-3	mapflag	nowarpto 
+force_1-3	mapflag	noteleport 
+force_1-3	mapflag	nosave	SavePoint 
+force_1-3	mapflag	nomemo 
+force_1-3	mapflag	nobranch 
+force_1-3	mapflag	noreturn

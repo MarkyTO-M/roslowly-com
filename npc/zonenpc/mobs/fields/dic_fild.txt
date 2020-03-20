@@ -1,0 +1,10 @@
+dic_fild01,0,0,0,0	monster	Centipede	1987,90,0,0,0
+dic_fild01,0,0,0,0	monster	Centipede Larva	1999,90,0,0,0
+dic_fild01,0,0,0,0	monster	Tatacho	1986,90,0,0,0
+dic_fild01,0,0,0,0	monster	Dolomedes	2092,90,0,0,0
+
+dic_fild02,0,0,0,0	monster	Centipede	1987,90,0,0,0
+dic_fild02,0,0,0,0	monster	Centipede Larva	1999,90,0,0,0
+dic_fild02,0,0,0,0	monster	Tatacho	1986,90,0,0,0
+dic_fild02,0,0,0,0	monster	Dolomedes	2092,90,0,0,0
+dic_fild02,0,0,0,0	monster	Bradium Golem	2024,10,0,0,0

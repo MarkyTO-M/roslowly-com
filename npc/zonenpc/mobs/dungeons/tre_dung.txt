@@ -1,0 +1,14 @@
+treasure01,0,0,0,0	monster	Kukre	1070,10,0,0,0
+treasure01,0,0,0,0	monster	Whisper	1179,10,0,0,0
+treasure01,0,0,0,0	monster	Poison Spore	1077,10,0,0,0
+treasure01,0,0,0,0	monster	Pirate Skeleton	1071,90,0,0,0
+treasure01,0,0,0,0	monster	Hydra	1068,90,0,0,0
+
+treasure02,0,0,0,0	monster	Whisper	1179,10,0,0,0
+treasure02,0,0,0,0	monster	Wanderer	1208,90,0,0,0
+treasure02,0,0,0,0	monster	Penomena	1216,90,0,0,0
+treasure02,0,0,0,0	monster	Kukre	1070,10,0,0,0
+treasure02,0,0,0,0	monster	Pirate Skeleton	1071,90,0,0,0
+treasure02,0,0,0,0	monster	Mimic	1191,10,0,0,0
+treasure02,0,0,0,0	monster	Hydra	1068,90,0,0,0
+treasure02,0,0,0,0	monster	Marionette	1143,10,0,0,0

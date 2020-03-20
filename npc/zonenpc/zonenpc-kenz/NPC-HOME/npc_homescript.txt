@@ -1,0 +1,1890 @@
+-	script	renthome	-1,{
+set .@npcname$,"^FF0000[จัดการบ้านเช่า]^000000 ";
+while( getgmlevel() >=99 ){
+
+switch(select( "^0000FF-^000000 เมนูปกติ","^0000FF-^000000 ตั้งค่าบ้าน","^0000FF-^000000 ลบบ้าน"))
+{
+case 1:
+break;
+
+case 2:
+mes .@npcname$;
+mes "กรอกรหัสของครับ";
+next;
+input $renthomeitem[0];
+if ( getitemname($renthomeitem[0])=="null")
+{
+set $renthomeitem[0],0;
+continue;
+}
+mes .@npcname$;
+mes "กรอกจำนวนของครับ";
+next;
+input $renthomeitem[1];
+if ( !$renthomeitem[1])
+{
+set $renthomeitem[0],0;
+set $renthomeitem[1],0;
+}
+continue;
+
+case 3:
+switch(select("^0000FF-^000000 บ้านที่ 01:^0000FF-^000000 บ้านที่ 02:^0000FF-^000000 บ้านที่ 03:^0000FF-^000000 บ้านที่ 04:^0000FF-^000000 บ้านที่ 05:^0000FF-^000000 บ้านที่ 06:^0000FF-^000000 บ้านที่ 07:^0000FF-^000000 บ้านที่ 08:^0000FF-^000000 บ้านที่ 09:^0000FF-^000000 บ้านที่ 10:^0000FF-^000000 บ้านที่ 11:^0000FF-^000000 บ้านที่ 12:^0000FF-^000000 บ้านที่ 13:^0000FF-^000000 บ้านที่ 14:^0000FF-^000000 บ้านที่ 15:^0000FF-^000000 บ้านที่ 16:^0000FF-^000000 บ้านที่ 17:^0000FF-^000000 บ้านที่ 18:^0000FF-^000000 บ้านที่ 19:^0000FF-^000000 บ้านที่ 20:^0000FF-^000000 บ้านที่ 21:^0000FF-^000000 บ้านที่ 22:^0000FF-^000000 บ้านที่ 23:^0000FF-^000000 บ้านที่ 24:^0000FF-^000000 บ้านที่ 25:^0000FF-^000000 บ้านที่ 26:^0000FF-^000000 บ้านที่ 27:^0000FF-^000000 บ้านที่ 28:^0000FF-^000000 บ้านที่ 29:^0000FF-^000000 บ้านที่ 30:^0000FF-^000000 บ้านที่ 31:^0000FF-^000000 บ้านที่ 32:^0000FF-^000000 บ้านที่ 33:^0000FF-^000000 บ้านที่ 34:^0000FF-^000000 บ้านที่ 35:^0000FF-^000000 บ้านที่ 36:^0000FF-^000000 บ้านที่ 37:^0000FF-^000000 บ้านที่ 38:^0000FF-^000000 บ้านที่ 39:^0000FF-^000000 บ้านที่ 40:^0000FF-^000000 บ้านที่ 41:^0000FF-^000000 บ้านที่ 42:^0000FF-^000000 บ้านที่ 43:^0000FF-^000000 บ้านที่ 44:^0000FF-^000000 บ้านที่ 45:^0000FF-^000000 บ้านที่ 46:^0000FF-^000000 บ้านที่ 47:^0000FF-^000000 บ้านที่ 48:^0000FF-^000000 บ้านที่ 49:^0000FF-^000000 บ้านที่ 50:^0000FF-^000000 บ้านที่ 01-52:^FF0000-^000000 ยกเลิก")) {
+case  1:
+set $home_Guildid1,0;
+set $rentcheck[1],0;
+close;
+
+case 2:
+set $home_Guildid2,0;
+set $rentcheck[2],0;
+close;
+
+case 3:
+set $home_Guildid3,0;
+set $rentcheck[3],0;
+close;
+
+case 4:
+set $home_Guildid4,0;
+set $rentcheck[4],0;
+close;
+
+case 5:
+set $home_Guildid5,0;
+set $rentcheck[5],0;
+close;
+
+case 6:
+set $home_Guildid6,0;
+set $rentcheck[6],0;
+close;
+
+case 7:
+set $home_Guildid7,0;
+set $rentcheck[7],0;
+close;
+
+case 8:
+set $home_Guildid8,0;
+set $rentcheck[8],0;
+close;
+
+case 9:
+set $home_Guildid9,0;
+set $rentcheck[9],0;
+close;
+
+case 10:
+set $home_Guildid10,0;
+set $rentcheck[10],0;
+close;
+
+case 11:
+set $home_Guildid11,0;
+set $rentcheck[11],0;
+close;
+
+case 12:
+set $home_Guildid12,0;
+set $rentcheck[12],0;
+close;
+
+case 13:
+set $home_Guildid13,0;
+set $rentcheck[13],0;
+close;
+
+case 14:
+set $home_Guildid14,0;
+set $rentcheck[14],0;
+close;
+
+case 15:
+set $home_Guildid15,0;
+set $rentcheck[15],0;
+close;
+
+case 16:
+set $home_Guildid16,0;
+set $rentcheck[16],0;
+close;
+
+case 17:
+set $home_Guildid17,0;
+set $rentcheck[17],0;
+close;
+
+case 18:
+set $home_Guildid18,0;
+set $rentcheck[18],0;
+close;
+
+case 19:
+set $home_Guildid19,0;
+set $rentcheck[19],0;
+close;
+
+case 20:
+set $home_Guildid20,0;
+set $rentcheck[20],0;
+close;
+
+case 21:
+set $home_Guildid21,0;
+set $rentcheck[21],0;
+close;
+
+case 22:
+set $home_Guildid22,0;
+set $rentcheck[22],0;
+close;
+
+case 23:
+set $home_Guildid23,0;
+set $rentcheck[23],0;
+close;
+
+case 24:
+set $home_Guildid24,0;
+set $rentcheck[24],0;
+close;
+
+case 25:
+set $home_Guildid25,0;
+set $rentcheck[25],0;
+close;
+
+case 26:
+set $home_Guildid26,0;
+set $rentcheck[26],0;
+close;
+
+case 27:
+set $home_Guildid27,0;
+set $rentcheck[27],0;
+close;
+
+case 28:
+set $home_Guildid28,0;
+set $rentcheck[28],0;
+close;
+
+case 29:
+set $home_Guildid29,0;
+set $rentcheck[29],0;
+close;
+
+case 30:
+set $home_Guildid30,0;
+set $rentcheck[30],0;
+close;
+
+case 31:
+set $home_Guildid31,0;
+set $rentcheck[31],0;
+close;
+
+case 32:
+set $home_Guildid32,0;
+set $rentcheck[32],0;
+close;
+
+case 33:
+set $home_Guildid33,0;
+set $rentcheck[33],0;
+close;
+
+case 34:
+set $home_Guildid34,0;
+set $rentcheck[34],0;
+close;
+
+case 35:
+set $home_Guildid35,0;
+set $rentcheck[35],0;
+close;
+
+case 36:
+set $home_Guildid36,0;
+set $rentcheck[36],0;
+close;
+
+case 37:
+set $home_Guildid37,0;
+set $rentcheck[37],0;
+close;
+
+case 38:
+set $home_Guildid38,0;
+set $rentcheck[38],0;
+close;
+
+case 39:
+set $home_Guildid39,0;
+set $rentcheck[39],0;
+close;
+
+case 40:
+set $home_Guildid40,0;
+set $rentcheck[40],0;
+close;
+
+case 41:
+set $home_Guildid41,0;
+set $rentcheck[41],0;
+close;
+
+case 42:
+set $home_Guildid42,0;
+set $rentcheck[42],0;
+close;
+
+case 43:
+set $home_Guildid43,0;
+set $rentcheck[43],0;
+close;
+
+case 44:
+set $home_Guildid44,0;
+set $rentcheck[44],0;
+close;
+
+case 45:
+set $home_Guildid45,0;
+set $rentcheck[45],0;
+close;
+
+case 46:
+set $home_Guildid46,0;
+set $rentcheck[46],0;
+close;
+
+case 47:
+set $home_Guildid47,0;
+set $rentcheck[47],0;
+close;
+
+case 48:
+set $home_Guildid48,0;
+set $rentcheck[48],0;
+close;
+
+case 49:
+set $home_Guildid49,0;
+set $rentcheck[49],0;
+close;
+
+case 50:
+set $home_Guildid50,0;
+set $rentcheck[50],0;
+close;
+
+case 51:
+set $home_Guildid1,0;
+set $rentcheck[1],0;
+set $home_Guildid2,0;
+set $rentcheck[2],0;
+set $home_Guildid3,0;
+set $rentcheck[3],0;
+set $home_Guildid4,0;
+set $rentcheck[4],0;
+set $home_Guildid5,0;
+set $rentcheck[5],0;
+set $home_Guildid6,0;
+set $rentcheck[6],0;
+set $home_Guildid7,0;
+set $rentcheck[7],0;
+set $home_Guildid8,0;
+set $rentcheck[8],0;
+set $home_Guildid9,0;
+set $rentcheck[9],0;
+set $home_Guildid10,0;
+set $rentcheck[10],0;
+set $home_Guildid11,0;
+set $rentcheck[11],0;
+set $home_Guildid12,0;
+set $rentcheck[12],0;
+set $home_Guildid13,0;
+set $rentcheck[13],0;
+set $home_Guildid14,0;
+set $rentcheck[14],0;
+set $home_Guildid15,0;
+set $rentcheck[15],0;
+set $home_Guildid16,0;
+set $rentcheck[16],0;
+set $home_Guildid17,0;
+set $rentcheck[17],0;
+set $home_Guildid18,0;
+set $rentcheck[18],0;
+set $home_Guildid19,0;
+set $rentcheck[19],0;
+set $home_Guildid20,0;
+set $rentcheck[20],0;
+set $home_Guildid21,0;
+set $rentcheck[21],0;
+set $home_Guildid22,0;
+set $rentcheck[22],0;
+set $home_Guildid23,0;
+set $rentcheck[23],0;
+set $home_Guildid24,0;
+set $rentcheck[24],0;
+set $home_Guildid25,0;
+set $rentcheck[25],0;
+set $home_Guildid26,0;
+set $rentcheck[26],0;
+set $home_Guildid27,0;
+set $rentcheck[27],0;
+set $home_Guildid28,0;
+set $rentcheck[28],0;
+set $home_Guildid29,0;
+set $rentcheck[29],0;
+set $home_Guildid30,0;
+set $rentcheck[30],0;
+set $home_Guildid31,0;
+set $rentcheck[31],0;
+set $home_Guildid32,0;
+set $rentcheck[32],0;
+set $home_Guildid33,0;
+set $rentcheck[33],0;
+set $home_Guildid34,0;
+set $rentcheck[34],0;
+set $home_Guildid35,0;
+set $rentcheck[35],0;
+set $home_Guildid36,0;
+set $rentcheck[36],0;
+set $home_Guildid37,0;
+set $rentcheck[37],0;
+set $home_Guildid38,0;
+set $rentcheck[38],0;
+set $home_Guildid39,0;
+set $rentcheck[39],0;
+set $home_Guildid40,0;
+set $rentcheck[40],0;
+set $home_Guildid41,0;
+set $rentcheck[41],0;
+set $home_Guildid42,0;
+set $rentcheck[42],0;
+set $home_Guildid43,0;
+set $rentcheck[43],0;
+set $home_Guildid44,0;
+set $rentcheck[44],0;
+set $home_Guildid45,0;
+set $rentcheck[45],0;
+set $home_Guildid46,0;
+set $rentcheck[46],0;
+set $home_Guildid47,0;
+set $rentcheck[47],0;
+set $home_Guildid48,0;
+set $rentcheck[48],0;
+set $home_Guildid49,0;
+set $rentcheck[49],0;
+set $home_Guildid50,0;
+set $rentcheck[50],0;
+close;
+}
+break;
+
+}
+break;
+}
+
+if (!($renthomeitem[0] && $renthomedate))
+while(1){
+switch (select("^0000FF-^000000 เข้าบ้าน","^0000FF-^000000 เช่าบ้าน"))
+{
+case 1:
+switch (select(
+$home_Guildid1?"^0000FF-^000000 บ้าน 01 ID "+($home_Guildid1)+"":"^0000FF-^000000 บ้าน 01 - ว่าง",
+$home_Guildid2?"^0000FF-^000000 บ้าน 02 ID "+($home_Guildid2)+"":"^0000FF-^000000 บ้าน 02 - ว่าง",
+$home_Guildid3?"^0000FF-^000000 บ้าน 03 ID "+($home_Guildid3)+"":"^0000FF-^000000 บ้าน 03 - ว่าง",
+$home_Guildid4?"^0000FF-^000000 บ้าน 04 ID "+($home_Guildid4)+"":"^0000FF-^000000 บ้าน 04 - ว่าง",
+$home_Guildid5?"^0000FF-^000000 บ้าน 05 ID "+($home_Guildid5)+"":"^0000FF-^000000 บ้าน 05 - ว่าง",
+$home_Guildid6?"^0000FF-^000000 บ้าน 06 ID "+($home_Guildid6)+"":"^0000FF-^000000 บ้าน 06 - ว่าง",
+$home_Guildid7?"^0000FF-^000000 บ้าน 07 ID "+($home_Guildid7)+"":"^0000FF-^000000 บ้าน 07 - ว่าง",
+$home_Guildid8?"^0000FF-^000000 บ้าน 08 ID "+($home_Guildid8)+"":"^0000FF-^000000 บ้าน 08 - ว่าง",
+$home_Guildid9?"^0000FF-^000000 บ้าน 09 ID "+($home_Guildid9)+"":"^0000FF-^000000 บ้าน 09 - ว่าง",
+$home_Guildid10?"^0000FF-^000000 บ้าน 10 ID "+($home_Guildid10)+"":"^0000FF-^000000 บ้าน 10 - ว่าง",
+$home_Guildid11?"^0000FF-^000000 บ้าน 11 ID "+($home_Guildid11)+"":"^0000FF-^000000 บ้าน 11 - ว่าง",
+$home_Guildid12?"^0000FF-^000000 บ้าน 12 ID "+($home_Guildid12)+"":"^0000FF-^000000 บ้าน 12 - ว่าง",
+$home_Guildid13?"^0000FF-^000000 บ้าน 13 ID "+($home_Guildid13)+"":"^0000FF-^000000 บ้าน 13 - ว่าง",
+$home_Guildid14?"^0000FF-^000000 บ้าน 14 ID "+($home_Guildid14)+"":"^0000FF-^000000 บ้าน 14 - ว่าง",
+$home_Guildid15?"^0000FF-^000000 บ้าน 15 ID "+($home_Guildid15)+"":"^0000FF-^000000 บ้าน 15 - ว่าง",
+$home_Guildid16?"^0000FF-^000000 บ้าน 16 ID "+($home_Guildid16)+"":"^0000FF-^000000 บ้าน 16 - ว่าง",
+$home_Guildid17?"^0000FF-^000000 บ้าน 17 ID "+($home_Guildid17)+"":"^0000FF-^000000 บ้าน 17 - ว่าง",
+$home_Guildid18?"^0000FF-^000000 บ้าน 18 ID "+($home_Guildid18)+"":"^0000FF-^000000 บ้าน 18 - ว่าง",
+$home_Guildid19?"^0000FF-^000000 บ้าน 19 ID "+($home_Guildid19)+"":"^0000FF-^000000 บ้าน 19 - ว่าง",
+$home_Guildid20?"^0000FF-^000000 บ้าน 20 ID "+($home_Guildid20)+"":"^0000FF-^000000 บ้าน 20 - ว่าง",
+$home_Guildid21?"^0000FF-^000000 บ้าน 21 ID "+($home_Guildid21)+"":"^0000FF-^000000 บ้าน 21 - ว่าง",
+$home_Guildid22?"^0000FF-^000000 บ้าน 22 ID "+($home_Guildid22)+"":"^0000FF-^000000 บ้าน 22 - ว่าง",
+$home_Guildid23?"^0000FF-^000000 บ้าน 23 ID "+($home_Guildid23)+"":"^0000FF-^000000 บ้าน 23 - ว่าง",
+$home_Guildid24?"^0000FF-^000000 บ้าน 24 ID "+($home_Guildid24)+"":"^0000FF-^000000 บ้าน 24 - ว่าง",
+$home_Guildid25?"^0000FF-^000000 บ้าน 25 ID "+($home_Guildid25)+"":"^0000FF-^000000 บ้าน 25 - ว่าง",
+$home_Guildid26?"^0000FF-^000000 บ้าน 26 ID "+($home_Guildid26)+"":"^0000FF-^000000 บ้าน 26 - ว่าง",
+$home_Guildid27?"^0000FF-^000000 บ้าน 27 ID "+($home_Guildid27)+"":"^0000FF-^000000 บ้าน 27 - ว่าง",
+$home_Guildid28?"^0000FF-^000000 บ้าน 28 ID "+($home_Guildid28)+"":"^0000FF-^000000 บ้าน 28 - ว่าง",
+$home_Guildid29?"^0000FF-^000000 บ้าน 29 ID "+($home_Guildid29)+"":"^0000FF-^000000 บ้าน 29 - ว่าง",
+$home_Guildid30?"^0000FF-^000000 บ้าน 30 ID "+($home_Guildid30)+"":"^0000FF-^000000 บ้าน 30 - ว่าง",
+$home_Guildid31?"^0000FF-^000000 บ้าน 31 ID "+($home_Guildid31)+"":"^0000FF-^000000 บ้าน 31 - ว่าง",
+$home_Guildid32?"^0000FF-^000000 บ้าน 32 ID "+($home_Guildid32)+"":"^0000FF-^000000 บ้าน 32 - ว่าง",
+$home_Guildid33?"^0000FF-^000000 บ้าน 33 ID "+($home_Guildid33)+"":"^0000FF-^000000 บ้าน 33 - ว่าง",
+$home_Guildid34?"^0000FF-^000000 บ้าน 34 ID "+($home_Guildid34)+"":"^0000FF-^000000 บ้าน 34 - ว่าง",
+$home_Guildid35?"^0000FF-^000000 บ้าน 35 ID "+($home_Guildid35)+"":"^0000FF-^000000 บ้าน 35 - ว่าง",
+$home_Guildid36?"^0000FF-^000000 บ้าน 36 ID "+($home_Guildid36)+"":"^0000FF-^000000 บ้าน 36 - ว่าง",
+$home_Guildid37?"^0000FF-^000000 บ้าน 37 ID "+($home_Guildid37)+"":"^0000FF-^000000 บ้าน 37 - ว่าง",
+$home_Guildid38?"^0000FF-^000000 บ้าน 38 ID "+($home_Guildid38)+"":"^0000FF-^000000 บ้าน 38 - ว่าง",
+$home_Guildid39?"^0000FF-^000000 บ้าน 39 ID "+($home_Guildid39)+"":"^0000FF-^000000 บ้าน 39 - ว่าง",
+$home_Guildid40?"^0000FF-^000000 บ้าน 40 ID "+($home_Guildid40)+"":"^0000FF-^000000 บ้าน 40 - ว่าง",
+$home_Guildid41?"^0000FF-^000000 บ้าน 41 ID "+($home_Guildid41)+"":"^0000FF-^000000 บ้าน 41 - ว่าง",
+$home_Guildid42?"^0000FF-^000000 บ้าน 42 ID "+($home_Guildid42)+"":"^0000FF-^000000 บ้าน 42 - ว่าง",
+$home_Guildid43?"^0000FF-^000000 บ้าน 43 ID "+($home_Guildid43)+"":"^0000FF-^000000 บ้าน 43 - ว่าง",
+$home_Guildid44?"^0000FF-^000000 บ้าน 44 ID "+($home_Guildid44)+"":"^0000FF-^000000 บ้าน 44 - ว่าง",
+$home_Guildid45?"^0000FF-^000000 บ้าน 45 ID "+($home_Guildid45)+"":"^0000FF-^000000 บ้าน 45 - ว่าง",
+$home_Guildid46?"^0000FF-^000000 บ้าน 46 ID "+($home_Guildid46)+"":"^0000FF-^000000 บ้าน 46 - ว่าง",
+$home_Guildid47?"^0000FF-^000000 บ้าน 47 ID "+($home_Guildid47)+"":"^0000FF-^000000 บ้าน 47 - ว่าง",
+$home_Guildid48?"^0000FF-^000000 บ้าน 48 ID "+($home_Guildid48)+"":"^0000FF-^000000 บ้าน 48 - ว่าง",
+$home_Guildid49?"^0000FF-^000000 บ้าน 49 ID "+($home_Guildid49)+"":"^0000FF-^000000 บ้าน 49 - ว่าง",
+$home_Guildid50?"^0000FF-^000000 บ้าน 50 ID "+($home_Guildid50)+"":"^0000FF-^000000 บ้าน 50 - ว่าง"))
+{
+
+case 1:
+mes .@npcname$;
+if($home_Guildid1 == 0) {
+mes "บ้าน 01 - ว่าง";
+} else if(getcharid(2) != $home_Guildid1) {
+mes "บ้าน 01 ID "+($home_Guildid1)+"";
+} else {
+warp "home1",40,51;
+}
+close;
+
+case 2:
+mes .@npcname$;
+if($home_Guildid2 == 0) {
+mes "บ้าน 02 - ว่าง";
+} else if(getcharid(2) != $home_Guildid2) {
+mes "บ้าน 02 ID "+($home_Guildid2)+"";
+} else {
+warp "home2",40,51;
+}
+close;
+
+case 3:
+mes .@npcname$;
+if($home_Guildid3 == 0) {
+mes "บ้าน 03 - ว่าง";
+} else if(getcharid(2) != $home_Guildid3) {
+mes "บ้าน 03 ID "+($home_Guildid3)+"";
+} else {
+warp "home3",40,51;
+}
+close;
+
+case 4:
+mes .@npcname$;
+if($home_Guildid4 == 0) {
+mes "บ้าน 04 - ว่าง";
+} else if(getcharid(2) != $home_Guildid4) {
+mes "บ้าน 04 ID "+($home_Guildid4)+"";
+} else {
+warp "home4",40,51;
+}
+close;
+
+case 5:
+mes .@npcname$;
+if($home_Guildid5 == 0) {
+mes "บ้าน 05 - ว่าง";
+} else if(getcharid(2) != $home_Guildid5) {
+mes "บ้าน 05 ID "+($home_Guildid5)+"";
+} else {
+warp "home5",40,51;
+}
+close;
+
+case 6:
+mes .@npcname$;
+if($home_Guildid6 == 0) {
+mes "บ้าน 06 - ว่าง";
+} else if(getcharid(2) != $home_Guildid6) {
+mes "บ้าน 06 ID "+($home_Guildid6)+"";
+} else {
+warp "home6",40,51;
+}
+close;
+
+case 7:
+mes .@npcname$;
+if($home_Guildid7 == 0) {
+mes "บ้าน 07 - ว่าง";
+} else if(getcharid(2) != $home_Guildid7) {
+mes "บ้าน 07 ID "+($home_Guildid7)+"";
+} else {
+warp "home7",40,51;
+}
+close;
+
+case 8:
+mes .@npcname$;
+if($home_Guildid8 == 0) {
+mes "บ้าน 08 - ว่าง";
+} else if(getcharid(2) != $home_Guildid8) {
+mes "บ้าน 08 ID "+($home_Guildid8)+"";
+} else {
+warp "home8",40,51;
+}
+close;
+
+case 9:
+mes .@npcname$;
+if($home_Guildid9 == 0) {
+mes "บ้าน 09 - ว่าง";
+} else if(getcharid(2) != $home_Guildid9) {
+mes "บ้าน 09 ID "+($home_Guildid9)+"";
+} else {
+warp "home9",40,51;
+}
+close;
+
+case 10:
+mes .@npcname$;
+if($home_Guildid10 == 0) {
+mes "บ้าน 10 - ว่าง";
+} else if(getcharid(2) != $home_Guildid10) {
+mes "บ้าน 10 ID "+($home_Guildid10)+"";
+} else {
+warp "home10",40,51;
+}
+close;
+
+case 11:
+mes .@npcname$;
+if($home_Guildid11 == 0) {
+mes "บ้าน 11 - ว่าง";
+} else if(getcharid(2) != $home_Guildid11) {
+mes "บ้าน 11 ID "+($home_Guildid11)+"";
+} else {
+warp "home11",40,51;
+}
+close;
+
+case 12:
+mes .@npcname$;
+if($home_Guildid12 == 0) {
+mes "บ้าน 12 - ว่าง";
+} else if(getcharid(2) != $home_Guildid12) {
+mes "บ้าน 12 ID "+($home_Guildid12)+"";
+} else {
+warp "home12",40,51;
+}
+close;
+
+case 13:
+mes .@npcname$;
+if($home_Guildid13 == 0) {
+mes "บ้าน 13 - ว่าง";
+} else if(getcharid(2) != $home_Guildid13) {
+mes "บ้าน 13 ID "+($home_Guildid13)+"";
+} else {
+warp "home13",40,51;
+}
+close;
+
+case 14:
+mes .@npcname$;
+if($home_Guildid14 == 0) {
+mes "บ้าน 14 - ว่าง";
+} else if(getcharid(2) != $home_Guildid14) {
+mes "บ้าน 14 ID "+($home_Guildid14)+"";
+} else {
+warp "home14",40,51;
+}
+close;
+
+case 15:
+mes .@npcname$;
+if($home_Guildid15 == 0) {
+mes "บ้าน 15 - ว่าง";
+} else if(getcharid(2) != $home_Guildid15) {
+mes "บ้าน 15 ID "+($home_Guildid15)+"";
+} else {
+warp "home15",40,51;
+}
+close;
+
+case 16:
+mes .@npcname$;
+if($home_Guildid16 == 0) {
+mes "บ้าน 16 - ว่าง";
+} else if(getcharid(2) != $home_Guildid16) {
+mes "บ้าน 16 ID "+($home_Guildid16)+"";
+} else {
+warp "home16",40,51;
+}
+close;
+
+case 17:
+mes .@npcname$;
+if($home_Guildid17 == 0) {
+mes "บ้าน 17 - ว่าง";
+} else if(getcharid(2) != $home_Guildid17) {
+mes "บ้าน 17 ID "+($home_Guildid17)+"";
+} else {
+warp "home17",40,51;
+}
+close;
+
+case 18:
+mes .@npcname$;
+if($home_Guildid18 == 0) {
+mes "บ้าน 18 - ว่าง";
+} else if(getcharid(2) != $home_Guildid18) {
+mes "บ้าน 18 ID "+($home_Guildid18)+"";
+} else {
+warp "home18",40,51;
+}
+close;
+
+case 19:
+mes .@npcname$;
+if($home_Guildid19 == 0) {
+mes "บ้าน 19 - ว่าง";
+} else if(getcharid(2) != $home_Guildid19) {
+mes "บ้าน 19 ID "+($home_Guildid19)+"";
+} else {
+warp "home19",40,51;
+}
+close;
+
+case 20:
+mes .@npcname$;
+if($home_Guildid20 == 0) {
+mes "บ้าน 20 - ว่าง";
+} else if(getcharid(2) != $home_Guildid20) {
+mes "บ้าน 20 ID "+($home_Guildid20)+"";
+} else {
+warp "home20",40,51;
+}
+close;
+
+case 21:
+mes .@npcname$;
+if($home_Guildid21 == 0) {
+mes "บ้าน 21 - ว่าง";
+} else if(getcharid(2) != $home_Guildid21) {
+mes "บ้าน 21 ID "+($home_Guildid21)+"";
+} else {
+warp "home21",40,51;
+}
+close;
+
+case 22:
+mes .@npcname$;
+if($home_Guildid22 == 0) {
+mes "บ้าน 22 - ว่าง";
+} else if(getcharid(2) != $home_Guildid22) {
+mes "บ้าน 22 ID "+($home_Guildid22)+"";
+} else {
+warp "home22",40,51;
+}
+close;
+
+case 23:
+mes .@npcname$;
+if($home_Guildid23 == 0) {
+mes "บ้าน 23 - ว่าง";
+} else if(getcharid(2) != $home_Guildid23) {
+mes "บ้าน 23 ID "+($home_Guildid23)+"";
+} else {
+warp "home23",40,51;
+}
+close;
+
+case 24:
+mes .@npcname$;
+if($home_Guildid24 == 0) {
+mes "บ้าน 24 - ว่าง";
+} else if(getcharid(2) != $home_Guildid24) {
+mes "บ้าน 24 ID "+($home_Guildid24)+"";
+} else {
+warp "home24",40,51;
+}
+close;
+
+case 25:
+mes .@npcname$;
+if($home_Guildid25 == 0) {
+mes "บ้าน 25 - ว่าง";
+} else if(getcharid(2) != $home_Guildid25) {
+mes "บ้าน 25 ID "+($home_Guildid25)+"";
+} else {
+warp "home25",40,51;
+}
+close;
+
+case 26:
+mes .@npcname$;
+if($home_Guildid26 == 0) {
+mes "บ้าน 26 - ว่าง";
+} else if(getcharid(2) != $home_Guildid26) {
+mes "บ้าน 26 ID "+($home_Guildid26)+"";
+} else {
+warp "home26",40,51;
+}
+close;
+
+case 27:
+mes .@npcname$;
+if($home_Guildid27 == 0) {
+mes "บ้าน 27 - ว่าง";
+} else if(getcharid(2) != $home_Guildid27) {
+mes "บ้าน 27 ID "+($home_Guildid27)+"";
+} else {
+warp "home27",40,51;
+}
+close;
+
+case 28:
+mes .@npcname$;
+if($home_Guildid28 == 0) {
+mes "บ้าน 28 - ว่าง";
+} else if(getcharid(2) != $home_Guildid28) {
+mes "บ้าน 28 ID "+($home_Guildid28)+"";
+} else {
+warp "home28",40,51;
+}
+close;
+
+case 29:
+mes .@npcname$;
+if($home_Guildid29 == 0) {
+mes "บ้าน 29 - ว่าง";
+} else if(getcharid(2) != $home_Guildid29) {
+mes "บ้าน 29 ID "+($home_Guildid29)+"";
+} else {
+warp "home29",40,51;
+}
+close;
+
+case 30:
+mes .@npcname$;
+if($home_Guildid30 == 0) {
+mes "บ้าน 30 - ว่าง";
+} else if(getcharid(2) != $home_Guildid30) {
+mes "บ้าน 30 ID "+($home_Guildid30)+"";
+} else {
+warp "home30",40,51;
+}
+close;
+
+case 31:
+mes .@npcname$;
+if($home_Guildid31 == 0) {
+mes "บ้าน 31 - ว่าง";
+} else if(getcharid(2) != $home_Guildid31) {
+mes "บ้าน 31 ID "+($home_Guildid31)+"";
+} else {
+warp "home31",40,51;
+}
+close;
+
+case 32:
+mes .@npcname$;
+if($home_Guildid32 == 0) {
+mes "บ้าน 32 - ว่าง";
+} else if(getcharid(2) != $home_Guildid32) {
+mes "บ้าน 32 ID "+($home_Guildid32)+"";
+} else {
+warp "home32",40,51;
+}
+close;
+
+case 33:
+mes .@npcname$;
+if($home_Guildid33 == 0) {
+mes "บ้าน 33 - ว่าง";
+} else if(getcharid(2) != $home_Guildid33) {
+mes "บ้าน 33 ID "+($home_Guildid33)+"";
+} else {
+warp "home33",40,51;
+}
+close;
+
+case 34:
+mes .@npcname$;
+if($home_Guildid34 == 0) {
+mes "บ้าน 34 - ว่าง";
+} else if(getcharid(2) != $home_Guildid34) {
+mes "บ้าน 34 ID "+($home_Guildid34)+"";
+} else {
+warp "home34",40,51;
+}
+close;
+
+case 35:
+mes .@npcname$;
+if($home_Guildid35 == 0) {
+mes "บ้าน 35 - ว่าง";
+} else if(getcharid(2) != $home_Guildid35) {
+mes "บ้าน 35 ID "+($home_Guildid35)+"";
+} else {
+warp "home35",40,51;
+}
+close;
+
+case 36:
+mes .@npcname$;
+if($home_Guildid36 == 0) {
+mes "บ้าน 36 - ว่าง";
+} else if(getcharid(2) != $home_Guildid36) {
+mes "บ้าน 36 ID "+($home_Guildid36)+"";
+} else {
+warp "home36",40,51;
+}
+close;
+
+case 37:
+mes .@npcname$;
+if($home_Guildid37 == 0) {
+mes "บ้าน 37 - ว่าง";
+} else if(getcharid(2) != $home_Guildid37) {
+mes "บ้าน 37 ID "+($home_Guildid37)+"";
+} else {
+warp "home37",40,51;
+}
+close;
+
+case 38:
+mes .@npcname$;
+if($home_Guildid38 == 0) {
+mes "บ้าน 38 - ว่าง";
+} else if(getcharid(2) != $home_Guildid38) {
+mes "บ้าน 38 ID "+($home_Guildid38)+"";
+} else {
+warp "home38",40,51;
+}
+close;
+
+case 39:
+mes .@npcname$;
+if($home_Guildid39 == 0) {
+mes "บ้าน 39 - ว่าง";
+} else if(getcharid(2) != $home_Guildid39) {
+mes "บ้าน 39 ID "+($home_Guildid39)+"";
+} else {
+warp "home39",40,51;
+}
+close;
+
+case 40:
+mes .@npcname$;
+if($home_Guildid40 == 0) {
+mes "บ้าน 40 - ว่าง";
+} else if(getcharid(2) != $home_Guildid40) {
+mes "บ้าน 40 ID "+($home_Guildid40)+"";
+} else {
+warp "home40",40,51;
+}
+close;
+
+case 41:
+mes .@npcname$;
+if($home_Guildid41 == 0) {
+mes "บ้าน 41 - ว่าง";
+} else if(getcharid(2) != $home_Guildid41) {
+mes "บ้าน 41 ID "+($home_Guildid41)+"";
+} else {
+warp "home41",40,51;
+}
+close;
+
+case 42:
+mes .@npcname$;
+if($home_Guildid42 == 0) {
+mes "บ้าน 42 - ว่าง";
+} else if(getcharid(2) != $home_Guildid42) {
+mes "บ้าน 42 ID "+($home_Guildid42)+"";
+} else {
+warp "home42",40,51;
+}
+close;
+
+case 43:
+mes .@npcname$;
+if($home_Guildid43 == 0) {
+mes "บ้าน 43 - ว่าง";
+} else if(getcharid(2) != $home_Guildid43) {
+mes "บ้าน 43 ID "+($home_Guildid43)+"";
+} else {
+warp "home43",40,51;
+}
+close;
+
+case 44:
+mes .@npcname$;
+if($home_Guildid44 == 0) {
+mes "บ้าน 44 - ว่าง";
+} else if(getcharid(2) != $home_Guildid44) {
+mes "บ้าน 44 ID "+($home_Guildid44)+"";
+} else {
+warp "home44",40,51;
+}
+close;
+
+case 45:
+mes .@npcname$;
+if($home_Guildid45 == 0) {
+mes "บ้าน 45 - ว่าง";
+} else if(getcharid(2) != $home_Guildid45) {
+mes "บ้าน 45 ID "+($home_Guildid45)+"";
+} else {
+warp "home45",40,51;
+}
+close;
+
+case 46:
+mes .@npcname$;
+if($home_Guildid46 == 0) {
+mes "บ้าน 46 - ว่าง";
+} else if(getcharid(2) != $home_Guildid46) {
+mes "บ้าน 46 ID "+($home_Guildid46)+"";
+} else {
+warp "home46",40,51;
+}
+close;
+
+case 47:
+mes .@npcname$;
+if($home_Guildid47 == 0) {
+mes "บ้าน 47 - ว่าง";
+} else if(getcharid(2) != $home_Guildid47) {
+mes "บ้าน 47 ID "+($home_Guildid47)+"";
+} else {
+warp "home47",40,51;
+}
+close;
+
+case 48:
+mes .@npcname$;
+if($home_Guildid48 == 0) {
+mes "บ้าน 48 - ว่าง";
+} else if(getcharid(2) != $home_Guildid48) {
+mes "บ้าน 48 ID "+($home_Guildid48)+"";
+} else {
+warp "home48",40,51;
+}
+close;
+
+case 49:
+mes .@npcname$;
+if($home_Guildid49 == 0) {
+mes "บ้าน 49 - ว่าง";
+} else if(getcharid(2) != $home_Guildid49) {
+mes "บ้าน 49 ID "+($home_Guildid49)+"";
+} else {
+warp "home49",40,51;
+}
+close;
+
+case 50:
+mes .@npcname$;
+if($home_Guildid50 == 0) {
+mes "บ้าน 50 - ว่าง";
+} else if(getcharid(2) != $home_Guildid50) {
+mes "บ้าน 50 ID "+($home_Guildid50)+"";
+} else {
+warp "home50",40,51;
+}
+close;
+
+}
+
+case 2:
+set @GID,getcharid(2);
+if (strcharinfo(0) == getguildmaster(@GID)) 
+{
+if(select("^0000FF-^000000 เช่าบ้าน")-1)
+{
+break;
+} else {
+if(countitem($renthomeitem[@i]) < $renthomeitem[@i+1])
+{
+mes .@npcname$;
+mes "ต้องการ "+getitemname($renthomeitem[@i])+" 1 ea ครับ";
+break;
+} else {
+delitem $renthomeitem[@i],$renthomeitem[@i+1];
+switch (select(
+$home_Guildid1?"^0000FF-^000000 บ้าน 01 ID "+($home_Guildid1)+"":"^0000FF-^000000 บ้าน 01 - ว่าง",
+$home_Guildid2?"^0000FF-^000000 บ้าน 02 ID "+($home_Guildid2)+"":"^0000FF-^000000 บ้าน 02 - ว่าง",
+$home_Guildid3?"^0000FF-^000000 บ้าน 03 ID "+($home_Guildid3)+"":"^0000FF-^000000 บ้าน 03 - ว่าง",
+$home_Guildid4?"^0000FF-^000000 บ้าน 04 ID "+($home_Guildid4)+"":"^0000FF-^000000 บ้าน 04 - ว่าง",
+$home_Guildid5?"^0000FF-^000000 บ้าน 05 ID "+($home_Guildid5)+"":"^0000FF-^000000 บ้าน 05 - ว่าง",
+$home_Guildid6?"^0000FF-^000000 บ้าน 06 ID "+($home_Guildid6)+"":"^0000FF-^000000 บ้าน 06 - ว่าง",
+$home_Guildid7?"^0000FF-^000000 บ้าน 07 ID "+($home_Guildid7)+"":"^0000FF-^000000 บ้าน 07 - ว่าง",
+$home_Guildid8?"^0000FF-^000000 บ้าน 08 ID "+($home_Guildid8)+"":"^0000FF-^000000 บ้าน 08 - ว่าง",
+$home_Guildid9?"^0000FF-^000000 บ้าน 09 ID "+($home_Guildid9)+"":"^0000FF-^000000 บ้าน 09 - ว่าง",
+$home_Guildid10?"^0000FF-^000000 บ้าน 10 ID "+($home_Guildid10)+"":"^0000FF-^000000 บ้าน 10 - ว่าง",
+$home_Guildid11?"^0000FF-^000000 บ้าน 11 ID "+($home_Guildid11)+"":"^0000FF-^000000 บ้าน 11 - ว่าง",
+$home_Guildid12?"^0000FF-^000000 บ้าน 12 ID "+($home_Guildid12)+"":"^0000FF-^000000 บ้าน 12 - ว่าง",
+$home_Guildid13?"^0000FF-^000000 บ้าน 13 ID "+($home_Guildid13)+"":"^0000FF-^000000 บ้าน 13 - ว่าง",
+$home_Guildid14?"^0000FF-^000000 บ้าน 14 ID "+($home_Guildid14)+"":"^0000FF-^000000 บ้าน 14 - ว่าง",
+$home_Guildid15?"^0000FF-^000000 บ้าน 15 ID "+($home_Guildid15)+"":"^0000FF-^000000 บ้าน 15 - ว่าง",
+$home_Guildid16?"^0000FF-^000000 บ้าน 16 ID "+($home_Guildid16)+"":"^0000FF-^000000 บ้าน 16 - ว่าง",
+$home_Guildid17?"^0000FF-^000000 บ้าน 17 ID "+($home_Guildid17)+"":"^0000FF-^000000 บ้าน 17 - ว่าง",
+$home_Guildid18?"^0000FF-^000000 บ้าน 18 ID "+($home_Guildid18)+"":"^0000FF-^000000 บ้าน 18 - ว่าง",
+$home_Guildid19?"^0000FF-^000000 บ้าน 19 ID "+($home_Guildid19)+"":"^0000FF-^000000 บ้าน 19 - ว่าง",
+$home_Guildid20?"^0000FF-^000000 บ้าน 20 ID "+($home_Guildid20)+"":"^0000FF-^000000 บ้าน 20 - ว่าง",
+$home_Guildid21?"^0000FF-^000000 บ้าน 21 ID "+($home_Guildid21)+"":"^0000FF-^000000 บ้าน 21 - ว่าง",
+$home_Guildid22?"^0000FF-^000000 บ้าน 22 ID "+($home_Guildid22)+"":"^0000FF-^000000 บ้าน 22 - ว่าง",
+$home_Guildid23?"^0000FF-^000000 บ้าน 23 ID "+($home_Guildid23)+"":"^0000FF-^000000 บ้าน 23 - ว่าง",
+$home_Guildid24?"^0000FF-^000000 บ้าน 24 ID "+($home_Guildid24)+"":"^0000FF-^000000 บ้าน 24 - ว่าง",
+$home_Guildid25?"^0000FF-^000000 บ้าน 25 ID "+($home_Guildid25)+"":"^0000FF-^000000 บ้าน 25 - ว่าง",
+$home_Guildid26?"^0000FF-^000000 บ้าน 26 ID "+($home_Guildid26)+"":"^0000FF-^000000 บ้าน 26 - ว่าง",
+$home_Guildid27?"^0000FF-^000000 บ้าน 27 ID "+($home_Guildid27)+"":"^0000FF-^000000 บ้าน 27 - ว่าง",
+$home_Guildid28?"^0000FF-^000000 บ้าน 28 ID "+($home_Guildid28)+"":"^0000FF-^000000 บ้าน 28 - ว่าง",
+$home_Guildid29?"^0000FF-^000000 บ้าน 29 ID "+($home_Guildid29)+"":"^0000FF-^000000 บ้าน 29 - ว่าง",
+$home_Guildid30?"^0000FF-^000000 บ้าน 30 ID "+($home_Guildid30)+"":"^0000FF-^000000 บ้าน 30 - ว่าง",
+$home_Guildid31?"^0000FF-^000000 บ้าน 31 ID "+($home_Guildid31)+"":"^0000FF-^000000 บ้าน 31 - ว่าง",
+$home_Guildid32?"^0000FF-^000000 บ้าน 32 ID "+($home_Guildid32)+"":"^0000FF-^000000 บ้าน 32 - ว่าง",
+$home_Guildid33?"^0000FF-^000000 บ้าน 33 ID "+($home_Guildid33)+"":"^0000FF-^000000 บ้าน 33 - ว่าง",
+$home_Guildid34?"^0000FF-^000000 บ้าน 34 ID "+($home_Guildid34)+"":"^0000FF-^000000 บ้าน 34 - ว่าง",
+$home_Guildid35?"^0000FF-^000000 บ้าน 35 ID "+($home_Guildid35)+"":"^0000FF-^000000 บ้าน 35 - ว่าง",
+$home_Guildid36?"^0000FF-^000000 บ้าน 36 ID "+($home_Guildid36)+"":"^0000FF-^000000 บ้าน 36 - ว่าง",
+$home_Guildid37?"^0000FF-^000000 บ้าน 37 ID "+($home_Guildid37)+"":"^0000FF-^000000 บ้าน 37 - ว่าง",
+$home_Guildid38?"^0000FF-^000000 บ้าน 38 ID "+($home_Guildid38)+"":"^0000FF-^000000 บ้าน 38 - ว่าง",
+$home_Guildid39?"^0000FF-^000000 บ้าน 39 ID "+($home_Guildid39)+"":"^0000FF-^000000 บ้าน 39 - ว่าง",
+$home_Guildid40?"^0000FF-^000000 บ้าน 40 ID "+($home_Guildid40)+"":"^0000FF-^000000 บ้าน 40 - ว่าง",
+$home_Guildid41?"^0000FF-^000000 บ้าน 41 ID "+($home_Guildid41)+"":"^0000FF-^000000 บ้าน 41 - ว่าง",
+$home_Guildid42?"^0000FF-^000000 บ้าน 42 ID "+($home_Guildid42)+"":"^0000FF-^000000 บ้าน 42 - ว่าง",
+$home_Guildid43?"^0000FF-^000000 บ้าน 43 ID "+($home_Guildid43)+"":"^0000FF-^000000 บ้าน 43 - ว่าง",
+$home_Guildid44?"^0000FF-^000000 บ้าน 44 ID "+($home_Guildid44)+"":"^0000FF-^000000 บ้าน 44 - ว่าง",
+$home_Guildid45?"^0000FF-^000000 บ้าน 45 ID "+($home_Guildid45)+"":"^0000FF-^000000 บ้าน 45 - ว่าง",
+$home_Guildid46?"^0000FF-^000000 บ้าน 46 ID "+($home_Guildid46)+"":"^0000FF-^000000 บ้าน 46 - ว่าง",
+$home_Guildid47?"^0000FF-^000000 บ้าน 47 ID "+($home_Guildid47)+"":"^0000FF-^000000 บ้าน 47 - ว่าง",
+$home_Guildid48?"^0000FF-^000000 บ้าน 48 ID "+($home_Guildid48)+"":"^0000FF-^000000 บ้าน 48 - ว่าง",
+$home_Guildid49?"^0000FF-^000000 บ้าน 49 ID "+($home_Guildid49)+"":"^0000FF-^000000 บ้าน 49 - ว่าง",
+$home_Guildid50?"^0000FF-^000000 บ้าน 50 ID "+($home_Guildid50)+"":"^0000FF-^000000 บ้าน 50 - ว่าง"))
+{
+case 1:
+mes .@npcname$;
+if($home_Guildid1) {
+mes "บ้าน 01 ID "+($home_Guildid1)+"";
+} else if($home_Guildid1 == getcharid(2)) {
+mes "บ้าน 01 ID "+($home_Guildid1)+"";
+} else {
+set .@temp_menu,1;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id1,getcharid(2);
+set $rentcheck[1],getcharid(2);
+donpcevent "บ้าน 01::OnReOwner1";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 2:
+mes .@npcname$;
+if($home_Guildid2) {
+mes "บ้าน 02 ID "+($home_Guildid2)+"";
+} else if($home_Guildid2 == getcharid(2)) {
+mes "บ้าน 02 ID "+($home_Guildid2)+"";
+} else {
+set .@temp_menu,2;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id2,getcharid(2);
+set $rentcheck[2],getcharid(2);
+donpcevent "บ้าน 02::OnReOwner2";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 3:
+mes .@npcname$;
+if($home_Guildid3) {
+mes "บ้าน 03 ID "+($home_Guildid3)+"";
+} else if($home_Guildid3 == getcharid(2)) {
+mes "บ้าน 03 ID "+($home_Guildid3)+"";
+} else {
+set .@temp_menu,3;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id3,getcharid(2);
+set $rentcheck[3],getcharid(2);
+donpcevent "บ้าน 03::OnReOwner3";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 4:
+mes .@npcname$;
+if($home_Guildid4) {
+mes "บ้าน 04 ID "+($home_Guildid4)+"";
+} else if($home_Guildid4 == getcharid(2)) {
+mes "บ้าน 04 ID "+($home_Guildid4)+"";
+} else {
+set .@temp_menu,4;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id4,getcharid(2);
+set $rentcheck[4],getcharid(2);
+donpcevent "บ้าน 04::OnReOwner4";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 5:
+mes .@npcname$;
+if($home_Guildid5) {
+mes "บ้าน 05 ID "+($home_Guildid5)+"";
+} else if($home_Guildid5 == getcharid(2)) {
+mes "บ้าน 05 ID "+($home_Guildid5)+"";
+} else {
+set .@temp_menu,5;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id5,getcharid(2);
+set $rentcheck[5],getcharid(2);
+donpcevent "บ้าน 05::OnReOwner5";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 6:
+mes .@npcname$;
+if($home_Guildid6) {
+mes "บ้าน 06 ID "+($home_Guildid6)+"";
+} else if($home_Guildid6 == getcharid(2)) {
+mes "บ้าน 06 ID "+($home_Guildid6)+"";
+} else {
+set .@temp_menu,6;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id6,getcharid(2);
+set $rentcheck[6],getcharid(2);
+donpcevent "บ้าน 06::OnReOwner6";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 7:
+mes .@npcname$;
+if($home_Guildid7) {
+mes "บ้าน 07 ID "+($home_Guildid7)+"";
+} else if($home_Guildid7 == getcharid(2)) {
+mes "บ้าน 07 ID "+($home_Guildid7)+"";
+} else {
+set .@temp_menu,7;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id7,getcharid(2);
+set $rentcheck[7],getcharid(2);
+donpcevent "บ้าน 07::OnReOwner7";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 8:
+mes .@npcname$;
+if($home_Guildid8) {
+mes "บ้าน 08 ID "+($home_Guildid8)+"";
+} else if($home_Guildid8 == getcharid(2)) {
+mes "บ้าน 08 ID "+($home_Guildid8)+"";
+} else {
+set .@temp_menu,8;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id8,getcharid(2);
+set $rentcheck[8],getcharid(2);
+donpcevent "บ้าน 08::OnReOwner8";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 9:
+mes .@npcname$;
+if($home_Guildid9) {
+mes "บ้าน 09 ID "+($home_Guildid9)+"";
+} else if($home_Guildid9 == getcharid(2)) {
+mes "บ้าน 09 ID "+($home_Guildid9)+"";
+} else {
+set .@temp_menu,9;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id9,getcharid(2);
+set $rentcheck[9],getcharid(2);
+donpcevent "บ้าน 09::OnReOwner9";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 10:
+mes .@npcname$;
+if($home_Guildid10) {
+mes "บ้าน 10 ID "+($home_Guildid10)+"";
+} else if($home_Guildid10 == getcharid(2)) {
+mes "บ้าน 10 ID "+($home_Guildid10)+"";
+} else {
+set .@temp_menu,10;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id10,getcharid(2);
+set $rentcheck[10],getcharid(2);
+donpcevent "บ้าน 10::OnReOwner10";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 11:
+mes .@npcname$;
+if($home_Guildid11) {
+mes "บ้าน 11 ID "+($home_Guildid11)+"";
+} else if($home_Guildid11 == getcharid(2)) {
+mes "บ้าน 11 ID "+($home_Guildid11)+"";
+} else {
+set .@temp_menu,11;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id11,getcharid(2);
+set $rentcheck[11],getcharid(2);
+donpcevent "บ้าน 11::OnReOwner11";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 12:
+mes .@npcname$;
+if($home_Guildid12) {
+mes "บ้าน 12 ID "+($home_Guildid12)+"";
+} else if($home_Guildid12 == getcharid(2)) {
+mes "บ้าน 12 ID "+($home_Guildid12)+"";
+} else {
+set .@temp_menu,12;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id12,getcharid(2);
+set $rentcheck[12],getcharid(2);
+donpcevent "บ้าน 12::OnReOwner12";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 13:
+mes .@npcname$;
+if($home_Guildid13) {
+mes "บ้าน 13 ID "+($home_Guildid13)+"";
+} else if($home_Guildid13 == getcharid(2)) {
+mes "บ้าน 13 ID "+($home_Guildid13)+"";
+} else {
+set .@temp_menu,13;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id13,getcharid(2);
+set $rentcheck[13],getcharid(2);
+donpcevent "บ้าน 13::OnReOwner13";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 14:
+mes .@npcname$;
+if($home_Guildid14) {
+mes "บ้าน 14 ID "+($home_Guildid14)+"";
+} else if($home_Guildid14 == getcharid(2)) {
+mes "บ้าน 14 ID "+($home_Guildid14)+"";
+} else {
+set .@temp_menu,14;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id14,getcharid(2);
+set $rentcheck[14],getcharid(2);
+donpcevent "บ้าน 14::OnReOwner14";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 15:
+mes .@npcname$;
+if($home_Guildid15) {
+mes "บ้าน 15 ID "+($home_Guildid15)+"";
+} else if($home_Guildid15 == getcharid(2)) {
+mes "บ้าน 15 ID "+($home_Guildid15)+"";
+} else {
+set .@temp_menu,15;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id15,getcharid(2);
+set $rentcheck[15],getcharid(2);
+donpcevent "บ้าน 15::OnReOwner15";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 16:
+mes .@npcname$;
+if($home_Guildid16) {
+mes "บ้าน 16 ID "+($home_Guildid16)+"";
+} else if($home_Guildid16 == getcharid(2)) {
+mes "บ้าน 16 ID "+($home_Guildid16)+"";
+} else {
+set .@temp_menu,16;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id16,getcharid(2);
+set $rentcheck[16],getcharid(2);
+donpcevent "บ้าน 16::OnReOwner16";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 17:
+mes .@npcname$;
+if($home_Guildid17) {
+mes "บ้าน 17 ID "+($home_Guildid17)+"";
+} else if($home_Guildid17 == getcharid(2)) {
+mes "บ้าน 17 ID "+($home_Guildid17)+"";
+} else {
+set .@temp_menu,17;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id17,getcharid(2);
+set $rentcheck[17],getcharid(2);
+donpcevent "บ้าน 17::OnReOwner17";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 18:
+mes .@npcname$;
+if($home_Guildid18) {
+mes "บ้าน 18 ID "+($home_Guildid18)+"";
+} else if($home_Guildid18 == getcharid(2)) {
+mes "บ้าน 18 ID "+($home_Guildid18)+"";
+} else {
+set .@temp_menu,18;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id18,getcharid(2);
+set $rentcheck[18],getcharid(2);
+donpcevent "บ้าน 18::OnReOwner18";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 19:
+mes .@npcname$;
+if($home_Guildid19) {
+mes "บ้าน 19 ID "+($home_Guildid19)+"";
+} else if($home_Guildid19 == getcharid(2)) {
+mes "บ้าน 19 ID "+($home_Guildid19)+"";
+} else {
+set .@temp_menu,19;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id19,getcharid(2);
+set $rentcheck[19],getcharid(2);
+donpcevent "บ้าน 19::OnReOwner19";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 20:
+mes .@npcname$;
+if($home_Guildid20) {
+mes "บ้าน 20 ID "+($home_Guildid20)+"";
+} else if($home_Guildid20 == getcharid(2)) {
+mes "บ้าน 20 ID "+($home_Guildid20)+"";
+} else {
+set .@temp_menu,20;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id20,getcharid(2);
+set $rentcheck[20],getcharid(2);
+donpcevent "บ้าน 20::OnReOwner20";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 21:
+mes .@npcname$;
+if($home_Guildid21) {
+mes "บ้าน 21 ID "+($home_Guildid21)+"";
+} else if($home_Guildid21 == getcharid(2)) {
+mes "บ้าน 21 ID "+($home_Guildid21)+"";
+} else {
+set .@temp_menu,21;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id21,getcharid(2);
+set $rentcheck[21],getcharid(2);
+donpcevent "บ้าน 21::OnReOwner21";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 22:
+mes .@npcname$;
+if($home_Guildid22) {
+mes "บ้าน 22 ID "+($home_Guildid22)+"";
+} else if($home_Guildid22 == getcharid(2)) {
+mes "บ้าน 22 ID "+($home_Guildid22)+"";
+} else {
+set .@temp_menu,22;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id22,getcharid(2);
+set $rentcheck[22],getcharid(2);
+donpcevent "บ้าน 22::OnReOwner22";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 23:
+mes .@npcname$;
+if($home_Guildid23) {
+mes "บ้าน 23 ID "+($home_Guildid23)+"";
+} else if($home_Guildid23 == getcharid(2)) {
+mes "บ้าน 23 ID "+($home_Guildid23)+"";
+} else {
+set .@temp_menu,23;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id23,getcharid(2);
+set $rentcheck[23],getcharid(2);
+donpcevent "บ้าน 23::OnReOwner23";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 24:
+mes .@npcname$;
+if($home_Guildid24) {
+mes "บ้าน 24 ID "+($home_Guildid24)+"";
+} else if($home_Guildid24 == getcharid(2)) {
+mes "บ้าน 24 ID "+($home_Guildid24)+"";
+} else {
+set .@temp_menu,24;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id24,getcharid(2);
+set $rentcheck[24],getcharid(2);
+donpcevent "บ้าน 24::OnReOwner24";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 25:
+mes .@npcname$;
+if($home_Guildid25) {
+mes "บ้าน 25 ID "+($home_Guildid25)+"";
+} else if($home_Guildid25 == getcharid(2)) {
+mes "บ้าน 25 ID "+($home_Guildid25)+"";
+} else {
+set .@temp_menu,25;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id25,getcharid(2);
+set $rentcheck[25],getcharid(2);
+donpcevent "บ้าน 25::OnReOwner25";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 26:
+mes .@npcname$;
+if($home_Guildid26) {
+mes "บ้าน 26 ID "+($home_Guildid26)+"";
+} else if($home_Guildid26 == getcharid(2)) {
+mes "บ้าน 26 ID "+($home_Guildid26)+"";
+} else {
+set .@temp_menu,26;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id26,getcharid(2);
+set $rentcheck[26],getcharid(2);
+donpcevent "บ้าน 26::OnReOwner26";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 27:
+mes .@npcname$;
+if($home_Guildid27) {
+mes "บ้าน 27 ID "+($home_Guildid27)+"";
+} else if($home_Guildid27 == getcharid(2)) {
+mes "บ้าน 27 ID "+($home_Guildid27)+"";
+} else {
+set .@temp_menu,27;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id27,getcharid(2);
+set $rentcheck[27],getcharid(2);
+donpcevent "บ้าน 27::OnReOwner27";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 28:
+mes .@npcname$;
+if($home_Guildid28) {
+mes "บ้าน 28 ID "+($home_Guildid28)+"";
+} else if($home_Guildid28 == getcharid(2)) {
+mes "บ้าน 28 ID "+($home_Guildid28)+"";
+} else {
+set .@temp_menu,28;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id28,getcharid(2);
+set $rentcheck[28],getcharid(2);
+donpcevent "บ้าน 28::OnReOwner28";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 29:
+mes .@npcname$;
+if($home_Guildid29) {
+mes "บ้าน 29 ID "+($home_Guildid29)+"";
+} else if($home_Guildid29 == getcharid(2)) {
+mes "บ้าน 29 ID "+($home_Guildid29)+"";
+} else {
+set .@temp_menu,29;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id29,getcharid(2);
+set $rentcheck[29],getcharid(2);
+donpcevent "บ้าน 29::OnReOwner29";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 30:
+mes .@npcname$;
+if($home_Guildid30) {
+mes "บ้าน 30 ID "+($home_Guildid30)+"";
+} else if($home_Guildid30 == getcharid(2)) {
+mes "บ้าน 30 ID "+($home_Guildid30)+"";
+} else {
+set .@temp_menu,30;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id30,getcharid(2);
+set $rentcheck[30],getcharid(2);
+donpcevent "บ้าน 30::OnReOwner30";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 31:
+mes .@npcname$;
+if($home_Guildid31) {
+mes "บ้าน 31 ID "+($home_Guildid31)+"";
+} else if($home_Guildid31 == getcharid(2)) {
+mes "บ้าน 31 ID "+($home_Guildid31)+"";
+} else {
+set .@temp_menu,31;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id31,getcharid(2);
+set $rentcheck[31],getcharid(2);
+donpcevent "บ้าน 31::OnReOwner31";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 32:
+mes .@npcname$;
+if($home_Guildid32) {
+mes "บ้าน 32 ID "+($home_Guildid32)+"";
+} else if($home_Guildid32 == getcharid(2)) {
+mes "บ้าน 32 ID "+($home_Guildid32)+"";
+} else {
+set .@temp_menu,32;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id32,getcharid(2);
+set $rentcheck[32],getcharid(2);
+donpcevent "บ้าน 32::OnReOwner32";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 33:
+mes .@npcname$;
+if($home_Guildid33) {
+mes "บ้าน 33 ID "+($home_Guildid33)+"";
+} else if($home_Guildid33 == getcharid(2)) {
+mes "บ้าน 33 ID "+($home_Guildid33)+"";
+} else {
+set .@temp_menu,33;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id33,getcharid(2);
+set $rentcheck[33],getcharid(2);
+donpcevent "บ้าน 33::OnReOwner33";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 34:
+mes .@npcname$;
+if($home_Guildid34) {
+mes "บ้าน 34 ID "+($home_Guildid34)+"";
+} else if($home_Guildid34 == getcharid(2)) {
+mes "บ้าน 34 ID "+($home_Guildid34)+"";
+} else {
+set .@temp_menu,34;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id34,getcharid(2);
+set $rentcheck[34],getcharid(2);
+donpcevent "บ้าน 34::OnReOwner34";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 35:
+mes .@npcname$;
+if($home_Guildid35) {
+mes "บ้าน 35 ID "+($home_Guildid35)+"";
+} else if($home_Guildid35 == getcharid(2)) {
+mes "บ้าน 35 ID "+($home_Guildid35)+"";
+} else {
+set .@temp_menu,35;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id35,getcharid(2);
+set $rentcheck[35],getcharid(2);
+donpcevent "บ้าน 35::OnReOwner35";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 36:
+mes .@npcname$;
+if($home_Guildid36) {
+mes "บ้าน 36 ID "+($home_Guildid36)+"";
+} else if($home_Guildid36 == getcharid(2)) {
+mes "บ้าน 36 ID "+($home_Guildid36)+"";
+} else {
+set .@temp_menu,36;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id36,getcharid(2);
+set $rentcheck[36],getcharid(2);
+donpcevent "บ้าน 36::OnReOwner36";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 37:
+mes .@npcname$;
+if($home_Guildid37) {
+mes "บ้าน 37 ID "+($home_Guildid37)+"";
+} else if($home_Guildid37 == getcharid(2)) {
+mes "บ้าน 37 ID "+($home_Guildid37)+"";
+} else {
+set .@temp_menu,37;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id37,getcharid(2);
+set $rentcheck[37],getcharid(2);
+donpcevent "บ้าน 37::OnReOwner37";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 38:
+mes .@npcname$;
+if($home_Guildid38) {
+mes "บ้าน 38 ID "+($home_Guildid38)+"";
+} else if($home_Guildid38 == getcharid(2)) {
+mes "บ้าน 38 ID "+($home_Guildid38)+"";
+} else {
+set .@temp_menu,38;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id38,getcharid(2);
+set $rentcheck[38],getcharid(2);
+donpcevent "บ้าน 38::OnReOwner38";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 39:
+mes .@npcname$;
+if($home_Guildid39) {
+mes "บ้าน 39 ID "+($home_Guildid39)+"";
+} else if($home_Guildid39 == getcharid(2)) {
+mes "บ้าน 39 ID "+($home_Guildid39)+"";
+} else {
+set .@temp_menu,39;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id39,getcharid(2);
+set $rentcheck[39],getcharid(2);
+donpcevent "บ้าน 39::OnReOwner39";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 40:
+mes .@npcname$;
+if($home_Guildid40) {
+mes "บ้าน 40 ID "+($home_Guildid40)+"";
+} else if($home_Guildid40 == getcharid(2)) {
+mes "บ้าน 40 ID "+($home_Guildid40)+"";
+} else {
+set .@temp_menu,40;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id40,getcharid(2);
+set $rentcheck[40],getcharid(2);
+donpcevent "บ้าน 40::OnReOwner40";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 41:
+mes .@npcname$;
+if($home_Guildid41) {
+mes "บ้าน 41 ID "+($home_Guildid41)+"";
+} else if($home_Guildid41 == getcharid(2)) {
+mes "บ้าน 41 ID "+($home_Guildid41)+"";
+} else {
+set .@temp_menu,41;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id41,getcharid(2);
+set $rentcheck[41],getcharid(2);
+donpcevent "บ้าน 41::OnReOwner41";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 42:
+mes .@npcname$;
+if($home_Guildid42) {
+mes "บ้าน 42 ID "+($home_Guildid42)+"";
+} else if($home_Guildid42 == getcharid(2)) {
+mes "บ้าน 42 ID "+($home_Guildid42)+"";
+} else {
+set .@temp_menu,42;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id42,getcharid(2);
+set $rentcheck[42],getcharid(2);
+donpcevent "บ้าน 42::OnReOwner42";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 43:
+mes .@npcname$;
+if($home_Guildid43) {
+mes "บ้าน 43 ID "+($home_Guildid43)+"";
+} else if($home_Guildid43 == getcharid(2)) {
+mes "บ้าน 43 ID "+($home_Guildid43)+"";
+} else {
+set .@temp_menu,43;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id43,getcharid(2);
+set $rentcheck[43],getcharid(2);
+donpcevent "บ้าน 43::OnReOwner43";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 44:
+mes .@npcname$;
+if($home_Guildid44) {
+mes "บ้าน 44 ID "+($home_Guildid44)+"";
+} else if($home_Guildid44 == getcharid(2)) {
+mes "บ้าน 44 ID "+($home_Guildid44)+"";
+} else {
+set .@temp_menu,44;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id44,getcharid(2);
+set $rentcheck[44],getcharid(2);
+donpcevent "บ้าน 44::OnReOwner44";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 45:
+mes .@npcname$;
+if($home_Guildid45) {
+mes "บ้าน 45 ID "+($home_Guildid45)+"";
+} else if($home_Guildid45 == getcharid(2)) {
+mes "บ้าน 45 ID "+($home_Guildid45)+"";
+} else {
+set .@temp_menu,45;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id45,getcharid(2);
+set $rentcheck[45],getcharid(2);
+donpcevent "บ้าน 45::OnReOwner45";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 46:
+mes .@npcname$;
+if($home_Guildid46) {
+mes "บ้าน 46 ID "+($home_Guildid46)+"";
+} else if($home_Guildid46 == getcharid(2)) {
+mes "บ้าน 46 ID "+($home_Guildid46)+"";
+} else {
+set .@temp_menu,46;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id46,getcharid(2);
+set $rentcheck[46],getcharid(2);
+donpcevent "บ้าน 46::OnReOwner46";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 47:
+mes .@npcname$;
+if($home_Guildid47) {
+mes "บ้าน 47 ID "+($home_Guildid47)+"";
+} else if($home_Guildid47 == getcharid(2)) {
+mes "บ้าน 47 ID "+($home_Guildid47)+"";
+} else {
+set .@temp_menu,47;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id47,getcharid(2);
+set $rentcheck[47],getcharid(2);
+donpcevent "บ้าน 47::OnReOwner47";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 48:
+mes .@npcname$;
+if($home_Guildid48) {
+mes "บ้าน 48 ID "+($home_Guildid48)+"";
+} else if($home_Guildid48 == getcharid(2)) {
+mes "บ้าน 48 ID "+($home_Guildid48)+"";
+} else {
+set .@temp_menu,48;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id48,getcharid(2);
+set $rentcheck[48],getcharid(2);
+donpcevent "บ้าน 48::OnReOwner48";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 49:
+mes .@npcname$;
+if($home_Guildid49) {
+mes "บ้าน 49 ID "+($home_Guildid49)+"";
+} else if($home_Guildid49 == getcharid(2)) {
+mes "บ้าน 49 ID "+($home_Guildid49)+"";
+} else {
+set .@temp_menu,49;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id49,getcharid(2);
+set $rentcheck[49],getcharid(2);
+donpcevent "บ้าน 49::OnReOwner49";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+case 50:
+mes .@npcname$;
+if($home_Guildid50) {
+mes "บ้าน 50 ID "+($home_Guildid50)+"";
+} else if($home_Guildid50 == getcharid(2)) {
+mes "บ้าน 50 ID "+($home_Guildid50)+"";
+} else {
+set .@temp_menu,50;
+setd "$home_Guildid"+.@temp_menu,getcharid(2);
+set $renter_id50,getcharid(2);
+set $rentcheck[50],getcharid(2);
+donpcevent "บ้าน 50::OnReOwner50";
+mes "การเช่าบ้านเรียบร้อยครับ";
+}
+break;
+
+}
+break;
+}
+break;
+}
+break;
+}
+mes .@npcname$;
+mes "ต้องหัวหน้ากิลด์เท่านั้นครับ";
+break;
+default:
+break;
+}
+break;
+}
+close;
+
+OnInit:
+set $pstart,0;
+waitingroom "๐ จัดการบ้านเช่า ๐",0;
+end;
+}

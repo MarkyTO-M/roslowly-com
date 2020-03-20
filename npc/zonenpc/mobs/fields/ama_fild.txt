@@ -1,0 +1,7 @@
+ama_fild01,0,0,0,0	monster	Karakasa	1400,90,0,0,0
+ama_fild01,0,0,0,0	monster	Kapha	1406,90,0,0,0
+ama_fild01,0,0,0,0	monster	Hydra	1068,90,0,0,0
+ama_fild01,0,0,0,0	monster	Miyabi Doll	1404,90,0,0,0
+ama_fild01,0,0,0,0	monster	Poison Toad	1402,90,0,0,0
+ama_fild01,0,0,0,0	monster	Poporing	1031,90,0,0,0
+ama_fild01,0,0,0,0	monster	Bigfoot	1060,90,0,0,0

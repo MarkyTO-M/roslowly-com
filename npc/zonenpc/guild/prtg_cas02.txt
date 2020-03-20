@@ -1,0 +1,31 @@
+-	script	Swanhild#p2-2::Swanhild2	722,{
+set .@GID, GetCastleData("prtg_cas02",1);
+if (.@GID == 0) {
+}
+else {
+if (getcharid(2) == .@GID) {
+if (select("^009933-^000000 เข้าปราสาท") == 1) {
+if (getcharid(2) == GetCastleData("prtg_cas02",1)) {
+warp "prtg_cas02",71,36;
+end;
+}
+}
+close;
+}
+mes "^FF0000[Swanhild]^000000";
+mes "ถูกครอบครองโดยกิลด์ : " + GetGuildName(.@GID) + "";
+}
+close;
+
+OnRecvCastlePt02:
+FlagEmblem GetCastleData("prtg_cas02",1);
+end;
+}
+
+prtg_cas02,158,174,0	duplicate(Gld_Agit_Manager)	Agit#prtg_cas02	-1
+prtg_cas02,94,61,4	duplicate(Gld_Mngr_Template)	Roy#prtg_cas02	55
+prtg_cas02,94,61,4	duplicate(Gld_Guard_Template)	Guardian#prtg_cas02	-1
+prtg_cas02,71,36,4	duplicate(Gld_Kafra_Template)	Kafra Staff#prtg_cas02	117
+prtg_cas02,202,228,0	duplicate(Gld_Trea_Protect)	ban_warp#prtg_cas02	-1,6,6
+prtg_cas02,202,228,0	duplicate(Gld_Trea_Spawn)	Treasure#prtg_cas02	-1
+prtg_cas02,84,72,0	duplicate(Gld_Dun_Template)	#prtg_cas02	111

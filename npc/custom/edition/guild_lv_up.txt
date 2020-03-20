@@ -1,0 +1,26 @@
+//===== Developers Script ===================================
+//= Server Rate
+//===== Current Version =====================================
+//= 1.0
+//===== Description =========================================
+//= Server Rate
+//===== Additional Comments =================================
+//= 1.0 Start Version
+//= 1.1 Edit By Ragnarok PVP GVG
+//===========================================================
+morocc,153,55,4	script	Up Level Guild	965,{
+
+if( !getcharid(2) ){mes "คุณต้องอยู่ในกิลด์"; end;}
+if( strcharinfo(0) != getguildmaster(getcharid(2)) ){mes "คุณต้องเป็นหัวหน้ากิลด์ ของกิลด์ที่คุณต้องการ โอนตำแหน่งหัวหน้ากิลด์"; end;}
+
+mes "^0000FFUp Level Guild^000000";
+mes "ข้าเพิ่ม Level Guild ให้เจ้า";
+mes "เรียบร้อยแล้ว";
+atcommand "@guildlvlup 50";
+end;
+
+OnInit:
+waitingroom "อัพเลเวลกิล ฟรี",0;
+end;
+
+}

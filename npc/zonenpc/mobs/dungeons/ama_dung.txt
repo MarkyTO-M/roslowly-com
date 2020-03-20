@@ -1,0 +1,17 @@
+ama_dun01,0,0,0,0	monster	Miyabi Doll	1404,90,0,0,0
+ama_dun01,0,0,0,0	monster	Firelock Soldier	1403,90,0,0,0
+ama_dun01,0,0,0,0	monster	Shinobi	1401,90,0,0,0
+
+ama_dun02,0,0,0,0	monster	Poison Toad	1402,10,0,0,0
+ama_dun02,0,0,0,0	monster	Firelock Soldier	1403,90,0,0,0
+ama_dun02,0,0,0,0	monster	Miyabi Doll	1404,90,0,0,0
+ama_dun02,0,0,0,0	monster	Shinobi	1401,90,0,0,0
+ama_dun02,0,0,0,0	monster	Horong	1129,10,0,0,0
+ama_dun02,0,0,0,0	monster	The Paper	1375,90,0,0,0
+
+ama_dun03,0,0,0,0	monster	Firelock Soldier	1403,90,0,0,0
+ama_dun03,0,0,0,0	monster	Miyabi Doll	1404,90,0,0,0
+ama_dun03,0,0,0,0	monster	Mimic	1191,10,0,0,0
+ama_dun03,0,0,0,0	monster	The Paper	1375,90,0,0,0
+ama_dun03,0,0,0,0	monster	Shinobi	1401,90,0,0,0
+ama_dun03,0,0,0,0	monster	Tengu	1405,90,0,0,0

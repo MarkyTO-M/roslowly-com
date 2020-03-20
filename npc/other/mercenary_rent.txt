@@ -1,0 +1,253 @@
+//===== Hercules Script ======================================
+//= Mercenary related NPCs
+//===== By: ==================================================
+//= L0ne_W0lf
+//===== Current Version: =====================================
+//= 1.4
+//===== Description: =========================================
+//= [Official Conversion]
+//= Sells Lancer, Sword, and Archer mercenaries,
+//= along with related mercenary items.
+//===== Additional Comments: =================================
+//= 1.0 First version. [L0ne_W0lf]
+//= 1.1 Optimization. [Zephyrus]
+//= 1.2 Removed redundent input. [L0ne_W0lf]
+//= 1.3 Duplicates now spawned from floating NPCs. [L0ne_W0lf]
+//= 1.4 Optimized and fixed wrong item id. [Joseph]
+//============================================================
+
+-	script	Mercenary Manager#main	-1,{
+	setarray .@name$, 	"Spear", 			"Sword", 			"Bow";
+	setarray .@faith$, 	"SPEAR_MERC_GUILD",	"SWORD_MERC_GUILD",	"ARCH_MERC_GUILD";
+	setarray .@item, 	12182,				12172,				12162;
+	set .@npc$, strnpcinfo(2);
+	for (set .@size, getarraysize(.@name$); .@i < .@size; set .@i, .@i + 1)
+		if (.@npc$ == .@name$[.@i]) set .@type, .@i;
+	set .@faith_merc, mercenary_get_faith(getd(.@faith$[.@type]));
+	mes "[Mercenary Manager]";
+	mes " สวัสดี นี่คือสมาคมทหารรับจ้างประเภท ";
+	mes .@npc$ + " ข้าช่วยอะไรเจ้าได้บ้าง?";
+	next;
+	switch(select(" ข้าต้องการจ้างทหารจ้าง: ทหารรับจ้างคืออะไร?: ไม่มีอะไร: คุณมีทหารรับจ้างระดับ 10 ไหม")) {
+		case 1:
+			mes "[Mercenary Manager]";
+			mes " โอ้ อยากได้ระดับไหนล่ะ?";
+			next;
+			setarray .@suffix$, "th","st","nd","rd";
+			for (set .@i, 1; .@i <= 9; set .@i, .@i + 1)
+				set .@menu$, .@menu$ + .@i + .@suffix$[((.@i <= 3)? .@i : 0)] + " Grade " + .@npc$ + " Mercenary:";
+			set .@Grade, select(.@menu$);
+			set .@BaseLevel, 5 + (.@Grade * 10);
+			set .@BaseLevel, (.@val > 90)? 90 : .@BaseLevel;
+			set .@ZenyCost, 7 * .@Grade;
+			setarray .@FaithCost[7], 50,100,300;
+			set .@FaithCost, .@FaithCost[.@Grade];
+			mes "[Mercenary Manager]";
+			mes " เจ้าอยากจ้างระดับ " + .@Grade + .@suffix$[((.@Grade <= 3)? .@i : 0)];
+			mes .@npc$ + " หรือ?";
+			mes "  เจ้าต้องมีเลเวล " + .@BaseLevel + "ขึ้นไป จึงจะจ้างทหารระดับนี้ได้";
+			mes "  ค่าจ้างเป็นเงิน " + .@ZenyCost + ",000 zeny ต้องการสักคนไหม?";
+			next;
+			if(select(" ใช่: ไม่ล่ะ") == 2) {
+				mes "[Mercenary Manager]";
+				mes " ไม่เป็นไร แล้วมาใหม่นะ";
+			}
+			else if(.@FaithCost && .@faith_merc < .@FaithCost) {
+				mes "[Mercenary Manager]";
+				mes " อืมมม... ดูเหมือนเจ้าจะ";
+				mes " มีความสัมพันธ์กับทางสมาคมไม่มากพอ";
+				mes " เจ้าต้องมีค่าความสัมพันธ์มากกว่า " + .@FaithCost + "";
+				mes " จึงจะสามารถทำสัญญาจ้างทหารได้";
+			}
+			else if (BaseLevel < .@BaseLevel) {
+				mes "[Mercenary Manager]";
+				mes " ขออภัยด้วย แต่ว่าเลเวลของเจ้า";
+				mes " ยังไม่เพียงพอสำหรับการจ้างทหาร";
+				mes " ระดับนี้ ไว้กลับมาใหม่เมื่อเจ้ามีเลเวล " + .@BaseLevel + "";
+			}
+			else if (Zeny < .@ZenyCost * 1000) {		
+				mes "[Mercenary Manager]";
+				mes " ขออภัยด้วย แต่เจ้าต้องค่าจ้างเล็กน้อย";
+				mes " เป็นค่าบริการของทหารรับจ้าง";
+				mes " ค่าบริการคือ " + .@ZenyCost + ",000z.";
+			}
+			else {
+				mes "[Mercenary Manager]";
+				mes " ตัดสินใจถูกแล้ว";
+				mes " ทหารของเราจะคอยรับใช้";
+				mes " และปกป้องเจ้า";
+				mes " ทหารรับจ้างจะคอยดูแลเจ้า";
+				mes " เป็นเวลา 30 นาที";
+				Zeny -= (.@ZenyCost * 1000);
+				getitem .@item[.@type] - 10 + .@Grade, 1;
+			}
+			close;
+		case 2:
+			mes "[Mercenary Manager]";
+			mes " ทหารรับจ้างหมายถึง";
+			mes " ทหารที่คอยยืนเคียงข้างเจ้า";
+			mes " ต่อสู่เพื่อเจ้าในสนามรบ";
+			next;
+			mes "[Mercenary Manager]";
+			mes " แต่ว่าก็มีเงื่อนไขในการรับใช้";
+			mes " สัญญาในการจ้างแต่ละครั้ง";
+			mes " แตกต่างกันออกไปขึ้นอยู่กับความสามารถของทหาร";
+			mes " ความสัมพันธ์ของเจ้ากับสมาคม";
+			next;
+			mes "[Mercenary Manager]";
+			mes " เป็นเรื่องธรรมดาที่ยากหน่อย";
+			mes " สำหรับการจ้างทหารระดับสูง";
+			mes " เพราะว่ามีเงื่อนไขพิเศษ";
+			mes " ที่ต้องสร้างความพึงพอใจจึงจะยินยอมให้จ้างได้";
+			next;
+			mes "[Mercenary Manager]";
+			mes " รวมถึงคุณจะไม่สามารถจ้างได้มากกว่า";
+			mes " หนึ่งคนเมื่อคุณทำการจ้างแล้ว";
+			mes " นอกจากนี้ก็ยังไม่สามารถ";
+			mes " จ้างทหารที่มีเลเวลสูงกว่า";
+			mes " คุณได้ซึ่งเลเวลสูงสุดของทหารที่คุณจะจ้างได้นั้น";
+			mes " มากกว่าคุณได้ไม่เกิน 5 เลเวล";
+			next;
+			mes "[Mercenary Manager]";
+			mes " อีกอย่างที่สำคัฯคือ";
+			mes " ความสัมพันธ์กับทางสมาคม";
+			mes " เรื่องนี้ไม่ค่อยสำคัญสำหรับการจ้างทหารระดับต่ำ";
+			mes " แต่แน่นอนว่าสำหรับทหารระดับสูงแล้ว";
+			mes " คุณก็ต้องมีค่าความสัมพันธ์กับทางสมาคมที่ดีด้วย";
+			next;
+			mes "[Mercenary Manager]";
+			mes " รายละเอียดต่างๆ จะอธิบายเพิ่มเติม";
+			mes " ตอนที่คุณทำสัญญาจ้างทหาร";
+			next;
+			mes "[Mercenary Manager]";
+			mes " โอ้";
+			mes "เกือบลืมเรื่องสำคัญไปอย่างหนึ่ง";
+			mes " คุณจะได้รับ Summon Scroll";
+			mes " เมื่อคุณทำสัญญาเรียบร้อยแล้ว";
+			next;
+			mes "[Mercenary Manager]";
+			mes " คุณไม่สามารถแลกเปลี่ยนทหารรับจ้าง";
+			mes " กับคนอื่นได้และทหารจะรับใช้คุณเป็นเวลา 30 นาที";
+			mes " เมื่อคุณเรียกทหารรับจ้างออกมาแล้ว";
+			mes " คุณควรจะต้องระวังเรื่องนี้เอาไว้";
+			close;
+		case 3:
+			mes "[Mercenary Manager]";
+			mes " เจ้าบ้าหรือเปล่าเนี่ย";
+			mes " งั้นก็ไว้คุยกันใหม่";
+			close;
+		case 4:
+			mes "[Mercenary Manager]";
+			mes " ทหารรับจ้างระดับ 10";
+			mes " เป็นอะไรที่พิเศษมาก ด้วยความสามารถที่เหนือกว่า";
+			mes " การจ้างจึงไม่ใช่เรื่องง่าย";
+			next;
+			mes "[Mercenary Manager]";
+			mes " ไม่จำเป็นต้องจ่ายเงินในการจ้างพวกเขา";
+			mes " อย่างเดียวที่ต้องการคือความสัมพันธ์ที่ดีต่อสมาคม";
+			mes " การทำสัญญาว่าจ้างทหาร";
+			mes " ระดับ 0 นั้นต้องการ";
+			mes " ค่าความสัมพันธ์กับทางสมาคมอย่างน้อย 500";
+			next;
+			mes "[Mercenary Manager]";
+			mes " และที่สำคัญคือค่าความสัมพันธ์จะหายไป 400";
+			mes " เมื่อคุณทำสัญญาจ้าง";
+			mes " ฉะนั้นคุณควรคิดให้ดี";
+			mes " สำหรับการจะจ้างทหารระดับ 10";
+			mes " การทำแบบนี้จะทำให้ความสัมพันธ์ของคุณลดลง";
+			next;
+			mes "[Mercenary Manager]";
+			mes " การทำสัญญาจ้าง";
+			mes " คุณจะต้องมีเลเวลมากกว่า 90";
+			mes " คุณต้องการทำสัญญาจ้างทหารรับดับ 10 ไหม?";
+			next;
+			if (select(" ใช่: ไม่") == 2) {
+				mes "[Mercenary Manager]";
+				mes " แน่นอนมันเรื่องที่ตัดสินใจยากในการจ้างทหารระดับ 10";
+			}
+			else if (.@faith_merc < 500) {
+				mes "[Mercenary Manager]";
+				mes " อืมมม... ดูเหมือนเจ้าจะ";
+				mes " มีความสัมพันธ์กับทางสมาคมไม่มากพอ";
+				mes " เจ้าต้องมีค่าความสัมพันธ์มากกว่า 500";
+				mes " จึงจะสามารถทำสัญญาจ้างทหารระดับ 10 ได้";
+			}
+			else if (BaseLevel < 90) {
+				mes "[Mercenary Manager]";
+				mes " ขออภัยด้วย แต่ว่าเลเวลของเจ้า";
+				mes " ยังไม่เพียงพอสำหรับการจ้างทหาร";
+				mes " ระดับนี้ ไว้กลับมาใหม่เมื่อเจ้ามีเลเวล 90";
+			}
+			else {
+				mes "[Mercenary Manager]";
+				mes " โอ้ ยินดีด้วย..";
+				mes " ดูเหมือนว่ามันจะอยู่ในแผนของคุณ";
+				mes " ที่จะทำงานอันตรายมากๆ บางอย่าง";
+				mes " ถึงได้จ้างทหารระดับ 10";
+				mes " เอาล่ะ.. ขอให้โชคดี";
+				mercenary_set_faith getd(.@faith$[.@type]),-400;
+				getitem .@item[.@type],1;
+			}
+			close;
+	}
+}
+prontera,41,337,5	duplicate(Mercenary Manager#main)	Mercenary Manager#Spear	8W_SOLDIER
+pay_arche,99,167,4	duplicate(Mercenary Manager#main)	Mercenary Manager#Bow	4_M_JOB_HUNTER
+
+// Mercenary Merchant NPCs
+//============================================================
+-	script	Mercenary Merchant#dummy::MercMerchant	-1,{
+	mes "[Mercenary Goods Merchant]";
+	mes " สวัสดี ข้ามีหน้าที่ขายสินค้า";
+	mes " สำหรับทหารรับจ้างโดยเฉพาะ";
+	mes " ท่านต้องการสิ่งใดล่ะ?";
+	next;
+	setarray .@item, 12184,	12185,	12241,	12242,	12243;
+	setarray .@cost, 1750,	3000,	560,	1050,	2100;
+	for (set .@size, getarraysize(.@item); .@i < .@size; set .@i, .@i + 1)
+		set .@menu$, .@menu$ + getitemname(.@item[.@i]) + ":";
+	set .@m, select(.@menu$)-1;
+	set .@str$, .@cost[.@m] + "";
+	set .@len, getstrlen(.@str$);
+	set .@str_cost$, (.@len <= 3)? .@str$ : insertchar(.@str$,",",.@len-3);
+	mes "[Mercenary Goods Merchant]";
+	mes getitemname(.@item[.@m]);
+	mes "ราคา " + .@str_cost$ + " zeny.";
+	mes "ท่านต้องการซื้อมันไหมล่ะ?";
+	next;
+	input .@input;
+	if (!.@input) {
+		mes "[Mercenary Goods Merchant]";
+		mes "ไม่เป็นไร หากท่านต้องการเมื่อไหร่ ข้ายินดีต้อนรับท่านเสมอ?";
+		close;
+	}
+	else if (.@input < 0 || .@input > 10000) {
+		mes "[Mercenary Goods Merchant]";
+		mes "ข้าเสียใจด้วย";
+		mes "แต่ท่านสามารถซื้อ Potion ได้เพียงไม่เกิน 10,000 ชิ้นต่อครั้งเท่านั้น";
+		close;
+	}
+	else if (set(.@total_po, .@input * .@cost[.@m]) > Zeny) {
+		mes "[Mercenary Goods Merchant]";
+		mes "ข้าต้องขอภัยกับท่านด้วย แต่ท่านมีเงินไม่เพียงพอที่จ่าย";
+		close;
+	}
+	else if (!checkweight(.@item[.@m], .@input)) {
+		mes "[Mercenary Goods Merchant]";
+		mes "ท่านมีน้ำหนักในตัวมากเกินไป โปรดกลับไปจัดการกับสัมภาระภายในตัวละครของท่านก่อน";
+		close;
+	}
+	mes "[Mercenary Goods Merchant]";
+	if (.@input == 1) 
+		mes "นี่สำหรับทหารรับจ้างของท่าน " + getitemname(.@item[.@m]) + "";
+	else {
+		mes "นี่สำหรับทหารรับจ้างของท่าน";
+		mes .@input + " " + getitemname(.@item[.@m]) + "";
+	}
+	mes "โปรดกลับมาอีกครั้ง หากท่านต้องการสิ่งใดเพิ่มเติม";
+	Zeny -= .@total_po;
+	getitem .@item[.@m], .@input;
+	close;
+}
+prontera,30,337,4	duplicate(MercMerchant)	Mercenary Merchant#Spear	8_F_GIRL
+pay_arche,102,167,5	duplicate(MercMerchant)	Mercenary Merchant#Bow	4_F_CAPEGIRL

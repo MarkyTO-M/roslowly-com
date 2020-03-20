@@ -1,0 +1,36 @@
+iz_dun00,0,0,0,0	monster	Plankton	1161,90,0,0,0
+iz_dun00,0,0,0,0	monster	Marina	1141,90,0,0,0
+iz_dun00,0,0,0,0	monster	Kukre	1070,10,0,0,0
+iz_dun00,0,0,0,0	monster	Hydra	1068,90,0,0,0
+iz_dun00,0,0,0,0	monster	Vadon	1066,10,0,0,0
+iz_dun00,0,0,0,0	monster	Black Mushroom	1084,10,0,0,0
+
+iz_dun01,0,0,0,0	monster	Plankton	1161,10,0,0,0
+iz_dun01,0,0,0,0	monster	Marina	1141,10,0,0,0
+iz_dun01,0,0,0,0	monster	Kukre	1070,90,0,0,0
+iz_dun01,0,0,0,0	monster	Hydra	1068,90,0,0,0
+iz_dun01,0,0,0,0	monster	Vadon	1066,90,0,0,0
+iz_dun01,0,0,0,0	monster	Cornutus	1067,90,0,0,0
+iz_dun01,0,0,0,0	monster	Black Mushroom	1084,10,0,0,0
+
+iz_dun02,0,0,0,0	monster	Hydra	1068,90,0,0,0
+iz_dun02,0,0,0,0	monster	Cornutus	1067,90,0,0,0
+iz_dun02,0,0,0,0	monster	Marse	1144,90,0,0,0
+iz_dun02,0,0,0,0	monster	Obeaune	1044,90,0,0,0
+iz_dun02,0,0,0,0	monster	Merman	1264,90,0,0,0
+iz_dun02,0,0,0,0	monster	Black Mushroom	1084,10,0,0,0
+
+iz_dun03,0,0,0,0	monster	Hydra	1068,10,0,0,0
+iz_dun03,0,0,0,0	monster	Phen	1158,90,0,0,0
+iz_dun03,0,0,0,0	monster	Marine Sphere	1142,10,0,0,0
+iz_dun03,0,0,0,0	monster	Swordfish	1069,90,0,0,0
+iz_dun03,0,0,0,0	monster	Marc	1045,90,0,0,0
+iz_dun03,0,0,0,0	monster	Hydra	1068,90,0,0,0
+iz_dun03,0,0,0,0	monster	Merman	1264,90,0,0,0
+
+iz_dun04,0,0,0,0	monster	Marine Sphere	1142,10,0,0,0
+iz_dun04,0,0,0,0	monster	Swordfish	1069,10,0,0,0
+iz_dun04,0,0,0,0	monster	Strouf	1065,90,0,0,0
+iz_dun04,0,0,0,0	monster	Hydra	1068,90,0,0,0
+iz_dun04,0,0,0,0	monster	Deviace	1108,10,0,0,0
+iz_dun04,0,0,0,0	monster	Merman	1264,90,0,0,0

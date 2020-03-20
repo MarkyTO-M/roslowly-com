@@ -1,0 +1,69 @@
+-	script	warp2gvg	-1,{
+end;
+OnClock2035:
+enablenpc "aldg1class";
+enablenpc "gefg1class";
+enablenpc "payg1class";
+enablenpc "prtg1class";
+enablenpc "aldg2class";
+enablenpc "gefg2class";
+enablenpc "payg2class";
+enablenpc "prtg2class";
+enablenpc "aldg3class";
+enablenpc "gefg3class";
+enablenpc "payg3class";
+enablenpc "prtg3class";
+enablenpc "aldg4class";
+enablenpc "gefg4class";
+enablenpc "payg4class";
+enablenpc "prtg4class";
+enablenpc "aldg5class";
+enablenpc "gefg5class";
+enablenpc "payg5class";
+enablenpc "prtg5class";
+announce "[√–∫∫Õ—µ‚π¡—µ‘ : ¢≥–π’È‡«≈“ 20.35π. «“√Ïª™—Èπ 2 ¢Õß∑ÿ°∫È“π‰¥È‡ª‘¥¢÷Èπ·≈È« ]",0;
+end;
+}
+-	script	warp2end	-1,{
+OnAgitEnd:
+disablenpc "aldg1class";
+disablenpc "gefg1class";
+disablenpc "payg1class";
+disablenpc "prtg1class";
+disablenpc "aldg2class";
+disablenpc "gefg2class";
+disablenpc "payg2class";
+disablenpc "prtg2class";
+disablenpc "aldg3class";
+disablenpc "gefg3class";
+disablenpc "payg3class";
+disablenpc "prtg3class";
+disablenpc "aldg4class";
+disablenpc "gefg4class";
+disablenpc "payg4class";
+disablenpc "prtg4class";
+disablenpc "aldg5class";
+disablenpc "gefg5class";
+disablenpc "payg5class";
+disablenpc "prtg5class";
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#1"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#2"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#3"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#4"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#5";
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#6"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#7"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#8"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#9"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#10";
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#11"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#12"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#13"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#14"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#15";
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#16"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#17"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#18"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#19"; 
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#20";
+}

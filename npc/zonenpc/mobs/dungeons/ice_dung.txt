@@ -1,0 +1,15 @@
+ice_dun01,0,0,0,0	monster	Siroma	1776,90,0,0,0
+ice_dun01,0,0,0,0	monster	Roween	1782,90,0,0,0
+ice_dun01,0,0,0,0	monster	Gazeti	1778,90,0,0,0
+ice_dun01,0,0,0,0	monster	Muscipular	1780,90,0,0,0
+
+ice_dun02,0,0,0,0	monster	Snowier	1775,90,0,0,0
+ice_dun02,0,0,0,0	monster	Siroma	1776,90,0,0,0
+ice_dun02,0,0,0,0	monster	Gazeti	1778,90,0,0,0
+ice_dun02,0,0,0,0	monster	Ice Titan	1777,90,0,0,0
+ice_dun02,0,0,0,0	monster	Iceicle	1789,90,0,0,0
+
+ice_dun03,0,0,0,0	monster	Ice Titan	1777,90,0,0,0
+ice_dun03,0,0,0,0	monster	Gazeti	1778,90,0,0,0
+ice_dun03,0,0,0,0	monster	Snowier	1775,90,0,0,0
+ice_dun03,0,0,0,0	monster	Iceicle	1789,10,0,0,0

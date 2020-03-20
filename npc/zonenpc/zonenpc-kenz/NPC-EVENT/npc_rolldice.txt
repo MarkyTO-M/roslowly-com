@@ -1,0 +1,375 @@
+pvp_y_3-5,159,108,4	script	วัดดวงทอยเต๋า	582,{
+if(getgmlevel() != 99) end;
+main:
+menu	
+"- ปิดประตู",op,
+"- เปิดประตู",en,
+"- วาร์ปห้องเลข 1",r1,
+"- วาร์ปห้องเลข 2",r2,
+"- วาร์ปห้องเลข 3",r3,
+"- วาร์ปห้องเลข 4",r4,
+"- วาร์ปห้องเลข 5",r5,
+"- วาร์ปห้องเลข 6",r6;
+
+r1:
+areawarp "pvp_y_3-5",149,104,156,100,"morocc",160,115; close;
+goto main;
+
+r2:
+areawarp "pvp_y_3-5",149,98,156,94,"morocc",160,115; close;
+goto main;
+
+r3:
+areawarp "pvp_y_3-5",149,92,156,88,"morocc",160,115; close;
+goto main;
+
+r4:
+areawarp "pvp_y_3-5",162,104,169,100,"morocc",160,115; close;
+goto main;
+
+r5:
+areawarp "pvp_y_3-5",162,98,169,94,"morocc",160,115; close;
+goto main;
+
+r6:
+areawarp "pvp_y_3-5",162,92,169,88,"morocc",160,115; close;
+goto main;
+
+op:
+enablenpc "ทอยเต๋า#b3";
+enablenpc "ทอยเต๋า#b4";
+enablenpc "ทอยเต๋า#b5";
+
+enablenpc "ทอยเต๋า#b9";
+enablenpc "ทอยเต๋า#b10";
+enablenpc "ทอยเต๋า#b11";
+
+enablenpc "ทอยเต๋า#b15";
+enablenpc "ทอยเต๋า#b16";
+enablenpc "ทอยเต๋า#b17";
+
+enablenpc "ทอยเต๋า#c3";
+enablenpc "ทอยเต๋า#c4";
+enablenpc "ทอยเต๋า#c5";
+
+enablenpc "ทอยเต๋า#c9";
+enablenpc "ทอยเต๋า#c10";
+enablenpc "ทอยเต๋า#c11";
+
+enablenpc "ทอยเต๋า#c15";
+enablenpc "ทอยเต๋า#c16";
+enablenpc "ทอยเต๋า#c17";
+
+setcell "pvp_y_3-5",148,105,148,87,cell_walkable,0;
+setcell "pvp_y_3-5",157,105,157,87,cell_walkable,0;
+setcell "pvp_y_3-5",161,105,161,87,cell_walkable,0;
+setcell "pvp_y_3-5",170,105,170,87,cell_walkable,0;
+
+setcell "pvp_y_3-5",148,105,170,105,cell_walkable,0;
+setcell "pvp_y_3-5",148,99,170,99,cell_walkable,0;
+setcell "pvp_y_3-5",148,93,170,93,cell_walkable,0;
+setcell "pvp_y_3-5",148,87,170,87,cell_walkable,0;
+goto main;
+
+en:
+disablenpc "ทอยเต๋า#b3";
+disablenpc "ทอยเต๋า#b4";
+disablenpc "ทอยเต๋า#b5";
+
+disablenpc "ทอยเต๋า#b9";
+disablenpc "ทอยเต๋า#b10";
+disablenpc "ทอยเต๋า#b11";
+
+disablenpc "ทอยเต๋า#b15";
+disablenpc "ทอยเต๋า#b16";
+disablenpc "ทอยเต๋า#b17";
+
+disablenpc "ทอยเต๋า#c3";
+disablenpc "ทอยเต๋า#c4";
+disablenpc "ทอยเต๋า#c5";
+
+disablenpc "ทอยเต๋า#c9";
+disablenpc "ทอยเต๋า#c10";
+disablenpc "ทอยเต๋า#c11";
+
+disablenpc "ทอยเต๋า#c15";
+disablenpc "ทอยเต๋า#c16";
+disablenpc "ทอยเต๋า#c17";
+
+setcell "pvp_y_3-5",148,125,189,105,cell_walkable,0;
+setcell "pvp_y_3-5",128,114,148,67,cell_walkable,0;
+setcell "pvp_y_3-5",135,87,191,73,cell_walkable,0;
+setcell "pvp_y_3-5",170,113,188,79,cell_walkable,0;
+
+
+setcell "pvp_y_3-5",148,105,148,87,cell_walkable,1;
+setcell "pvp_y_3-5",157,105,157,87,cell_walkable,1;
+setcell "pvp_y_3-5",161,105,161,87,cell_walkable,1;
+setcell "pvp_y_3-5",170,105,170,87,cell_walkable,1;
+
+setcell "pvp_y_3-5",148,105,170,105,cell_walkable,1;
+setcell "pvp_y_3-5",148,99,170,99,cell_walkable,1;
+setcell "pvp_y_3-5",148,93,170,93,cell_walkable,1;
+setcell "pvp_y_3-5",148,87,170,87,cell_walkable,1;
+goto main;
+
+OnInit:
+setcell "pvp_y_3-5",148,105,148,87,cell_walkable,0;
+setcell "pvp_y_3-5",157,105,157,87,cell_walkable,0;
+setcell "pvp_y_3-5",161,105,161,87,cell_walkable,0;
+setcell "pvp_y_3-5",170,105,170,87,cell_walkable,0;
+
+setcell "pvp_y_3-5",148,105,170,105,cell_walkable,0;
+setcell "pvp_y_3-5",148,99,170,99,cell_walkable,0;
+setcell "pvp_y_3-5",148,93,170,93,cell_walkable,0;
+setcell "pvp_y_3-5",148,87,170,87,cell_walkable,0;
+waitingroom "๐ วัดดวงทอยเต๋า ๐", 0;
+end;
+
+}
+
+-	script	ETOP	-1,{
+end;
+}
+
+pvp_y_3-5,148,105,4	duplicate(ETOP)	ทอยเต๋า#a1	858
+pvp_y_3-5,148,104,4	duplicate(ETOP)	ทอยเต๋า#a2	858
+pvp_y_3-5,148,103,4	duplicate(ETOP)	ทอยเต๋า#a3	858
+pvp_y_3-5,148,102,4	duplicate(ETOP)	ทอยเต๋า#a4	858
+pvp_y_3-5,148,101,4	duplicate(ETOP)	ทอยเต๋า#a5	858
+pvp_y_3-5,148,100,4	duplicate(ETOP)	ทอยเต๋า#a6	858
+pvp_y_3-5,148,99,4	duplicate(ETOP)	ทอยเต๋า#a7	858
+pvp_y_3-5,148,98,4	duplicate(ETOP)	ทอยเต๋า#a8	858
+pvp_y_3-5,148,97,4	duplicate(ETOP)	ทอยเต๋า#a9	858
+pvp_y_3-5,148,96,4	duplicate(ETOP)	ทอยเต๋า#a10	858
+pvp_y_3-5,148,95,4	duplicate(ETOP)	ทอยเต๋า#a11	858
+pvp_y_3-5,148,94,4	duplicate(ETOP)	ทอยเต๋า#a12	858
+pvp_y_3-5,148,93,4	duplicate(ETOP)	ทอยเต๋า#a13	858
+pvp_y_3-5,148,92,4	duplicate(ETOP)	ทอยเต๋า#a14	858
+pvp_y_3-5,148,91,4	duplicate(ETOP)	ทอยเต๋า#a15	858
+pvp_y_3-5,148,90,4	duplicate(ETOP)	ทอยเต๋า#a16	858
+pvp_y_3-5,148,89,4	duplicate(ETOP)	ทอยเต๋า#a17	858
+pvp_y_3-5,148,88,4	duplicate(ETOP)	ทอยเต๋า#a18	858
+pvp_y_3-5,148,87,4	duplicate(ETOP)	ทอยเต๋า#a19	858
+
+pvp_y_3-5,157,105,4	duplicate(ETOP)	ทอยเต๋า#b1	858
+pvp_y_3-5,157,104,4	duplicate(ETOP)	ทอยเต๋า#b2	858
+pvp_y_3-5,157,103,4	duplicate(ETOP)	ทอยเต๋า#b3	858
+pvp_y_3-5,157,102,4	duplicate(ETOP)	ทอยเต๋า#b4	858
+pvp_y_3-5,157,101,4	duplicate(ETOP)	ทอยเต๋า#b5	858
+pvp_y_3-5,157,100,4	duplicate(ETOP)	ทอยเต๋า#b6	858
+pvp_y_3-5,157,99,4	duplicate(ETOP)	ทอยเต๋า#b7	858
+pvp_y_3-5,157,98,4	duplicate(ETOP)	ทอยเต๋า#b8	858
+pvp_y_3-5,157,97,4	duplicate(ETOP)	ทอยเต๋า#b9	858
+pvp_y_3-5,157,96,4	duplicate(ETOP)	ทอยเต๋า#b10	858
+pvp_y_3-5,157,95,4	duplicate(ETOP)	ทอยเต๋า#b11	858
+pvp_y_3-5,157,94,4	duplicate(ETOP)	ทอยเต๋า#b12	858
+pvp_y_3-5,157,93,4	duplicate(ETOP)	ทอยเต๋า#b13	858
+pvp_y_3-5,157,92,4	duplicate(ETOP)	ทอยเต๋า#b14	858
+pvp_y_3-5,157,91,4	duplicate(ETOP)	ทอยเต๋า#b15	858
+pvp_y_3-5,157,90,4	duplicate(ETOP)	ทอยเต๋า#b16	858
+pvp_y_3-5,157,89,4	duplicate(ETOP)	ทอยเต๋า#b17	858
+pvp_y_3-5,157,88,4	duplicate(ETOP)	ทอยเต๋า#b18	858
+pvp_y_3-5,157,87,4	duplicate(ETOP)	ทอยเต๋า#b19	858
+
+pvp_y_3-5,161,105,4	duplicate(ETOP)	ทอยเต๋า#c1	858
+pvp_y_3-5,161,104,4	duplicate(ETOP)	ทอยเต๋า#c2	858
+pvp_y_3-5,161,103,4	duplicate(ETOP)	ทอยเต๋า#c3	858
+pvp_y_3-5,161,102,4	duplicate(ETOP)	ทอยเต๋า#c4	858
+pvp_y_3-5,161,101,4	duplicate(ETOP)	ทอยเต๋า#c5	858
+pvp_y_3-5,161,100,4	duplicate(ETOP)	ทอยเต๋า#c6	858
+pvp_y_3-5,161,99,4	duplicate(ETOP)	ทอยเต๋า#c7	858
+pvp_y_3-5,161,98,4	duplicate(ETOP)	ทอยเต๋า#c8	858
+pvp_y_3-5,161,97,4	duplicate(ETOP)	ทอยเต๋า#c9	858
+pvp_y_3-5,161,96,4	duplicate(ETOP)	ทอยเต๋า#c10	858
+pvp_y_3-5,161,95,4	duplicate(ETOP)	ทอยเต๋า#c11	858
+pvp_y_3-5,161,94,4	duplicate(ETOP)	ทอยเต๋า#c12	858
+pvp_y_3-5,161,93,4	duplicate(ETOP)	ทอยเต๋า#c13	858
+pvp_y_3-5,161,92,4	duplicate(ETOP)	ทอยเต๋า#c14	858
+pvp_y_3-5,161,91,4	duplicate(ETOP)	ทอยเต๋า#c15	858
+pvp_y_3-5,161,90,4	duplicate(ETOP)	ทอยเต๋า#c16	858
+pvp_y_3-5,161,89,4	duplicate(ETOP)	ทอยเต๋า#c17	858
+pvp_y_3-5,161,88,4	duplicate(ETOP)	ทอยเต๋า#c18	858
+pvp_y_3-5,161,87,4	duplicate(ETOP)	ทอยเต๋า#c19	858
+
+pvp_y_3-5,170,105,4	duplicate(ETOP)	ทอยเต๋า#d1	858
+pvp_y_3-5,170,104,4	duplicate(ETOP)	ทอยเต๋า#d2	858
+pvp_y_3-5,170,103,4	duplicate(ETOP)	ทอยเต๋า#d3	858
+pvp_y_3-5,170,102,4	duplicate(ETOP)	ทอยเต๋า#d4	858
+pvp_y_3-5,170,101,4	duplicate(ETOP)	ทอยเต๋า#d5	858
+pvp_y_3-5,170,100,4	duplicate(ETOP)	ทอยเต๋า#d6	858
+pvp_y_3-5,170,99,4	duplicate(ETOP)	ทอยเต๋า#d7	858
+pvp_y_3-5,170,98,4	duplicate(ETOP)	ทอยเต๋า#d8	858
+pvp_y_3-5,170,97,4	duplicate(ETOP)	ทอยเต๋า#d9	858
+pvp_y_3-5,170,96,4	duplicate(ETOP)	ทอยเต๋า#d10	858
+pvp_y_3-5,170,95,4	duplicate(ETOP)	ทอยเต๋า#d11	858
+pvp_y_3-5,170,94,4	duplicate(ETOP)	ทอยเต๋า#d12	858
+pvp_y_3-5,170,93,4	duplicate(ETOP)	ทอยเต๋า#d13	858
+pvp_y_3-5,170,92,4	duplicate(ETOP)	ทอยเต๋า#d14	858
+pvp_y_3-5,170,91,4	duplicate(ETOP)	ทอยเต๋า#d15	858
+pvp_y_3-5,170,90,4	duplicate(ETOP)	ทอยเต๋า#d16	858
+pvp_y_3-5,170,89,4	duplicate(ETOP)	ทอยเต๋า#d17	858
+pvp_y_3-5,170,88,4	duplicate(ETOP)	ทอยเต๋า#d18	858
+pvp_y_3-5,170,87,4	duplicate(ETOP)	ทอยเต๋า#d19	858
+
+pvp_y_3-5,149,105,4	duplicate(ETOP)	ทอยเต๋า#aa1	858
+pvp_y_3-5,150,105,4	duplicate(ETOP)	ทอยเต๋า#aa2	858
+pvp_y_3-5,151,105,4	duplicate(ETOP)	ทอยเต๋า#aa3	858
+pvp_y_3-5,152,105,4	duplicate(ETOP)	ทอยเต๋า#aa4	858
+pvp_y_3-5,153,105,4	duplicate(ETOP)	ทอยเต๋า#aa5	858
+pvp_y_3-5,154,105,4	duplicate(ETOP)	ทอยเต๋า#aa6	858
+pvp_y_3-5,155,105,4	duplicate(ETOP)	ทอยเต๋า#aa7	858
+pvp_y_3-5,156,105,4	duplicate(ETOP)	ทอยเต๋า#aa8	858
+
+pvp_y_3-5,162,105,4	duplicate(ETOP)	ทอยเต๋า#ab1	858
+pvp_y_3-5,163,105,4	duplicate(ETOP)	ทอยเต๋า#ab2	858
+pvp_y_3-5,164,105,4	duplicate(ETOP)	ทอยเต๋า#ab3	858
+pvp_y_3-5,165,105,4	duplicate(ETOP)	ทอยเต๋า#ab4	858
+pvp_y_3-5,166,105,4	duplicate(ETOP)	ทอยเต๋า#ab5	858
+pvp_y_3-5,167,105,4	duplicate(ETOP)	ทอยเต๋า#ab6	858
+pvp_y_3-5,168,105,4	duplicate(ETOP)	ทอยเต๋า#ab7	858
+pvp_y_3-5,169,105,4	duplicate(ETOP)	ทอยเต๋า#ab8	858
+
+pvp_y_3-5,149,99,4	duplicate(ETOP)	ทอยเต๋า#ac1	858
+pvp_y_3-5,150,99,4	duplicate(ETOP)	ทอยเต๋า#ac2	858
+pvp_y_3-5,151,99,4	duplicate(ETOP)	ทอยเต๋า#ac3	858
+pvp_y_3-5,152,99,4	duplicate(ETOP)	ทอยเต๋า#ac4	858
+pvp_y_3-5,153,99,4	duplicate(ETOP)	ทอยเต๋า#ac5	858
+pvp_y_3-5,154,99,4	duplicate(ETOP)	ทอยเต๋า#ac6	858
+pvp_y_3-5,155,99,4	duplicate(ETOP)	ทอยเต๋า#ac7	858
+pvp_y_3-5,156,99,4	duplicate(ETOP)	ทอยเต๋า#ac8	858
+
+pvp_y_3-5,162,99,4	duplicate(ETOP)	ทอยเต๋า#ad1	858
+pvp_y_3-5,163,99,4	duplicate(ETOP)	ทอยเต๋า#ad2	858
+pvp_y_3-5,164,99,4	duplicate(ETOP)	ทอยเต๋า#ad3	858
+pvp_y_3-5,165,99,4	duplicate(ETOP)	ทอยเต๋า#ad4	858
+pvp_y_3-5,166,99,4	duplicate(ETOP)	ทอยเต๋า#ad5	858
+pvp_y_3-5,167,99,4	duplicate(ETOP)	ทอยเต๋า#ad6	858
+pvp_y_3-5,168,99,4	duplicate(ETOP)	ทอยเต๋า#ad7	858
+pvp_y_3-5,169,99,4	duplicate(ETOP)	ทอยเต๋า#ad8	858
+
+pvp_y_3-5,149,93,4	duplicate(ETOP)	ทอยเต๋า#ae1	858
+pvp_y_3-5,150,93,4	duplicate(ETOP)	ทอยเต๋า#ae2	858
+pvp_y_3-5,151,93,4	duplicate(ETOP)	ทอยเต๋า#ae3	858
+pvp_y_3-5,152,93,4	duplicate(ETOP)	ทอยเต๋า#ae4	858
+pvp_y_3-5,153,93,4	duplicate(ETOP)	ทอยเต๋า#ae5	858
+pvp_y_3-5,154,93,4	duplicate(ETOP)	ทอยเต๋า#ae6	858
+pvp_y_3-5,155,93,4	duplicate(ETOP)	ทอยเต๋า#ae7	858
+pvp_y_3-5,156,93,4	duplicate(ETOP)	ทอยเต๋า#ae8	858
+
+pvp_y_3-5,162,93,4	duplicate(ETOP)	ทอยเต๋า#af1	858
+pvp_y_3-5,163,93,4	duplicate(ETOP)	ทอยเต๋า#af2	858
+pvp_y_3-5,164,93,4	duplicate(ETOP)	ทอยเต๋า#af3	858
+pvp_y_3-5,165,93,4	duplicate(ETOP)	ทอยเต๋า#af4	858
+pvp_y_3-5,166,93,4	duplicate(ETOP)	ทอยเต๋า#af5	858
+pvp_y_3-5,167,93,4	duplicate(ETOP)	ทอยเต๋า#af6	858
+pvp_y_3-5,168,93,4	duplicate(ETOP)	ทอยเต๋า#af7	858
+pvp_y_3-5,169,93,4	duplicate(ETOP)	ทอยเต๋า#af8	858
+
+pvp_y_3-5,149,87,4	duplicate(ETOP)	ทอยเต๋า#ag1	858
+pvp_y_3-5,150,87,4	duplicate(ETOP)	ทอยเต๋า#ag2	858
+pvp_y_3-5,151,87,4	duplicate(ETOP)	ทอยเต๋า#ag3	858
+pvp_y_3-5,152,87,4	duplicate(ETOP)	ทอยเต๋า#ag4	858
+pvp_y_3-5,153,87,4	duplicate(ETOP)	ทอยเต๋า#ag5	858
+pvp_y_3-5,154,87,4	duplicate(ETOP)	ทอยเต๋า#ag6	858
+pvp_y_3-5,155,87,4	duplicate(ETOP)	ทอยเต๋า#ag7	858
+pvp_y_3-5,156,87,4	duplicate(ETOP)	ทอยเต๋า#ag8	858
+
+pvp_y_3-5,162,87,4	duplicate(ETOP)	ทอยเต๋า#ah1	858
+pvp_y_3-5,163,87,4	duplicate(ETOP)	ทอยเต๋า#ah2	858
+pvp_y_3-5,164,87,4	duplicate(ETOP)	ทอยเต๋า#ah3	858
+pvp_y_3-5,165,87,4	duplicate(ETOP)	ทอยเต๋า#ah4	858
+pvp_y_3-5,166,87,4	duplicate(ETOP)	ทอยเต๋า#ah5	858
+pvp_y_3-5,167,87,4	duplicate(ETOP)	ทอยเต๋า#ah6	858
+pvp_y_3-5,168,87,4	duplicate(ETOP)	ทอยเต๋า#ah7	858
+pvp_y_3-5,169,87,4	duplicate(ETOP)	ทอยเต๋า#ah8	858
+
+pvp_y_3-5,148,102,0	script	 #ทอยเต๋า01	111,{
+end;
+OnInit:
+waitingroom "๐ หมายเลข 1 ๐", 0;
+end;
+}
+
+pvp_y_3-5,148,96,0	script	 #ทอยเต๋า02	111,{
+end;
+OnInit:
+waitingroom "๐ หมายเลข 2 ๐", 0;
+end;
+}
+
+pvp_y_3-5,148,90,0	script	 #ทอยเต๋า03	111,{
+end;
+OnInit:
+waitingroom "๐ หมายเลข 3 ๐", 0;
+end;
+}
+
+pvp_y_3-5,170,102,0	script	 #ทอยเต๋า04	111,{
+end;
+OnInit:
+waitingroom "๐ หมายเลข 4 ๐", 0;
+end;
+}
+
+pvp_y_3-5,170,96,0	script	 #ทอยเต๋า05	111,{
+end;
+OnInit:
+waitingroom "๐ หมายเลข 5 ๐", 0;
+end;
+}
+
+pvp_y_3-5,170,90,0	script	 #ทอยเต๋า06	111,{
+end;
+OnInit:
+waitingroom "๐ หมายเลข 6 ๐", 0;
+end;
+}
+
+pvp_y_3-5	mapflag	nobranch
+pvp_y_3-5	mapflag	noicewall
+pvp_y_3-5	mapflag	nomemo
+pvp_y_3-5	mapflag	nosave	SavePoint
+pvp_y_3-5	mapflag	noteleport
+pvp_y_3-5	mapflag	nowarp
+pvp_y_3-5	mapflag	nowarpto
+pvp_y_3-5	mapflag	novending
+pvp_y_3-5	mapflag	nocommand	40
+pvp_y_3-5	mapflag	noskill
+
+morocc,134,106,6	script	ทอยเต๋าพาเพลิน#evdice	626,{
+menu 
+" - ทอยเต๋าพาเพลิน",e1;
+e1: 
+if(class < 4002) goto no1;
+if(Baselevel < 90) goto no1;
+warp "pvp_y_3-5",159,96; end;
+
+no1:
+mes "^FF0000[ทอยเต๋าพาเพลิน]^000000";
+mes "ไม่สามารถเข้ากิจกรรมได้ครับ";
+mes "ต้องการ อาชีพ Hi Class Lv. 99 ครับ";
+mes "ต้องการ Base Lv. มากกว่า 90 ครับ";
+close;
+
+OnInit:
+waitingroom "๐ ทอยเต๋าพาเพลิน ๐", 0;
+end;
+}
+
+morocc,134,104,4	script	 #evdice	111,{
+if(getgmlevel() != 99) end;
+menu 
+"- ปิด วาร์ปกิจกรรม",op1,
+"- เปิด วาร์ปกิจกรรม",cl1;
+close;
+op1:
+disablenpc "ทอยเต๋าพาเพลิน#evdice";
+Announce "[ วาร์ปกิจกรรมทอยเต๋าปิดแล้ว ]",0x00FFFF;
+close;
+cl1:
+enablenpc "ทอยเต๋าพาเพลิน#evdice";
+Announce "[ วาร์ปกิจกรรมทอยเต๋าเปิดแล้ว ]",0x00FFFF;
+close;
+}
+

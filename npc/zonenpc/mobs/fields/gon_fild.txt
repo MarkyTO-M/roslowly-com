@@ -1,0 +1,7 @@
+gon_fild01,0,0,0,0	monster	Baby Leopard	1415,90,0,0,0
+gon_fild01,0,0,0,0	monster	Zipper Bear	1417,10,0,0,0
+gon_fild01,0,0,0,0	monster	Poporing	1031,10,0,0,0
+gon_fild01,0,0,0,0	monster	Dumpling Child	1409,90,0,0,0
+gon_fild01,0,0,0,0	monster	Hermit Plant	1413,90,0,0,0
+gon_fild01,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+gon_fild01,0,0,0,0	monster	Shining Plant	1083,10,0,0,0

@@ -1,0 +1,319 @@
+-	script	ITEM01	-1,{
+set @GID,getcastledata("aldeg_cas01",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#1";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM02	-1,{
+set @GID,getcastledata("aldeg_cas02",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#2";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM03	-1,{
+set @GID,getcastledata("aldeg_cas03",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#3";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM04	-1,{
+set @GID,getcastledata("aldeg_cas04",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#4";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM05	-1,{
+set @GID,getcastledata("aldeg_cas05",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#5";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM06	-1,{
+set @GID,getcastledata("gefg_cas01",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#6";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM07	-1,{
+set @GID,getcastledata("gefg_cas02",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#7";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM08	-1,{
+set @GID,getcastledata("gefg_cas03",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#8";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM09	-1,{
+set @GID,getcastledata("gefg_cas04",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#9";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM10	-1,{
+set @GID,getcastledata("gefg_cas05",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#10";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM11	-1,{
+set @GID,getcastledata("payg_cas01",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#11";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM12	-1,{
+set @GID,getcastledata("payg_cas02",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#12";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM13	-1,{
+set @GID,getcastledata("payg_cas03",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#13";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM14	-1,{
+set @GID,getcastledata("payg_cas04",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#14";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM15	-1,{
+set @GID,getcastledata("payg_cas05",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#15";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM16	-1,{
+set @GID,getcastledata("prtg_cas01",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#16";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM17	-1,{
+set @GID,getcastledata("prtg_cas02",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#17";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM18	-1,{
+set @GID,getcastledata("prtg_cas03",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#18";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM19	-1,{
+set @GID,getcastledata("prtg_cas04",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#19";
+close;
+Lnotpass:
+close;
+}
+
+-	script	ITEM20	-1,{
+set @GID,getcastledata("prtg_cas05",1);
+if (strcharinfo(0) == getguildmaster(@GID)) goto Lpass;
+if (getcharid(2) == @GID) goto Lnotpass;
+close;
+Lpass:
+//set zeny,zeny +25000000;
+getitem 7539,5000;
+getitem 12103,30;
+getitem 12221,10;
+disablenpc "√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#20";
+close;
+Lnotpass:
+close;
+}

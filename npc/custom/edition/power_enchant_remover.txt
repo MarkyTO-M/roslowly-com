@@ -1,0 +1,124 @@
+//===== rAthena Script ==================================
+//===== Translate By: ===================================
+//= LungEsteay
+//================================================
+
+
+
+morocc,127,34,4	script	OptionRemove#1	418,{
+
+	disable_items;
+	mes "[ถอดออฟชั่น]";
+	mes "คุณต้องการจะลบล้างพลังใช่ไหม.";
+	mes "มันอันตรายมาก มีโอกาสสำเร็จ 50% เท่านั้น !!";
+	mes "หากไม่สำเร็จ";
+	mes "ไอเทมของท่านจะหายไปทันที";
+	mes "* ค่าใช้จ่าย 15,000 Zeny + 5 Lucky Coin";
+	mes "-------------";
+	mes "* หากใช้ Silvervine Fruit เพิ่มโอกาสเป็น 70%";
+	next;
+	
+	if(select("ตกลง:ยกเลิก") == 2) {
+		mes "[ถอดออฟชั่น]";
+		mes "...";
+		end;
+	}
+	
+	if (checkweight(1201,1) == 0) {
+		mes "คุณมีไอเทมมากเกินไป";
+		end;
+	}
+	if (MaxWeight - Weight < 500) {
+		mes "กรุณาตรวจสอบน้ำหนักด้วย";
+		end;
+	}
+
+	setarray .@position$[1],"Accessory 1","Accessory 2","Left Hand","Right Hand","Armor","Footgear","Garment";
+	setarray .@indices[1], EQI_ACC_L, EQI_ACC_R,EQI_HAND_L,EQI_HAND_R,EQI_ARMOR,EQI_SHOES,EQI_GARMENT;
+	for(set .@i,1; .@i<=7; set .@i,.@i+1)
+		set .@menu$, .@menu$+((getequipisequiped(.@indices[.@i]))? .@position$[.@i]+" ["+getequipname(.@indices[.@i])+"]":.@position$[.@i]+" []")+":";
+	set .@sel_part, .@indices[ select(.@menu$) ];
+	
+	set .@part,getequipid(.@sel_part);
+	set .@part_del,.@sel_part;
+	set .@equip_refine, getequiprefinerycnt(.@part_del);
+	setarray .@equip_card[0], getequipcardid(.@part_del,0), getequipcardid(.@part_del,1), getequipcardid(.@part_del,2), getequipcardid(.@part_del,3);
+	
+	if (!getequipisequiped(.@sel_part)) {
+		mes "[ถอดออฟชั่น]";
+		mes "คุณไม่ได้ใส่ไอเท็ม?";
+		end;
+	}
+	
+	if (.@equip_card[3] == 0) {
+		mes "[ถอดออฟชั่น]";
+		mes "ไอเท็มนี้ไม่สามารถลบได้ กรุณาตรวจสอบดูอีกครั้ง";
+		end;
+	}
+	
+	if(Zeny < 15000){
+		mes "...เงินคุณไม่พอ 15,000 Zeny";
+		end;
+	}
+	
+	if(countitem(7647) < 5){
+		mes "...คุณมี Lucky Coin ไม่พอ";
+		end;
+	}
+	
+	set .@evilFruit,0;
+	if (countitem(6417) > 0) {
+		mes "[ถอดออฟชั่น]";
+		mes "คุณมี Silvervine Fruit อยู่นี่";
+		mes "คุณต้องการใช้งานมันไหม มันจะช่วยให้คุณเพิ่มโอกาสสำเร็จ";
+		mes "เป็น 75 %";
+		if(select("ไม่:ใช่แล้ว") == 1) {
+			set .@evilFruit,1;
+		}
+	}
+	
+	if(select("ยืนยันอีกครัง:ยกเลิกทั้งหมด") == 2) {
+		mes "[ถอดออฟชั่น]";
+		mes "...ไว้กลับมาใหม่นะ";
+		end;
+	}
+	
+	if(.@evilFruit == 1){delitem 6417,1;}
+	Zeny = Zeny-15000;
+	delitem 7647,5;
+	
+	delequip .@part_del;
+	
+	set .@successful_rand,rand(100);
+	set .@successful,0;
+	if(.@evilFruit == 1){
+		if(.@successful_rand >= 25){
+			set .@successful,1;
+		}
+	}else{
+		if(.@successful_rand >= 50){set .@successful,1;}
+	}
+	
+	if(.@successful == 0 ){
+		mes "[ถอดออฟชั่น]";
+		specialeffect2 306;
+		mes "ฉันเสียใจด้วยจริงๆ ";
+		mes "^FF0000 มันล้มเหลว...^000000";
+		mes "ไอเทมของคุณหายไปแล้ว !!";
+		end;
+	}
+	
+	specialeffect2 305;
+	
+	mes "[ถอดออฟชั่น]";
+	mes "ทำการล้างให้เรียบร้อย.";
+	
+	if(.@equip_card[2] >= 4700 && .@equip_card[2] <= 4916){
+		getitem2 .@part,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],0,0;
+	}else{
+		getitem2 .@part,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@equip_card[2],0;
+	}
+	
+	end;
+	OnInit: waitingroom "- ถอดออฟชั่น -",0;end;
+}

@@ -1,0 +1,100 @@
+//===== Hercules Script ======================================
+//= Magazine Dealers
+//===== By: ==================================================
+//= rAthena Dev Team
+//===== Current Version: =====================================
+//= 1.5
+//===== Description: =========================================
+//= Turns bullets into magazines/packs.
+//===== Additional Comments: =================================
+//= 1.0 First version. [SinSloth]
+//= 1.1 Optimized version - Reduced to only one function [SinSloth]
+//= 1.2 Optimized^2, corrected npc's name [ultramage]
+//= 1.2a Optimized. Please, ommit extra NPC names [Lupus]
+//= 1.3 Updated to match AEGIS script. [Kisuka]
+//= 1.4 Updated to match AEGIS script again. [Masao]
+//= 1.5 Moved Izlude duplicate to pre-re/re paths. [Euphy]
+//============================================================
+
+alberta,118,157,3	script	Magazine Dealer Kenny::mdk	4_M_01,{
+	if (BaseJob == Job_Gunslinger) {
+		mes "[Kenny]";
+		mes " ยินดีต้อนรับ สู่ร้านของข้า";
+		mes " ที่นี่ ข้าได้จัดเตรียม Magazines";
+		mes " และปลอกกระสุน ไว้สำหรับ Gunslingers.";
+		mes " ตอนนี้ท่านสนใจสิ่งใดหรือ?";
+		next;
+		switch(select("Wind Sphere Pack:Shadow Sphere Pack:Poison Sphere Pack:Water Sphere Pack:Fire Sphere Pack:Cartridge:Blood Cartridge:Silver Cartridge:ยกเลิก")) {
+		case 1: callfunc "Func_Casing",13204,12144; break;
+		case 2: callfunc "Func_Casing",13206,12145; break;
+		case 3: callfunc "Func_Casing",13205,12146; break;
+		case 4: callfunc "Func_Casing",13207,12147; break;
+		case 5: callfunc "Func_Casing",13203,12148; break;
+		case 6: callfunc "Func_Casing",13200,12149; break;
+		case 7: callfunc "Func_Casing",13202,12150; break;
+		case 8: callfunc "Func_Casing",13201,12151; break;
+		case 9:
+			mes "[Kenny]";
+			mes " แล้วกลับมาหาข้าได้ทุกเมื่อ เมื่อท่านต้องการปลอกกระสุนและ Magazines";
+			close;
+		}
+	}
+	mes "[Kenny]";
+	mes " ยินดีต้อนรับ สู่ร้านของข้า";
+	mes " ที่นี่ ข้าได้จัดเตรียม Magazines";
+	mes " และปลอกกระสุน ไว้สำหรับ Gunslingers.";
+	mes " อ๊ะ ขอโทษที สิ่งของเหล่านี้";
+	mes " คงไม่มีความจำเป็นมากนัก";
+	mes " สำหรับนักท่องเที่ยงอย่างเจ้า";
+	next;
+	mes "[Kenny]";
+	mes " เอ่อ แต่ถ้าเจ้าบังเอิญพบ";
+	mes " กับเหล่า Gunslingers, โปรด";
+	mes " บอกทางให้พวกเค้ารู้ที่ เพราะเจ้า";
+	mes " ก็ไม่มีกระสุนปืนมากมายเท่าที่นี้หรอก";
+	close;
+}
+
+function	script	Func_Casing	{
+	mes "[Kenny]";
+	mes " ตอนนี้ท่านสามารถแลกเปลี่ยน";
+	mes " 500 "+getitemname(getarg(0))+"s";
+	mes " กับเงิน 500 zeny ต่อ 1 "+getitemname(getarg(1))+",";
+	next;
+	mes "[Kenny]";
+	mes " โปรดจำไว้ข้าสามารถแลกเปลี่ยนได้เพียง 50 Magazine ต่อหนึ่งครั้งเท่านั้น";
+	mes " เอาล่ะ ใส่จำนวนที่ท่านต้องการได้เลย หากยกเลิกให้ใส่ '0'";
+	next;
+	input .@amount;
+	if (.@amount > 50 || .@amount == 0) {
+		mes "[Kenny]";
+		mes " เฮ้ ข้าบอกท่านไปแล้วไม่ใช่หรือไง ว่าไม่เกิน 50 Magazine ต่อครั้ง";
+		close;
+	}
+	if (countitem(getarg(0)) >= (500*.@amount)) {
+		if (Zeny >= (500*.@amount)) {
+			if (checkweight(getarg(1),.@amount) == 0) {
+				mes "[Kenny]";
+				mes " ขออภัยด้วย สัมภาระในตัวท่านมีมากเกินไป โปรดตรวจสอบสัมภาระให้เรียบร้อยก่อนใช้บริการ?";
+				close;
+			}else{
+				mes "[Kenny]";
+				mes " นี่คือ Magazines สำหรับท่าน";
+				mes " ขอบคุณที่เยี่ยมชมร้านค้าของเรา";
+				Zeny -= 500*.@amount;
+				delitem getarg(0),500*.@amount;
+				getitem getarg(1),.@amount;
+				close;
+			}
+		} else {
+			mes "[Kenny]";
+			mes " ต้องขออภัยด้วยนะ แต่ท่านมีเงินไม่เพียงพอที่จะจ่าย";
+			close;
+		}
+	} else {
+		mes "[Kenny]";
+		mes " ข้าเสียใจด้วย แต่ท่านไม่มี bullets สำหรับแลกเปลี่ยนเป็น Magazine";
+		mes " โปรดตรวจสอบสัมภาระในตัวละครของท่านสำหรับใช้บริการ";
+		close;
+	}
+}

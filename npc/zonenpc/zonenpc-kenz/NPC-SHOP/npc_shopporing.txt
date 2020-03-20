@@ -1,0 +1,167 @@
+morocc,190,106,4	script	แลก Poring Coin	564,{
+function Add; function Chk; function Slot; function A_An;
+
+	if(.Shops$ != "") set .@i,1;
+	else {
+	set .@menu$,"";
+	for(set .@i,1; .@i<=getarraysize(.Shops$); set .@i,.@i+1)
+	set .@menu$, .@menu$+.Shops$[.@i]+":";
+	set .@i, select(.@menu$); }
+	callshop "poringshop"+.@i,1;
+	npcshopattach "poringshop"+.@i;
+	end;
+
+function Add {
+	if (getitemname(getarg(1))=="null") {
+	debugmes "Quest reward #"+getarg(1)+" invalid (skipped)."; return; }
+	for(set .@n,5; .@n<127; set .@n,.@n+2) {
+	if (!getarg(.@n,0)) break;
+	if (getitemname(getarg(.@n))=="null") {
+	debugmes "Quest requirement #"+getarg(.@n)+" invalid (skipped)."; return; } }
+	for(set .@i,2; .@i<.@n; set .@i,.@i+1)
+	set getd(".q_"+getarg(1)+"["+(.@i-2)+"]"), getarg(.@i);
+	npcshopadditem "poringshop"+getarg(0),getarg(1),((.ShowZeny)?getarg(3):0);
+	sleep 1;
+	return; }
+
+function Chk {
+	if (getarg(0)<getarg(1)) { set @qe0,1; return ""; }
+	else return ""; }
+
+function Slot {
+	set .@s$,getitemname(getarg(0));
+	switch(.ShowSlot){
+	case 1: if (!getitemslots(getarg(0))) return .@s$;
+	case 2: if (getiteminfo(getarg(0),11)>0) return .@s$+" ["+getitemslots(getarg(0))+"]";
+	default: return .@s$; } }
+
+function A_An {
+	setarray .@A$[0],"a","e","i","o","u";
+	set .@B$, "_"+getarg(0);
+	for(set .@i,0; .@i<5; set .@i,.@i+1)
+	if (compare(.@B$,"_"+.@A$[.@i])) return "an "+getarg(0);
+	return "a "+getarg(0); }
+
+OnBuyItem:
+	set .@q[0],@bought_nameid;
+	copyarray .@q[1],getd(".q_"+@bought_nameid+"[0]"),getarraysize(getd(".q_"+@bought_nameid+"[0]"));
+	if (!.@q[1]) { message strcharinfo(0),""; end; }
+	mes "^FF0000[แลกรางวัล Poring Coin]^000000";
+	if (.@q[3]) mes ""+Chk(getd(.Points$[0]),.@q[3])+.@q[3]+" "+.Points$[1]+" ("+getd(.Points$[0])+" / "+.@q[3]+")";
+	if (.@q[4]) for(set .@i,4; .@i<getarraysize(.@q); set .@i,.@i+2)
+	mes "ต้องการ "+Chk(countitem(.@q[.@i]),.@q[.@i+1])+((.DisplayID)?"{"+.@q[.@i]+"} ":"")+Slot(.@q[.@i])+" "+.@q[.@i+1]+" ea ครับ";
+	next;
+	set @qe1, getiteminfo(.@q[0],5); set @qe2, getiteminfo(.@q[0],11);
+	addtimer 7000, strnpcinfo(3)+"::OnEnd";
+	while(1){
+	switch(select("^0000FF-^000000 แลก:"+((((@qe1&1) || (@qe1&256) || (@qe1&512) || (@qe1&1024) || (@qe1&2048) || (@qe1&4096)) && @qe2>0 && !@qe6)?"^0000FF-^000000 ทดลอง":"")+"")) {
+	//switch(select("^0000FF-^000000 แลก:"+((((@qe1&1) || (@qe1&256) || (@qe1&512) || (@qe1&1024) || (@qe1&2048) || (@qe1&4096)) && @qe2>0 && !@qe6)?"":"")+"")) {
+	
+	case 1:
+	if (@qe0) { 
+	mes "^FF0000[แลกรางวัล Poring Coin]^000000";
+	if (.@q[3]) mes ""+Chk(getd(.Points$[0]),.@q[3])+.@q[3]+" "+.Points$[1]+" ("+getd(.Points$[0])+" / "+.@q[3]+")";
+	if (.@q[4]) for(set .@i,4; .@i<getarraysize(.@q); set .@i,.@i+2)
+	mes "ต้องการ "+Chk(countitem(.@q[.@i]),.@q[.@i+1])+((.DisplayID)?"{"+.@q[.@i]+"} ":"")+Slot(.@q[.@i])+" "+.@q[.@i+1]+" ea ครับ";
+	close; }
+	if (!checkweight(.@q[0],.@q[1])) {
+	mes "";
+	mes "";
+	close; }
+	if (.@q[3]) setd .Points$[0], getd(.Points$[0])-.@q[3];
+	if (.@q[4]) for(set .@i,4; .@i<getarraysize(.@q); set .@i,.@i+2)
+	delitem .@q[.@i],.@q[.@i+1];
+	getitem .@q[0],.@q[1];				
+	specialeffect2 699;
+	close;
+
+	case 2:
+	set @qe3, getlook(3); set @qe4, getlook(4); set @qe5, getlook(5);
+	if (@qe1&1) atcommand "@changelook 3 "+@qe2;
+	if (@qe1&256) atcommand "@changelook 1 "+@qe2;
+	if (@qe1&512) atcommand "@changelook 2 "+@qe2;
+	if (@qe1&4096) atcommand "@changelook 3 "+@qe2;
+	if (@qe1&1024) atcommand "@changelook 1 "+@qe2;
+	if (@qe1&2048) atcommand "@changelook 2 "+@qe2;
+	set @qe6,1;
+	close;
+
+	case 3:
+	close;
+	} 
+}
+
+OnEnd:
+	if (@qe6) { atcommand "@changelook 3 "+@qe3; atcommand "@changelook 1 "+@qe4; atcommand "@changelook 2 "+@qe5; }
+	for(set .@i,0; .@i<7; set .@i,.@i+1) setd "@qe"+.@i,0;
+	end;
+
+OnInit:
+	setarray .Points$[0],"#CASHPOINTS","แคช";
+	set .Announce,0;
+	set .ShowSlot,2;
+	set .DisplayID,0;
+	set .ShowZeny,1;
+	waitingroom "๐ แลก Poring Coin ๐",0;
+
+setarray .Shops$[1],"^0000FF-^000000 แลกรางวัล Poring Coin";
+Add(1,31001,1,30000,0,7539,30000);
+Add(1,31004,1,10000,0,7539,10000);
+Add(1,31005,1,15000,0,7539,15000);
+Add(1,31006,1,20000,0,7539,20000);
+Add(1,31007,1,25000,0,7539,25000);
+Add(1,31008,1,30000,0,7539,30000);
+Add(1,31025,1,3000,0,7539,3000);
+Add(1,12215,1,100,0,7539,100);
+Add(1,12216,1,100,0,7539,100);
+Add(1,12202,1,100,0,7539,100);
+Add(1,12203,1,100,0,7539,100);
+Add(1,12204,1,100,0,7539,100);
+Add(1,12205,1,100,0,7539,100);
+Add(1,12206,1,100,0,7539,100);
+Add(1,12207,1,100,0,7539,100);
+Add(1,28001,1,20000,0,7539,20000);
+Add(1,28002,1,20000,0,7539,20000);
+Add(1,28003,1,20000,0,7539,20000);
+Add(1,28004,1,20000,0,7539,20000);
+Add(1,28005,1,20000,0,7539,20000);
+Add(1,28006,1,20000,0,7539,20000);
+Add(1,28007,1,20000,0,7539,20000);
+Add(1,25003,1,10000,0,7539,10000);
+Add(1,25012,1,10000,0,7539,10000);
+Add(1,25046,1,10000,0,7539,10000);
+Add(1,25064,1,10000,0,7539,10000);
+Add(1,25111,1,10000,0,7539,10000);
+Add(1,25125,1,10000,0,7539,10000);
+Add(1,25137,1,10000,0,7539,10000);
+Add(1,25195,1,10000,0,7539,10000);
+Add(1,25207,1,10000,0,7539,10000);
+Add(1,25220,1,10000,0,7539,10000);
+Add(1,25409,1,10000,0,7539,10000);
+Add(1,25588,1,10000,0,7539,10000);
+Add(1,26201,1,10000,0,7539,10000);
+Add(1,26226,1,10000,0,7539,10000);
+Add(1,26252,1,10000,0,7539,10000);
+Add(1,26267,1,10000,0,7539,10000);
+Add(1,26283,1,10000,0,7539,10000);
+Add(1,26307,1,10000,0,7539,10000);
+Add(1,26328,1,10000,0,7539,10000);
+Add(1,26335,1,10000,0,7539,10000);
+Add(1,26401,1,10000,0,7539,10000);
+Add(1,26415,1,10000,0,7539,10000);
+Add(1,26430,1,10000,0,7539,10000);
+Add(1,26442,1,10000,0,7539,10000);
+Add(1,26457,1,10000,0,7539,10000);
+Add(1,26465,1,10000,0,7539,10000);
+Add(1,26476,1,10000,0,7539,10000);
+Add(1,26484,1,10000,0,7539,10000);
+for(set .@i,1; .@i<=getarraysize(.Shops$); set .@i,.@i+1)
+npcshopdelitem "poringshop"+.@i,909;
+end;
+}
+
+-	shop	poringshop1	-1,909:-1
+-	shop	poringshop2	-1,909:-1
+-	shop	poringshop3	-1,909:-1
+-	shop	poringshop4	-1,909:-1
+-	shop	poringshop5	-1,909:-1

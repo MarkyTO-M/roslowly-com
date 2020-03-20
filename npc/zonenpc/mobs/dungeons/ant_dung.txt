@@ -1,0 +1,15 @@
+anthell01,0,0,0,0	monster	Familiar	1005,10,0,0,0
+anthell01,0,0,0,0	monster	Andre	1095,90,0,0,0
+anthell01,0,0,0,0	monster	Piere	1160,90,0,0,0
+anthell01,0,0,0,0	monster	Deniro	1105,90,0,0,0
+anthell01,0,0,0,0	monster	Vitata	1176,10,0,0,0
+anthell01,0,0,0,0	monster	Giearth	1121,10,0,0,0
+anthell01,0,0,0,0	monster	Ant Egg	1097,180,0,0,0
+
+anthell02,0,0,0,0	monster	Ant Egg	1097,180,0,0,0
+anthell02,0,0,0,0	monster	Familiar	1005,10,0,0,0
+anthell02,0,0,0,0	monster	Andre	1095,90,0,0,0
+anthell02,0,0,0,0	monster	Piere	1160,90,0,0,0
+anthell02,0,0,0,0	monster	Deniro	1105,90,0,0,0
+anthell02,0,0,0,0	monster	Vitata	1176,10,0,0,0
+anthell02,0,0,0,0	monster	Giearth	1121,10,0,0,0

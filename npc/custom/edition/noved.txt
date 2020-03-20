@@ -1,0 +1,12 @@
+// morocc,269,122,4	script	noVending	105,{
+// 	mes "[noVending]";
+// 	mes "คุณไม่สามารถตั้งร้าน บัง NPC ได้";
+// 	mes "คุณไม่สามารถตั้งร้าน ใกล้จุดเกิดได้";
+// 	mes "พื้นที่ๆ ตั้งร้านไม่ได้ เมื่อกดตั้งร้านจะมีข้อความเตือน";
+// //    setcart 1;
+// 	end;
+// //    x 148~163, y 27~267
+// OnInit:
+// 	setcell "morocc",153,95,162,92,cell_novending,1;
+// 	setcell "morocc",155,47,157,45,cell_novending,1;
+// }

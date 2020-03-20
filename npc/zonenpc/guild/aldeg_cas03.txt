@@ -1,0 +1,31 @@
+-	script	Nuenberg#a3-2::Nuenberg2	722,{
+set .@GID, GetCastleData("aldeg_cas03",1);
+if (.@GID == 0) {
+}
+else {
+if (getcharid(2) == .@GID) {
+if (select("^009933-^000000 เข้าปราสาท") == 1) {
+if (getcharid(2) == GetCastleData("aldeg_cas03",1)) {
+warp "aldeg_cas03",118,76;
+end;
+}
+}
+close;
+}
+mes "^FF0000[Nuenberg]^000000";
+mes "ถูกครอบครองโดยกิลด์ : " + GetGuildName(.@GID) + "";
+}
+close;
+
+OnRecvCastleA03:
+FlagEmblem GetCastleData("aldeg_cas03",1);
+end;
+}
+
+aldeg_cas03,206,32,0	duplicate(Gld_Agit_Manager)	Agit#aldeg_cas03	-1
+aldeg_cas03,110,118,0	duplicate(Gld_Mngr_Template)	Nahzarf#aldeg_cas03	55
+aldeg_cas03,110,118,0	duplicate(Gld_Guard_Template)	Guardian#aldeg_cas03	-1
+aldeg_cas03,118,76,0	duplicate(Gld_Kafra_Template)	Kafra Staff#aldeg_cas03	117
+aldeg_cas03,225,269,0	duplicate(Gld_Trea_Protect)	ban_warp#aldeg_cas03	-1,8,8
+aldeg_cas03,225,269,0	duplicate(Gld_Trea_Spawn)	Treasure#aldeg_cas03	-1
+aldeg_cas03,200,177,0	duplicate(Gld_Dun_Template)	#aldeg_cas03	111

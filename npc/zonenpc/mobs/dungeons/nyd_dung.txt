@@ -1,0 +1,25 @@
+nyd_dun01,0,0,0,0	monster	Draco	2013,90,0,0,0
+nyd_dun01,0,0,0,0	monster	Draco Egg	2014,10,0,0,0
+nyd_dun01,0,0,0,0	monster	Dark Pinguicula	2015,90,0,0,0
+nyd_dun01,0,0,0,0	monster	Aqua Elemental	2016,10,0,0,0
+nyd_dun01,0,0,0,0	monster	Rata	2017,10,0,0,0
+nyd_dun01,0,0,0,0	monster	Duneyrr	2018,10,0,0,0
+
+nyd_dun02,0,0,0,0	monster	Draco	2013,90,0,0,0
+nyd_dun02,0,0,0,0	monster	Draco Egg	2014,10,0,0,0
+nyd_dun02,0,0,0,0	monster	Dark Pinguicula	2015,10,0,0,0
+nyd_dun02,0,0,0,0	monster	Aqua Elemental	2016,10,0,0,0
+nyd_dun02,0,0,0,0	monster	Rata	2017,10,0,0,0
+nyd_dun02,0,0,0,0	monster	Duneyrr	2018,10,0,0,0
+
+1@nyd,0,0,0,0	monster	Dark Pinguicula	2015,10,0,0,0
+1@nyd,0,0,0,0	monster	Aqua Elemental	2016,90,0,0,0
+1@nyd,0,0,0,0	monster	Ancient Tree	2019,90,0,0,0
+1@nyd,0,0,0,0	monster	Rhyncho	2020,90,0,0,0
+1@nyd,0,0,0,0	monster	Phylla	2021,90,0,0,0
+1@nyd,0,0,0,0	monster	Dark Shadow	2023,10,0,0,0
+
+2@nyd,0,0,0,0	monster	Dark Pinguicula	2015,10,0,0,0
+2@nyd,0,0,0,0	monster	Rhyncho	2020,90,0,0,0
+2@nyd,0,0,0,0	monster	Phylla	2021,90,0,0,0
+2@nyd,0,0,0,0	monster	Dark Shadow	2023,90,0,0,0

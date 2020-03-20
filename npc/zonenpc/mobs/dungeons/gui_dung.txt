@@ -1,0 +1,31 @@
+gld_dun01,0,0,0,0	monster	Skeleton General	1290,10,0,0,0
+gld_dun01,0,0,0,0	monster	Am Mut	1301,10,0,0,0
+gld_dun01,0,0,0,0	monster	Gajomart	1309,10,0,0,0
+gld_dun01,0,0,0,0	monster	Vagabond Wolf	1092,10,0,0,0
+
+gld_dun02,0,0,0,0	monster	Owl Baron	1295,10,0,0,0
+gld_dun02,0,0,0,0	monster	Giant Spider	1304,10,0,0,0
+gld_dun02,0,0,0,0	monster	Ancient Worm	1305,10,0,0,0
+gld_dun02,0,0,0,0	monster	Killer Mantis	1294,10,0,0,0
+gld_dun02,0,0,0,0	monster	Giant Hornet	1303,90,0,0,0
+
+gld_dun03,0,0,0,0	monster	Caterpillar	1300,10,0,0,0
+gld_dun03,0,0,0,0	monster	Gullinbursti	1311,10,0,0,0
+gld_dun03,0,0,0,0	monster	Creamy Fear	1293,10,0,0,0
+gld_dun03,0,0,0,0	monster	Leib Olmai	1306,10,0,0,0
+
+gld_dun04,0,0,0,0	monster	Wraith Dead	1291,90,0,0,0
+gld_dun04,0,0,0,0	monster	Mini Demon	1292,10,0,0,0
+gld_dun04,0,0,0,0	monster	Zombie Master	1298,10,0,0,0
+
+arug_dun01,0,0,0,0	monster	Banshee Master	1974,10,0,0,0
+arug_dun01,0,0,0,0	monster	Necromancer	1870,90,0,0,0
+arug_dun01,0,0,0,0	monster	Beholder Master	1975,90,0,0,0
+arug_dun01,0,0,0,0	monster	Fanat	1797,10,0,0,0
+arug_dun01,0,0,0,0	monster	Aunoe	1796,10,0,0,0
+
+schg_dun01,0,0,0,0	monster	Hell Apocalypse	1978,90,0,0,0
+schg_dun01,0,0,0,0	monster	Zakudam	1979,90,0,0,0
+schg_dun01,0,0,0,0	monster	Heavy Metaling	1977,10,0,0,0
+schg_dun01,0,0,0,0	monster	Cobalt Mineral	1976,90,0,0,0
+

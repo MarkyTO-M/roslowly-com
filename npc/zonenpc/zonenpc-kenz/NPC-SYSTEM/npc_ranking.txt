@@ -1,0 +1,163 @@
+-	script	MVPrank	-1,{
+OnNPCKillEvent:
+for(set .@b, 1; .@b < getarraysize($@MVP); set .@b,.@b + 1){
+if(killedrid == $@MVP[.@b]){ set .@MobMVP,1; goto SetMVP; }
+}
+end;
+SetMVP:
+query_sql "SELECT `point` FROM `mvp_rank` WHERE `char_id` = '"+getcharid(0,strcharinfo(0))+"'", @Mpoint;
+set @MpointAdd,1;
+if(!@Mpoint)
+query_sql "INSERT INTO `mvp_rank` VALUES ('"+getcharid(0,strcharinfo(0))+"', '"+strcharinfo(0)+"', '"+@MpointAdd+"')";
+else
+query_sql "UPDATE `mvp_rank` SET `point` = `point` + "+@MpointAdd+" WHERE `char_id` = '"+getcharid(0,strcharinfo(0))+"'";
+dispbottom "Ranking : คุณมีแต้ม MVP ทั้งสิ้น " + (@Mpoint+@MpointAdd) + " แต้ม";
+getitem 7227,1;
+end;
+}
+
+-	script	MVP_LIST	-1,{
+OnInit:
+setarray $@MVP[1],
+		1086,
+		1115,
+		1150,
+		1159,
+		1112,
+		1583,
+		1492,
+		1046,
+		1252,
+		1418,
+		1059,
+		1190,
+		1087,
+		1251,
+		1038,
+		1272,
+		1871,
+		1039,
+		1147,
+		1785,
+		1389,
+		1630,
+		1885,
+		1623,
+		1511,
+		1688,
+		1768,
+		1719,
+		1734,
+		1157,
+		1373,
+		1312,
+		1779,
+		1874,
+		1708,
+		1685,
+		1751,
+		3601,
+		3602,
+		3603,
+		3604,
+		3605,
+		3606,
+		3607,
+		3608,
+		3609,
+		3610,
+		3611,
+		3612,
+		3613,
+		3614,
+		3615,
+		3616,
+		3617,
+		3618,
+		3619,
+		3620,
+		3621,
+		3622,
+		3623,
+		3624,
+		3625,
+		3626,
+		3627,
+		3628,
+		3629,
+		3630,
+		3631,
+		3632,
+		3633,
+		3634,
+		3635,
+		3636,
+		3637,
+		3638,
+		3639,
+		3640;
+}
+
+function	script	MVP_rank	{
+if(!getarg(0))end;
+set @mid,0;
+set @MVpoint,0;
+query_sql "select char_id, mvp_count from mvp_rank where char_id = "+ getcharid(0,strcharinfo(0))+" ",@mid,@MVpoint;
+if(@mid){
+query_sql "update mvp_rank set mvp_count=mvp_count+"+getarg(0)+" where char_id = '"+ getcharid(0,strcharinfo(0)) +"'";
+}else{
+query_sql "insert into mvp_rank(char_id,mvp_count) values ('" + getcharid(0,strcharinfo(0)) + "','"+getarg(0)+"')";		
+}
+return;
+}
+
+-	script	OnPCKillEvent	-1,{
+OnPCKillEvent:
+getmapxy .@mapname$,.@x,.@y,0,strcharinfo(0);
+if (.@mapname$ == "pvp_y_1-2" ||.@mapname$ == "pvp_y_2-2" ||.@mapname$ == "pvp_y_3-2" ||.@mapname$ == "pvp_y_4-2" ||.@mapname$ == "pvp_y_5-2") { 
+query_sql "SELECT `kill` FROM `pvp_rank` WHERE `char_id` = '"+getcharid(0,strcharinfo(0))+"'", .@Kpoint;
+query_sql "SELECT `death` FROM `pvp_rank` WHERE `char_id` = '"+getcharid(0,strcharinfo(0))+"'", .@Dpoint;
+if(!(.@Kpoint+.@Dpoint))
+query_sql "INSERT INTO `pvp_rank` VALUES ('"+getcharid(0,strcharinfo(0))+"', '"+strcharinfo(0)+"', '1', '0')";
+else
+query_sql "UPDATE `pvp_rank` SET `kill` = `kill` + '1' WHERE `char_id` = '"+getcharid(0,strcharinfo(0))+"'";
+query_sql "SELECT `kill` FROM `pvp_rank` WHERE `char_id` = '"+getcharid(0,strcharinfo(0))+"'", .@Kpoint;
+dispbottom "Ranking : คุณมีแต้ม  PVP ทั้งสิ้น "+ .@Kpoint + " แต้ม ";
+getitem 7420,1;
+}
+end;
+}
+
+valrain,179,92,4	script	Ranking Server	483,{
+
+switch(select("^0000FF-^000000 Ranking PvP:^0000FF-^000000 Ranking MvP")) {
+
+case 1:
+L_PlayerPvP:	
+dispbottom "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=";
+query_sql "SELECT `kill`,`char_id` FROM `pvp_rank` ORDER BY `kill` DESC LIMIT 0,10",.@r_pvp,.@char_id;
+for( set .@i,0; .@i < getarraysize(.@r_pvp); set .@i,.@i +1){
+query_sql "SELECT `name` FROM `char` WHERE `char_id` = "+.@char_id[.@i],.@name$;
+set .@m,.@i +1;
+dispbottom "อันดับที่ "+.@m+". "+.@r_pvp[.@i]+" แต้ม ตัวละคร "+.@name$+"";
+}
+dispbottom "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=";
+close;
+
+case 2:
+L_PlayerMvP:
+dispbottom "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=";
+query_sql "SELECT `point`,`char_id` FROM `mvp_rank` ORDER BY `point` DESC LIMIT 0,10",.@r_pvp,.@char_id;
+for( set .@i,0; .@i < getarraysize(.@r_pvp); set .@i,.@i +1){
+query_sql "SELECT `name` FROM `char` WHERE `char_id` = "+.@char_id[.@i],.@name$;
+set .@m,.@i +1;
+dispbottom "อันดับที่ "+.@m+". "+.@r_pvp[.@i]+" แต้ม ตัวละคร "+.@name$+"";
+}
+dispbottom "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=";
+close;
+
+OnInit:
+waitingroom "๐ Ranking Server ๐",0;
+end;
+}
+}

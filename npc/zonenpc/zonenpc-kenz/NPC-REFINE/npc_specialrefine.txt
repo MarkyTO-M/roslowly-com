@@ -1,0 +1,140 @@
+-	script	specialrefine	-,{
+callfunc "specialrefine","^FF0000[ตีบวกแร่เทพ]^000000",0;
+end;
+}
+
+function	script	specialrefine	{
+mes "^FF0000[ตีบวกแร่เทพ]^000000";
+mes"เจ้าจะตีสิ่งใดโปรดเลือก";
+next;
+again:
+setarray .@position$[1], "Head","Body","Left hand","Right hand","Robe","Shoes","Accessory 1","Accessory 2","Head 2","Head 3";
+set .@menu$,"";
+for( set .@i,1; .@i <= 10; set .@i,.@i+1 )
+{
+if( getequipisequiped(.@i) )
+set .@menu$, .@menu$ + .@position$[.@i] + " - " + "" + getequipname(.@i) + "";
+set .@menu$, .@menu$ + ":";
+}
+set .@part,select(.@menu$);
+if( !getequipisequiped(.@part) )
+close;
+if( !getequipisenableref(.@part) )
+{
+mes "^FF0000[ตีบวกแร่เทพ]^000000";
+mes "ไม่สามารถตีบวกได้ครับ";
+close;
+}
+if( !getequipisidentify(.@part) )
+{
+mes "^FF0000[ตีบวกแร่เทพ]^000000";
+mes "ไม่สามารถตีบวกได้ครับ";
+close;
+}
+if( getequiprefinerycnt(.@part) >= 10 )
+{
+mes "^FF0000[ตีบวกแร่เทพ]^000000";
+mes "ไม่สามารถตีบวกได้ครับ";
+close;
+}
+mes "^FF0000[ตีบวกแร่เทพ]^000000";
+
+next;
+set .@refineget,1;
+if (select("^0000FF-^000000 แบบปกติ","^0000FF-^000000 แบบจำนวน") == 2) {
+mes "^FF0000[ตีบวกแร่เทพ]^000000";
+mes "กรอกจำนวนตีบวกครับ";
+next;
+input .@refineget;
+if ((.@refineget+getequiprefinerycnt(.@part)) >= 10)
+set .@refineget,(10-getequiprefinerycnt(.@part));
+if (.@refineget < 1) {
+close;
+}
+}
+switch( getequipweaponlv(.@part) )
+{
+case 1: callsub S_RefineValidate,1,7620,50,.@part,.@refineget; break;
+case 2: callsub S_RefineValidate,2,7620,200,.@part,.@refineget; break;
+case 3: callsub S_RefineValidate,3,7620,5000,.@part,.@refineget; break;
+case 4: callsub S_RefineValidate,4,7620,2000,.@part,.@refineget; break;
+default: callsub S_RefineValidate,0,7619,2000,.@part,.@refineget; break;
+}
+if( getequippercentrefinery(.@part) > rand(100) || getequippercentrefinery(.@part) > rand(100) )
+{
+if( getequiprefinerycnt(.@part) > 7 )
+{
+announce "[ คุณ "+strcharinfo(0)+" ตีบวก "+getequipname(.@part)+" ติดระดับ +"+(getequiprefinerycnt(.@part)+1)+" แล้ว ]",0;
+}
+SuccessRefItem .@part;
+next;
+goto again;
+}
+else
+{
+FailedRefItem .@part;
+close;
+}
+S_RefineValidate:
+mes "^FF0000[ตีบวกแร่เทพ]^000000";
+mes "ต้องการ "+getitemname(getarg(1))+" "+getarg(4)+" ea ครับ";
+mes "ต้องการ เงิน " + (getarg(2)*getarg(4)) + " Zeny ครับ";
+mes "จำนวนตีบวก : ^0000FF"+getarg(4)+"^000000";
+mes "คุณต้องตกลงการตีบวกครับ";
+next;
+if( select("^0000FF-^000000 ตกลง:^FF0000-^000000 ยกเลิก") == 1 )
+{
+if( getequippercentrefinery(getarg(3)) < 100 )
+{
+mes "^FF0000[ตีบวกแร่เทพ]^000000";
+mes "อุปกรณ์มีโอกาส ^FF0000เสียหาย^000000";
+mes "คุณต้องตกลงการตีบวกครับ";
+next;
+if( select("^0000FF-^000000 ตกลง:^FF0000-^000000 ยกเลิก") == 2 )
+{
+close;
+}
+}
+if( countitem(getarg(1)) > 0 && Zeny > getarg(2)*getarg(4) )
+{
+if (getarg(4) > 1) {
+set .@refineget,getarg(4);
+while (.@refineget != 0) {
+if(getequipisequiped(getarg(3)) == 0) { 
+close;
+}
+delitem getarg(1), 1;
+set Zeny, Zeny - getarg(2);
+if( getequippercentrefinery(getarg(3)) > rand(100) || getequippercentrefinery(getarg(3)) > rand(100) )
+{
+if( getequiprefinerycnt(getarg(3)) > 7 )
+{
+announce "[ คุณ "+strcharinfo(0)+" ตีบวก "+getequipname(getarg(3))+" ติดระดับ +"+(getequiprefinerycnt(getarg(3))+1)+" แล้ว ]",0;
+}
+SuccessRefItem getarg(3);
+}
+else
+{
+FailedRefItem getarg(3);
+close;
+}
+set .@refineget,.@refineget-1;
+}
+close;
+}
+delitem getarg(1), 1;
+set Zeny, Zeny - getarg(2);
+return;
+}
+else
+{
+mes "^FF0000[ตีบวกแร่เทพ]^000000";
+mes "คุณมีแร่หรือเงินไม่พอครับ";
+close;
+}
+}
+else
+{
+close;
+}
+}

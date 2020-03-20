@@ -1,0 +1,218 @@
+-	script	eventlv99	-1,{  
+if(Baselevel < 99) goto no1;
+if (Class < 4008 || Class > 4021) goto no1;
+if (getgmlevel() < 99) goto main;
+
+mes "^FF0000[เมนูสำหรับ Gm]^000000";
+mes "จะลบแค่ ID Gm";
+mes "และจำนวนคนรับรางวัล เท่านั้น";
+mes "คนเล่นต้องใช้ ID ใหม่เท่านั้น";
+menu 
+"^0000FF-^000000 เมนูปกติ",main,
+"^0000FF-^000000 ลบกิจกรรม",del;
+
+main:
+if(#IdWinner == gettime(5)) goto no2;
+menu 
+"^0000FF-^000000 อาชีพ Lord Knight ["+$event0199+"/3] คน",LV01,
+"^0000FF-^000000 อาชีพ Paladin ["+$event0299+"/3] คน",LV02,
+"^0000FF-^000000 อาชีพ High Wizard ["+$event0399+"/3] คน",LV03,
+"^0000FF-^000000 อาชีพ Professor ["+$event0499+"/3] คน",LV04,
+"^0000FF-^000000 อาชีพ Sniper ["+$event0599+"/3] คน",LV05,
+"^0000FF-^000000 อาชีพ Clown ["+$event0699+"/3] คน",LV06,
+"^0000FF-^000000 อาชีพ Gypsy ["+$event0799+"/3] คน",LV07,
+"^0000FF-^000000 อาชีพ High Priest ["+$event0899+"/3] คน",LV08,
+"^0000FF-^000000 อาชีพ Champion ["+$event0999+"/3] คน",LV09,
+"^0000FF-^000000 อาชีพ Whitesmith ["+$event1099+"/3] คน",LV10,
+"^0000FF-^000000 อาชีพ Creator ["+$event1199+"/3] คน",LV11,
+"^0000FF-^000000 อาชีพ Assassin Cross ["+$event1299+"/3] คน",LV12,
+"^0000FF-^000000 อาชีพ Stalker ["+$event1399+"/3] คน",LV13;
+
+LV01:
+if($event0199 >= 3){ next; mes "ครบ 3 คนแล้วครับ"; close; }
+if(class != 4008 ){ next; mes "ไม่ใช่สายอาชีพคุณอย่าเสร่อ!"; close; }
+set #IdWinner,gettime(5);
+set $event0199,$event0199+1;
+getitem 671,200;
+set Zeny,Zeny + 5000000;
+getitem 12103,10;
+warp "SavePoint",0,0;
+Announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล กิจกรรม Lv. 99 Lord Knight อันดับที่ "+$event0199+" แล้ว ]",0;
+end;
+
+LV02:
+if($event0299 >= 3){ next; mes "ครบ 3 คนแล้วครับ"; close; }
+if(class != 4015 ){ next; mes "ไม่ใช่สายอาชีพคุณอย่าเสร่อ!"; close; }
+set #IdWinner,gettime(5);
+set $event0299,$event0299+1;
+getitem 671,200;
+set Zeny,Zeny + 5000000;
+getitem 12103,10;
+warp "SavePoint",0,0;
+Announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล กิจกรรม Lv. 99 Paladin อันดับที่ "+$event0299+" แล้ว ]",0;
+end;
+
+LV03:
+if($event0399 >= 3){ next; mes "ครบ 3 คนแล้วครับ"; close; }
+if(class != 4010 ){ next; mes "ไม่ใช่สายอาชีพคุณอย่าเสร่อ!"; close; }
+set #IdWinner,gettime(5);
+set $event0399,$event0399+1;
+getitem 671,200;
+set Zeny,Zeny + 5000000;
+getitem 12103,10;
+warp "SavePoint",0,0;
+Announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล กิจกรรม Lv. 99 High Wizard อันดับที่ "+$event0399+" แล้ว ]",0;
+end;
+
+LV04:
+if($event0499 >= 3){ next; mes "ครบ 3 คนแล้วครับ"; close; }
+if(class != 4017 ){ next; mes "ไม่ใช่สายอาชีพคุณอย่าเสร่อ!"; close; }
+set #IdWinner,gettime(5);
+set $event0499,$event0499+1;
+getitem 671,200;
+set Zeny,Zeny + 5000000;
+getitem 12103,10;
+warp "SavePoint",0,0;
+Announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล กิจกรรม Lv. 99 Professor อันดับที่ "+$event0499+" แล้ว ]",0;
+end;
+
+LV05:
+if($event0599 >= 3){ next; mes "ครบ 3 คนแล้วครับ"; close; }
+if(class != 4012 ){ next; mes "ไม่ใช่สายอาชีพคุณอย่าเสร่อ!"; close; }
+set #IdWinner,gettime(5);
+set $event0599,$event0599+1;
+getitem 671,200;
+set Zeny,Zeny + 5000000;
+getitem 12103,10;
+warp "SavePoint",0,0;
+Announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล กิจกรรม Lv. 99 Sniper อันดับที่ "+$event0599+" แล้ว ]",0;
+end;
+
+LV06:
+if($event0699 >= 3){ next; mes "ครบ 3 คนแล้วครับ"; close; }
+if(class != 4020 ){ next; mes "ไม่ใช่สายอาชีพคุณอย่าเสร่อ!"; close; }
+set #IdWinner,gettime(5);
+set $event0699,$event0699+1;
+getitem 671,200;
+set Zeny,Zeny + 5000000;
+getitem 12103,10;
+warp "SavePoint",0,0;
+Announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล กิจกรรม Lv. 99 Clown อันดับที่ "+$event0699+" แล้ว ]",0;
+end;
+
+LV07:
+if($event0799 >= 3){ next; mes "ครบ 3 คนแล้วครับ"; close; }
+if(class != 4021 ){ next; mes "ไม่ใช่สายอาชีพคุณอย่าเสร่อ!"; close; }
+set #IdWinner,gettime(5);
+set $event0799,$event0799+1;
+getitem 671,200;
+set Zeny,Zeny + 5000000;
+getitem 12103,10;
+warp "SavePoint",0,0;
+Announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล กิจกรรม Lv. 99 Gypsy อันดับที่ "+$event0799+" แล้ว ]",0;
+end;
+
+LV08:
+if($event0899 >= 3){ next; mes "ครบ 3 คนแล้วครับ"; close; }
+if(class != 4009 ){ next; mes "ไม่ใช่สายอาชีพคุณอย่าเสร่อ!"; close; }
+set #IdWinner,gettime(5);
+set $event0899,$event0899+1;
+getitem 671,200;
+set Zeny,Zeny + 5000000;
+getitem 12103,10;
+warp "SavePoint",0,0;
+Announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล กิจกรรม Lv. 99 High Priest อันดับที่ "+$event0899+" แล้ว ]",0;
+end;
+
+LV09:
+if($event0999 >= 3){ next; mes "ครบ 3 คนแล้วครับ"; close; }
+if(class != 4016 ){ next; mes "ไม่ใช่สายอาชีพคุณอย่าเสร่อ!"; close; }
+set #IdWinner,gettime(5);
+set $event0999,$event0999+1;
+getitem 671,200;
+set Zeny,Zeny + 5000000;
+getitem 12103,10;
+warp "SavePoint",0,0;
+Announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล กิจกรรม Lv. 99 Champion อันดับที่ "+$event0999+" แล้ว ]",0;
+end;
+
+LV10:
+if($event1099 >= 3){ next; mes "ครบ 3 คนแล้วครับ"; close; }
+if(class != 4011 ){ next; mes "ไม่ใช่สายอาชีพคุณอย่าเสร่อ!"; close; }
+set #IdWinner,gettime(5);
+set $event1099,$event1099+1;
+getitem 671,200;
+set Zeny,Zeny + 5000000;
+getitem 12103,10;
+warp "SavePoint",0,0;
+Announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล กิจกรรม Lv. 99 Whitesmith อันดับที่ "+$event1099+" แล้ว ]",0;
+end;
+
+LV11:
+if($event1199 >= 3){ next; mes "ครบ 3 คนแล้วครับ"; close; }
+if(class != 4019 ){ next; mes "ไม่ใช่สายอาชีพคุณอย่าเสร่อ!"; close; }
+set #IdWinner,gettime(5);
+set $event1199,$event1199+1;
+getitem 671,200;
+set Zeny,Zeny + 5000000;
+getitem 12103,10;
+warp "SavePoint",0,0;
+Announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล กิจกรรม Lv. 99 Creator อันดับที่ "+$event1199+" แล้ว ]",0;
+end;
+
+LV12:
+if($event1299 >= 3){ next; mes "ครบ 3 คนแล้วครับ"; close; }
+if(class != 4013 ){ next; mes "ไม่ใช่สายอาชีพคุณอย่าเสร่อ!"; close; }
+set #IdWinner,gettime(5);
+set $event1299,$event1299+1;
+getitem 671,200;
+set Zeny,Zeny + 5000000;
+getitem 12103,10;
+warp "SavePoint",0,0;
+Announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล กิจกรรม Lv. 99 Assassin Cross อันดับที่ "+$event1299+" แล้ว ]",0;
+end;
+
+LV13:
+if($event1399 >= 3){ next; mes "ครบ 3 คนแล้วครับ"; close; }
+if(class != 4018 ){ next; mes "ไม่ใช่สายอาชีพคุณอย่าเสร่อ!"; close; }
+set #IdWinner,gettime(5);
+set $event1399,$event1399+1;
+getitem 671,200;
+set Zeny,Zeny + 5000000;
+getitem 12103,10;
+warp "SavePoint",0,0;
+Announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล กิจกรรม Lv. 99 Stalker อันดับที่ "+$event1399+" แล้ว ]",0;
+end;
+
+no1:
+mes "^FF0000[กิจกรรม Lv. 99]^000000";
+mes "ต้องการ อาชีพ Hi Class Lv. 99 ครับ";
+close;
+
+no2:
+mes "^FF0000[กิจกรรม Lv. 99]^000000";
+mes "ID ของคุณรับรางวัลไปแล้วครับ";
+mes "1 ID รับได้ 1 ครั้งเท่านั้นครับ";
+close;
+
+del:
+set $event0199,0;
+set $event0299,0;
+set $event0399,0;
+set $event0499,0;
+set $event0599,0;
+set $event0699,0;
+set $event0799,0;
+set $event0899,0;
+set $event0999,0;
+set $event1099,0;
+set $event1199,0;
+set $event1299,0;
+set $event1399,0;
+set #IdWinner,gettime(1);
+close;
+
+OnInit:
+waitingroom "๐ กิจกรรม Lv. 99 ๐", 0;
+end;
+}

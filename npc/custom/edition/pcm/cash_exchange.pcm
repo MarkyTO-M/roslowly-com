@@ -1,0 +1,99 @@
+//============================================================
+//=สคลิปทั้งหมดในนี้
+//=เขียนขึ้นใหม่
+//=ปรับแต่งแก้ไขใหม่และแปลไทยโดย Pcmedias : by Ittiphol Live
+//============================================================
+
+
+prt_in,136,28,3	script	แลกเปลี่ยนเงิน	814,{
+
+	mes "[Cash Exchange]";
+	mes "สวัสดี ^0000FF" + strcharinfo(0) + "^000000";
+	mes "คะแนนพิเศษ สามารถแลกของพิเศษ";
+	mes "ที่ไม่มีขายในเกม ต้องการแลกคะแนน?.";
+mes "========================";
+mes "Current Points : ^FF0000(" +#CASHPOINTS+ " Point)^000000";
+mes "========================";
+	mes "100,000z แลกได้ 1 Cash Point";
+	next;
+    menu "Zeny แลก Cash Point",ZenyToPoints,"Cash Point แลก Zeny",PointToZeny,"ยกเลิก",Lno;
+
+L_Zeny:
+if (Zeny < 100000) goto Lout1;
+menu	"ยกเลิก",Lno, "ตกลง ^FF0000(หักเงินทันที)^000000",-;
+set Zeny,Zeny - 100000;
+set #CASHPOINTS, #CASHPOINTS + 1;
+goto Lfin;
+
+PointToZeny:
+dispbottom "สามารถแลกได้ทั้งหมด "+#CASHPOINTS*100000+" zeny";
+mes "คุณต้องการแลกเท่าไหร่?";
+mes "========================";
+mes "คุณมีอยู่ : ^FF0000(" +#CASHPOINTS+ " Point)^000000";
+mes "========================";
+mes "สามารถแลกได้ทั้งหมด "+#CASHPOINTS*100000+" zeny";
+mes "1 Point = 100,000 zeny";
+input @ptc;
+if (#CASHPOINTS >= @ptc){
+set #CASHPOINTS,#CASHPOINTS-@ptc;
+set zeny,zeny+@ptc*100000;
+dispbottom "Current Points:"+#CASHPOINTS;
+dispbottom "Current Zeny:"+zeny;
+next;
+mes "========================";
+mes "Cash Point ที่มี : ^FF0000(" +#CASHPOINTS+ " Point)^000000";
+mes "========================";
+goto Lfin;
+}
+else{
+mes "คุณไม่มี Cash Points";
+}
+close;
+
+ZenyToPoints:
+dispbottom "สามารถแลกได้ทั้งหมด "+zeny/100000+" Points";
+mes "คุณต้องการแลกเท่าไหร่?";
+mes "========================";
+mes "คุณมีอยู่ : ^FF0000(" +#CASHPOINTS+ " Point)^000000";
+mes "========================";
+mes "1 Point = 100,000 zeny";
+mes "คุณสามารถแลกได้ "+zeny/100000+" Points";
+input @ptc;
+if (zeny >= @ptc*100000){
+set #CASHPOINTS,#CASHPOINTS+@ptc;
+set zeny,zeny-@ptc*100000;
+dispbottom "Current Points:"+#CASHPOINTS;
+dispbottom "Current Zeny:"+zeny;
+next;
+mes "========================";
+mes "Cash Point ที่มี : ^FF0000(" +#CASHPOINTS+ " Point)^000000";
+mes "========================";
+goto Lfin;
+
+}
+else{
+mes "คุณไม่มี Zeny";
+}
+close;
+
+Lno:
+mes "ด้วยความยินดี";
+close;
+
+Lout:
+mes "เงินไม่พอ";
+close;
+
+Lout1:
+mes "เงินไม่พอ";
+close;
+
+Lfin:
+mes "แลกเปลี่ยนสำเร็จ";
+close;
+
+
+			OnInit:
+	waitingroom "Cash Exchange",0;
+	end;
+}

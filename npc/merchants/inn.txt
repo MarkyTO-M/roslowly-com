@@ -1,0 +1,209 @@
+//===== Hercules Script ======================================
+//= Inn Npcs
+//===== By: ==================================================
+//= Darkchild (1.1)
+//= Playtester (1.2)
+//===== Current Version: =====================================
+//= 2.9a
+//===== Description: =========================================
+//= Inn Npcs, Save and Heal
+//============================================================
+//= variables:
+//= arg0 - name of npc
+//= arg1 - name of the inn
+//= arg2 - map to save at
+//= arg3, arg4 - x and y cord. to save at
+//= @cost - cost of renting a room
+//===== Additional Comments: =================================
+//= 1.1 Blind Effect By Kobra_k88 (Taken from his old script)
+//= I added it to all of them though [Darkchild]
+//= 1.1a Minor bug fixes and optimizations. Switched from @variables 
+//= to arguments.[kobra_k88]
+//= 1.2 Rewrote inn script [Playtester]
+//= 1.3 Added (finally) Rachel Inn Maid. Official warp
+//=     and save points[erKURITA]
+//= 1.4 Added Hugel inn [erKurita]
+//= 1.5 Added "end;" after warping the player. [L0ne_W0lf]
+//=	- Small corrections to the prontera Inns.
+//=	- Removed the Cancel dialog.
+//= 1.6 More fixes, changed progression of "Rest"ing.
+//=	- Corrected Morroc NPCs. [L0ne_W0lf]
+//= 1.7 Corrected Payon NPC. [L0ne_W0lf] 
+//= 1.8 Corrected Geffen NPC. [L0ne_W0lf] 
+//= 1.9 Added the Inn for Al De baran. [L0ne_W0lf]
+//= 2.0 Added Inn for the Town of Veins. [L0ne_W0lf]
+//= 2.1 Corrected NPC names to fall within proper restrictions. [L0ne_W0lf]
+//= 2.1a Corrected a little Typo error. (bugreport:536 & 537) [Samuray22]
+//= 2.2 Small update to Vein's Inn Master. [L0ne_W0lf]
+//= 2.3 Added Lighthalzen Inn from Lighthalzen town file. [L0ne_W0lf]
+//= 2.4 Fixed ผู้ดูแลโรงแรม#Ahlma warping to same destination as save point, bugreport: 191.
+//= 2.5 Added Moskovia Gostinitsa (Inn) from jA
+//= 2.6 Updated Alberta inn to official. [L0ne_W0lf]
+//= 2.7 Removed Morroc Inns as per episode 12.1. [L0ne_W0lf]
+//= 2.8 Removed Moscovia Inn; Its in quests/quest_moscovia.txt [Kisuka]
+//= 2.9 Added switch menus, updated to match AEGIS scripts. [Kisuka]
+//= 2.9a Added 'npcskill' command. [Euphy]
+//============================================================
+
+
+//========================Prontera ===================================
+// West Side Inn -------------------
+prt_in,244,135,2	script	ผู้ดูแลโรงแรม#Sammy	1_M_INNKEEPER,{
+
+	callfunc "F_InnMaid","[ผู้ดูแลโรงแรม Sammy]","Nenkaras","prt_in",238,130;
+	warp "prt_in",247,104; end;
+}
+// East Side Inn ------------------
+prt_in,61,141,2	script	ผู้ดูแลโรงแรม#Ahlma	1_M_INNKEEPER,{
+
+	callfunc "F_InnMaid","[ผู้ดูแลโรงแรม Ahlma]","Nenkaras","prt_in",64,136;
+	warp "prt_in",60,166; end;
+}
+
+//========================Alberta ====================================
+alberta_in,32,142,3	script	ผู้ดูแลโรงแรม#Jennie	1_M_INNKEEPER,{
+
+	callfunc "F_InnMaid","[ผู้ดูแลโรงแรม Jennie]","'Fisherman'!","alberta_in",26,142;
+	warp "alberta_in",18,188; end;
+}
+
+//======================Geffen ======================================
+geffen_in,70,64,5	script	ผู้ดูแลโรงแรม#Cena	1_M_INNKEEPER,{
+
+	callfunc "F_InnMaid","[ผู้ดูแลโรงแรม Cena]","แห่ง Geffen.","geffen_in",70,59;
+	warp "geffen_in",31,31; end;
+}
+
+//=======================Payon ======================================
+payon_in01,137,173,5	script	ผู้ดูแลโรงแรม#Ahee	1_M_INNKEEPER,{
+
+	callfunc "F_InnMaid","[ผู้ดูแลโรงแรม Ahee]","แห่ง Payon","payon_in01",136,61;
+	warp "payon_in01",176,170; end;
+}
+
+//========================Morocc ====================================
+// North East --------------------------
+morocc_in,147,141,3	script	ผู้ดูแลโรงแรม#Hasna	1_M_INNKEEPER,{
+
+	callfunc "F_InnMaid","[ผู้ดูแลโรงแรม Hasna]","แห่ง Morroc","morocc_in",142,140;
+	warp "morocc_in",173,135; end;
+}
+// South --------------------------------
+morocc_in,80,100,5	script	ผู้ดูแลโรงแรม#Manar	1_M_INNKEEPER,{
+
+	callfunc "F_InnMaid","[ผู้ดูแลโรงแรม Manar]","แห่ง Morroc","morocc_in",78,95;
+	warp "morocc_in",79,123; end;
+}
+
+
+//======================Aldebaran ===================================
+aldeba_in,92,58,5	script	ผู้ดูแลโรงแรม#Rilim	1_M_INNKEEPER,{
+
+	callfunc "F_InnMaid","[Rilim]","แห่ง Al De Baran","aldeba_in",92,50;
+	warp "aldeba_in",92,112; end;
+}
+
+//========================Rachel ====================================
+ra_in01,376,69,4	script	ผู้ดูแลโรงแรม#Annie	4_M_RACHMAN1,{
+
+	callfunc "F_InnMaid","[Annie]","แห่ง Rachel","ra_in01",375,58;
+	warp "ra_in01",384,128; end;
+}
+
+//======================Lighthalzen =================================
+lhz_in02,230,284,4	script	ผู้ดูแลโรงแรม#01	4_M_04,{
+	mes "[ผู้ดูแลโรงแรม]";
+	mes " ยินดีต้อนรับสู่โรงแรมที่บริการได้ดีที่สุดโดยเฉพาะ Royal Dragon Hotel";
+	next;
+	switch(select("Save Point:พักผ่อน - 5,000 zeny:ยกเลิก")) {
+	case 1:
+		savepoint "lhz_in02",209,275;
+		mes "[ผู้ดูแลโรงแรม]";
+		mes " เอาล่ะ! ฉันจะบันทึกที่ Royal Dragon ให้คุณแล้วเจอกันใหม่นะ!";
+		close;
+	case 2:
+		if(Zeny < 5000) {
+			mes "[ผู้ดูแลโรงแรม]";
+			mes " ขอภัยค่ะ ท่านต้องเสียค่าบริการจำนวน 5,000 ค่ะ?";
+			close;
+		}
+		Zeny -= 5000;
+		mes "[ผู้ดูแลโรงแรม]";
+		mes " หวังว่าคุณคงพักผ่อนให้สบายนะคะ";
+		close2;
+		warp "lhz_in02",219,150;
+		percentheal 100,100;
+		npcskill "AL_BLESSING",10,99,99;
+		end;
+	case 3:
+		mes "[ผู้ดูแลโรงแรม]";
+		mes " ขอบคุณวันนี้มันช่างดีจริงๆ";
+		close;
+	}
+}
+
+//========================Hugel ====================================
+hu_in01,246,107,3	script	ผู้ดูแลโรงแรม#Rctn1	1_M_INNKEEPER,{
+
+	callfunc "F_InnMaid","[ผู้ดูแลโรงแรม]","แห่ง Hugel","hu_in01",263,95;
+	warp "hu_in01",267,5; end;
+}
+
+//========================Veins ====================================
+ve_in,157,219,5	script	ผู้ดูแลโรงแรม#Rctn2	4_M_SEAMAN,{
+	mes "[Inn Master]";
+	mes "[ผู้ดูแลโรงแรม]";
+	mes " ยินดีต้อนรับสู่โรงแรมที่สะอาดที่สุดแห่งนี้ที่ Veins Hotel";
+	next;
+	switch(select("Save:พักผ่อน -> 5000 zeny:ออก")) {
+	case 1:
+		mes "[ผู้ดูแลโรงแรม]";
+		mes " เอาล่ะ! ฉันจะบันทึกให้คุณแล้วเจอกันใหม่นะ! ท่านคงจะอยู่แถวๆ Veins นี่ล่ะ..!";
+		savepoint "ve_in",157,209;
+		close;
+	case 2:
+		mes "[ผู้ดูแลโรงแรม]";
+		if(Zeny < 5000){
+			mes " ขอภัยค่ะ ท่านต้องเสียค่าบริการจำนวน 5,000 ค่ะ?";
+			close;
+		}
+		mes " หวังว่าคุณคงพักผ่อนให้สบายนะคะ";
+		close2;
+		Zeny -= 5000;
+		percentheal 100,100;
+		warp "ve_in",184,228;
+		end;
+	case 3:
+		mes "[ผู้ดูแลโรงแรม]";
+		mes " แล้วเจอกันใหม่";
+		close;
+	}
+}
+
+//=======================Inn Function ==============================
+function	script	F_InnMaid	{
+	mes getarg(0);
+	mes " ยินดีต้อนรับสู่โรงแรม "+getarg(1) +" ";
+	mes " จะให้ฉันช่วยเหลือคุณอย่างไรบ้าง?";
+	next;
+	switch(select("Save:พักผ่อน -> 5000 zeny:ยกเลิก")) {
+	case 1:
+		mes getarg(0);
+		mes " เอาล่ะ! ฉันจะบันทึกให้คุณแล้วเจอกันใหม่นะ!";
+		savepoint getarg(2),getarg(3),getarg(4);
+		close;
+	case 2:
+		mes getarg(0);
+		if(Zeny < 5000){
+			mes " ขอภัยค่ะ ท่านต้องเสียค่าบริการจำนวน 5,000 ค่ะ?";
+			close;
+		}
+		mes " หวังว่าคุณคงพักผ่อนให้สบายนะคะ";
+		close2;
+		Zeny -= 5000;
+		percentheal 100,100;
+		return;
+	case 3:
+		close;
+	}
+}

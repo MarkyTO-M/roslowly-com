@@ -1,0 +1,42 @@
+morocc,172,102,4	script	กระโหลกแลกชอง	567,{
+mes "^FF0000[แลกรางวัล]^000000";
+mes "สามารถสุ่มไอเทมต่างๆได้ดังนี้";
+mes "เหรียญ P ผลเต็ม OBB OPB OCA";
+mes "โอริ อีลูเทพ MVP coin ยาตัส";
+mes "เหรียญโปริ่ง 100 และ 1000 ea";
+mes "หินออฟชั่น";
+next;
+if (countitem(7420) < 20) { 
+mes "^FF0000[แลกรางวัล]^000000";
+mes "ต้องการ "+getitemname(7420)+" 20 ea ครับ";
+close;
+}
+delitem 7420,20;
+set .@a,rand(50);
+if (.@a == 1) { getitem 671,1; close;}
+if (.@a == 2) { getitem 607,10; close;}
+if (.@a == 3) { getitem 603,5; close;}
+if (.@a == 4) { getitem 617,5; close;}
+if (.@a == 5) { getitem 616,5; close;}
+if (.@a == 6) { getitem 984,10; close;}
+if (.@a == 7) { getitem 985,10; close;}
+if (.@a == 8) { getitem 7619,1; close;}
+if (.@a == 9) { getitem 7620,1; close;}
+if (.@a == 10) { getitem 7227,1; close;}
+if (.@a == 11) { getitem 7539,1000; close;}
+if (.@a == 12) { getitem 12103,1; close;}
+if (.@a == 13) { getitem 12221,1; close;}
+if (.@a == 14) { getitem 7420,20; close;}
+if (.@a == 15) { getitem 12202,1; close;}
+if (.@a == 16) { getitem 12203,1; close;}
+if (.@a == 17) { getitem 12204,1; close;}
+if (.@a == 18) { getitem 12205,1; close;}
+if (.@a == 19) { getitem 12206,1; close;}
+if (.@a == 20) { getitem 12207,1; close;}
+if (.@a == 21) { getitem 12207,1; close;}
+if (.@a == 22) { getitem 31025,1; close;}
+if (.@a >= 23 && .@a <= 50) { getitem 7539,100; close;}
+OnInit:
+waitingroom "๐ แลก Skull PvP ๐",0;
+end;
+}

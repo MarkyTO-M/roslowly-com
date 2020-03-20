@@ -1,0 +1,475 @@
+morocc,166,119,0	script	†#controlwarp	111,{
+if(getgmlevel() != 99) end;
+
+menu 
+"^0000FF-^000000 √–∫∫ War",WAR,
+"^0000FF-^000000 √–∫∫ Npc",NPC;
+
+WAR:
+menu
+"^009933ï^000000 √’∫È“π«Õ√Ï",A7,
+"^009933ï^000000 ‡ª‘¥«“√Ïª ‡≈ËπÀπÈ“∫È“π",A5,
+"^FF0000ï^000000 ª‘¥«“√Ïª ‡≈ËπÀπÈ“∫È“π∑—ÈßÀ¡¥",A6,
+"^009933ï^000000 ‡ª‘¥«“√Ïª ∫È“π∑—ÈßÀ¡¥",A1,
+"^FF0000ï^000000 ª‘¥«“√Ïª ∫È“π∑—ÈßÀ¡¥",A2,
+"^009933ï^000000 ‡ª‘¥«“√Ïª ∫È“π™—Èπ 2",A3,
+"^FF0000ï^000000 ª‘¥«“√Ïª ∫È“π™—Èπ 2",A4,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πNeuschwanstein",G1,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πNeuschwanstein",G2,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πHohenschwangau",G3,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πHohenschwangau",G4,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πNuenberg",G5,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πNuenbergn",G6,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πWuerzburg",G7,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πWuerzburg",G8,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πRothenburg",G9,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πRothenburg",G10,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πRepherion",G11,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πRepherion",G12,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πEeyolbriggar",G13,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πEeyolbriggar",G14,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πYesnelph",G15,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πYesnelph",G16,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πBergel",G17,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πBergel",G18,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πMersetzdeitz",G19,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πMersetzdeitz",G20,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πBright Arbor",G21,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πBright Arbor",G22,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πScarlet Palace",G23,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πScarlet Palace",G24,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πHoly Shadow",G25,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πHoly Shadow",G26,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πSacred Altar",G27,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πSacred Altar",G28,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πBamboo Grove Hill",G29,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πBamboo Grove Hill",G30,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πKriemhild",G31,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πKriemhild",G32,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πSwanhild",G33,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πSwanhild",G34,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πFadhgridh",G35,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πFadhgridh",G36,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πSkoegul",G37,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πSkoegul",G38,
+"^009933ï^000000 ‡ª‘¥«“ª∫È“πGondul",G39,
+"^FF0000ï^000000 ª‘¥«“ª∫È“πGondul",G40;
+G1:
+enablenpc "aldega1";
+close;
+end;
+G2:
+disablenpc "aldega1";
+close;
+end;
+
+G3:
+enablenpc "aldega2";
+close;
+end;
+G4:
+disablenpc "aldega2";
+close;
+end;
+
+G5:
+enablenpc "aldega3";
+close;
+end;
+G6:
+disablenpc "aldega3";
+close;
+end;
+
+G7:
+enablenpc "aldega4";
+close;
+end;
+G8:
+disablenpc "aldega4";
+close;
+end;
+
+G9:
+enablenpc "aldega5";
+close;
+end;
+G10:
+disablenpc "aldega5";
+close;
+end;
+
+G11:
+enablenpc "gefga1";
+close;
+end;
+G12:
+disablenpc "gefga1";
+close;
+end;
+
+G13:
+enablenpc "gefga2";
+close;
+end;
+G14:
+disablenpc "gefga2";
+close;
+end;
+
+G15:
+enablenpc "gefga3";
+close;
+end;
+G16:
+disablenpc "gefga3";
+close;
+end;
+
+G17:
+enablenpc "gefga4";
+close;
+end;
+G18:
+disablenpc "gefga4";
+close;
+end;
+
+G19:
+enablenpc "gefga5";
+close;
+end;
+G20:
+disablenpc "gefga5";
+close;
+end;
+
+G21:
+enablenpc "payga1";
+close;
+end;
+G22:
+disablenpc "payga1";
+close;
+end;
+
+G23:
+enablenpc "payga2";
+close;
+end;
+G24:
+disablenpc "payga2";
+close;
+end;
+
+G25:
+enablenpc "payga3";
+close;
+end;
+G26:
+disablenpc "payga3";
+close;
+end;
+
+G27:
+enablenpc "payga4";
+close;
+end;
+G28:
+disablenpc "payga4";
+close;
+end;
+
+G29:
+enablenpc "payga5";
+close;
+end;
+G30:
+disablenpc "payga5";
+close;
+end;
+
+G31:
+enablenpc "prtga1";
+close;
+end;
+G32:
+disablenpc "prtga1";
+close;
+end;
+
+G33:
+enablenpc "prtga2";
+close;
+end;
+G34:
+disablenpc "prtga2";
+close;
+end;
+
+G35:
+enablenpc "prtga3";
+close;
+end;
+G36:
+disablenpc "prtga3";
+close;
+end;
+
+G37:
+enablenpc "prtga4";
+close;
+end;
+G38:
+disablenpc "prtga4";
+close;
+end;
+
+G39:
+enablenpc "prtga5";
+close;
+end;
+G40:
+disablenpc "prtga5";
+close;
+end;
+
+
+A5:
+atcommand "@shownpc playhome1";
+atcommand "@shownpc playhome2";
+goto WAR;
+close;
+A6:
+atcommand "@hidenpc playhome1";
+atcommand "@hidenpc playhome2";
+goto WAR;
+close;
+A7:
+announce "[ Reset ∫È“π«Õ√Ï‡√’¬∫√ÈÕ¬ ]",0;
+setarray .@Map$[0], 
+"gvg_cas01","gvg_cas02","gvg_cas03","gvg_cas04","aldeg_cas01","aldeg_cas02","aldeg_cas03","aldeg_cas04","aldeg_cas05",
+"gefg_cas01","gefg_cas02","gefg_cas03","gefg_cas04","gefg_cas05",
+"payg_cas01","payg_cas02","payg_cas03","payg_cas04","payg_cas05",
+"prtg_cas01","prtg_cas02","prtg_cas03","prtg_cas04","prtg_cas05";
+if( getarraysize(.@Map$) )
+for( set .@i,0; .@i < getarraysize(.@Map$); set .@i,.@i + 1 )
+setcastledata .@Map$[.@i],1,0;
+goto WAR; close; end;
+
+A1:
+atcommand "@shownpc aldega1";
+atcommand "@shownpc aldega2";
+atcommand "@shownpc aldega3";
+atcommand "@shownpc aldega4";
+atcommand "@shownpc aldega5";
+atcommand "@shownpc gefga1";
+atcommand "@shownpc gefga2";
+atcommand "@shownpc gefga3";
+atcommand "@shownpc gefga4";
+atcommand "@shownpc gefga5";
+atcommand "@shownpc payga1";
+atcommand "@shownpc payga2";
+atcommand "@shownpc payga3";
+atcommand "@shownpc payga4";
+atcommand "@shownpc payga5";
+atcommand "@shownpc prtga1";
+atcommand "@shownpc prtga2";
+atcommand "@shownpc prtga3";
+atcommand "@shownpc prtga4";
+atcommand "@shownpc prtga5";
+atcommand "@playhome1";
+atcommand "@playhome2";
+goto WAR;
+
+A2:
+atcommand "@hidenpc aldega1";
+atcommand "@hidenpc aldega2";
+atcommand "@hidenpc aldega3";
+atcommand "@hidenpc aldega4";
+atcommand "@hidenpc aldega5";
+atcommand "@hidenpc gefga1";
+atcommand "@hidenpc gefga2";
+atcommand "@hidenpc gefga3";
+atcommand "@hidenpc gefga4";
+atcommand "@hidenpc gefga5";
+atcommand "@hidenpc payga1";
+atcommand "@hidenpc payga2";
+atcommand "@hidenpc payga3";
+atcommand "@hidenpc payga4";
+atcommand "@hidenpc payga5";
+atcommand "@hidenpc prtga1";
+atcommand "@hidenpc prtga2";
+atcommand "@hidenpc prtga3";
+atcommand "@hidenpc prtga4";
+atcommand "@hidenpc prtga5";
+goto WAR;
+
+A3:
+atcommand "@shownpc aldg1class";
+atcommand "@shownpc aldg2class";
+atcommand "@shownpc aldg3class";
+atcommand "@shownpc aldg4class";
+atcommand "@shownpc aldg5class";
+atcommand "@shownpc gefg1class";
+atcommand "@shownpc gefg2class";
+atcommand "@shownpc gefg3class";
+atcommand "@shownpc gefg4class";
+atcommand "@shownpc gefg5class";
+atcommand "@shownpc payg1class";
+atcommand "@shownpc payg2class";
+atcommand "@shownpc payg3class";
+atcommand "@shownpc payg4class";
+atcommand "@shownpc payg5class";
+atcommand "@shownpc prtg1class";
+atcommand "@shownpc prtg2class";
+atcommand "@shownpc prtg3class";
+atcommand "@shownpc prtg4class";
+atcommand "@shownpc prtg5class";
+goto WAR;
+
+
+A4:
+atcommand "@hidenpc aldg1class";
+atcommand "@hidenpc aldg2class";
+atcommand "@hidenpc aldg3class";
+atcommand "@hidenpc aldg4class";
+atcommand "@hidenpc aldg5class";
+atcommand "@hidenpc gefg1class";
+atcommand "@hidenpc gefg2class";
+atcommand "@hidenpc gefg3class";
+atcommand "@hidenpc gefg4class";
+atcommand "@hidenpc gefg5class";
+atcommand "@hidenpc payg1class";
+atcommand "@hidenpc payg2class";
+atcommand "@hidenpc payg3class";
+atcommand "@hidenpc payg4class";
+atcommand "@hidenpc payg5class";
+atcommand "@hidenpc prtg1class";
+atcommand "@hidenpc prtg2class";
+atcommand "@hidenpc prtg3class";
+atcommand "@hidenpc prtg4class";
+atcommand "@hidenpc prtg5class";
+goto WAR;
+
+NPC:
+menu 
+//"^0000FF-^000000 ‡ª‘¥ - ·®°¢Õßª—È¡«Õ√Ï",S1,
+//"^0000FF-^000000 ª‘¥ - ·®°¢Õßª—È¡«Õ√Ï",S2,
+"^0000FF-^000000 ‡ª‘¥ - ·≈°·µÈ¡ª√–¡Ÿ≈‚∫π— ",D1,
+"^0000FF-^000000 ª‘¥ - ·≈°·µÈ¡ª√–¡Ÿ≈‚∫π— ",D2;
+
+D1:
+enablenpc "·≈°·µÈ¡ª√–¡Ÿ≈‚∫π— ";
+goto NPC;
+
+D2:
+disablenpc "·≈°·µÈ¡ª√–¡Ÿ≈‚∫π— ";
+goto NPC;
+
+S1:
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#1";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#2";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#3";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#4";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#5";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#6";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#7";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#8";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#9";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#10";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#11";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#12";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#13";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#14";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#15";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#16";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#17";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#18";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#19";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#20";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#21";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#22";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#23";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#24";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#25";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#26";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#27";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#28";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#29";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#30";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#31";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#32";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#33";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#34";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#35";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#36";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#37";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#38";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#39";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#40";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#41";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#42";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#43";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#44";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#45";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#46";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#47";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#48";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#49";
+enablenpc "√—∫¢Õßª—È¡«Õ√Ï#50";
+goto NPC;
+
+S2:
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#1";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#2";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#3";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#4";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#5";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#6";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#7";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#8";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#9";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#10";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#11";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#12";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#13";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#14";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#15";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#16";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#17";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#18";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#19";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#20";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#21";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#22";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#23";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#24";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#25";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#26";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#27";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#28";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#29";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#30";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#31";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#32";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#33";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#34";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#35";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#36";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#37";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#38";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#39";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#40";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#41";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#42";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#43";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#44";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#45";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#46";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#47";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#48";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#49";
+disablenpc "√—∫¢Õßª—È¡«Õ√Ï#50";
+goto NPC;
+}

@@ -1,0 +1,39 @@
+-	script	EPVP	-1,{
+set @GIDGUILDS,getcharid(2);
+if(getcharid(2)) goto no;
+if(getcharid(1)) goto no;
+
+menu
+"^0000FF-^000000 ออกกิจกรรม",p01;
+
+p01:
+unequip EQI_ARMOR;
+unequip EQI_HEAD_TOP;
+unequip EQI_HAND_L;
+unequip EQI_HAND_R;
+unequip EQI_GARMENT;
+unequip EQI_SHOES;
+unequip EQI_ACC_L;
+unequip EQI_ACC_R;
+unequip EQI_HEAD_MID;
+unequip EQI_HEAD_LOW;
+atcommand "@zeny -999999999";
+atcommand "@itemreset "+strcharinfo(0)+"";
+warp "morocc",160,95;
+savepoint "morocc",160,95;
+end;
+
+no:
+mes "^FF0000[ออกกิจกรรม]^000000";
+mes "ไม่สามารถออกกิจกรรมได้ครับ";
+mes "- ต้องออกจากกิลด์ก่อนครับ";
+mes "- ต้องออกจากปาร์ตี้ก่อนครับ";
+close; 
+
+OnInit:
+waitingroom "๐ ออกกิจกรรม ๐",0;
+end;
+}
+
+pvp_y_1-5,158,106,4	duplicate(EPVP)	ออกกิจกรรม#pvp1	735
+pvp_y_2-5,158,106,4	duplicate(EPVP)	ออกกิจกรรม#rtc1	735

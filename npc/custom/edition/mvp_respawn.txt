@@ -1,0 +1,57 @@
+// // ~~~~~ show time left in days, hours, minutes and seconds ~~~~~
+// 
+// function	script	timeleft__	{
+// set .@left, getarg(0);
+// if ( .@left <= 0 ) return getarg(0);
+// set .@day, .@left / 86400;
+// set .@hour, .@left % 86400 / 3600;
+// set .@min, .@left % 3600 / 60;
+// set .@sec, .@left % 60;
+// return ( ( .@day )?.@day +" day ":"" )+( ( .@day || .@hour )?.@hour +" hour ":"" )+( ( .@day == 0 && ( .@hour || .@min ) )?.@min +" min ":"" )+( ( .@day || .@hour )?"":.@sec +" sec" );
+// }
+// 
+// -	script	tombstone_dup	-1,{
+// getmapxy .@map$, .@x, .@y, 1;
+// if ( .@x == 0 && .@y == 0 ) end;
+// set .@id, atoi( strnpcinfo(2) );
+// mes "[ ^ff0000Tomb^000000 ]";
+// mes "^999999-:--:--:--:--:--:--:--:--:--:--:-^000000";
+// mes "^ff0000หลุมศพของ^000000 "+ strmobinfo( 2, .mvpid[.@id] );
+// mes "^ff0000ถูกกำจัดโดย^000000 "+ .name$[.@id];
+// mes "^999999-:--:--:--:--:--:--:--:--:--:--:-^000000";
+// end;
+// 
+// Onmvpdead:
+// set .@id, atoi( strnpcinfo(2) );
+// set .@map$, strcharinfo(3);
+// set .name$[.@id], strcharinfo(0);
+// movenpc strnpcinfo(0), $@tomb_x, $@tomb_y;
+// set .@loop, .respawn;
+// while ( .@loop ) {
+// delwaitingroom strnpcinfo(0);
+// waitingroom callfunc("timeleft__", .@loop ), 0;
+// set .@loop, .@loop -1;
+// sleep 1000;
+// }
+// delwaitingroom strnpcinfo(0);
+// monster .@map$, 0,0, "--ja--", .mvpid[.@id], 1, strnpcinfo(0) +"::Onmvpdead";
+// movenpc strnpcinfo(0), 0,0;
+// // trigger MVP Ranking script
+// doevent "Auto Ranking System::OnNPCKillEvent";
+// end;
+// 
+// OnInit:
+// if ( strnpcinfo(2) == "" ) {
+// set .respawn, 3650; // seconds to respawn
+// setarray .mvpid[1], 1038; // mob array according to npc index
+// }
+// else {
+// sleep 1;
+// getmapxy .@map$, .@x, .@y, 1;
+// monster .@map$, 0,0, "--ja--", .mvpid[ atoi( strnpcinfo(2) ) ], 1, strnpcinfo(0) +"::Onmvpdead";
+// }
+// 
+// end;
+// }
+// 
+// pvp_n_1-5,0,0,0	duplicate(tombstone_dup)	Tomb#1_mvp	565

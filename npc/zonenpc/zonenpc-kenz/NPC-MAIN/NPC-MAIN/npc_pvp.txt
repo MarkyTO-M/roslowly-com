@@ -1,0 +1,131 @@
+-	script	pvpexpress	-1,{
+callfunc "pvpexpress";
+end;
+}
+
+function	script	pvpexpress	{
+mes "^FF0000[PVP Service]^000000";
+		mes "ข้าคือผู้ให้บริการทางด้าน PVP";
+		mes "อยากไปไหนจงเลือกเอา";
+		mes "ตัดบัฟ Bragi&Service4u ก่อนเข้า";
+		mes "Death Match ห้องแรกสามารถร่าย";
+		mes "Bragi&Service4uสกิลได้แต่ไม่มีผล";
+menu 
+//"["+getmapusers("pvp_y_1-2")+"] คน-Basic",Lgo1,
+//"["+getmapusers("pvp_y_5-2")+"] คน-Death Match(Bragi&Service4uไม่มีผล)",Lgo5,
+//"["+getmapusers("pvp_y_2-2")+"] คน-Death Match",Lgo2,
+//"["+getmapusers("pvp_y_3-2")+"] คน-Champion",Lgo3,
+//"["+getmapusers("pvp_y_4-2")+"] คน-Champion + Scholar",Lgo4;
+
+"["+getmapusers("pvp_y_5-2")+"] คน-Death Match(Bragi&Service4uไม่มีผล)",Lgo5,
+"["+getmapusers("pvp_y_1-2")+"] คน-Baby",Lgo1,
+"["+getmapusers("pvp_y_2-2")+"] คน-Assasin",Lgo2,
+"["+getmapusers("pvp_y_3-2")+"] คน-Champion",Lgo3,
+"["+getmapusers("pvp_y_4-2")+"] คน-Champion + Scholar",Lgo4;
+
+Lgo1:
+sc_end SC_SERVICE4U;
+sc_end SC_POEMBRAGI;
+if (Class == 4023 || Class == 4024|| Class == 4025|| Class == 4026|| Class == 4027|| Class == 4028|| Class == 4029|| Class == 4030|| Class == 4031||
+Class == 4032 || Class == 4033|| Class == 4034|| Class == 4035|| Class == 4036|| Class == 4037|| Class == 4038|| Class == 4039|| Class == 4040||
+Class == 4041 || Class == 4042|| Class == 4043|| Class == 4044|| Class == 4045)
+warp "pvp_y_1-2",0,0;	
+close;
+
+Lgo2:
+sc_end SC_SERVICE4U;
+sc_end SC_POEMBRAGI;
+if (BaseJob == Job_Assassin)
+warp "pvp_y_2-2",0,0;	
+close;
+
+Lgo3:
+sc_end SC_SERVICE4U;
+sc_end SC_POEMBRAGI;
+if (BaseJob == Job_Monk)
+warp "pvp_y_3-2",0,0;	
+close;
+
+Lgo4:
+sc_end SC_SERVICE4U;
+sc_end SC_POEMBRAGI;
+if (BaseJob == Job_Sage || BaseJob == Job_Monk)
+warp "pvp_y_4-2",0,0;	
+close;
+
+Lgo5:
+sc_end SC_SERVICE4U;
+sc_end SC_POEMBRAGI;
+warp "pvp_y_5-2",0,0;	
+close;
+
+}
+
+pvp_y_1-2,178,55,0	warp	pvp_y_1-2	1,1,pvp_y_1-2,147,40
+pvp_y_2-2,178,55,0	warp	pvp_y_2-2	1,1,pvp_y_2-2,147,40
+pvp_y_3-2,178,55,0	warp	pvp_y_3-2	1,1,pvp_y_3-2,147,40
+pvp_y_4-2,178,55,0	warp	pvp_y_4-2	1,1,pvp_y_4-2,147,40
+pvp_y_5-2,178,55,0	warp	pvp_y_5-2	1,1,pvp_y_5-2,147,40
+
+
+-	script	deathmatch	-1,{
+OnInIt:
+set .time, 10;	
+setarray .map$, 
+"pvp_y_2-2","pvp_y_3-2","pvp_y_4-2","pvp_y_5-2";
+end;	
+OnPCDieEvent:
+getmapxy( .@map$, .@x, .@y, 0 );
+for ( set .@i, 0; .@i < getarraysize(.map$); set .@i, .@i+1 ) {
+if ( .@map$ == .map$[.@i] ) {
+sleep2 1000;
+atcommand "@alive";
+sc_start SC_BLESSING,1000*60*30,10;
+sc_start SC_INCREASEAGI,1000*60*30,10;
+sc_start SC_MAGNIFICAT,1000*60*30,5;
+sc_start SC_GLORIA,1000*60*30,5;
+sc_start SC_STRFOOD,1000*60*30,7;
+sc_start SC_AGIFOOD,1000*60*30,7;
+sc_start SC_VITFOOD,1000*60*30,7;
+sc_start SC_INTFOOD,1000*60*30,7;
+sc_start SC_DEXFOOD,1000*60*30,7;
+sc_start SC_LUKFOOD,1000*60*30,7;
+atcommand "@repairall" ;
+percentheal 100,100;
+warp .map$[.@i], 0, 0;
+break;
+}
+}
+close;
+}
+
+pvp_y_1-2	mapflag	pvp
+pvp_y_1-2	mapflag	nocommand	40
+pvp_y_1-2	mapflag	nodrop
+pvp_y_1-2	mapflag	nobranch
+pvp_y_1-2	mapflag	noreturn
+
+pvp_y_2-2	mapflag	pvp
+pvp_y_2-2	mapflag	nocommand	40
+pvp_y_2-2	mapflag	nodrop
+pvp_y_2-2	mapflag	nobranch
+pvp_y_2-2	mapflag	noreturn
+
+pvp_y_3-2	mapflag	pvp
+pvp_y_3-2	mapflag	nocommand	40
+pvp_y_3-2	mapflag	nodrop
+pvp_y_3-2	mapflag	nobranch
+pvp_y_3-2	mapflag	noreturn
+
+pvp_y_4-2	mapflag	pvp
+pvp_y_4-2	mapflag	nocommand	40
+pvp_y_4-2	mapflag	nodrop
+pvp_y_4-2	mapflag	nobranch
+pvp_y_4-2	mapflag	noreturn
+
+pvp_y_5-2	mapflag	pvp
+pvp_y_5-2	mapflag	nocommand	40
+pvp_y_5-2	mapflag	nodrop
+pvp_y_5-2	mapflag	nobranch
+pvp_y_5-2	mapflag	noreturn
+

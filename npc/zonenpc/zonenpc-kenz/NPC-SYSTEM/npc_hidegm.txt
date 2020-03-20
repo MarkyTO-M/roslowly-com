@@ -1,0 +1,9 @@
+-	script	hidegm	-1,{
+OnPCLoginEvent:
+if( getgmlevel() > 1 ) {
+getmapxy @gmmapname$,@gmmapx,@gmmapy,0,strcharinfo(0);
+if ( @gmmapname$ != "sec_pri" ) atcommand "@hide";
+if ( @gmmapname$ != "sec_pri" ) atcommand "@speed 1";
+}
+end;
+}

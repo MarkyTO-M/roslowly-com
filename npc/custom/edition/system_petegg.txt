@@ -1,0 +1,328 @@
+//=============================================================
+//			-             mOnster studiO Scripts               -
+//				www.monsterstudio.in.th
+//#############################################################
+
+morocc,132,37,4	script	Petegg	558,{
+set .@mes$,"^FF0000[ Pet Evolution ]^000000";
+goto MS_Main;
+
+MS_Main:
+	mes .@mes$;
+	mes "- ข้าเป็นผู้ดูแล สัตว์เลี้ยง";
+	mes "- ท่านมาหาข้ามีเรื่องอะไรหล่ะ";
+	mes "- ข้าพร้อมจะช่วยท่านเสมอ";
+	next;
+
+	//if(getpetinfo(1)==0||PEV_Type$=="null")
+	//	menu "- รับสัตว์เลี้ยง",MS_Get;
+	//else
+		menu "- รับสัตว์เลี้ยง",MS_Get,"- สถานะสัตว์เลี้ยง",MS_PetStat,"- Evolution ",MS_Evo,"- ปล่อยสัตว์เลี้ยง",MS_Drop;
+end;
+
+MS_PetStat:
+	//if(getpetinfo(1)==0||PEV_Type$=="null")
+	//	end;
+	mes .@mes$;
+	mes "- รหัสสัตว์เลี้ยง ^339933"+getpetinfo(1)+"^000000";
+	//mes "- สายพันธุ์ ^9955AA"+PEV_Type$+"^000000";
+	mes "- ชื่อสัตว์เลี้ยง ^0000FF"+getpetinfo(2)+"^000000";
+	if(getpetinfo(3)<100){mes "- ระดับความสัมพันธ์ ^FF0000"+getpetinfo(3)+"^000000";}
+	else if(getpetinfo(3)<200){mes "- ระดับความสัมพันธ์ ^FF00F0"+getpetinfo(3)+"^000000";}
+	else if(getpetinfo(3)<300){mes "- ระดับความสัมพันธ์ ^FF00FF"+getpetinfo(3)+"^000000";}
+	else if(getpetinfo(3)<400){mes "- ระดับความสัมพันธ์ ^F000FF"+getpetinfo(3)+"^000000";}
+	else if(getpetinfo(3)<500){mes "- ระดับความสัมพันธ์ ^0000FF"+getpetinfo(3)+"^000000";}
+	else if(getpetinfo(3)<600){mes "- ระดับความสัมพันธ์ ^00F0FF"+getpetinfo(3)+"^000000";}
+	else if(getpetinfo(3)<700){mes "- ระดับความสัมพันธ์ ^00FFFF"+getpetinfo(3)+"^000000";}
+	else if(getpetinfo(3)<800){mes "- ระดับความสัมพันธ์ ^00FFF0"+getpetinfo(3)+"^000000";}
+	else{mes "- ระดับความสัมพันธ์ ^00FF00"+getpetinfo(3)+"^000000";}
+	if(getpetinfo(4)<10){mes "- ระดับความอิ่ม ^FF0000"+getpetinfo(4)+"^000000";}
+	else if(getpetinfo(4)<20){mes "- ระดับความอิ่ม ^FF00F0"+getpetinfo(4)+"^000000";}
+	else if(getpetinfo(4)<40){mes "- ระดับความอิ่ม ^FF00FF"+getpetinfo(4)+"^000000";}
+	else if(getpetinfo(4)<40){mes "- ระดับความอิ่ม ^F000FF"+getpetinfo(4)+"^000000";}
+	else if(getpetinfo(4)<50){mes "- ระดับความอิ่ม ^0000FF"+getpetinfo(4)+"^000000";}
+	else if(getpetinfo(4)<60){mes "- ระดับความอิ่ม ^00F0FF"+getpetinfo(4)+"^000000";}
+	else if(getpetinfo(4)<70){mes "- ระดับความอิ่ม ^00FFFF"+getpetinfo(4)+"^000000";}
+	else if(getpetinfo(4)<80){mes "- ระดับความอิ่ม ^00FFF0"+getpetinfo(4)+"^000000";}
+	else{mes "- ระดับความอิ่ม ^00FF00"+getpetinfo(4)+"^000000";}
+	next;
+	goto MS_Main;
+end;
+
+MS_Get:
+	//set PEV_Type$,"null";
+	set PEV_Dep,0;
+	set PEV_End,0;
+	mes .@mes$;
+	mes "ไอเทมที่ต้องการคือ";
+	mes "Flame Heart x 10 ea.";
+	mes "Mystic Frozen x 10 ea.";
+	mes "Rough Wind x 10 ea.";
+	mes "Great Nature x 10 ea.";
+	mes "Rune of Darkness  x 100 ea.";
+	mes "Gold x 10 ea.";
+	next;
+	menu "แลกไข่สัตว์เลี้ยง Evolution",petsegg,"ไม่มีอะไร",no;
+
+petsegg:
+if (countitem(994) < 10) ||(countitem(995) < 10 ) ||(countitem(996) < 10 ) ||(countitem(997) < 10 ) ||(countitem(7511) < 100 ) || (countitem(969) < 10 ) goto ni; //(คำสั่งนับไอเทม)
+delitem 994,10;
+delitem 995,10;
+delitem 996,10;
+delitem 997,10;
+delitem 7511,100;
+delitem 969,10;
+set .@r,rand(1,100);
+	if(.@r<15){
+		getitem 9154,1; //Wood Egg
+	}
+	if(.@r>=15&&.@r<30){
+		getitem 9163,1; //Thunder Egg
+	}
+	if(.@r>=30&&.@r<45){
+		getitem 9102,1; //Earth Egg
+	}
+	if(.@r>=45&&.@r<60){
+		getitem 9103,1; //Fire Egg
+	}
+	if(.@r>=60&&.@r<75){
+		getitem 9104,1;  //Water Egg
+	}
+	if(.@r>=75&&.@r<90){
+		getitem 9105,1; //Wind Egg
+	}
+	if(.@r>=90&&.@r<96){
+		getitem 9100,1; //Dark Egg
+	}
+	if(.@r>=96){
+		getitem 9101,1; //Holy Egg
+	}
+	specialeffect2 154;
+	end;
+next;
+mes "คุณแลกสำเร็จแล้ว";
+end;
+
+MS_Drop:
+	set PEV_Type$,"null";
+	set PEV_Dep,0;
+	set PEV_End,0;
+	petremove;
+	mes .@mes$;
+	mes "- ข้าปล่อยสัตว์เลี้ยงให้ท่านแล้ว";
+	end;
+
+MS_Deposit:
+	if(getpetinfo(3)<300||getpetinfo(4)<50){
+		mes .@mes$;
+		mes "- ระดับความสัมพันธ์ต้องมากกว่า ^0066FF300^000000";
+		mes "- ระดับความอิ่มต้องมากกว่า ^0066AA50^000000";
+		end;
+		end;
+	}
+	set PEV_Dep,1;
+	set PEV_ID,getpetinfo(1);
+	petremove;
+	mes .@mes$;
+	mes "- ข้ารับสัตว์เลี้ยงของท่านไว้แล้ว";
+	mes "- หากท่านต้องการมัน ก็มาขอรับคืนที่ข้าหล่ะ";
+	end;
+
+MS_Re:
+	set PEV_Dep,0;
+	petremove;
+	pethatch PEV_ID;
+	mes .@mes$;
+	mes "- ยินดีด้วย คุณได้รับสัตว์เลี้ยงคืนแล้ว";
+	mes "- ดูแลมันให้ดีๆหล่ะ";
+	end;
+
+EvoDark:
+	mes .@mes$;
+	mes "- ข้าต้องการ Little Evil Wing จำนวน 50 อัน";
+	mes "- ในการ Evolution ";
+if (countitem(1039) < 50) goto ni; //(คำสั่งนับไอเทม)
+delitem 1039,50; //(กำหนดให้ลบของอะไรกี่ชิ้น)
+set @PE,callfunc("PetEvolve");
+		if (@PE != 0) {
+			dispbottom "สัตว์เลี้ยงของคุณได้รับการวิวัฒนาการ !!";
+			petremove;
+			pethatch @PE;
+		}
+	mes .@mes$;
+	mes "- ยินดีด้วย คุณได้รับสัตว์เลี้ยงคืนแล้ว";
+	mes "- ดูแลมันให้ดีๆหล่ะ";
+	end;
+
+EvoHoly:
+	mes .@mes$;
+	mes "- ข้าต้องการ Soft Feather จำนวน 10 อัน";
+	mes "- ในการ Evolution ";
+if (countitem(7063) < 10) goto ni; //(คำสั่งนับไอเทม)
+delitem 7063,10; //(กำหนดให้ลบของอะไรกี่ชิ้น)
+set @PE,callfunc("PetEvolve");
+		if (@PE != 0) {
+			dispbottom "สัตว์เลี้ยงของคุณได้รับการวิวัฒนาการ !!";
+			petremove;
+			pethatch @PE;
+		}
+	mes .@mes$;
+	mes "- ยินดีด้วย คุณได้รับสัตว์เลี้ยงคืนแล้ว";
+	mes "- ดูแลมันให้ดีๆหล่ะ";
+	end;
+
+EvoEarth:
+	mes .@mes$;
+	mes "- ข้าต้องการ Mud Lump จำนวน 20 อัน";
+	mes "- และ Stone Heart  จำนวน 30 อัน";
+	mes "- ในการ Evolution ";
+if (countitem(7004) < 20)||(countitem(953) < 30) goto ni; //(คำสั่งนับไอเทม)
+delitem 7004,20; //(กำหนดให้ลบของอะไรกี่ชิ้น)
+delitem 953,30; //(กำหนดให้ลบของอะไรกี่ชิ้น)
+set @PE,callfunc("PetEvolve");
+		if (@PE != 0) {
+			dispbottom "สัตว์เลี้ยงของคุณได้รับการวิวัฒนาการ !!";
+			petremove;
+			pethatch @PE;
+		}
+	mes .@mes$;
+	mes "- ยินดีด้วย คุณได้รับสัตว์เลี้ยงคืนแล้ว";
+	mes "- ดูแลมันให้ดีๆหล่ะ";
+	end;
+
+EvoFire:
+	mes .@mes$;
+	mes "- ข้าต้องการ Burning Heart จำนวน 20 อัน";
+	mes "- และ Burning Hair  จำนวน 30 อัน";
+	mes "- ในการ Evolution ";
+if (countitem(7097) < 20)||(countitem(7122) < 30) goto ni; //(คำสั่งนับไอเทม)
+delitem 7097,20; //(กำหนดให้ลบของอะไรกี่ชิ้น)
+delitem 7122,30; //(กำหนดให้ลบของอะไรกี่ชิ้น)
+set @PE,callfunc("PetEvolve");
+		if (@PE != 0) {
+			dispbottom "สัตว์เลี้ยงของคุณได้รับการวิวัฒนาการ !!";
+			petremove;
+			pethatch @PE;
+		}
+	mes .@mes$;
+	mes "- ยินดีด้วย คุณได้รับสัตว์เลี้ยงคืนแล้ว";
+	mes "- ดูแลมันให้ดีๆหล่ะ";
+	end;
+
+EvoWater:
+	mes .@mes$;
+	mes "- ข้าต้องการ Ice Cubic จำนวน 20 อัน";
+	mes "- และ Heart of Mermaid  จำนวน 30 อัน";
+	mes "- ในการ Evolution ";
+if (countitem(7066) < 20)||(countitem(950) < 30) goto ni; //(คำสั่งนับไอเทม)
+delitem 7066,20; //(กำหนดให้ลบของอะไรกี่ชิ้น)
+delitem 950,30; //(กำหนดให้ลบของอะไรกี่ชิ้น)
+set @PE,callfunc("PetEvolve");
+		if (@PE != 0) {
+			dispbottom "สัตว์เลี้ยงของคุณได้รับการวิวัฒนาการ !!";
+			petremove;
+			pethatch @PE;
+		}
+	mes .@mes$;
+	mes "- ยินดีด้วย คุณได้รับสัตว์เลี้ยงคืนแล้ว";
+	mes "- ดูแลมันให้ดีๆหล่ะ";
+	end;
+
+EvoWind:
+	mes .@mes$;
+	mes "- ข้าต้องการ Rough Wind  จำนวน 20 อัน";
+	mes "- ในการ Evolution ";
+if (countitem(996) < 20) goto ni; //(คำสั่งนับไอเทม)
+delitem 996,20; //(กำหนดให้ลบของอะไรกี่ชิ้น)
+set @PE,callfunc("PetEvolve");
+		if (@PE != 0) {
+			dispbottom "สัตว์เลี้ยงของคุณได้รับการวิวัฒนาการ !!";
+			petremove;
+			pethatch @PE;
+		}
+	mes .@mes$;
+	mes "- ยินดีด้วย คุณได้รับสัตว์เลี้ยงคืนแล้ว";
+	mes "- ดูแลมันให้ดีๆหล่ะ";
+	end;
+
+EvoWood:
+	mes .@mes$;
+	mes "- ข้าต้องการ Witherless Rose จำนวน 20 อัน";
+	mes "- ในการ Evolution ";
+if (countitem(748) < 20) goto ni; //(คำสั่งนับไอเทม)
+delitem 748,20; //(กำหนดให้ลบของอะไรกี่ชิ้น)
+
+set @PE,callfunc("PetEvolve");
+		if (@PE != 0) {
+			dispbottom "สัตว์เลี้ยงของคุณได้รับการวิวัฒนาการ !!";
+			petremove;
+			pethatch @PE;
+		}
+	mes .@mes$;
+	mes "- ยินดีด้วย คุณได้รับสัตว์เลี้ยงคืนแล้ว";
+	mes "- ดูแลมันให้ดีๆหล่ะ";
+	end;
+EvoThunder:
+	mes .@mes$;
+	mes "- ข้าต้องการ Fragment จำนวน 50 อัน";
+	mes "- ในการ Evolution ";
+if (countitem(7094) < 50) goto ni; //(คำสั่งนับไอเทม)
+delitem 7094,50; //(กำหนดให้ลบของอะไรกี่ชิ้น)
+set @PE,callfunc("PetEvolve");
+		if (@PE != 0) {
+			dispbottom "สัตว์เลี้ยงของคุณได้รับการวิวัฒนาการ !!";
+			petremove;
+			pethatch @PE;
+		}
+	mes .@mes$;
+	mes "- ยินดีด้วย คุณได้รับสัตว์เลี้ยงคืนแล้ว";
+	mes "- ดูแลมันให้ดีๆหล่ะ";
+	end;
+
+MS_Evo:
+	if(getpetinfo(1)==3710)||(getpetinfo(1)==3714)||(getpetinfo(1)==3718)||(getpetinfo(1)==3722)||(getpetinfo(1)==3726)||(getpetinfo(1)==3730)||(getpetinfo(1)==3734)||(getpetinfo(1)==3738)||(getpetinfo(1)==3742)||(getpetinfo(1)==3746)||(getpetinfo(1)==3750)||(getpetinfo(1)==3754)||(getpetinfo(1)==3759)||(getpetinfo(1)==3763)||(getpetinfo(1)==3768)||(getpetinfo(1)==3772)
+	{
+		mes .@mes$;
+		mes "สัตว์เลี้ยงของท่านพัฒนาถึงระดับสูงสุดแล้ว";
+		mes "ไม่สามารถ Evolution ได้อีก";
+		end;
+		end;
+	}
+
+	if(getpetinfo(3)<= 950) goto lowfriendly;
+		if(getpetinfo(1)==3701)||(getpetinfo(1)>=3707)||(getpetinfo(1)<=3714) goto Evodark;
+		else if(getpetinfo(1)==3702)||(getpetinfo(1)>=3715)||(getpetinfo(1)<=3722) goto EvoHoly;
+		else if(getpetinfo(1)==3703)||(getpetinfo(1)>=3723)||(getpetinfo(1)<=3730) goto EvoEarth;
+		else if(getpetinfo(1)==3704)||(getpetinfo(1)>=3731)||(getpetinfo(1)<=3738) goto EvoFire;
+		else if(getpetinfo(1)==3705)||(getpetinfo(1)>=3739)||(getpetinfo(1)<=3746) goto EvoWater;
+		else if(getpetinfo(1)==3706)||(getpetinfo(1)>=3747)||(getpetinfo(1)<=3754) goto EvoWind;
+		else if(getpetinfo(1)>=3755)||(getpetinfo(1)<=3763) goto EvoWood;
+		else if(getpetinfo(1)>=3764)||(getpetinfo(1)<=3772) goto EvoThunder;
+	end;
+
+ni:
+
+mes "คุณมี ไอเทม ไม่พอ";
+
+mes "แล้วค่อยกลับมาใหม่นะ";
+
+end;
+
+
+lowfriendly:
+
+mes "ความสนิทสนมของสัตว์เลี้ยงไม่พอ";
+
+mes "แล้วค่อยกลับมาใหม่นะ";
+end;
+no:
+mes "บาย........";
+end;
+
+OnInit:
+	waitingroom ":: Pet Evolution ::",0;
+end;
+}
+
+
+

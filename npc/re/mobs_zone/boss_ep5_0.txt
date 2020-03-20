@@ -1,0 +1,19 @@
+moc_pryd04,0,0,0,0	boss_monster	Osiris	1038,1,3600000,300000,0
+prt_maze03,0,0,0,0	boss_monster	Baphomet	1039,1,7200000,300000,0
+gef_dun02,0,0,0,0	boss_monster	Doppelganger	1046,1,3600000,300000,0
+gef_dun03,0,0,0,0	boss_monster	Dracula	1389,1,3600000,300000,0
+mjolnir_05,0,0,0,0	boss_monster	Mistress	1059,1,3600000,300000,0
+gef_fild14,0,0,0,0	boss_monster	Orc Hero	1087,1,3600000,300000,0
+pay_fild04,0,0,0,0	monster	Angeling	1096,1,1800000,300000,0
+pay_fild04,0,0,0,0	monster	Ghostring	1120,1,1800000,300000,0
+treasure02,101,151,8,8	boss_monster	Drake	1112,1,3600000,300000,0
+pay_fild10,0,0,0,0	boss_monster	Eddga	1115,1,3600000,300000,0
+anthell01,0,0,0,0	boss_monster	Phreeoni	1159,1,3600000,300000,0
+anthell02,0,0,0,0	boss_monster	Maya	1147,1,7200000,300000,0
+pay_dun04,120,115,0,0	boss_monster	Moonlight	1150,1,3600000,300000,0
+orcsdun02,0,0,0,0	boss_monster	Orc Lord	1190,1,7200000,300000,0
+xmas_dun02,0,0,0,0	boss_monster	Stormy Knight	1251,1,7200000,300000,0
+xmas_fild01,0,0,0,0	boss_monster	Garm	1252,1,3600000,300000,0
+gl_cas02,0,0,0,0	boss_monster	Baphomet	1039,1,7200000,300000,0
+gl_chyard,0,0,0,0	boss_monster	Dark Lord	1272,1,7200000,300000,0
+tur_dun04,99,93,20,20	boss_monster	Turtle General	1312,1,7200000,300000,0

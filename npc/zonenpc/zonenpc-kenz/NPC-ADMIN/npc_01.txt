@@ -1,0 +1,120 @@
+morocc,153,119,0	script	 #announceserver	111,{
+if (getgmlevel() < 99) end;
+mes "^FF0000[Announce Server]^000000";
+next;
+switch(select("^0000FF-^000000 นาที 00","^0000FF-^000000 นาที 10","^0000FF-^000000 นาที 20","^0000FF-^000000 นาที 30","^0000FF-^000000 นาที 40","^0000FF-^000000 นาที 50")){
+case 1:
+callsub OnSetupAAS,0;
+break;
+case 2:
+callsub OnSetupAAS,10;
+break;
+case 3:
+callsub OnSetupAAS,20;
+break;
+case 4:
+callsub OnSetupAAS,30;
+break;
+case 5:
+callsub OnSetupAAS,40;
+break;
+case 6:
+callsub OnSetupAAS,50;
+break;
+}
+close;
+
+OnSetupAAS:
+mes "^FF0000[Announce Server]^000000";
+mes "นาที : "+getarg(0)+"";
+next;
+set .@menu$,"";
+for(set .@i,0; .@i < getarraysize(getd("$gjz_aas_"+getarg(0)+"$")); set .@i,.@i+1) {
+set .@menu$, .@menu$ + .@i + ". " + "["+getd("$gjz_aas_"+getarg(0)+"$["+.@i+"]")+"]:";
+//announce ""+.@i+"",bc_self,getd("$gjz_aac_"+getarg(0)+"$["+.@i+"]");
+}
+set .@menu$, .@menu$ + "^0000FF-^000000 เพิ่มประกาศ";
+set .@aas_slect,select(.@menu$) - 1;
+if (getarraysize(getd("$gjz_aas_"+getarg(0)+"$["+.@aas_slect+"]")) == .@aas_slect) {
+setd "$gjz_aas_"+getarg(0)+"$["+getarraysize(getd("$gjz_aas_"+getarg(0)+"$"))+"]","ไม่มีข้อความ";
+setd "$gjz_aac_"+getarg(0)+"$["+getarraysize(getd("$gjz_aac_"+getarg(0)+"$"))+"]","0x00FFFF";
+goto OnSetupAAS;
+}
+set .@gjz,1;
+while (.@gjz) {
+mes "^FF0000[Announce Server]^000000";
+mes "ข้อความ : "+.@aas_slect+"";
+mes ""+getd("$gjz_aas_"+getarg(0)+"$["+.@aas_slect+"]")+"";
+mes "สีข้อความ : "+getd("$gjz_aac_"+getarg(0)+"$["+.@aas_slect+"]")+"";
+//announce ""+getd("$gjz_aas_"+getarg(0)+"$["+.@aas_slect+"]")+"",bc_self,getd("$gjz_aac_"+getarg(0)+"$["+.@aas_slect+"]");
+next;
+switch(select("^0000FF-^000000 แก้ข้อความ","^0000FF-^000000 แก้สีข้อความ","^0000FF-^000000 ลบข้อความ","^0000FF-^000000 เรียบร้อย")) {
+case 1:
+mes "^FF0000[Announce Server]^000000";
+next;
+input .@announce$;
+setd "$gjz_aas_"+getarg(0)+"$["+.@aas_slect+"]",.@announce$;
+break;
+case 2:
+mes "^FF0000[Announce Server]^000000";
+mes "0x00FFFF";
+next;
+input .@color$;
+setd "$gjz_aac_"+getarg(0)+"$["+.@aas_slect+"]",.@color$;
+break;
+case 3:
+mes "^FF0000[Announce Server]^000000";
+mes "ข้อความ : "+.@aas_slect+"";
+mes ""+getd("$gjz_aas_"+getarg(0)+"$["+.@aas_slect+"]")+"";
+mes "สีข้อความ : "+getd("$gjz_aac_"+getarg(0)+"$["+.@aas_slect+"]")+"";
+next;
+if (select("^0000FF-^000000 ลบข้อความ","^FF0000-^000000 ยกเลิก") == 2) break;
+deletearray getd("$gjz_aas_"+getarg(0)+"$["+.@aas_slect+"]"),1;
+deletearray getd("$gjz_aac_"+getarg(0)+"$["+.@aas_slect+"]"),1;
+set .@gjz,0;
+break;
+case 4:
+set .@gjz,0;
+break;
+}
+}
+next;
+goto OnSetupAAS;
+
+OnMinute00:
+for(set .@i,0; .@i < getarraysize($gjz_aas_0$); set .@i,.@i+1) {
+announce "[ "+$gjz_aas_0$[.@i]+" ]",bc_all,$gjz_aac_0$[.@i];
+sleep 100;
+}
+end;
+OnMinute10:
+for(set .@i,0; .@i < getarraysize($gjz_aas_10$); set .@i,.@i+1) {
+announce "[ "+$gjz_aas_10$[.@i]+" ]",bc_all,$gjz_aac_10$[.@i];
+sleep 100;
+}
+end;
+OnMinute20:
+for(set .@i,0; .@i < getarraysize($gjz_aas_20$); set .@i,.@i+1) {
+announce "[ "+$gjz_aas_20$[.@i]+" ]",bc_all,$gjz_aac_20$[.@i];
+sleep 100;
+}
+end;
+OnMinute30:
+for(set .@i,0; .@i < getarraysize($gjz_aas_30$); set .@i,.@i+1) {
+announce "[ "+$gjz_aas_30$[.@i]+" ]",bc_all,$gjz_aac_30$[.@i];
+sleep 100;
+}
+end;
+OnMinute40:
+for(set .@i,0; .@i < getarraysize($gjz_aas_40$); set .@i,.@i+1) {
+announce "[ "+$gjz_aas_40$[.@i]+" ]",bc_all,$gjz_aac_40$[.@i];
+sleep 100;
+}
+end;
+OnMinute50:
+for(set .@i,0; .@i < getarraysize($gjz_aas_50$); set .@i,.@i+1) {
+announce "[ "+$gjz_aas_50$[.@i]+" ]",bc_all,$gjz_aac_50$[.@i];
+sleep 100;
+}
+end;
+}

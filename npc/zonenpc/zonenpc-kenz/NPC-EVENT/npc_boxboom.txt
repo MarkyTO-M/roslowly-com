@@ -1,0 +1,202 @@
+-	script	SettingBoxBoom	-1,{
+
+Oninit:
+set $MapBB$,"force_1-1";
+set $ibb,7539;		
+set $abb,100;		
+set $zbb,0;		
+end;
+OnMinute20:
+initnpctimer "TimerBox";
+end;
+}
+
+-	script	Box Boom	-1,{
+Main:
+set .@name$, "^FF0000[Box Boom]^000000";
+mes .@name$;
+mes "ของรางวัลกิจกรรม";
+mes "- Poring Coin ครับ";
+next;
+if($@BoxStart == 1) goto Start;
+
+Start:
+menu "^0000FF-^000000 เข้ากิจกรรม",-,"^0000FF-^000000 รายละเอียด",read;
+if($@BoxStart == 0) {mes .@name$; mes "ยังไม่ถึงเวลากิจกรรมครับ"; close;}
+warp "force_1-1",98,99;
+close;
+
+read:
+mes .@name$;
+mes "รอบ 01. 01.20 || รอบ 02. 02.20 ";
+mes "รอบ 03. 03.20 || รอบ 04. 04.20 ";
+mes "รอบ 05. 05.20 || รอบ 06. 06.20 ";
+mes "รอบ 07. 07.20 || รอบ 08. 08.20 ";
+mes "รอบ 09. 09.20 || รอบ 10. 10.20 ";
+mes "รอบ 11. 11.20 || รอบ 12. 12.20 ";
+mes "รอบ 13. 13.20 || รอบ 14. 14.20 ";
+mes "รอบ 15. 15.20 || รอบ 16. 16.20 ";
+mes "รอบ 17. 17.20 || รอบ 18. 18.20 ";
+mes "รอบ 19. 19.20 || รอบ 20. 20.20 ";
+mes "รอบ 21. 21.20 || รอบ 22. 22.20 ";
+mes "รอบ 23. 23.20 || รอบ 24. 00.20 ";
+close;
+
+exit:
+close;
+
+OnInit:
+waitingroom "๐ Box Boom ๐", 0;
+end;
+
+}
+
+-	script	TimerBox	-1,{
+OnTimer1000:
+set $@BoxStart,1;
+announce "[ กิจกรรม Box BooM จะเริ่มใน 3 นาที ]",bc_all;
+end;
+
+OnTimer61000:
+announce "[ กิจกรรม Box BooM จะเริ่มใน 2 นาที ]",bc_all;
+end;
+
+OnTimer121000:
+announce "[ กิจกรรม Box BooM จะเริ่มใน 1 นาที ]",bc_all;
+end;
+
+OnTimer181000:
+set $@BoxStart,0;
+announce "[ กิจกรรม Box BooM เริ่มแล้ว ]",bc_all;
+end;
+
+OnTimer190000:
+if(getmapusers(""+$MapBB$+"") < 1) goto notplayer;
+announce "",0;
+end;
+
+OnTimer195000:
+announce "",0;
+end;
+
+OnTimer200000:
+announce "",0;
+end;
+
+OnTimer220000:
+announce "",0;
+end;
+
+OnTimer225000:
+stopnpctimer;
+callfunc "boxboom";
+end;
+
+notplayer:
+announce "[ กิจกรรม Box BooM จบลงแล้ว ]",bc_all;
+stopnpctimer;
+mapwarp ""+$MapBB$+"","SavePoint",0,0;
+end;
+}
+
+function	script	boxboom	{
+announce "",0;
+areamonster ""+$MapBB$+"",88,111,111,88,"B O X B O O M",1334,5,"BOXOPEN::OnOpen_Boom";
+areamonster ""+$MapBB$+"",88,111,111,88,"B O X B O O M",1334,1,"BOXOPEN::OnOpen_C4";
+areamonster ""+$MapBB$+"",88,111,111,88,"B O X B O O M",1334,1,"BOXOPEN::OnOpen_Ok";
+return;
+}
+
+-	script	BOXOPEN	-1,{
+OnOpen_Boom:
+set .@Rate,rand(100);
+if(.@Rate < 10) goto Chock;
+announce "",0;
+specialeffect2 183;
+sleep2 1000;
+if(getmapusers(""+$MapBB$+"") <= 1) goto lastplayer;
+warp "SavePoint",0,0;
+end;
+
+Chock:
+announce "",0;
+specialeffect2 147;
+end;
+
+OnOpen_C4:
+announce "",0;
+donpcevent "LandEffect1::OnBoom";
+donpcevent "LandEffect2::OnBoom";
+donpcevent "LandEffect3::OnBoom";
+donpcevent "LandEffect4::OnBoom";
+donpcevent "LandEffect5::OnBoom";
+killmonsterall ""+$MapBB$+"";
+sleep2 2000;
+announce "",0;
+killmonsterall ""+$MapBB$+"";
+mapwarp ""+$MapBB$+"","SavePoint",0,0;
+end;
+
+OnOpen_Ok:
+announce "[ คุณ "+ strcharinfo(0) +" ได้รับรางวัล Box BooM แล้ว ]",0;
+getitem $ibb,$abb;
+set zeny,zeny+$zbb;
+end;
+
+lastplayer:
+sleep2 1000;
+announce "",bc_all;
+killmonsterall ""+$MapBB$+"";
+warp "SavePoint",0,0;
+mapwarp ""+$MapBB$+"","SavePoint",0,0;
+end;
+}
+
+force_1-1,91,108,4	script	LandEffect1	139,{
+OnBoom:
+specialeffect 147;
+sleep2 1000;
+specialeffect 183;
+end;
+}
+force_1-1,108,108,4	script	LandEffect2	139,{
+OnBoom:
+specialeffect 147;
+sleep2 1000;
+specialeffect 183;
+end;
+}
+force_1-1,108,92,4	script	LandEffect3	139,{
+OnBoom:
+specialeffect 147;
+sleep2 1000;
+specialeffect 183;
+end;
+}
+force_1-1,91,92,4	script	LandEffect4	139,{
+OnBoom:
+specialeffect 147;
+sleep2 1000;
+specialeffect 183;
+end;
+}
+force_1-1,99,100,4	script	LandEffect5	139,{
+OnBoom:
+specialeffect 147;
+sleep2 1000;
+specialeffect 183;
+end;
+}
+force_1-1,26,44,5	script	EXIT#BB	439,{  
+warp "SavePoint",0,0;
+close;
+}
+
+force_1-1	mapflag	nowarp 
+force_1-1	mapflag	nowarpto 
+force_1-1	mapflag	noteleport 
+force_1-1	mapflag	nosave	SavePoint 
+force_1-1	mapflag	nomemo 
+force_1-1	mapflag	nobranch 
+force_1-1	mapflag	noreturn
+force_1-1	mapflag	noskill

@@ -1,0 +1,24 @@
+lhz_fild01,0,0,0,0	monster	Metaling	1613,90,0,0,0
+lhz_fild01,0,0,0,0	monster	Holden	1628,90,0,0,0
+lhz_fild01,0,0,0,0	monster	Caramel	1103,90,0,0,0
+lhz_fild01,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+lhz_fild01,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+lhz_fild01,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+
+lhz_fild02,0,0,0,0	monster	Metaling	1613,90,0,0,0
+lhz_fild02,0,0,0,0	monster	Caramel	1103,90,0,0,0
+lhz_fild02,0,0,0,0	monster	Horn	1128,10,0,0,0
+lhz_fild02,0,0,0,0	monster	Holden	1628,10,0,0,0
+lhz_fild02,0,0,0,0	monster	Anopheles	1627,10,0,0,0
+lhz_fild02,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+lhz_fild02,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+
+lhz_fild03,0,0,0,0	monster	Stem Worm	1215,90,0,0,0
+lhz_fild03,0,0,0,0	monster	Metaling	1613,90,0,0,0
+lhz_fild03,0,0,0,0	monster	Caramel	1103,90,0,0,0
+lhz_fild03,0,0,0,0	monster	Horn	1128,10,0,0,0
+lhz_fild03,0,0,0,0	monster	Rafflesia	1162,90,0,0,0
+lhz_fild03,0,0,0,0	monster	Anopheles	1627,90,0,0,0
+lhz_fild03,0,0,0,0	monster	Hill Wind	1680,10,0,0,0
+lhz_fild03,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+lhz_fild03,0,0,0,0	monster	Green Plant	1080,10,0,0,0

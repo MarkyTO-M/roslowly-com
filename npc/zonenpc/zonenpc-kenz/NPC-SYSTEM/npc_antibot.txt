@@ -1,0 +1,25 @@
+-	script	Antibot	-1,{
+OnNPCKillEvent:
+	set @Kill,@Kill + 1;
+	if( @Kill < 300 ) end;
+	set @Kill,0;
+	atcommand "@jail "+strcharinfo(0);
+}
+
+sec_pri,24,81,5	script	µÃÇ¨ÊÍººÍ·ÁÒâ¤Ã	107,{
+menu "- ¤Ø³äÁèãªèºÍ·ÁÒâ¤Ã",ok,"- Â¡àÅÔ¡",da;
+ok:
+	atcommand "@unjail "+strcharinfo(0);
+close;
+da:
+close;
+}
+
+sec_pri,49,82,5	script	µÃÇ¨ÊÍººÍ·ÁÒâ¤Ã#2	107,{
+menu "- ¤Ø³äÁèãªèºÍ·ÁÒâ¤Ã",ok,"- Â¡àÅÔ¡",da;
+ok:
+	atcommand "@unjail "+strcharinfo(0);
+close;
+da:
+close;
+}

@@ -1,0 +1,157 @@
+//===== rAthena Script =======================================
+//= Card Trader
+//===== By: ==================================================
+//= Euphy
+//===== Current Version: =====================================
+//= 1.1 
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= Exchange cards for points.
+//============================================================
+ 
+morocc,135,107,4	script	Item Trader	419,{
+	end;
+	mes "[^995050Item Trader^000000]";
+	mes "Hi, "+strcharinfo(0)+"!";
+	mes "คุณต้องการทำอะไรหรอ ?";
+	for(set .@i,0; .@i<getarraysize(.BuyItem); set .@i,.@i+2){
+		mes "* [ID "+.BuyItem[.@i]+"]";
+		mes " "+getitemname(.BuyItem[.@i])+" "+.BuyItem[.@i+1]+"P";
+	}
+	next;
+	switch(select(" > ขาย Item: > แลกคะแนน shop (^0055FF"+getd(.Points$)+"^000000): > ออก")) {
+	case 1:
+		mes "[^995050Item Trader^000000]";
+		mes "กรุณาเลือกไอเทมที่ต้องการขาย";
+		for(set .@i,0; .@i<getarraysize(.BuyItem); set .@i,.@i+2){
+			mes "* [ID "+.BuyItem[.@i]+"]";
+			mes " "+getitemname(.BuyItem[.@i])+" "+.BuyItem[.@i+1]+"P";
+		}
+		deletearray @sold_nameid[0],getarraysize(@sold_nameid);
+		callshop "x_item_trader_shop",2;
+		npcshopattach "x_item_trader_shop";
+		end;
+	case 2:
+		mes "[^995050Item Trader^000000]";
+		mes "You have ^0055FF"+getd(.Points$)+"^000000 Point"+((getd(.Points$) == 1)?".":"s.");
+		callshop "x_item_trader_shop",1;
+		npcshopattach "x_item_trader_shop";
+		end;
+	case 3:
+		mes "[^995050Item Trader^000000]";
+		mes "*yawn*";
+		mes "แล้วพบกันใหม่";
+		emotion e_yawn;
+		close;		
+	}
+end;
+OnSellItem:
+	mes "Item to sell:";
+	mes "-----------------------------------";
+	for(set .@i,0; .@i<getarraysize(@sold_nameid); set .@i,.@i+1)
+		if (true) {
+			for(set .@j,0; .@j<getarraysize(.BuyItem); set .@j,.@j+2){
+				if(.BuyItem[.@j] == @sold_nameid[.@i]){
+					set .@a_item_id[getarraysize(.@a_item_id)], @sold_nameid[.@i];
+					
+					set .@a_item_id_sold_identify[getarraysize(.@a_item_id)], @sold_identify[.@i];
+					set .@a_item_id_sold_refine[getarraysize(.@a_item_id)], @sold_refine[.@i];
+					set .@a_item_id_sold_attribute[getarraysize(.@a_item_id)], @sold_attribute[.@i];
+					set .@a_item_id_sold_card1[getarraysize(.@a_item_id)], @sold_card1[.@i];
+					set .@a_item_id_sold_card2[getarraysize(.@a_item_id)], @sold_card2[.@i];
+					set .@a_item_id_sold_card3[getarraysize(.@a_item_id)], @sold_card3[.@i];
+					set .@a_item_id_sold_card4[getarraysize(.@a_item_id)], @sold_card4[.@i];
+					
+					set .@a_cos_amt[getarraysize(.@a_cos_amt)], @sold_quantity[.@i];
+					mes ""+@sold_quantity[.@i]+"x "+getitemname(@sold_nameid[.@i])+"^000000";
+					// mes " * "+@sold_nameid[.@i]+","+@sold_quantity[.@i]+","+@sold_identify[.@i]+","+@sold_refine[.@i]+","+@sold_attribute[.@i]+","+@sold_card1[.@i]+","+@sold_card2[.@i]+","+@sold_card3[.@i]+","+@sold_card4[.@i];
+					
+					set .@cos_total, .@cos_total+ ( @sold_quantity[.@i]* (.BuyItem[.@j+1]) );
+				}
+			}
+			/*
+			set .@a_item_id[getarraysize(.@a_item_id)], @sold_nameid[.@i];
+			set .@a_cos_amt[getarraysize(.@a_cos_amt)], @sold_quantity[.@i];
+			mes ""+@sold_quantity[.@i]+"x "+getitemname(@sold_nameid[.@i])+"^000000";
+			set .@cos_total, .@cos_total+ ( @sold_quantity[.@i]* 1 );
+			*/
+		}
+	deletearray @sold_nameid[0], getarraysize(@sold_nameid);
+	deletearray @sold_quantity[0], getarraysize(@sold_quantity);
+	if (!.@a_item_id) {
+		mes "  ^777777(none)^000000";
+		emotion e_swt;
+		close;
+	}
+	mes " ";
+	mes "---------- รวม : ^0055FF"+.@cos_total+" pt.^000000 -------";
+	next;
+	if(select(" > ^0055FFตกลง^000000: > ^777777ยกเลิก^000000") == 2) {
+		mes "[^995050Item Trader^000000]";
+		mes "Oh, okay...";
+		emotion e_hmm;
+		close;
+	}
+	for(set .@i,0; .@i<getarraysize(.@a_item_id); set .@i,.@i+1){
+	
+		//delitem2 .@a_item_id[.@i],.@a_cos_amt[.@i],.@a_item_id_sold_identify[.@i],.@a_item_id_sold_refine[.@i],.@a_item_id_sold_attribute[.@i],.@a_item_id_sold_card1[.@i],.@a_item_id_sold_card2[.@i],.@a_item_id_sold_card3[.@i],.@a_item_id_sold_card4[.@i];
+		
+		if(.@a_item_id_sold_identify[.@i]){
+			delitem2 .@a_item_id[.@i],.@a_cos_amt[.@i],.@a_item_id_sold_identify[.@i],.@a_item_id_sold_refine[.@i],.@a_item_id_sold_attribute[.@i],.@a_item_id_sold_card1[.@i],.@a_item_id_sold_card2[.@i],.@a_item_id_sold_card3[.@i],.@a_item_id_sold_card4[.@i];
+		}else{
+			delitem .@a_item_id[.@i],.@a_cos_amt[.@i];
+		}
+		
+	}
+	setd .Points$, getd(.Points$)+.@cos_total;
+	mes "[^995050Item Trader^000000]";
+	mes "เรียบร้อย";
+	emotion e_ho;
+	close;
+end;
+OnBuyItem:
+	
+	for(set .@i,0; .@i<getarraysize(@bought_nameid); set .@i,.@i+1)
+		for(set .@j,0; .@j<getarraysize(.Shop); set .@j,.@j+2)
+			if (@bought_nameid[.@i] == .Shop[.@j]) {
+				set .@cost, .@cost+(.Shop[.@j+1]*@bought_quantity[.@i]);
+				break;
+			}
+	if (.@cost > getd(.Points$)) {
+		mes "[^995050Item Trader^000000]";
+		mes "คุณมีคะแนนไม่เพียงพอ";
+		emotion e_omg;
+	}
+	else {
+		if(.@cost <= 0){
+			end;
+		}
+		mes "Items purchased:";
+		mes "-----------------------------------";
+		for(set .@i,0; .@i<getarraysize(@bought_nameid); set .@i,.@i+1) {
+			getitem @bought_nameid[.@i], @bought_quantity[.@i];
+			mes "  ^777777"+@bought_quantity[.@i]+"x "+getitemname(@bought_nameid[.@i])+"^000000";
+		}
+		mes " ";
+		mes "---------- รวม : ^0055FF"+.@cost+" pt.^000000 -------";
+		setd .Points$, getd(.Points$)-.@cost;
+		emotion e_cash;
+	}
+	deletearray @bought_nameid[0], getarraysize(@bought_nameid);
+	deletearray @bought_quantity[0], getarraysize(@bought_quantity);
+	close;
+	
+end;
+OnInit:
+	waitingroom "รับซื้อ Item CC - Boss",0;
+	set .Points$,"#XItem_Points";	// Variable to store points.
+	setarray .Shop[0], 7647,1,677,2;
+	
+	setarray .BuyItem[0], 2733,200,2720,200,2721,200,2722,200,2723,200,2724,200,2725,200,2738,200,2737,200,2681,150,2788,100,2789,100,2615,10,5053,25,1234,15,2700,15,5123,15,12395,25,2621,2,5162,25,1237,2,2507,2,2648,20,2649,20,12080,20,1557,20,1722,25,5019,25,1030,2,2677,25,7036,2,10016,2,2616,20,5007,10,10006,25,2249,10,10018,25,12129,5,7109,15,13047,5,1531,10,1236,2,2231,2,7450,2,1529,2,7510,2,7798,5,7799,5;
+	
+	npcshopdelitem "x_item_trader_shop",909;
+	// for(set .@i,0; .@i<getarraysize(.Shop); set .@i,.@i+2){npcshopadditem "x_item_trader_shop",.Shop[.@i],.Shop[.@i+1];}
+	end;
+}
+-	shop	x_item_trader_shop	-1,7647:1,677:2

@@ -1,0 +1,141 @@
+//===== Hercules Script ======================================
+//= Sign Your Items
+//===== By: ==================================================
+//= Lupus,ROSTORE
+//===== Current Version: =====================================
+//= 1.1a
+//===== Description: =========================================
+//= Write you name on your rare equipment or weapon ^_-
+//===== Additional Comments: =================================
+//= 1.1 Cleaned and edited for general use. [Euphy]
+//= 1.1a Added 'disable_items' command. [Euphy]
+//============================================================
+
+ra_temple,78,135,4	script	พนักงานสลักชื่อ	4_M_CATMAN2,{
+	
+	setarray .@item[0],644,3;	//  วัตถุดืบที่ต้องการสลักชื่อ : <ID>,<Count>{,...} ( ใส่ 0 ปิดการใช้งาน)
+	setarray .@cost[0],0,5000;	//ค่าบริการในการสลักชื่อ: <base price>,<price per refine>
+
+	disable_items;
+	mes "[Perchik]";
+	mes " ข้ามีหน้าที่ ^0055FFสลักชื่อของเจ้า^000000";
+	mes " ลงบนไอเท็มที่เจ้าต้องการ";
+	next;
+	if(select(" เกี่ยวกับการสลักชื่อไอเท็ม...: สลักชื่อข้า ลงบนไอเท็มที่เถอะ!") == 1) {
+		mes "[Perchik]";
+		mes " ข้าสามารถสลักชื่อของเจ้า";
+		mes " ลงบนอุปกรณ์หรืออาวุธ";
+		mes " ที่เจ้าต้องการได้";
+		mes " แค่บอกข้าว่าเจ้า..";
+		mes " ต้องการทำสิ่งใด";
+		emotion e_ic;
+		next;
+		mes "[Perchik]";
+		if (getarraysize(.@item) || getarraysize(.@cost)) {
+			mes " สำหรับค่าบริการ :";
+			if (getarraysize(.@item)) for(set .@i,0; .@i<getarraysize(.@item); set .@i,.@i+2)
+				mes " ~ "+.@item[.@i+1]+"x "+getitemname(.@item[.@i]);
+			if (.@cost[0]) mes " ~ "+.@cost[0]+" Zeny";
+			if (.@cost[1]) mes " ~ "+.@cost[1]+" Zeny ต่อ 1 การอัพเกรด";
+		}
+		else mes " ข้าให้บริการฟรี แต่...";
+		next;
+		emotion e_cry;
+		mes "[Perchik]";
+		mes " ข้ายังมีลูกน้อยที่กำลังหิว..";
+		mes " อีก 12 คนและภรรยาของข้า";
+		emotion e_hmm;
+		end;
+	}
+	mes "[Perchik]";
+	mes " โปรดเลือกอุปกรณ์ที่เจ้าต้องการ...";
+	next;
+	setarray .@pos$[1],"ส่วนหัว","ส่วนชุดเกราะ","มือซ้าย","มือขวา","ผ้าคลุม","รองเท้า","เครื่องประดับ","เครื่องประดับ","ส่วนหู","ส่วนตา";
+	set .@menu$,"";
+	for (set .@i,1; .@i<=10; set .@i,.@i+1) {
+		if (getequipisequiped(.@i))
+			set .@menu$, .@menu$+.@pos$[.@i]+" [^0055FF"+getequipname(.@i)+"^000000]";
+		set .@menu$, .@menu$+":";
+	}
+	set .@part, select(.@menu$);
+	set .@id, getequipid(.@part);
+	set .@ref, getequiprefinerycnt(.@part);
+	mes "[Perchik]";
+	if (!getequipisequiped(.@part)) {
+		mes " เจ้าไม่ได้สวมใส่อุปกร์ใดๆ!";
+		emotion e_wah;
+		end;
+	}
+	for(set .@i,0; .@i<4; set .@i,.@i+1)
+		set .@slot[.@i], getequipcardid(.@part,.@i);
+	if (.@slot[0]==255 || .@slot[0]==254 || .@slot[0]<0) {
+		mes " อ้า.. ข้าเสียใจด้วย !!";
+		mes " อุปกรณ์ชิ้นนี้..";
+		mes " ผ่านการสลักชื่อแล้ว !!";
+		emotion e_hmm;
+		end;
+	}
+	if (.@slot[0]>4000 && .@slot[0]<5000) {
+		mes " การ์ด? อ๊ะ?!";
+		mes " ข้าไม่ได้บอกเจ้าก่อน";
+		mes " ข้าไม่สามารถสลักชื่อ";
+		mes " ลงบนไอเท็มที่มีการ์ดได้";
+		emotion e_hmm;
+		end;
+	}
+	if (getiteminfo(.@id,10)) {
+		mes " ข้าต้องเสียใจด้วย";
+		mes " ข้าไม่สามารถสลักชื่อ";
+		mes " ลงบนไอเท็มที่มี [] ได้";
+		emotion e_sry;
+		end;
+	}
+	getinventorylist;
+	for(set .@i,0; .@i<@inventorylist_count; set .@i,.@i+1)
+		if (@inventorylist_expire[.@i] != 0) {
+			mes " ข้าต้องเสียใจด้วย";
+			mes " ข้าไม่สามารถสลักชื่อ";
+			mes " ลงบนไอเท็มเช่าได้";
+			emotion e_hmm;
+			end;
+		}
+	set .@price, .@cost[0]+(.@cost[1]*.@ref);
+	if (getarraysize(.@item) || .@price) {
+		mes " ข้าต้องการ :";
+		if (getarraysize(.@item)) for(set .@i,0; .@i<getarraysize(.@item); set .@i,.@i+2) {
+			mes " ~ "+.@item[.@i+1]+"x "+getitemname(.@item[.@i]);
+			if (countitem(.@item[.@i]) < .@item[.@i+1]) set .@nr,1;
+		}
+		if (.@price) mes " ~ "+.@price+" Zeny";
+	}
+	mes " สลักชื่อลงบน ^0055FF"+getitemname(.@id)+"^000000 ใช่ไหม?";
+	next;
+	if(select(" ตกลง!: ออก")==2) {
+		mes "[Perchik]";
+		mes " แล้วพบกันนะ...";
+		emotion e_yawn;
+		end;
+	}
+	mes "[Perchik]";
+	if (Zeny < .@price || .@nr) {
+		mes " ข้าไม่ทำงานเพราะ 'คำขอบคุณ'";
+		emotion e_sry;
+		end;
+	}
+	if (!countitem2(.@id,1,.@ref,0,.@slot[0],.@slot[1],.@slot[2],.@slot[3])) {
+		mes "Where is "+getitemname(@id)+"...?";
+		npctalk " เจ้านักต้มตุ๋ม!";
+		logmes "CHEATER: คิดจะหลอกข้าด้วยไอเท็มนี้หรอ : "+getitemname(@id);
+		emotion e_wah;
+		end;
+	}
+	if (.@price) Zeny -= .@price;
+	if (getarraysize(.@item))  for(set .@i,0; .@i<getarraysize(.@item); set .@i,.@i+2)
+		delitem .@item[.@i], .@item[.@i+1];
+	delitem2 .@id,1,1,.@ref,0,.@slot[0],.@slot[1],.@slot[2],.@slot[3];
+	mes " เสร็จสมบูรณ์!";
+	emotion e_proud;
+	getitem2 .@id,1,1,.@ref,0,254,0,getcharid(0)&0xffff,(getcharid(0)>>16)&0xffff;
+	equip .@id;
+	end;
+}

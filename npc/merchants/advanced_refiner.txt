@@ -1,0 +1,177 @@
+//===== Hercules Script ======================================
+//= Advanced Refiner
+//===== By: ==================================================
+//= L0ne_W0lf,ROSTORE
+//===== Current Version: =====================================
+//= 1.5
+//===== Description: =========================================
+//= [Official Conversion]
+//= Refiner that uses Enriched ores to increase upgrade success.
+//= After a conversation with Doddler, it's been established that
+//= the advanced refiner works similar the the "Bubble Gum" item.
+//= The success percentage is not "increased" however, if it fails
+//= You get a second try. This tries twice at the same time,
+//= effectively giving you a re-roll on your attempt.
+//= - Dialog is only partly official to iRO.
+//= - Uses the iRO position for this NPC.
+//===== Additional Comments: =================================
+//= 1.0 First Version. [L0ne_W0lf]
+//= 1.1 Fixed a weird carriage return. o_o [L0ne_W0lf]
+//= 1.2 Optimizing refine method [Zephyrus]
+//= 1.3 Typo fixes [Yommy]
+//= 1.4 Removed unnecessary dialogs [Zephyrus]
+//= 1.4a Added 'disable_items' command. [Euphy]
+//= 1.4b Fixed coordinates. [Euphy]
+//= 1.5 Some official script updates. [Euphy]
+//============================================================
+
+morocc,134,78,4	script	Suhnbi#cash	4_M_03,{
+	disable_items;
+	mes "[Suhnbi]";
+	mes "ข้าคือช่างตีเหล็กด้วย อีลูและโอริเทพ";
+	mes "ข้าสามารถอัพเกรดได้ทั้งอาวุธ   และเครื่องป้องกัน";
+	mes "เพียงแค่บอกว่าต้องการอัพเกรดชิ้นไหน";
+	next;
+	setarray .@position$[1],"ส่วนหัว","ส่วนชุดเกราะ","มือซ้าย","มือขวา","ผ้าคลุม","รองเท้า","เครื่องประดับ","เครื่องประดับ","ส่วนหู","ส่วนตา";
+	set .@menu$,"";
+	for(set .@i,1; .@i<=10; set .@i,.@i+1)
+		set .@menu$, .@menu$+((getequipisequiped(.@i))?getequipname(.@i):.@position$[.@i]+" - [ไม่ได้สวมใส่อุปกรณ์]")+":";
+	set .@part, select(.@menu$);
+	if (!getequipisequiped(.@part)) {
+		mes "[Suhnbi]";
+		switch(.@part) {
+		case 1:
+			mes "หัวเจ้าเป็นอาวุธเหรอ...?";
+			break;
+		case 2:
+			mes "อะไรก็ช่าง...";
+			break;
+		case 3:
+			mes "ข้าไม่สามารถทำมือเจ้าให้เป็นอาวุธได้หรอก";
+			break;
+		case 4:
+			mes "ข้าไม่สามารถทำมือเจ้าให้เป็นอาวุธได้หรอก";
+			break;
+		case 5:
+			mes "เจ้าไม่รู้จักผ้าคลุมเหรอ?";
+			break;
+		case 6:
+			mes "ถ้าเจ้าต้องการทำรองเท้า";
+			mes "ไปวิ่งแข่งมาราธอนแทนละกัน";
+			break;
+		case 7:
+		case 8:
+			mes "เครื่องประดับ?.. ไม่เห็นมีอะไรเลย";
+			break;
+		case 9:
+		case 10:
+			mes "ถ้าโง่ก็ไปโรงเรียนซะ!!..";
+			break;
+		}
+		close;
+	}
+	//Check if the item is refinable...
+	if(!getequipisenableref(.@part)) {
+		mes "[Suhnbi]";
+		mes " ข้าคิดว่าข้าคงตีอุปกรณ์ชิ้นนี้ไม่ได้...";
+		close;
+	}
+	//Check if the item is identified... (Don't know why this is in here... but kept it anyway)
+	if(!getequipisidentify(.@part)) {
+		mes "[Suhnbi]";
+		mes " ไอเท็มชิ้นนี้ยังไม่ได้รับการตรวจสอบ..!!";
+		close;
+	}
+
+	if (getequiprefinerycnt(.@part) >= 10) {
+		mes "[Suhnbi]";
+		mes "ข้าไม่สามารถตีอุปกรณ์ได้มากกว่านี้อีกแล้ว..!!";
+		close;
+	}
+
+	// Make sure you have the neccessary items and Zeny to refine your items
+	// Determines chance of failure and verifies that you want to continue.
+	switch(getequipweaponlv(.@part)) {
+		case 1: callsub S_RefineValidate,1,7620,50,.@part; break;
+		case 2: callsub S_RefineValidate,2,7620,200,.@part; break;
+		case 3: callsub S_RefineValidate,3,7620,5000,.@part; break;
+		case 4: callsub S_RefineValidate,4,7620,20000,.@part; break;
+		default: callsub S_RefineValidate,0,7619,2000,.@part; break;
+	}
+
+	if( ( getequippercentrefinery(.@part) > rand(100) || getequippercentrefinery(.@part) > rand(100) ) || getequiprefinerycnt(.@part) < 4 )
+	{
+		mes "[Suhnbi]";
+		mes "ก๊อง! ก๊อง! ก๊อง!";
+		successrefitem .@part;
+		next;
+		emotion e_no1;
+		mes "[Suhnbi]";
+		mes "เสร็จสมบูรณ์!";
+		mes "เยี่ยมมาก.. อัจฉริยะนักตีเหล็ก~";
+		mes "วันนี้ได้ทำงานที่ยอดเยี่ยมอีกชิ้นหนึ่งแล้ว";
+		close;
+	}
+	mes "[Suhnbi]";
+	mes "ก๊อง! ก๊อง! ก๊อง!";
+	failedrefitem .@part;
+	next;
+	emotion (!rand(5))?e_cash:e_omg;
+	mes "[Suhnbi]";
+	mes "โอ้!! คณพระช่วย~~!!!!";
+	mes "โธ่เอ้ย!! ไม่นะ";
+	close;
+
+S_RefineValidate:
+	mes "[Suhnbi]";
+	if (getarg(0))
+		mes "อาวุธเลเวล " + getarg(0) + "...";
+	mes "ในการอัพเกรดข้าต้องใช้ ^ff9999" + getitemname(getarg(1)) + "^000000 และค่าแรง " + getarg(2) + " เซนี";
+		mes "ว่าไงล่ะ?";
+	next;
+	if(select("ตกลง:ไม่") == 1) {
+		if (getequippercentrefinery(getarg(3)) < 100) {
+			if (getarg(0)) {
+				mes "[Suhnbi]";
+				mes "โอ้!!";
+				mes "สิ่งที่ท่านจะให้ข้าทำเป็นเรื่องที่อันตรายมาก";
+				mes "ดูเหมือนของชิ้นนี้จะถูกตีมาแล้วหลายรอบ";
+				mes "มันอาจถูกทำลายได้ถ้าข้าตีมันอีก";
+				next;
+				mes "ข้าต้องเตือนท่านก่อนนะ ว่ามันอาจจะเสียหายไปอย่างถาวรหากมี Card อยู่ในนั้น มันก็จะ^FF0000เสียหายไปด้วยเช่นกัน^000000 นั่นคือของชิ้นนั้นจะหายไปจากโลกนี้เลย แล้วท่านยังอยากจะตีอีกหรือ?";
+				next;
+				if(select(" แน่นอน: ไม่ดีกว่า") == 2) {
+					mes "[Suhnbi]";
+					mes "ท่านไม่ต้องรีบร้อนเกินไปเชิญตามสบาย";
+					close;
+				}
+			} else {
+				mes "[Suhnbi]";
+				mes "โอ้!!";
+				mes "สิ่งที่ท่านจะให้ข้าทำเป็นเรื่องที่อันตรายมาก";
+				mes "ดูเหมือนของชิ้นนี้จะถูกตีมาแล้วหลายรอบ";
+				mes "มันอาจถูกทำลายได้ถ้าข้าตีมันอีก";
+				next;
+				mes "ข้าต้องเตือนท่านก่อนนะ ว่ามันอาจจะเสียหายไปอย่างถาวรหากมี Card อยู่ในนั้น มันก็จะ^FF0000เสียหายไปด้วยเช่นกัน^000000 นั่นคือของชิ้นนั้นจะหายไปจากโลกนี้เลย แล้วท่านยังอยากจะตีอีกหรือ?";
+				next;
+				if(select(" แน่นอน: ไม่ดีกว่า") == 2) {
+					mes "[Suhnbi]";
+					mes "ท่านไม่ต้องรีบร้อนเกินไปเชิญตามสบาย";
+					close;
+				}
+			}
+		}
+		if (countitem(getarg(1)) > 0 && Zeny > getarg(2)) {
+			delitem getarg(1),1;
+			Zeny -= getarg(2);
+			return;
+		}
+		mes "[Suhnbi]";
+		mes "ท่านไม่เห็นหรือ ท่านไม่มีวัตถุดิบ...";
+		close;
+	}
+	mes "[Suhnbi]";
+	mes "ท่านคงคิดว่าข้าโง่ซินะ?!";
+	mes "ที่คิดจะหลอกข้า ออกไปจากที่นี่ซะ!";
+	close;
+}

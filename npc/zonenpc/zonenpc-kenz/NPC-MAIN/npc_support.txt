@@ -1,0 +1,151 @@
+-	script	supportplayer	-1,{
+
+Lend:
+menu "^0000FF-^000000 กลับจุด Save",Lmoveto_save,"^0000FF-^000000 เปลี่ยนรหัสผ่าน",Lchange_pass,"^0000FF-^000000 Reset ตัวละคร",Lreset_stylist;
+
+Lmoveto_save:
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอก ID Game ครับ";
+input .@select_id$;
+next;
+query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+escape_sql(.@select_id$)+"'",.@accyou;
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอกชื่อตัวละครครับ";
+input .@select_name$;
+next;
+query_sql "SELECT `name`,`account_id` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@name$,.@accid;
+if (.@name$ != .@select_name$){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ไม่พบชื่อตัวละครในระบบครับ";
+next;
+goto Lend;
+}
+if (.@accid != .@accyou){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ไม่พบชื่อตัวละครใน ID Game ครับ";
+next;
+goto Lend;
+}
+query_sql "SELECT `online` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@stat;
+if (.@stat != 0){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ตัวละครยัง Online อยู่ครับ";
+next;
+goto Lend;
+}
+query_sql "SELECT `save_map`,`save_x`,`save_y` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@mapname_save$,.@mapx_save,.@mapy_save;
+query_sql "UPDATE `char` SET `last_map`='"+.@mapname_save$+"',`last_x`='"+.@mapx_save+"',`last_y`='"+.@mapy_save+"' WHERE `name`='"+escape_sql(.@select_name$)+"'";
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ID : "+.@select_id$+"";
+mes "Name : "+.@select_name$+" ";
+mes "Save : "+.@mapname_save$+" "+.@mapx_save+" "+.@mapy_save+"";
+mes "สถานะ : เรียบร้อยครับ";
+next;
+goto Lend;
+
+Lchange_pass:
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอก ID Game ครับ";
+input .@select_id$;
+next;
+query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+escape_sql(.@select_id$)+"'",.@accyou;
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอกรหัสผ่านเก่าครับ";
+input .@select_pass_old$;
+next;
+query_sql "SELECT `user_pass` FROM `login` WHERE `account_id`='"+.@accyou+"'",.@passyou$;
+if (.@passyou$ != .@select_pass_old$) {
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "รหัสผ่านเก่า ไม่ถูกต้องครับ";
+next;
+goto Lend;
+}
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอก E-Mail ที่สมัครครับ";
+input .@select_email_reg$;
+next;
+query_sql "SELECT `email` FROM `login` WHERE `account_id`='"+.@accyou+"'",.@emailyou$;
+if (.@emailyou$ != .@select_email_reg$) {
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "E-Mail ไม่ถูกต้องครับ";
+next;
+goto Lend;
+}
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอกรหัสผ่านใหม่ครับ";
+input .@select_pass_new1$;
+next;
+if (getstrlen(.@select_pass_new1$) < 4) {
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ต้องมี 4 ตัวอักษรหรือมากกว่าครับ";
+next;
+goto Lend;
+}
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอกรหัสผ่านใหม่อีกครั้งครับ";
+input .@select_pass_new2$;
+next;
+if (.@select_pass_new1$ != .@select_pass_new2$) {
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ต้องกรอกรหัสผ่านให้ตรงกันครับ";
+next;
+goto Lend;
+}
+if (.@select_pass_old$ == .@select_pass_new1$) {
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "รหัสผ่านใหม่เหมือนรหัสผ่านเก่าครับ";
+next;
+goto Lend;
+}
+query_sql "UPDATE `login` SET `user_pass`='"+.@select_pass_new1$+"' WHERE `account_id`='"+.@accyou+"'";
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ID : "+.@select_id$+"";
+mes "รหัสผ่านเดิม : "+.@select_pass_old$+"";
+mes "รหัสผ่านใหม่ : "+.@select_pass_new1$+"";
+mes "สถานะ : เรียบร้อยครับ";
+next;
+goto Lend;
+
+Lreset_stylist:
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอก ID Game ครับ";
+input .@select_id$;
+next;
+query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+escape_sql(.@select_id$)+"'",.@accyou;
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอกชื่อตัวละครครับ";
+input .@select_name$;
+query_sql "SELECT `name` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@name$;
+next;
+if (.@name$ != .@select_name$){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ไม่พบชื่อตัวละครในระบบครับ";
+next;
+goto Lend;
+}
+query_sql "SELECT `name`,`account_id` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@name$,.@accid;
+if (.@accid != .@accyou){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ไม่พบชื่อตัวละครใน ID Game ครับ";
+next;
+goto Lend;
+}
+query_sql "SELECT `online` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@stat;
+if (.@stat != 0){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ตัวละครยัง Online อยู่ครับ";
+next;
+goto Lend;
+}
+query_sql "UPDATE `char` SET `hair`='1',`hair_color`='1',`clothes_color`='1',`head_top`='0',`head_mid`='0',`head_bottom`='0' WHERE `name`='"+escape_sql(.@select_name$)+"'";
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ID : "+.@select_id$+"";
+mes "Name : "+.@select_name$+"";
+mes "สถานะ : เรียบร้อยครับ";
+next;
+goto Lend;
+
+OnInit:
+waitingroom "๐ ช่วยเหลือผู้เล่น ๐", 0;
+end;
+}

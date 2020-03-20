@@ -1,0 +1,31 @@
+-	script	ALDEBARAN#a2-2::Hohenschwangau2	-1,{
+set .@GID, GetCastleData("aldeg_cas02",1);
+if (.@GID == 0) {
+}
+else {
+if (getcharid(2) == .@GID) {
+if (select("^009933-^000000 เข้าปราสาท") == 1) {
+if (getcharid(2) == GetCastleData("aldeg_cas02",1)) {
+warp "aldeg_cas02",84,74;
+end;
+}
+}
+close;
+}
+mes "^FF0000[Hohenschwangau]^000000";
+mes "ถูกครอบครองโดยกิลด์ : " + GetGuildName(.@GID) + "";
+}
+close;
+
+OnRecvCastleA02:
+FlagEmblem GetCastleData("aldeg_cas02",1);
+end;
+}
+
+aldeg_cas02,214,24,0	duplicate(Gld_Agit_Manager)	Agit#aldeg_cas02	-1
+aldeg_cas02,78,74,0	duplicate(Gld_Mngr_Template)	Chenchenlie#aldeg_cas02	55
+aldeg_cas02,78,74,0	duplicate(Gld_Guard_Template)	Guardian#aldeg_cas02	-1
+aldeg_cas02,84,74,0	duplicate(Gld_Kafra_Template)	Kafra Staff#aldeg_cas02	117
+aldeg_cas02,135,230,0	duplicate(Gld_Trea_Protect)	ban_warp#aldeg_cas02	-1,8,8
+aldeg_cas02,135,230,0	duplicate(Gld_Trea_Spawn)	Treasure#aldeg_cas02	-1
+aldeg_cas02,194,136,0	duplicate(Gld_Dun_Template)	#aldeg_cas02	111

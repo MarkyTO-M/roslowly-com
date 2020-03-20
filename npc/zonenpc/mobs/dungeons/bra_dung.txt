@@ -1,0 +1,14 @@
+bra_dun01,0,0,0,0	monster	Iara	2069,180,0,0,0
+bra_dun01,0,0,0,0	monster	Piranha	2070,90,0,0,0
+bra_dun01,0,0,0,0	monster	Hydra	1068,10,0,0,0
+bra_dun01,0,0,0,0	monster	Plankton	1161,10,0,0,0
+bra_dun01,0,0,0,0	monster	Marina	1141,10,0,0,0
+bra_dun01,0,0,0,0	monster	Black Mushroom	1084,10,0,0,0
+
+bra_dun02,0,0,0,0	monster	Plankton	1161,10,0,0,0
+bra_dun02,0,0,0,0	monster	Iara	2069,180,0,0,0
+bra_dun02,0,0,0,0	monster	Piranha	2070,90,0,0,0
+bra_dun02,0,0,0,0	monster	Hydra	1068,10,0,0,0
+bra_dun02,0,0,0,0	monster	Plankton	1161,10,0,0,0
+bra_dun02,0,0,0,0	monster	Marina	1141,10,0,0,0
+bra_dun02,0,0,0,0	monster	Black Mushroom	1084,10,0,0,0

@@ -1,0 +1,8 @@
+ayo_dun01,0,0,0,0	monster	Leaf Cat	1586,90,0,0,0
+ayo_dun01,0,0,0,0	monster	Whisper	1179,10,0,0,0
+ayo_dun01,0,0,0,0	monster	Kraben	1587,90,0,0,0
+ayo_dun01,0,0,0,0	monster	Ghoul	1036,10,0,0,0
+
+ayo_dun02,0,0,0,0	monster	Tamruan	1584,90,0,0,0
+ayo_dun02,0,0,0,0	monster	Whisper	1179,10,0,0,0
+ayo_dun02,0,0,0,0	monster	Kraben	1587,90,0,0,0

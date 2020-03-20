@@ -1,0 +1,35 @@
+gefenia01,0,0,0,0	monster	False Angel	1371,90,0,0,0
+gefenia01,0,0,0,0	monster	Succubus	1370,90,0,0,0
+gefenia01,0,0,0,0	monster	Incubus	1374,10,0,0,0
+gefenia01,0,0,0,0	monster	Violy	1390,90,0,0,0
+gefenia01,0,0,0,0	monster	Mini Demon	1292,10,0,0,0
+gefenia01,0,0,0,0	monster	Abysmal Knight	1219,10,0,0,0
+gefenia01,0,0,0,0	monster	Bloody Knight	1268,1,0,0,0
+gefenia01,0,0,0,0	monster	Ogretooth	1204,1,0,0,0
+
+gefenia02,0,0,0,0	monster	False Angel	1371,90,0,0,0
+gefenia02,0,0,0,0	monster	Succubus	1370,90,0,0,0
+gefenia02,0,0,0,0	monster	Incubus	1374,10,0,0,0
+gefenia02,0,0,0,0	monster	Violy	1390,90,0,0,0
+gefenia02,0,0,0,0	monster	Mini Demon	1292,10,0,0,0
+gefenia02,0,0,0,0	monster	Abysmal Knight	1219,10,0,0,0
+gefenia02,0,0,0,0	monster	Bloody Knight	1268,1,0,0,0
+gefenia02,0,0,0,0	monster	Ogretooth	1204,1,0,0,0
+
+gefenia03,0,0,0,0	monster	False Angel	1371,90,0,0,0
+gefenia03,0,0,0,0	monster	Succubus	1370,90,0,0,0
+gefenia03,0,0,0,0	monster	Incubus	1374,90,0,0,0
+gefenia03,0,0,0,0	monster	Violy	1390,90,0,0,0
+gefenia03,0,0,0,0	monster	Mini Demon	1292,10,0,0,0
+gefenia03,0,0,0,0	monster	Abysmal Knight	1219,10,0,0,0
+gefenia03,0,0,0,0	monster	Bloody Knight	1268,1,0,0,0
+gefenia03,0,0,0,0	monster	Ogretooth	1204,1,0,0,0
+
+gefenia04,0,0,0,0	monster	False Angel	1371,90,0,0,0
+gefenia04,0,0,0,0	monster	Succubus	1370,90,0,0,0
+gefenia04,0,0,0,0	monster	Incubus	1374,90,0,0,0
+gefenia04,0,0,0,0	monster	Violy	1390,90,0,0,0
+gefenia04,0,0,0,0	monster	Mini Demon	1292,90,0,0,0
+gefenia04,0,0,0,0	monster	Abysmal Knight	1219,10,0,0,0
+gefenia04,0,0,0,0	monster	Bloody Knight	1268,1,0,0,0
+gefenia04,0,0,0,0	monster	Ogretooth	1204,1,0,0,0

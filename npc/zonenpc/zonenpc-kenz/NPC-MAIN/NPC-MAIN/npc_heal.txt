@@ -1,0 +1,162 @@
+-	script	healexpress	-1,{
+callfunc "healexpress";
+end;
+}
+
+-	script	healhome	-1,{
+callfunc "healhome";
+end;
+}
+
+-	script	healmorocc	-1,{
+
+if ($healmorocc) {
+if (gettime(4)==0 || gettime(4)==1 || gettime(4)==2 || gettime(4)==3 || gettime(4)==5 || gettime(4)==6) goto WAR1;
+} else if (!$healmorocc)
+goto WAR2;
+end;
+OnClock2000:
+if (gettime(4)==0 || gettime(4)==1 || gettime(4)==2 || gettime(4)==3 || gettime(4)==5 || gettime(4)==6)
+set $healmorocc,1;
+end;
+OnClock2100:
+set $healmorocc,0;
+end;
+
+WAR1: callfunc "healexpress"; end;
+WAR2: callfunc "healmorocc"; end;
+}
+
+function	script	healexpress	{
+
+
+
+emotion 10,1;
+//specialeffect2 572;
+sc_end SC_Poison;
+sc_end SC_Freeze;
+sc_end SC_Sleep;
+sc_end SC_Stan;
+sc_end SC_Stone;
+sc_end SC_Silence;
+sc_end SC_Blind;
+sc_end SC_Bleeding;
+sc_end SC_Confusion;
+sc_end SC_Curse;
+sc_end SC_Hallucination;
+sc_start SC_BLESSING,1000*60*30,10;
+sc_start SC_INCREASEAGI,1000*60*30,10;
+sc_start SC_MAGNIFICAT,1000*60*30,5;
+sc_start SC_GLORIA,1000*60*30,5;
+sc_start SC_STRFOOD,1000*60*30,5;
+sc_start SC_AGIFOOD,1000*60*30,5;
+sc_start SC_VITFOOD,1000*60*30,5;
+sc_start SC_INTFOOD,1000*60*30,5;
+sc_start SC_DEXFOOD,1000*60*30,5;
+sc_start SC_LUKFOOD,1000*60*30,5;
+sc_start SC_ITEMBOOST,1000*60*30,180;
+sc_start SC_EXPBOOST,1000*60*30,200;
+sc_start4 SC_SERVICE4U,300000,10,40,40,1;
+sc_start4 SC_POEMBRAGI,300000,10,90,100,1;
+percentheal 100,100;
+dispbottom "Buff : Bragi 5 นาที กลางเมืองบัฟอาหาร + 7 ที่อื่นๆ + 5 ซ่อมและส่องของ เวลาวอร์เครือบ อัตโนมัติ ";
+//callfunc "soullinker";
+
+if( agitcheck() ){ 
+sc_start SC_CP_WEAPON,1200000,5;
+sc_start SC_CP_SHIELD,1200000,5;
+sc_start SC_CP_ARMOR,1200000,5;
+sc_start SC_CP_HELM,1200000,5;
+}
+while (getbrokenid(1)) {
+repair(1);set .@i, .@i +1;
+}
+callfunc "magnifier";
+end;
+}
+
+function	script	healmorocc	{
+
+
+
+emotion 10,1;
+//specialeffect2 572;
+sc_end SC_Poison;
+sc_end SC_Freeze;
+sc_end SC_Sleep;
+sc_end SC_Stan;
+sc_end SC_Stone;
+sc_end SC_Silence;
+sc_end SC_Blind;
+sc_end SC_Bleeding;
+sc_end SC_Confusion;
+sc_end SC_Curse;
+sc_end SC_Hallucination;
+sc_start SC_BLESSING,1000*60*30,10;
+sc_start SC_INCREASEAGI,1000*60*30,10;
+sc_start SC_MAGNIFICAT,1000*60*30,5;
+sc_start SC_GLORIA,1000*60*30,5;
+sc_start SC_STRFOOD,1000*60*30,7;
+sc_start SC_AGIFOOD,1000*60*30,7;
+sc_start SC_VITFOOD,1000*60*30,7;
+sc_start SC_INTFOOD,1000*60*30,7;
+sc_start SC_DEXFOOD,1000*60*30,7;
+sc_start SC_LUKFOOD,1000*60*30,7;
+sc_start SC_ITEMBOOST,1000*60*30,180;
+sc_start SC_EXPBOOST,1000*60*30,200;
+sc_start4 SC_SERVICE4U,300000,10,40,40,1;
+sc_start4 SC_POEMBRAGI,300000,10,90,100,1;
+percentheal 100,100;
+//callfunc "soullinker";
+dispbottom "Buff : Bragi 5 นาที กลางเมืองบัฟอาหาร + 7 ที่อื่นๆ + 5 ซ่อมและส่องของ เวลาวอร์เครือบ อัตโนมัติ ";
+
+if( agitcheck() ){ 
+sc_start SC_CP_WEAPON,1200000,5;
+sc_start SC_CP_SHIELD,1200000,5;
+sc_start SC_CP_ARMOR,1200000,5;
+sc_start SC_CP_HELM,1200000,5;
+}
+while (getbrokenid(1)) {
+repair(1);set .@i, .@i +1;
+}
+callfunc "magnifier";
+end;
+}
+
+function	script	healhome	{
+
+
+emotion 10,1;
+//specialeffect2 572;
+sc_end SC_Poison;
+sc_end SC_Freeze;
+sc_end SC_Sleep;
+sc_end SC_Stan;
+sc_end SC_Stone;
+sc_end SC_Silence;
+sc_end SC_Blind;
+sc_end SC_Bleeding;
+sc_end SC_Confusion;
+sc_end SC_Curse;
+sc_end SC_Hallucination;
+sc_start SC_BLESSING,1000*60*30,10;
+sc_start SC_INCREASEAGI,1000*60*30,10;
+percentheal 100,100;
+dispbottom "Buff : Bragi 5 นาที กลางเมืองบัฟอาหาร + 7 ที่อื่นๆ + 5 ซ่อมและส่องของ เวลาวอร์เครือบ อัตโนมัติ ";
+end;
+}
+
+function	script	magnifier	{
+getinventorylist;
+for ( set .@i, 0; .@i < @inventorylist_count; set .@i, .@i+1 ) {
+if ( @inventorylist_identify[.@i] )
+continue;
+set .@count, countitem2(@inventorylist_id[.@i], @inventorylist_identify[.@i], @inventorylist_refine[.@i], @inventorylist_attribute[.@i], @inventorylist_card1[.@i], @inventorylist_card2[.@i], @inventorylist_card3[.@i], @inventorylist_card4[.@i]);
+if ( .@count ) {
+delitem2 @inventorylist_id[.@i], .@count, @inventorylist_identify[.@i], @inventorylist_refine[.@i], @inventorylist_attribute[.@i], @inventorylist_card1[.@i], @inventorylist_card2[.@i], @inventorylist_card3[.@i], @inventorylist_card4[.@i];
+getitem2 @inventorylist_id[.@i], .@count, 1, @inventorylist_refine[.@i], @inventorylist_attribute[.@i], @inventorylist_card1[.@i], @inventorylist_card2[.@i], @inventorylist_card3[.@i], @inventorylist_card4[.@i];
+} else
+dispbottom "";
+}
+close;
+}

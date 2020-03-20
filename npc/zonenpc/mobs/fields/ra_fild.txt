@@ -1,0 +1,60 @@
+ra_fild01,0,0,0,0	monster	Muscipular	1780,90,0,0,0
+ra_fild01,0,0,0,0	monster	Geographer	1368,90,0,0,0
+ra_fild01,0,0,0,0	monster	Drosera	1781,90,0,0,0
+ra_fild01,0,0,0,0	monster	Galion	1783,90,0,0,0
+ra_fild01,0,0,0,0	monster	Gryphon	1259,5,1800000,0,0
+
+ra_fild02,0,0,0,0	monster	Muscipular	1780,90,0,0,0
+ra_fild02,0,0,0,0	monster	Drosera	1781,90,0,0,0
+ra_fild02,0,0,0,0	monster	Galion	1783,90,0,0,0
+
+ra_fild03,0,0,0,0	monster	Galion	1783,90,0,0,0
+ra_fild03,0,0,0,0	monster	Drosera	1781,90,0,0,0
+ra_fild03,0,0,0,0	monster	Roween	1782,90,0,0,0
+ra_fild03,0,0,0,0	monster	Stapo	1784,90,0,0,0
+
+ra_fild04,0,0,0,0	monster	Roween	1782,90,0,0,0
+ra_fild04,0,0,0,0	monster	Stapo	1784,90,0,0,0
+ra_fild04,0,0,0,0	monster	Wild Rose	1261,90,0,0,0
+ra_fild04,0,0,0,0	monster	Galion	1783,90,0,0,0
+
+ra_fild05,0,0,0,0	monster	Hill Wind	1680,90,0,0,0
+ra_fild05,0,0,0,0	monster	Drosera	1781,90,0,0,0
+ra_fild05,0,0,0,0	monster	Geographer	1368,90,0,0,0
+
+ra_fild06,0,0,0,0	monster	Hill Wind	1680,90,0,0,0
+ra_fild06,0,0,0,0	monster	Anopheles	1627,90,0,0,0
+ra_fild06,0,0,0,0	monster	Drosera	1781,90,0,0,0
+
+ra_fild07,0,0,0,0	monster	Roween	1782,90,0,0,0
+ra_fild07,0,0,0,0	monster	Galion	1783,90,0,0,0
+ra_fild07,0,0,0,0	monster	Stapo	1784,90,0,0,0
+
+ra_fild08,0,0,0,0	monster	Stapo	1784,90,0,0,0
+ra_fild08,0,0,0,0	monster	Drops	1113,90,0,0,0
+ra_fild08,0,0,0,0	monster	Drosera	1781,90,0,0,0
+
+ra_fild09,0,0,0,0	monster	Drosera	1781,90,0,0,0
+ra_fild09,0,0,0,0	monster	Metaling	1613,90,0,0,0
+ra_fild09,0,0,0,0	monster	Hill Wind	1680,90,0,0,0
+ra_fild09,0,0,0,0	monster	Harpy	1376,90,0,0,0
+
+ra_fild10,0,0,0,0	monster	Stapo	1784,90,0,0,0
+ra_fild10,0,0,0,0	monster	Galion	1783,90,0,0,0
+ra_fild10,0,0,0,0	monster	Roween	1782,90,0,0,0
+
+ra_fild11,0,0,0,0	monster	Drops	1113,180,0,0,0
+ra_fild11,0,0,0,0	monster	Stapo	1784,90,0,0,0
+ra_fild11,0,0,0,0	monster	Roween	1782,10,0,0,0
+ra_fild11,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+ra_fild11,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+
+ra_fild12,0,0,0,0	monster	Drops	1113,180,0,0,0
+ra_fild12,0,0,0,0	monster	Stapo	1784,10,0,0,0
+ra_fild12,0,0,0,0	monster	Poporing	1031,10,0,0,0
+ra_fild12,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+ra_fild12,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+
+ra_fild13,0,0,0,0	monster	Stapo	1784,90,0,0,0
+ra_fild13,0,0,0,0	monster	Drops	1113,180,0,0,0
+ra_fild13,0,0,0,0	monster	Roween	1782,10,0,0,0

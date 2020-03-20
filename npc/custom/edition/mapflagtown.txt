@@ -1,0 +1,5 @@
+morocc	mapflag	noloot
+morocc	mapflag	nodrop
+morocc	mapflag	nobranch
+morocc	mapflag	noteleport
+morocc	mapflag	noicewall

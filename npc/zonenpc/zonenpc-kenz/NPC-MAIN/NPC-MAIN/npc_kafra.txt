@@ -1,0 +1,979 @@
+-	script	kafraexpress	-1,{
+
+if(Zeny >= 1000000) set zeny,zeny -500;
+
+mes "^FF0000[Kafra]^000000"; 
+mes "Account ID : "+ getcharid(3) +"";
+mes "Char ID : "+ getcharid(0) +"";
+mes "เลขกิลด์คือ : "+ getcharid(2) +"";
+mes "เลขปาร์ตี้คือ : "+ getcharid(1) +"";
+
+menu 
+"^0000FF-^000000 Save", L_1, 
+"^0000FF-^000000 เปิดคลัง", L_2,
+"^0000FF-^000000 รับสกิลเสริม", L_3,
+"^0000FF-^000000 Reset ตัวละคร", L_5,
+"^0000FF-^000000 เช่าพาหนะ", L_4,
+"^0000FF-^000000 จัดการ Homun", L_6,
+"^0000FF-^000000 ช่วยเหลือผู้เล่น", L_9,
+"^0000FF-^000000 ระบบจัดการกิลด์", L_7,
+"^0000FF-^000000 ช่างเสริมสวย", L_8;
+
+L_1:
+getmapxy .@mapname$,.@mapx,.@mapy,0,strcharinfo(0);
+savepoint .@mapname$,.@mapx,.@mapy;
+close;
+
+L_2:
+openstorage;
+close;
+
+L_3: 
+skill 142,1,0;
+if (BaseClass == Job_Novice) {
+skill 143,1,0;
+} else if (BaseClass == Job_Swordman) {
+skill 144,1,0;
+skill 145,1,0;
+skill 146,1,0;
+} else if (BaseClass == Job_Mage) {
+skill 157,1,0;
+} else if (BaseClass == Job_Archer) {
+skill 147,1,0;
+skill 148,1,0; 
+} else if (BaseClass == Job_Merchant) {
+skill 153,1,0;
+skill 154,1,0;
+skill 155,1,0;
+} else if (BaseClass == Job_Thief) {
+skill 149,1,0;
+skill 150,1,0;
+skill 151,1,0;
+skill 152,1,0;
+} else if (BaseClass == Job_Acolyte) {
+skill 156,1,0;
+}
+if (Class == Job_Knight || Class == Job_Lord_Knight || Class == Job_Rune_Knight) {
+skill 1001,1,0;
+} else if (Class == Job_Crusader || Class == Job_Paladin || Class == Job_Royal_Guard) {
+skill 1002,1,0;
+} else if (Class == Job_Wizard || Class == Job_High_Wizard || Class == Job_Warlock) {
+skill 1006,1,0;
+} else if (Class == Job_Sage || Class == Job_Professor || Class == Job_Sorcerer) {
+skill 1007,1,0;
+skill 1008,1,0;
+skill 1017,1,0;
+skill 1018,1,0;
+skill 1019,1,0;
+} else if (Class == Job_Hunter || Class == Job_Sniper || Class == Job_Ranger) {
+skill 1009,1,0;
+} else if (Class == Job_Bard || Class == Job_Clown || Class == Job_Minstrel) {
+skill 1010,1,0;
+} else if (Class == Job_Dancer || Class == Job_Gypsy || Class == Job_Wanderer) {
+skill 1011,1,0;
+} else if (Class == Job_Blacksmith || Class == Job_Whitesmith || Class == Job_Mechanic) {
+skill 1012,1,0;
+skill 1013,1,0;
+} else if (Class == Job_Alchemist || Class == Job_Creator || Class == Job_Genetic) {
+skill 238,1,0;
+} else if (Class == Job_Assassin || Class == Job_Assassin_Cross || Class == Job_Guillotine_Cross) {
+skill 1003,1,0;
+skill 1004,1,0;
+} else if (Class == Job_Rogue || Class == Job_Stalker || Class == Job_Shadow_Chaser) {
+skill 1005,1,0;
+} else if (Class == Job_Priest || Class == Job_High_Priest || Class == Job_Arch_Bishop) {
+skill 1014,1,0;
+} else if (Class == Job_Monk || Class == Job_Champion || Class == Job_Sura) {
+skill 1015,1,0;
+skill 1016,1,0;
+}
+close;
+
+L_4: 
+menu "^0000FF-^000000 เช่า Pecopeco",Repeco,"^0000FF-^000000 เช่า Falcon",Refal,"^0000FF-^000000 เช่า Cart",Recart;
+Repeco:
+if ((Class == 7) || (Class == 14) || (Class == 4008) || (Class == 4015) || (Class == 4030) || (Class == 4037)) { setriding; close; }
+close;
+Refal:
+if ((Class == 11) || (Class == 4012) || (Class == 4034)) { setfalcon; close; }
+close;
+Recart:
+if((Class == 5) || (Class == 10) || (Class == 23) || (Class == 18) || (Class == 4006) || (Class == 4011) || (Class == 4019) || (Class == 4028) || (Class == 4033) || (Class == 4041) || (Class == 4045)) { setcart; close; }
+close;
+
+L_5: 
+
+switch(select("^0000FF-^000000 Reset Skill:^0000FF-^000000 Reset Status:^0000FF-^000000 Reset Skill & Status")) {
+
+case 1:
+if (Zeny < 100000){
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ต้องการ เงิน 100000 Zeny ครับ"; 
+close;
+}
+set Zeny,zeny-100000;
+ResetSkill;
+close;
+			
+case 2:
+if (Zeny < 100000){
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ต้องการ เงิน 100000 Zeny ครับ"; 
+close;
+}
+set Zeny,zeny-100000;
+ResetStatus;
+close;
+			
+case 3:
+if (Zeny < 150000){
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ต้องการ เงิน 150000 Zeny ครับ"; 
+close;
+}
+set Zeny,zeny-150000;
+ResetSkill;
+ResetStatus;
+close;
+}
+
+
+L_6: 
+if(Class == Job_Alchemist || Class == Job_Creator || Class == Job_Genetic) {
+menu "^0000FF-^000000 รับ Skill Homun",homunculus1,"^0000FF-^000000 อัพ Lv. Homun",homunculus2,"^0000FF-^000000 กลายร่าง Homun",homunculus3;
+homunculus1:
+if (getskilllv(238) > 0 || getskilllv(243) > 0 || getskilllv(244) > 0 || getskilllv(247) > 0) close;
+skill 238,1,0;
+skill 243,1,0;
+skill 244,1,0;
+skill 247,1,0;
+goto homunculus;
+homunculus2:
+if(Zeny < 10000) { 
+mes "^FF0000[จัดการ Homun]^000000"; 
+mes "ต้องการ เงิน 10000 Zeny ครับ"; 
+close; 
+}
+set zeny,zeny -10000;
+atcommand "@homlvup 1";
+goto homunculus;
+homunculus3:
+if(Zeny < 50000) { 
+mes "^FF0000[จัดการ Homun]^000000"; 
+mes "ต้องการ เงิน 50000 Zeny ครับ"; 
+close; 
+}
+set zeny,zeny -50000;
+atcommand "@homevolution";
+goto homunculus;
+}
+dispbottom "คุณไม่ใช่อาชีพสายนี้นะครับ"; 
+close;
+
+L_7: 
+if(agitcheck())goto wars;
+goto main;
+wars:
+set @GIDGUILD,getcharid(2);
+set .@name$, "^FF0000[ระบบจัดการกิลด์]^000000";
+menu 
+"^0000FF-^000000 สร้างกิลด์",Yes,
+"^0000FF-^000000 อัพเวลกิลด์",Ca,
+"^0000FF-^000000 ลบกิลด์",Ea;
+main:
+set @GIDGUILD,getcharid(2);
+set .@name$, "^FF0000[ระบบจัดการกิลด์]^000000";
+menu 
+"^0000FF-^000000 สร้างกิลด์",Yes,
+"^0000FF-^000000 อัพเวลกิลด์",Ca,
+"^0000FF-^000000 โอนหัวกิลด์",Da,
+"^0000FF-^000000 ลบกิลด์",Ea;
+Yes:
+if( getcharid(2) ){close; }
+mes .@name$;
+mes "กรอกชื่อกิลด์ครับ";
+input @nameguild$;
+atcommand "@guild "+@nameguild$;
+close;
+end;
+Ca:
+atcommand "@guildlvup 50";
+close;
+Da:
+mes .@name$;
+mes "กรอกชื่อตัวละครครับ";
+input @name$;
+next;
+atcommand "@changegm "+@name$+"";
+close;
+end;
+Ea:
+atcommand "@breakguild";
+close;
+
+L_8: 
+set .@Designer_HStyle,85;
+set .@Designer_HColor,263;
+set .@Designer_CColor,533;
+L_Index:
+menu 
+"^0000FF-^000000 เปลี่ยนทรงผม",HStyle,
+"^0000FF-^000000 เปลี่ยนสีผม",HColor,
+"^0000FF-^000000 เปลี่ยนสีชุด",CColor; 
+HStyle:
+menu "^0000FF-^000000 ระบุแบบทรงผม",NbStyle,"^0000FF-^000000 เลือกดูทั้งหมด",ACStyle;
+close;
+NbStyle:
+input @sty;
+if(@sty > .@Designer_HStyle) goto L_Error; 
+setlook 1,@sty; 
+goto L_Index;
+ACStyle:
+set @sty,0;
+goto GStyle;
+close;
+GStyle:
+setlook 1,@sty;
+dispbottom "ทรงผมแบบที่ "+@sty+".";
+goto CStyle;
+close;
+CStyle:
+switch(select("^0000FF-^000000 ต่อไป","^FF0000-^000000 หยุด กลับเมนูหลัก")) {
+case 1:
+if(@sty == .@Designer_HStyle) goto L_Menu;
+set @sty,@sty+1;
+goto GStyle;
+case 2:
+goto L_Index;
+}
+HColor:
+menu "^0000FF-^000000 ระบุแบบสีผม",NbHair,"^0000FF-^000000 เลือกดูทั้งหมด",ACHair;
+close;
+NbHair:
+input @Hair;
+if(@Hair > .@Designer_HColor) goto L_Error;
+setlook 6,@Hair; 
+goto L_Index;
+ACHair:
+set @Hair,0;
+goto GHair;
+close;
+GHair:
+setlook 6,@Hair; 
+dispbottom "สีผมแบบที่ "+@Hair+".";
+goto CHair;
+close;
+CHair:
+switch(select("^0000FF-^000000 ต่อไป","^FF0000-^000000 หยุด กลับเมนูหลัก")) {
+case 1:
+if(@Hair == .@Designer_HColor) goto L_Menu;
+set @Hair,@Hair+1;
+goto GHair;
+case 2:
+goto L_Index;
+}
+Ccolor:
+menu "^0000FF-^000000 ระบุแบบสีชุด",NbClothes,"^0000FF-^000000 เลือกดูทั้งหมด",ACClothes;
+close;
+NbClothes:
+input @Clothes;
+if(@Clothes > .@Designer_CColor) goto L_Error;
+setlook 7,@Clothes; 
+goto L_Index;
+ACClothes:
+set @Clothes,0;
+goto GClothes;
+close;
+GClothes:
+setlook 7,@Clothes; 
+dispbottom "สีชุดแบบที่ "+@Clothes+".";
+goto CClothes;
+close;
+CClothes:
+switch(select("^0000FF-^000000 ต่อไป","^FF0000-^000000 หยุด กลับเมนูหลัก")) {
+case 1:
+if(@Clothes == .@Designer_CColor) goto L_Menu;
+set @Clothes,@Clothes+1;
+goto GClothes;
+case 2:
+goto L_Index;
+}
+L_Menu:
+set @Hair,0;
+close;
+L_Error:
+close;
+
+L_9: 
+Lend:
+menu "^0000FF-^000000 กลับจุด Save",Lmoveto_save,"^0000FF-^000000 เปลี่ยนรหัสผ่าน",Lchange_pass,"^0000FF-^000000 Reset ตัวละคร",Lreset_stylist;
+Lmoveto_save:
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอก ID Game ครับ";
+input .@select_id$;
+next;
+query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+escape_sql(.@select_id$)+"'",.@accyou;
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอกชื่อตัวละครครับ";
+input .@select_name$;
+next;
+query_sql "SELECT `name`,`account_id` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@name$,.@accid;
+if (.@name$ != .@select_name$){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ไม่พบชื่อตัวละครในระบบครับ";
+next;
+goto Lend;
+}
+if (.@accid != .@accyou){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ไม่พบชื่อตัวละครใน ID Game ครับ";
+next;
+goto Lend;
+}
+query_sql "SELECT `online` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@stat;
+if (.@stat != 0){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ตัวละครยัง Online อยู่ครับ";
+next;
+goto Lend;
+}
+query_sql "SELECT `save_map`,`save_x`,`save_y` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@mapname_save$,.@mapx_save,.@mapy_save;
+query_sql "UPDATE `char` SET `last_map`='"+.@mapname_save$+"',`last_x`='"+.@mapx_save+"',`last_y`='"+.@mapy_save+"' WHERE `name`='"+escape_sql(.@select_name$)+"'";
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ID : "+.@select_id$+"";
+mes "Name : "+.@select_name$+" ";
+mes "Save : "+.@mapname_save$+" "+.@mapx_save+" "+.@mapy_save+"";
+mes "สถานะ : เรียบร้อยครับ";
+next;
+goto Lend;
+Lchange_pass:
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอก ID Game ครับ";
+input .@select_id$;
+next;
+query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+escape_sql(.@select_id$)+"'",.@accyou;
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอกรหัสผ่านเก่าครับ";
+input .@select_pass_old$;
+next;
+query_sql "SELECT `user_pass` FROM `login` WHERE `account_id`='"+.@accyou+"'",.@passyou$;
+if (.@passyou$ != .@select_pass_old$) {
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "รหัสผ่านเก่า ไม่ถูกต้องครับ";
+next;
+goto Lend;
+}
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอก E-Mail ที่สมัครครับ";
+input .@select_email_reg$;
+next;
+query_sql "SELECT `email` FROM `login` WHERE `account_id`='"+.@accyou+"'",.@emailyou$;
+if (.@emailyou$ != .@select_email_reg$) {
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "E-Mail ไม่ถูกต้องครับ";
+next;
+goto Lend;
+}
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอกรหัสผ่านใหม่ครับ";
+input .@select_pass_new1$;
+next;
+if (getstrlen(.@select_pass_new1$) < 4) {
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ต้องมี 4 ตัวอักษรหรือมากกว่าครับ";
+next;
+goto Lend;
+}
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอกรหัสผ่านใหม่อีกครั้งครับ";
+input .@select_pass_new2$;
+next;
+if (.@select_pass_new1$ != .@select_pass_new2$) {
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ต้องกรอกรหัสผ่านให้ตรงกันครับ";
+next;
+goto Lend;
+}
+if (.@select_pass_old$ == .@select_pass_new1$) {
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "รหัสผ่านใหม่เหมือนรหัสผ่านเก่าครับ";
+next;
+goto Lend;
+}
+query_sql "UPDATE `login` SET `user_pass`='"+.@select_pass_new1$+"' WHERE `account_id`='"+.@accyou+"'";
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ID : "+.@select_id$+"";
+mes "รหัสผ่านเดิม : "+.@select_pass_old$+"";
+mes "รหัสผ่านใหม่ : "+.@select_pass_new1$+"";
+mes "สถานะ : เรียบร้อยครับ";
+next;
+goto Lend;
+Lreset_stylist:
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอก ID Game ครับ";
+input .@select_id$;
+next;
+query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+escape_sql(.@select_id$)+"'",.@accyou;
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอกชื่อตัวละครครับ";
+input .@select_name$;
+query_sql "SELECT `name` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@name$;
+next;
+if (.@name$ != .@select_name$){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ไม่พบชื่อตัวละครในระบบครับ";
+next;
+goto Lend;
+}
+query_sql "SELECT `name`,`account_id` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@name$,.@accid;
+if (.@accid != .@accyou){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ไม่พบชื่อตัวละครใน ID Game ครับ";
+next;
+goto Lend;
+}
+query_sql "SELECT `online` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@stat;
+if (.@stat != 0){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ตัวละครยัง Online อยู่ครับ";
+next;
+goto Lend;
+}
+query_sql "UPDATE `char` SET `hair`='1',`hair_color`='1',`clothes_color`='1',`head_top`='0',`head_mid`='0',`head_bottom`='0' WHERE `name`='"+escape_sql(.@select_name$)+"'";
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ID : "+.@select_id$+"";
+mes "Name : "+.@select_name$+"";
+mes "สถานะ : เรียบร้อยครับ";
+next;
+goto Lend;
+}
+
+-	script	jobother	-1,{
+menu 
+"^0000FF-^000000 รับสกิลเสริม", L_3,
+"^0000FF-^000000 Reset ตัวละคร", L_5,
+"^0000FF-^000000 เช่าพาหนะ", L_4,
+"^0000FF-^000000 จัดการ Homun", L_6,
+"^0000FF-^000000 ช่วยเหลือผู้เล่น", L_9,
+"^0000FF-^000000 ระบบจัดการกิลด์", L_7,
+"^0000FF-^000000 ช่างเสริมสวย", L_8;
+
+L_1:
+getmapxy .@mapname$,.@mapx,.@mapy,0,strcharinfo(0);
+savepoint .@mapname$,.@mapx,.@mapy;
+close;
+
+L_2:
+openstorage;
+close;
+
+L_3: 
+skill 142,1,0;
+if (BaseClass == Job_Novice) {
+skill 143,1,0;
+} else if (BaseClass == Job_Swordman) {
+skill 144,1,0;
+skill 145,1,0;
+skill 146,1,0;
+} else if (BaseClass == Job_Mage) {
+skill 157,1,0;
+} else if (BaseClass == Job_Archer) {
+skill 147,1,0;
+skill 148,1,0; 
+} else if (BaseClass == Job_Merchant) {
+skill 153,1,0;
+skill 154,1,0;
+skill 155,1,0;
+} else if (BaseClass == Job_Thief) {
+skill 149,1,0;
+skill 150,1,0;
+skill 151,1,0;
+skill 152,1,0;
+} else if (BaseClass == Job_Acolyte) {
+skill 156,1,0;
+}
+if (Class == Job_Knight || Class == Job_Lord_Knight || Class == Job_Rune_Knight) {
+skill 1001,1,0;
+} else if (Class == Job_Crusader || Class == Job_Paladin || Class == Job_Royal_Guard) {
+skill 1002,1,0;
+} else if (Class == Job_Wizard || Class == Job_High_Wizard || Class == Job_Warlock) {
+skill 1006,1,0;
+} else if (Class == Job_Sage || Class == Job_Professor || Class == Job_Sorcerer) {
+skill 1007,1,0;
+skill 1008,1,0;
+skill 1017,1,0;
+skill 1018,1,0;
+skill 1019,1,0;
+} else if (Class == Job_Hunter || Class == Job_Sniper || Class == Job_Ranger) {
+skill 1009,1,0;
+} else if (Class == Job_Bard || Class == Job_Clown || Class == Job_Minstrel) {
+skill 1010,1,0;
+} else if (Class == Job_Dancer || Class == Job_Gypsy || Class == Job_Wanderer) {
+skill 1011,1,0;
+} else if (Class == Job_Blacksmith || Class == Job_Whitesmith || Class == Job_Mechanic) {
+skill 1012,1,0;
+skill 1013,1,0;
+} else if (Class == Job_Alchemist || Class == Job_Creator || Class == Job_Genetic) {
+skill 238,1,0;
+} else if (Class == Job_Assassin || Class == Job_Assassin_Cross || Class == Job_Guillotine_Cross) {
+skill 1003,1,0;
+skill 1004,1,0;
+} else if (Class == Job_Rogue || Class == Job_Stalker || Class == Job_Shadow_Chaser) {
+skill 1005,1,0;
+} else if (Class == Job_Priest || Class == Job_High_Priest || Class == Job_Arch_Bishop) {
+skill 1014,1,0;
+} else if (Class == Job_Monk || Class == Job_Champion || Class == Job_Sura) {
+skill 1015,1,0;
+skill 1016,1,0;
+}
+close;
+
+L_4: 
+menu "^0000FF-^000000 เช่า Pecopeco",Repeco,"^0000FF-^000000 เช่า Falcon",Refal,"^0000FF-^000000 เช่า Cart",Recart;
+Repeco:
+if ((Class == 7) || (Class == 14) || (Class == 4008) || (Class == 4015) || (Class == 4030) || (Class == 4037)) { setriding; close; }
+close;
+Refal:
+if ((Class == 11) || (Class == 4012) || (Class == 4034)) { setfalcon; close; }
+close;
+Recart:
+if((Class == 5) || (Class == 10) || (Class == 23) || (Class == 18) || (Class == 4006) || (Class == 4011) || (Class == 4019) || (Class == 4028) || (Class == 4033) || (Class == 4041) || (Class == 4045)) { setcart; close; }
+close;
+
+L_5: 
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ข้ามีความสามารถในการรีเซ็ต";
+next;
+menu "^0000FF-^000000 ลดสเตตัสทีละ 100",re3,"^0000FF-^000000 รีเซทสเตตัส",re1,"^0000FF-^000000 รีเซทสกิลทั้งหมด",re2,"^0000FF-^000000 ยกเลิก",no;
+re3:
+menu "^0000FF-^000000 Str -100",restr,"^0000FF-^000000 Agi -100",reagi,"^0000FF-^000000 Vit -100",revit,"^0000FF-^000000 Int -100",reint,"^0000FF-^000000 Dex -100",redex,"^0000FF-^000000 Luk -100",reluk;
+
+restr:
+if(Zeny < 1000000) {
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ข้าต้องการ 10m Zeny";
+mes "กรุณาหามาให้ข้า";
+close;
+}
+set Zeny,Zeny-10000000;
+atcommand "@str -100";
+close;
+
+reagi:
+if(Zeny < 1000000) {
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ข้าต้องการ 10m Zeny";
+mes "กรุณาหามาให้ข้า";
+close;
+}
+set Zeny,Zeny-10000000;
+atcommand "@agi -100";
+close;
+
+revit:
+if(Zeny < 1000000) {
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ข้าต้องการ 10m Zeny";
+mes "กรุณาหามาให้ข้า";
+close;
+}
+set Zeny,Zeny-10000000;
+atcommand "@vit -100";
+close;
+
+reint:
+if(Zeny < 1000000) {
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ข้าต้องการ 10m Zeny";
+mes "กรุณาหามาให้ข้า";
+close;
+}
+set Zeny,Zeny-10000000;
+atcommand "@int -100";
+close;
+
+redex:
+if(Zeny < 1000000) {
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ข้าต้องการ 10m Zeny";
+mes "กรุณาหามาให้ข้า";
+close;
+}
+set Zeny,Zeny-10000000;
+atcommand "@dex -100";
+close;
+
+reluk:
+if(Zeny < 1000000) {
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ข้าต้องการ 10m Zeny";
+mes "กรุณาหามาให้ข้า";
+close;
+}
+set Zeny,Zeny-10000000;
+atcommand "@luk -100";
+close; 
+
+re1: 
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "สำหรับการ Reset Status";
+mes "ต้องใช้เงิน 10,000,000 zeny";
+mes "Status จะเหลือ 1 ทุกช่อง";
+mes "เจ้าตกลงไหมหละ";
+next;
+menu "^0000FF-^000000 ตกลง",okay,"^0000FF-^000000 ยกเลิก",no;
+
+okay:
+if(Zeny < 1000000) {
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ข้าต้องการ 10m Zeny";
+close;
+}
+
+set Zeny,Zeny-10000000;
+ResetStatus;
+next;
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ทีหลังเจ้าอย่าอัพผิดอีกล่ะ";
+close;
+
+re2:
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "สำหรับการ Reset skill";
+mes "ต้องใช้เงิน 7,000,000 zeny";
+mes "เจ้าตกลงไหมหละ";
+next;
+menu "^0000FF-^000000 ตกลง",okay2,"^0000FF-^000000 ยกเลิก",no;
+okay2:
+if(Zeny < 7000000) {
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ข้าต้องการ 7m Zeny";
+close;
+}
+
+set Zeny,Zeny-7000000;
+ResetSkill;
+next;
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ทีหลังเจ้าอย่าอัพผิดอีกล่ะ";
+close;
+
+no: 
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "แล้วเจ้าจะมาทำไมเนี่ย";
+close;
+
+L_6: 
+if(Class == Job_Alchemist || Class == Job_Creator || Class == Job_Genetic) {
+menu "^0000FF-^000000 รับ Skill Homun",homunculus1,"^0000FF-^000000 อัพ Lv. Homun",homunculus2,"^0000FF-^000000 กลายร่าง Homun",homunculus3;
+homunculus1:
+if (getskilllv(238) > 0 || getskilllv(243) > 0 || getskilllv(244) > 0 || getskilllv(247) > 0) close;
+skill 238,1,0;
+skill 243,1,0;
+skill 244,1,0;
+skill 247,1,0;
+goto homunculus;
+homunculus2:
+if(Zeny < 10000) { 
+mes "^FF0000[จัดการ Homun]^000000"; 
+mes "ต้องการ เงิน 10000 Zeny ครับ"; 
+close; 
+}
+set zeny,zeny -10000;
+atcommand "@homlvup 1";
+goto homunculus;
+homunculus3:
+if(Zeny < 50000) { 
+mes "^FF0000[จัดการ Homun]^000000"; 
+mes "ต้องการ เงิน 50000 Zeny ครับ"; 
+close; 
+}
+set zeny,zeny -50000;
+atcommand "@homevolution";
+goto homunculus;
+}
+dispbottom "คุณไม่ใช่อาชีพสายนี้นะครับ"; 
+close;
+
+L_7: 
+if(agitcheck())goto wars;
+goto main;
+wars:
+set @GIDGUILD,getcharid(2);
+set .@name$, "^FF0000[ระบบจัดการกิลด์]^000000";
+menu 
+"^0000FF-^000000 สร้างกิลด์",Yes,
+"^0000FF-^000000 อัพเวลกิลด์",Ca,
+"^0000FF-^000000 ลบกิลด์",Ea;
+main:
+set @GIDGUILD,getcharid(2);
+set .@name$, "^FF0000[ระบบจัดการกิลด์]^000000";
+menu 
+"^0000FF-^000000 สร้างกิลด์",Yes,
+"^0000FF-^000000 อัพเวลกิลด์",Ca,
+"^0000FF-^000000 โอนหัวกิลด์",Da,
+"^0000FF-^000000 ลบกิลด์",Ea;
+Yes:
+if( getcharid(2) ){close; }
+mes .@name$;
+mes "กรอกชื่อกิลด์ครับ";
+input @nameguild$;
+atcommand "@guild "+@nameguild$;
+close;
+end;
+Ca:
+atcommand "@guildlvup 50";
+close;
+Da:
+mes .@name$;
+mes "กรอกชื่อตัวละครครับ";
+input @name$;
+next;
+atcommand "@changegm "+@name$+"";
+close;
+end;
+Ea:
+atcommand "@breakguild";
+close;
+
+L_8: 
+set .@Designer_HStyle,85;
+set .@Designer_HColor,263;
+set .@Designer_CColor,533;
+L_Index:
+menu 
+"^0000FF-^000000 เปลี่ยนทรงผม",HStyle,
+"^0000FF-^000000 เปลี่ยนสีผม",HColor,
+"^0000FF-^000000 เปลี่ยนสีชุด",CColor; 
+HStyle:
+menu "^0000FF-^000000 ระบุแบบทรงผม",NbStyle,"^0000FF-^000000 เลือกดูทั้งหมด",ACStyle;
+close;
+NbStyle:
+input @sty;
+if(@sty > .@Designer_HStyle) goto L_Error; 
+setlook 1,@sty; 
+goto L_Index;
+ACStyle:
+set @sty,0;
+goto GStyle;
+close;
+GStyle:
+setlook 1,@sty;
+dispbottom "ทรงผมแบบที่ "+@sty+".";
+goto CStyle;
+close;
+CStyle:
+switch(select("^0000FF-^000000 ต่อไป","^FF0000-^000000 หยุด กลับเมนูหลัก")) {
+case 1:
+if(@sty == .@Designer_HStyle) goto L_Menu;
+set @sty,@sty+1;
+goto GStyle;
+case 2:
+goto L_Index;
+}
+HColor:
+menu "^0000FF-^000000 ระบุแบบสีผม",NbHair,"^0000FF-^000000 เลือกดูทั้งหมด",ACHair;
+close;
+NbHair:
+input @Hair;
+if(@Hair > .@Designer_HColor) goto L_Error;
+setlook 6,@Hair; 
+goto L_Index;
+ACHair:
+set @Hair,0;
+goto GHair;
+close;
+GHair:
+setlook 6,@Hair; 
+dispbottom "สีผมแบบที่ "+@Hair+".";
+goto CHair;
+close;
+CHair:
+switch(select("^0000FF-^000000 ต่อไป","^FF0000-^000000 หยุด กลับเมนูหลัก")) {
+case 1:
+if(@Hair == .@Designer_HColor) goto L_Menu;
+set @Hair,@Hair+1;
+goto GHair;
+case 2:
+goto L_Index;
+}
+Ccolor:
+menu "^0000FF-^000000 ระบุแบบสีชุด",NbClothes,"^0000FF-^000000 เลือกดูทั้งหมด",ACClothes;
+close;
+NbClothes:
+input @Clothes;
+if(@Clothes > .@Designer_CColor) goto L_Error;
+setlook 7,@Clothes; 
+goto L_Index;
+ACClothes:
+set @Clothes,0;
+goto GClothes;
+close;
+GClothes:
+setlook 7,@Clothes; 
+dispbottom "สีชุดแบบที่ "+@Clothes+".";
+goto CClothes;
+close;
+CClothes:
+switch(select("^0000FF-^000000 ต่อไป","^FF0000-^000000 หยุด กลับเมนูหลัก")) {
+case 1:
+if(@Clothes == .@Designer_CColor) goto L_Menu;
+set @Clothes,@Clothes+1;
+goto GClothes;
+case 2:
+goto L_Index;
+}
+L_Menu:
+set @Hair,0;
+close;
+L_Error:
+close;
+
+L_9: 
+Lend:
+menu "^0000FF-^000000 กลับจุด Save",Lmoveto_save,"^0000FF-^000000 เปลี่ยนรหัสผ่าน",Lchange_pass,"^0000FF-^000000 Reset ตัวละคร",Lreset_stylist;
+Lmoveto_save:
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอก ID Game ครับ";
+input .@select_id$;
+next;
+query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+escape_sql(.@select_id$)+"'",.@accyou;
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอกชื่อตัวละครครับ";
+input .@select_name$;
+next;
+query_sql "SELECT `name`,`account_id` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@name$,.@accid;
+if (.@name$ != .@select_name$){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ไม่พบชื่อตัวละครในระบบครับ";
+next;
+goto Lend;
+}
+if (.@accid != .@accyou){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ไม่พบชื่อตัวละครใน ID Game ครับ";
+next;
+goto Lend;
+}
+query_sql "SELECT `online` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@stat;
+if (.@stat != 0){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ตัวละครยัง Online อยู่ครับ";
+next;
+goto Lend;
+}
+query_sql "SELECT `save_map`,`save_x`,`save_y` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@mapname_save$,.@mapx_save,.@mapy_save;
+query_sql "UPDATE `char` SET `last_map`='"+.@mapname_save$+"',`last_x`='"+.@mapx_save+"',`last_y`='"+.@mapy_save+"' WHERE `name`='"+escape_sql(.@select_name$)+"'";
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ID : "+.@select_id$+"";
+mes "Name : "+.@select_name$+" ";
+mes "Save : "+.@mapname_save$+" "+.@mapx_save+" "+.@mapy_save+"";
+mes "สถานะ : เรียบร้อยครับ";
+next;
+goto Lend;
+Lchange_pass:
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอก ID Game ครับ";
+input .@select_id$;
+next;
+query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+escape_sql(.@select_id$)+"'",.@accyou;
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอกรหัสผ่านเก่าครับ";
+input .@select_pass_old$;
+next;
+query_sql "SELECT `user_pass` FROM `login` WHERE `account_id`='"+.@accyou+"'",.@passyou$;
+if (.@passyou$ != .@select_pass_old$) {
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "รหัสผ่านเก่า ไม่ถูกต้องครับ";
+next;
+goto Lend;
+}
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอก E-Mail ที่สมัครครับ";
+input .@select_email_reg$;
+next;
+query_sql "SELECT `email` FROM `login` WHERE `account_id`='"+.@accyou+"'",.@emailyou$;
+if (.@emailyou$ != .@select_email_reg$) {
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "E-Mail ไม่ถูกต้องครับ";
+next;
+goto Lend;
+}
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอกรหัสผ่านใหม่ครับ";
+input .@select_pass_new1$;
+next;
+if (getstrlen(.@select_pass_new1$) < 4) {
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ต้องมี 4 ตัวอักษรหรือมากกว่าครับ";
+next;
+goto Lend;
+}
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอกรหัสผ่านใหม่อีกครั้งครับ";
+input .@select_pass_new2$;
+next;
+if (.@select_pass_new1$ != .@select_pass_new2$) {
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ต้องกรอกรหัสผ่านให้ตรงกันครับ";
+next;
+goto Lend;
+}
+if (.@select_pass_old$ == .@select_pass_new1$) {
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "รหัสผ่านใหม่เหมือนรหัสผ่านเก่าครับ";
+next;
+goto Lend;
+}
+query_sql "UPDATE `login` SET `user_pass`='"+.@select_pass_new1$+"' WHERE `account_id`='"+.@accyou+"'";
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ID : "+.@select_id$+"";
+mes "รหัสผ่านเดิม : "+.@select_pass_old$+"";
+mes "รหัสผ่านใหม่ : "+.@select_pass_new1$+"";
+mes "สถานะ : เรียบร้อยครับ";
+next;
+goto Lend;
+Lreset_stylist:
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอก ID Game ครับ";
+input .@select_id$;
+next;
+query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+escape_sql(.@select_id$)+"'",.@accyou;
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "กรอกชื่อตัวละครครับ";
+input .@select_name$;
+query_sql "SELECT `name` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@name$;
+next;
+if (.@name$ != .@select_name$){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ไม่พบชื่อตัวละครในระบบครับ";
+next;
+goto Lend;
+}
+query_sql "SELECT `name`,`account_id` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@name$,.@accid;
+if (.@accid != .@accyou){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ไม่พบชื่อตัวละครใน ID Game ครับ";
+next;
+goto Lend;
+}
+query_sql "SELECT `online` FROM `char` WHERE `name`='"+escape_sql(.@select_name$)+"'",.@stat;
+if (.@stat != 0){
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ตัวละครยัง Online อยู่ครับ";
+next;
+goto Lend;
+}
+query_sql "UPDATE `char` SET `hair`='1',`hair_color`='1',`clothes_color`='1',`head_top`='0',`head_mid`='0',`head_bottom`='0' WHERE `name`='"+escape_sql(.@select_name$)+"'";
+mes "^FF0000[ช่วยเหลือผู้เล่น]^000000";
+mes "ID : "+.@select_id$+"";
+mes "Name : "+.@select_name$+"";
+mes "สถานะ : เรียบร้อยครับ";
+next;
+goto Lend;
+OnInit:
+waitingroom "๐ เกี่ยวกับอาชีพ ๐",0;
+end;
+}
+
+

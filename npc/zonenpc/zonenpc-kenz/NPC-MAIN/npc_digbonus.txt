@@ -1,0 +1,34 @@
+-	shop	dig_shop2	-1,674:20000
+
+function	script	BPoint_Dig	{
+if(@digpoint <= @point) {
+query_sql "UPDATE `point` SET `digg_total`=`digg_total`-"+@digpoint+" WHERE `account_id`="+getcharid(3);
+getitem @bought_nameid,@bought_quantity;
+query_sql "SELECT `digg_total` FROM `point` WHERE `account_id`="+getcharid(3),@point;
+close;
+} else {
+dispbottom "คุณมีแต้มไม่พอครับ";
+close;
+}
+}
+
+function	script	BBuy	{
+if(@bought_nameid == 674) {		set @digpoint,20000*@bought_quantity;		callfunc "BPoint_Dig"; end;}
+return;
+}
+
+-	script	digbonus	-1,{
+query_sql "SELECT COUNT(*) FROM `point` WHERE `account_id`="+getcharid(3),@exist_account;
+if (@exist_account == 0){
+query_sql "INSERT INTO `point` SET `account_id`="+getcharid(3);
+}
+query_sql "SELECT `digg_total` FROM `point` WHERE `account_id`="+getcharid(3),@point;
+dispbottom "คุณมีแต้ม "+@point+" แต้มครับ";
+
+callshop "dig_shop2",1;
+npcshopattach "dig_shop2";
+close;
+OnBuyItem:
+callfunc "BBuy";
+end;
+}

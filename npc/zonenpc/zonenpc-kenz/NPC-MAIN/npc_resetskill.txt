@@ -1,0 +1,40 @@
+-	script	resetskill	-1,{
+
+switch(select("^0000FF-^000000 Reset Skill:^0000FF-^000000 Reset Status:^0000FF-^000000 Reset Skill & Status")) {
+
+case 1:
+if (Zeny < 100000){
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ต้องการ เงิน 100000 Zeny ครับ"; 
+close;
+}
+set Zeny,zeny-100000;
+ResetSkill;
+close;
+			
+case 2:
+if (Zeny < 100000){
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ต้องการ เงิน 100000 Zeny ครับ"; 
+close;
+}
+set Zeny,zeny-100000;
+ResetStatus;
+close;
+			
+case 3:
+if (Zeny < 150000){
+mes "^FF0000[Reset ตัวละคร]^000000"; 
+mes "ต้องการ เงิน 150000 Zeny ครับ"; 
+close;
+}
+set Zeny,zeny-150000;
+ResetSkill;
+ResetStatus;
+close;
+}
+
+OnInit: 
+waitingroom "๐ Reset ตัวละคร ๐",0; 
+end;
+}

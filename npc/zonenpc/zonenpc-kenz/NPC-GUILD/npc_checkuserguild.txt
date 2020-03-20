@@ -1,0 +1,24 @@
+-	script	checkusersguild	-1,{
+end;
+
+OnPCLoadMapEVent:
+	for(set .@i,0; .@i < getarraysize(.maps$); set .@i,.@i+1)
+	{
+		if(strcharinfo(3) == .maps$[.@i])
+		{
+			query_sql("SELECT COUNT(*) FROM `char` WHERE `online` = '1' AND `guild_id` = '"+getcharid(2)+"'",.@count); 
+			if(.@count>1){dispbottom "สมาชิคในกิลของท่านจะต้องออนไลน์ไม่เกิน 22 คน"; warp "SavePoint",0,0; }
+		}
+	}
+	end;
+    
+OnInit:
+	setarray .maps$[0],
+	"",
+	"";
+
+	end;
+}
+
+//aldeg_cas01	mapflag	loadevent
+

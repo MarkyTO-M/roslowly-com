@@ -1,0 +1,116 @@
+eventpvp,30,47,4	script	 #PvP	111,{
+
+OnPBG_main:
+if (getgmlevel() < 99) end;
+
+mes "^FF0000[กิจกรรม]^000000";
+mes " ";
+mes "ปาร์ตี้ที่ 1. "+.@GuildName_1$;
+mes "ปาร์ตี้ที่ 2. "+.@GuildName_2$;
+mes " ";
+mes " ";
+mes "สถานะระบบ : "+(($@PBG_ready)?"^009933เปิด^000000":"^FF0000ปิด^000000")+"";
+next;
+switch(select("^0000FF-^000000 เปิดกิจกรรม","^0000FF-^000000 ปิดกิจกรรม","^0000FF-^000000 ลงทะเบียน","","")){
+
+Case 1:
+set $@PBG_ready,1;
+atcommand "@pvpon";
+disablenpc "WALL#1a";
+disablenpc "WALL#2a";
+disablenpc "WALL#3a";
+disablenpc "WALL#4a";
+disablenpc "WALL#5a";
+disablenpc "WALL#6a";
+disablenpc "WALL#7a";
+disablenpc "WALL#8a";
+disablenpc "WALL#9a";
+disablenpc "WALL#10a";
+disablenpc "WALL#11a";
+disablenpc "WALL#12a";
+disablenpc "WALL#13a";
+disablenpc "WALL#14a";
+disablenpc "WALL#15a";
+disablenpc "WALL#16a";
+setcell "eventpvp",29,43,29,36,cell_walkable,1;
+setcell "eventpvp",50,43,50,36,cell_walkable,1;
+goto OnPBG_main;
+
+Case 2:
+set $@PBG_ready,0;
+atcommand "@pvpoff";
+enablenpc "WALL#1a";
+enablenpc "WALL#2a";
+enablenpc "WALL#3a";
+enablenpc "WALL#4a";
+enablenpc "WALL#5a";
+enablenpc "WALL#6a";
+enablenpc "WALL#7a";
+enablenpc "WALL#8a";
+enablenpc "WALL#9a";
+enablenpc "WALL#10a";
+enablenpc "WALL#11a";
+enablenpc "WALL#12a";
+enablenpc "WALL#13a";
+enablenpc "WALL#14a";
+enablenpc "WALL#15a";
+enablenpc "WALL#16a";
+setcell "eventpvp",29,43,29,36,cell_walkable,0;
+setcell "eventpvp",50,43,50,36,cell_walkable,0;
+goto OnPBG_main;
+
+Case 3:
+mes "^FF0000[กิจกรรม]^000000";
+mes " ";
+mes "กรอกรหัสปาร์ตี้ที่ 1 ครับ";
+input .@GuildName_1;
+set .@GuildName_1$,getpartyname(.@GuildName_1);
+next;
+mes "^FF0000[กิจกรรม]^000000";
+mes " ";
+mes "กรอกรหัสปาร์ตี้ที่ 2 ครับ";
+input .@GuildName_2;
+set .@GuildName_2$,getpartyname(.@GuildName_2);
+next;
+mes "^FF0000[กิจกรรม]^000000";
+mes " ";
+mes "ปาร์ตี้ที่ 1. "+.@GuildName_1$;
+mes "ปาร์ตี้ที่ 2. "+.@GuildName_2$;
+next;
+warpparty "eventpvp",26,40,.@GuildName_1;
+warpparty "eventpvp",53,40,.@GuildName_2;
+next;
+goto OnPBG_main;
+
+}
+}
+
+-	script	pvpwall	-1,{end;}
+
+eventpvp,29,43,4	duplicate(pvpwall)	WALL#1a	1905
+eventpvp,29,42,4	duplicate(pvpwall)	WALL#2a	1905
+eventpvp,29,41,4	duplicate(pvpwall)	WALL#3a	1905
+eventpvp,29,40,4	duplicate(pvpwall)	WALL#4a	1905
+eventpvp,29,39,4	duplicate(pvpwall)	WALL#5a	1905
+eventpvp,29,38,4	duplicate(pvpwall)	WALL#6a	1905
+eventpvp,29,37,4	duplicate(pvpwall)	WALL#7a	1905
+eventpvp,29,36,4	duplicate(pvpwall)	WALL#8a	1905
+
+eventpvp,50,43,4	duplicate(pvpwall)	WALL#9a	1905
+eventpvp,50,42,4	duplicate(pvpwall)	WALL#10a	1905
+eventpvp,50,41,4	duplicate(pvpwall)	WALL#11a	1905
+eventpvp,50,40,4	duplicate(pvpwall)	WALL#12a	1905
+eventpvp,50,39,4	duplicate(pvpwall)	WALL#13a	1905
+eventpvp,50,38,4	duplicate(pvpwall)	WALL#14a	1905
+eventpvp,50,37,4	duplicate(pvpwall)	WALL#15a	1905
+eventpvp,50,36,4	duplicate(pvpwall)	WALL#16a	1905
+
+eventpvp	mapflag	nowarp	40
+eventpvp	mapflag	nowarpto	40
+eventpvp	mapflag	noteleport	40
+eventpvp	mapflag	nocommand	40
+eventpvp	mapflag	nomemo	40
+eventpvp	mapflag	nobranch	40
+eventpvp	mapflag	noreturn	40
+eventpvp	mapflag	nosave	40
+eventpvp	mapflag	nodrop	40

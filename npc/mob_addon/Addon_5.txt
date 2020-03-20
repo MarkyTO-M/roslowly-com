@@ -1,0 +1,54 @@
+//===== Developers Script ===================================
+//= Server Rate
+//===== Current Version =====================================
+//= 1.0
+//===== Description =========================================
+//= Server Rate
+//===== Additional Comments =================================
+//= 1.0 Start Version
+//= 1.1 Edit By Ragnarok PVP GVG
+//===========================================================
+
+pay_fild09,0,0,0,0	boss_monster	Beast Vincento	2706,1,14400000,0,0
+cmd_fild07,0,0,0,0	boss_monster	Captain Skull	2708,1,14400000,0,0
+c_tower1,0,0,0,0	boss_monster	Cherry Blue	2709,1,14400000,0,0
+odin_tem01,0,0,0,0	boss_monster	Guardian Angel	2710,1,14400000,0,0
+ayo_dun02,0,0,0,0	boss_monster	Crown Zero	2712,1,14400000,0,0
+moc_fild21,0,0,0,0	boss_monster	Cyan Satan	2713,1,14400000,0,0
+ayo_fild01,0,0,0,0	boss_monster	Daehyon	2715,1,14400000,0,0
+ice_dun02,0,0,0,0	boss_monster	Dancer Isabelle	2717,1,14400000,0,0
+odin_tem02,0,0,0,0	boss_monster	Dark Hollow	2719,1,14400000,0,0
+ra_fild05,0,0,0,0	boss_monster	Diablo Baphomet	2723,1,14400000,0,0
+
+um_fild01,0,0,0,0	boss_monster	Elf Men	2726,1,14400000,0,0
+prt_maze02,0,0,0,0	boss_monster	Eye One Devil	2728,1,14400000,0,0
+beach_dun3,0,0,0,0	boss_monster	Fabilsag	2729,1,14400000,0,0
+mag_dun02,0,0,0,0	boss_monster	Fight Man	2730,1,14400000,0,0
+gon_dun03,0,0,0,0	boss_monster	Gentle Sting	2735,1,14400000,0,0
+iz_dun04,0,0,0,0	boss_monster	Kraken	2750,1,14400000,0,0
+gef_fild07,0,0,0,0	boss_monster	Larva	2751,1,14400000,0,0
+ra_fild06,0,0,0,0	boss_monster	Madame Chiffon	2753,1,14400000,0,0
+orcsdun01,0,0,0,0	boss_monster	Maiden Ghost	2755,1,14400000,0,0
+gef_dun03,0,0,0,0	boss_monster	Mikijung	2763,1,14400000,0,0
+
+iz_dun04,0,0,0,0	boss_monster	Office Killer	2769,1,14400000,0,0
+gef_dun02,0,0,0,0	boss_monster	Okto	2770,1,14400000,0,0
+//gl_knt02,0,0,0,0	boss_monster	Old beelzebub	2771,1,14400000,0,0
+c_tower4,0,0,0,0	boss_monster	Phoenix	2772,1,14400000,0,0
+in_sphinx4,0,0,0,0	boss_monster	Queen Mummy	2777,1,14400000,0,0
+xmas_dun01,0,0,0,0	boss_monster	Santagirl	2779,1,14400000,0,0
+beach_dun2,0,0,0,0	boss_monster	Sea Elephant	2780,1,14400000,0,0
+pay_fild10,0,0,0,0	boss_monster	Sropho	2788,1,14400000,0,0
+prt_fild05,0,0,0,0	boss_monster	Takashi	2793,1,14400000,0,0
+
+mag_dun01,0,0,0,0	boss_monster	Thor Valkyrie	2794,1,14400000,0,0
+pay_dun03,0,0,0,0	boss_monster	Werepot	2805,1,14400000,0,0
+lhz_fild01,0,0,0,0	boss_monster	Wild Rider	2806,1,14400000,0,0
+orcsdun02,0,0,0,0	boss_monster	xZipper Bear	2809,1,14400000,0,0
+mjo_dun03,0,0,0,0	boss_monster	Bangungot	2810,1,14400000,0,0
+gef_fild03,0,0,0,0	boss_monster	Bungisngis	2811,1,14400000,0,0
+pay_dun04,0,0,0,0	boss_monster	Pyuriel	2812,1,14400000,0,0
+pay_fild04,0,0,0,0	boss_monster	Soheon	2813,1,14400000,0,0
+anthell01,0,0,0,0	boss_monster	Arrow Men	2814,1,14400000,0,0
+ama_fild01,0,0,0,0	boss_monster	Kyo Shirima	2820,1,14400000,0,0
+

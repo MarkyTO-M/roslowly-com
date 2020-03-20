@@ -1,0 +1,84 @@
+gef_fild00,0,0,0,0	monster	Poring	1002,90,0,0,0
+gef_fild00,0,0,0,0	monster	Fabre	1007,90,0,0,0
+gef_fild00,0,0,0,0	monster	Pupa	1008,10,0,0,0
+gef_fild00,0,0,0,0	monster	Poporing	1031,10,0,0,0
+
+gef_fild01,0,0,0,0	monster	Roda Frog	1012,10,0,0,0
+gef_fild01,0,0,0,0	monster	Poporing	1031,10,0,0,0
+gef_fild01,0,0,0,0	monster	Toad	1089,10,0,0,0
+
+gef_fild02,0,0,0,0	monster	Yoyo	1057,10,0,0,0
+gef_fild02,0,0,0,0	monster	Orc Warrior	1023,90,0,0,0
+gef_fild02,0,0,0,0	monster	Coco	1104,10,0,0,0
+gef_fild02,0,0,0,0	monster	Smokie	1056,10,0,0,0
+gef_fild02,0,0,0,0	monster	Choco	1214,10,0,0,0
+
+gef_fild03,0,0,0,0	monster	Orc Warrior	1023,90,0,0,0
+gef_fild03,0,0,0,0	monster	High Orc	1213,10,0,0,0
+gef_fild03,0,0,0,0	monster	Savage	1166,90,0,0,0
+gef_fild03,0,0,0,0	monster	Poporing	1031,90,0,0,0
+
+gef_fild04,0,0,0,0	monster	Poring	1002,90,0,0,0
+gef_fild04,0,0,0,0	monster	Chonchon	1011,90,0,0,0
+gef_fild04,0,0,0,0	monster	Pupa	1008,90,0,0,0
+gef_fild04,0,0,0,0	monster	Fabre	1007,10,0,0,0
+gef_fild04,0,0,0,0	monster	Roda Frog	1012,10,0,0,0
+
+gef_fild05,0,0,0,0	monster	Poring	1002,10,0,0,0
+gef_fild05,0,0,0,0	monster	Kobold Archer	1282,90,0,0,0
+gef_fild05,0,0,0,0	monster	Wild Rose	1261,90,0,0,0
+gef_fild05,0,0,0,0	monster	Dustiness	1114,90,0,0,0
+
+gef_fild06,0,0,0,0	monster	Kobold	1133,10,0,0,0
+gef_fild06,0,0,0,0	monster	Kobold	1134,10,0,0,0
+gef_fild06,0,0,0,0	monster	Kobold	1135,10,0,0,0
+gef_fild06,0,0,0,0	monster	Petite	1156,90,0,0,0
+gef_fild06,0,0,0,0	monster	Poporing	1031,10,0,0,0
+gef_fild06,0,0,0,0	monster	Mantis	1139,10,0,0,0
+
+gef_fild07,0,0,0,0	monster	Poring	1002,10,0,0,0
+gef_fild07,0,0,0,0	monster	Chonchon	1011,10,0,0,0
+gef_fild07,0,0,0,0	monster	Pupa	1008,10,0,0,0
+gef_fild07,0,0,0,0	monster	Fabre	1007,90,0,0,0
+
+gef_fild08,0,0,0,0	monster	Kobold	1133,10,0,0,0
+gef_fild08,0,0,0,0	monster	Kobold	1134,90,0,0,0
+gef_fild08,0,0,0,0	monster	Kobold	1135,90,0,0,0
+gef_fild08,0,0,0,0	monster	Golem	1040,10,0,0,0
+gef_fild08,0,0,0,0	monster	Steel Chonchon	1042,10,0,0,0
+gef_fild08,0,0,0,0	monster	Poison Spore	1077,10,0,0,0
+
+gef_fild09,0,0,0,0	monster	Ambernite	1094,90,0,0,0
+gef_fild09,0,0,0,0	monster	Poporing	1031,10,0,0,0
+gef_fild09,0,0,0,0	monster	Poison Spore	1077,10,0,0,0
+
+gef_fild10,0,0,0,0	monster	Orc Warrior	1023,10,0,0,0
+gef_fild10,0,0,0,0	monster	Orc Lady	1273,90,0,0,0
+gef_fild10,0,0,0,0	monster	Poporing	1031,10,0,0,0
+gef_fild10,0,0,0,0	monster	Orc Baby	1686,10,0,0,0
+
+gef_fild11,0,0,0,0	monster	Goblin Leader	1299,10,0,0,0
+gef_fild11,0,0,0,0	monster	Goblin	1122,90,0,0,0
+gef_fild11,0,0,0,0	monster	Goblin	1123,90,0,0,0
+gef_fild11,0,0,0,0	monster	Goblin	1124,90,0,0,0
+gef_fild11,0,0,0,0	monster	Goblin	1125,90,0,0,0
+gef_fild11,0,0,0,0	monster	Goblin	1126,90,0,0,0
+gef_fild11,0,0,0,0	monster	Goblin Archer	1258,10,0,0,0
+gef_fild11,0,0,0,0	monster	Poporing	1031,90,0,0,0
+gef_fild11,0,0,0,0	monster	Rotar Zairo	1392,10,0,0,0
+
+gef_fild12,0,0,0,0	monster	Kobold	1133,90,0,0,0
+gef_fild12,0,0,0,0	monster	Kobold	1134,90,0,0,0
+gef_fild12,0,0,0,0	monster	Kobold	1135,90,0,0,0
+gef_fild12,0,0,0,0	monster	Kobold Archer	1282,90,0,0,0
+gef_fild12,0,0,0,0	monster	Poporing	1031,90,0,0,0
+gef_fild12,0,0,0,0	monster	Kobold Leader	1296,10,0,0,0
+
+gef_fild13,0,0,0,0	monster	Poporing	1031,90,0,0,0
+gef_fild13,0,0,0,0	monster	Creamy	1018,90,0,0,0
+gef_fild13,0,0,0,0	monster	Ambernite	1094,90,0,0,0
+
+gef_fild14,0,0,0,0	monster	Orc Lady	1273,10,0,0,0
+gef_fild14,0,0,0,0	monster	Orc Warrior	1023,10,0,0,0
+gef_fild14,0,0,0,0	monster	Orc Archer	1189,90,0,0,0
+gef_fild14,0,0,0,0	monster	High Orc	1213,90,0,0,0

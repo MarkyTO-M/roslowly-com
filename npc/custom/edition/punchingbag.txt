@@ -1,0 +1,33 @@
+//===== rAthena Script =============================================
+//= Punching Bag NPC
+//===== By: ========================================================
+//= Secretdataz
+//===== Current Version: ===========================================
+//= 0.2
+//===== Changelog: =================================================
+//= 0.1 Initial commit
+//= 0.2 Add MD_KNOCKBACK_IMMUNE
+//===== Compatible With: ===========================================
+//= rAthena Project
+//===== Additional Comments: =======================================
+//= When duplicating this NPC. Only use NUMBER after the # [secret]
+//==================================================================
+-	script	PunchingBag#0	111,{
+ 	getunitdata(getnpcid(0), .@d);
+ 	monster strnpcinfo(4),.@d[UNPC_X],.@d[UNPC_Y],"Punching Bag",3002,1,strnpcinfo(0)+.@d[UNPC_X]+"2::OnMyMobDead";
+ 	end;
+	
+OnMyMobDead:
+	getunitdata(getnpcid(0), .@d);
+	monster strnpcinfo(4),.@d[UNPC_X],.@d[UNPC_Y],"Punching Bag",3002,1,strnpcinfo(0)+.@d[UNPC_X]+"1::OnMyMobDead";
+	end;
+ OnInit:
+ 	getunitdata(getnpcid(0), .@d);
+ 	monster strnpcinfo(4),.@d[UNPC_X],.@d[UNPC_Y],"Punching Bag",3002,1,strnpcinfo(0)+.@d[UNPC_X]+"2::OnMyMobDead";
+ 	end;
+}
+
+morocc,107,107,0	duplicate(PunchingBag#0)	PunchingBag#5	111
+morocc,112,107,0	duplicate(PunchingBag#0)	PunchingBag#6	111
+morocc,117,107,0	duplicate(PunchingBag#0)	PunchingBag#7	111
+morocc,122,107,0	duplicate(PunchingBag#0)	PunchingBag#8	111

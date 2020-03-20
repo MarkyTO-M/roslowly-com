@@ -1,0 +1,19 @@
+-	script	Endless Tower	-1,{
+set .@name$, "^FF0000[Endless Tower]^000000";
+mes .@name$;
+mes "ของรางวัลกิจกรรม";
+mes "- Poring Coin ครับ";
+mes "- MvP Coin ครับ";
+next;
+menu "^0000FF-^000000 เข้ากิจกรรม",-,"^0000FF-^000000 รายละเอียด",Info;
+
+warp "e_tower",74,110;
+end;
+
+info:
+close; 
+
+OnInit:
+waitingroom "๐ Endless Tower ๐",0;
+end;
+}

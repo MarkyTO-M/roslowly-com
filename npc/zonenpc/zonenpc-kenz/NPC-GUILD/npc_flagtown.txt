@@ -1,0 +1,208 @@
+// ===== ∏ß 1-1
+morocc,138,57,4	duplicate(gvg01)	∫È“π Sacred Altar 01#1	722
+morocc,133,57,4	duplicate(gvg02)	∫È“π Sacred Altar 02#1	722
+morocc,128,57,4	duplicate(gvg03)	∫È“π Holy Shadow 01#1	722
+morocc,123,57,4	duplicate(gvg04)	∫È“π Holy Shadow 02#1	722
+
+
+// ===== «“ª√Ï‡≈ËπÀπÈ“∫È“π
+
+sch_gld,288,258,0	warp	playhome1	1,1,play_cas01,273,59
+play_cas01,277,59,0	warp	playhome1-1	1,1,sch_gld,288,255
+
+
+sch_gld,137,96,0	warp	playhome2	1,1,play_cas02,175,10
+play_cas02,175,7,0	warp	playhome2-1	1,1,sch_gld,137,93
+
+
+// ===== aldeg 01
+alde_gld,51,80,8	duplicate(Neuschwanstein2)	Neuschwanstein#02-1	722
+alde_gld,45,80,8	duplicate(Neuschwanstein2)	Neuschwanstein#02-2	722
+morocc,155,139,4	duplicate(Neuschwanstein2)	Neuschwanstein#02	722
+morocc,155,137,4	duplicate(ITEM01)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#1	751
+
+alde_gld,48,80,0	warp	aldega1	1,1,aldeg_cas01,34,249
+aldeg_cas01,34,252,0	warp	aldega1-1	1,1,alde_gld,48,83
+
+// ===== aldeg 02
+alde_gld,98,250,4	duplicate(Hohenschwangau2)	Hohenschwangau#02-1	722
+alde_gld,92,250,4	duplicate(Hohenschwangau2)	Hohenschwangau#02-2	722
+morocc,143,143,4	duplicate(Hohenschwangau2)	Hohenschwangau#02	722
+morocc,143,141,4	duplicate(ITEM02)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#2	751
+
+alde_gld,95,250,0	warp	aldega2	1,1,aldeg_cas02,88,163
+aldeg_cas02,88,160,0	warp	aldega2-1	1,1,alde_gld,95,247
+
+// ===== aldeg 03
+alde_gld,139,81,8	duplicate(Nuenberg2)	Nuenberg#02-1	722
+alde_gld,145,81,8	duplicate(Nuenberg2)	Nuenberg#02-2	722
+morocc,143,148,4	duplicate(Nuenberg2)	Nuenberg#02	722
+morocc,143,146,4	duplicate(ITEM03)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#3	751
+
+alde_gld,142,81	warp	aldega3	1,1,aldeg_cas03,114,286
+aldeg_cas03,114,289,0	warp	aldega3-1	1,1,alde_gld,142,84
+
+// ===== aldeg 04
+alde_gld,240,239,2	duplicate(Wuerzburg2)	Wuerzburg#02-1	722
+alde_gld,240,245,2	duplicate(Wuerzburg2)	Wuerzburg#02-2	722
+morocc,143,153,4	duplicate(Wuerzburg2)	Wuerzburg#02	722
+morocc,143,151,4	duplicate(ITEM04)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#4	751
+
+alde_gld,240,242,0	warp	aldega4	1,1,aldeg_cas04,148,17
+aldeg_cas04,145,17,0	warp	aldega4-1	1,1,alde_gld,237,242
+
+// ===== aldeg 05
+alde_gld,265,86,6	duplicate(Rothenburg2)	Rothenburg#02-1	722
+alde_gld,265,92,6	duplicate(Rothenburg2)	Rothenburg#02-2	722
+morocc,143,158,4	duplicate(Rothenburg2)	Rothenburg#02	722
+morocc,143,156,4	duplicate(ITEM05)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#5	751
+
+alde_gld,265,89,0	warp	aldega5	1,1,aldeg_cas05,216,104,0
+aldeg_cas05,216,107,0	warp	aldega5-1	1,1,alde_gld,268,89
+
+// ==================================================
+// ==================================================
+
+// ===== gefg 01
+gef_fild13,211,78,6	duplicate(Repherion2)	Repherion#02-1	722
+gef_fild13,211,72,6	duplicate(Repherion2)	Repherion#02-2	722
+morocc,164,139,4	duplicate(Repherion2)	Repherion#02	722
+morocc,164,137,4	duplicate(ITEM06)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#6	751
+
+gef_fild13,210,75,0	warp	gefga1	1,1,gefg_cas01,96,178
+gefg_cas01,99,178,0	warp	gefga1-1	1,1,gef_fild13,213,75
+
+// ===== gefg 02
+gef_fild13,305,244,4	duplicate(Eeyolbriggar2)	Eeyolbriggar#02-1	722
+gef_fild13,311,244,4	duplicate(Eeyolbriggar2)	Eeyolbriggar#02-2	722
+morocc,148,143,4	duplicate(Eeyolbriggar2)	Eeyolbriggar#02	722
+morocc,148,141,4	duplicate(ITEM07)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#7	751
+
+gef_fild13,308,244,0	warp	gefga2	1,1,gefg_cas02,70,143
+gefg_cas02,70,146,0	warp	gefga2-1	1,1,gef_fild13,308,241
+
+// ===== gefg 03
+gef_fild13,80,184,4	duplicate(Yesnelph2)	Yesnelph#02-1	722
+gef_fild13,86,184,4	duplicate(Yesnelph2)	Yesnelph#02-2	722
+morocc,148,148,4	duplicate(Yesnelph2)	Yesnelph#02	722
+morocc,148,146,4	duplicate(ITEM08)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#8	751
+
+gef_fild13,83,184,0	warp	gefga3	1,1,gefg_cas03,90,159
+gefg_cas03,93,159,0	warp	gefga3-1	1,1,gef_fild13,83,181
+
+// ===== gefg 04
+gef_fild13,193,284,3	duplicate(Bergel2)	Bergel#02-1	722
+gef_fild13,199,278,3	duplicate(Bergel2)	Bergel#02-2	722
+morocc,148,153,4	duplicate(Bergel2)	Bergel#02	722
+morocc,148,151,4	duplicate(ITEM09)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#9	751
+
+gef_fild13,196,281,0	warp	gefga4	1,1,gefg_cas04,24,148
+gefg_cas04,24,145,0	warp	gefga4-1	1,1,gef_fild13,193,278
+
+// ===== gefg 05
+gef_fild13,255,54,2	duplicate(Mersetzdeitz2)	Mersetzdeitz#02-1	722
+gef_fild13,255,60,2	duplicate(Mersetzdeitz2)	Mersetzdeitz#02-2	722
+morocc,148,158,4	duplicate(Mersetzdeitz2)	Mersetzdeitz#02	722
+morocc,148,156,4	duplicate(ITEM10)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#10	751
+
+gef_fild13,255,57,0	warp	gefga5	1,1,gefg_cas05,16,134
+gefg_cas05,16,131,0	warp	gefga5-1	1,1,gef_fild13,252,57
+
+// ==================================================
+// ==================================================
+
+// ===== payg 01
+pay_gld,119,237,4	duplicate(BrightArbor2)	Bright Arbor#02-1	722
+pay_gld,125,237,4	duplicate(BrightArbor2)	Bright Arbor#02-2	722
+morocc,155,134,4	duplicate(BrightArbor2)	Bright Arbor#02	722
+morocc,155,132,4	duplicate(ITEM11)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#11	751
+
+pay_gld,122,237,0,257,57,0	warp	payga1	1,1,payg_cas01,214,47
+payg_cas01,214,44,0	warp	payga1-1	1,1,pay_gld,122,234
+
+// ===== payg 02
+pay_gld,291,113,6	duplicate(ScarletPalace2)	Scarlet Palace#02-1	722
+pay_gld,291,119,6	duplicate(ScarletPalace2)	Scarlet Palace#02-2	722
+morocc,171,143,4	duplicate(ScarletPalace2)	Scarlet Palace#02	722
+morocc,171,141,4	duplicate(ITEM12)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#12	751
+
+pay_gld,291,116,0	warp	payga2	1,1,payg_cas02,273,61,0
+payg_cas02,276,61,0	warp	payga2-1	1,1,pay_gld,294,116
+
+// ===== payg 03
+pay_gld,322,290,2	duplicate(HolyShadow2)	Holy Shadow#02-1	722
+pay_gld,322,296,2	duplicate(HolyShadow2)	Holy Shadow#02-2	722
+morocc,171,148,4	duplicate(HolyShadow2)	Holy Shadow#02	722
+morocc,171,146,4	duplicate(ITEM13)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#13	751
+
+pay_gld,322,293,0	warp	payga3	1,1,payg_cas03,226,25
+payg_cas03,226,22,0	warp	payga3-1	1,1,pay_gld,319,293
+
+// ===== payg 04
+pay_gld,137,157,8	duplicate(SacredAltar2)	Sacred Altar#02-1	722
+pay_gld,143,157,8	duplicate(SacredAltar2)	Sacred Altar#02-2	722
+morocc,171,153,4	duplicate(SacredAltar2)	Sacred Altar#02	722
+morocc,171,151,4	duplicate(ITEM14)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#14	751
+
+pay_gld,140,157,0	warp	payga4	1,1,payg_cas04,252,272
+payg_cas04,252,275,0	warp	payga4-1	1,1,pay_gld,140,160
+
+// ===== payg 05
+pay_gld,207,269,4	duplicate(BambooGroveHill2)	Bamboo Grove Hill#02-1	722
+pay_gld,201,269,4	duplicate(BambooGroveHill2)	Bamboo Grove Hill#02-2	722
+morocc,171,158,4	duplicate(BambooGroveHill2)	Bamboo Grove Hill#02	722
+morocc,171,156,4	duplicate(ITEM15)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#15	751
+
+pay_gld,204,269,0	warp	payga5	1,1,payg_cas05,62,225
+payg_cas05,62,222,0	warp	payga5-1	1,1,pay_gld,204,266
+
+// ==================================================
+// ==================================================
+
+// ===== prtg 01
+prt_gld,135,66,5	duplicate(Kriemhild2)	Kriemhild#02-1	722
+prt_gld,129,60,5	duplicate(Kriemhild2)	Kriemhild#02-2	722
+morocc,164,134,4	duplicate(Kriemhild2)	Kriemhild#02	722
+morocc,164,132,4	duplicate(ITEM16)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#16	751
+
+prt_gld,132,63,0	warp	prtga1	1,1,prtg_cas01,100,32
+prtg_cas01,103,32,0	warp	prtga1-1	1,1,prt_gld,135,60
+
+// ===== prtg 02
+prt_gld,243,125,8	duplicate(Swanhild2)	Swanhild#02-1	722
+prt_gld,237,125,8	duplicate(Swanhild2)	Swanhild#02-2	722
+morocc,176,143,4	duplicate(Swanhild2)	Swanhild#02	722
+morocc,176,141,4	duplicate(ITEM17)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#17	751
+
+prt_gld,240,125,0	warp	prtga2	1,1,prtg_cas02,43,230
+prtg_cas02,43,233,0	warp	prtga2-1	1,1,prt_gld,240,128
+
+// ===== prtg 03
+prt_gld,150,141,4	duplicate(Fadhgridh2)	Fadhgridh#02-1	722
+prt_gld,156,141,4	duplicate(Fadhgridh2)	Fadhgridh#02-2	722
+morocc,176,148,4	duplicate(Fadhgridh2)	Fadhgridh#02	722
+morocc,176,146,4	duplicate(ITEM18)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#18	751
+
+prt_gld,153,141,0	warp	prtga3	1,1,prtg_cas03,168,11
+prtg_cas03,168,8,0	warp	prtga3-1	1,1,prt_gld,153,138
+
+// ===== prtg 04
+prt_gld,120,242,6	duplicate(Skoegul2)	Skoegul#02-1	722
+prt_gld,120,236,6	duplicate(Skoegul2)	Skoegul#02-2	722
+morocc,176,153,4	duplicate(Skoegul2)	Skoegul#02	722
+morocc,176,151,4	duplicate(ITEM19)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#19	751
+
+prt_gld,120,239,0	warp	prtga4	1,1,prtg_cas04,86,12
+prtg_cas04,86,9,0	warp	prtga4-1	1,1,prt_gld,123,239
+
+// ===== prtg 05
+prt_gld,199,236,2	duplicate(Gondul2)	Gondul#02-1	722
+prt_gld,199,242,2	duplicate(Gondul2)	Gondul#02-2	722
+morocc,176,158,4	duplicate(Gondul2)	Gondul#02	722
+morocc,176,156,4	duplicate(ITEM20)	√—∫√“ß«—≈°‘≈¥Ï«Õ√Ï#20	751
+
+prt_gld,199,239,0	warp	prtga5	1,1,prtg_cas05,17,234
+prtg_cas05,17,231,0	warp	prtga5-1	1,1,prt_gld,196,239
+
+// ==================================================
+// ==================================================

@@ -1,0 +1,36 @@
+gef_dun00,0,0,0,0	monster	Hunter Fly	1035,10,0,0,0
+gef_dun00,0,0,0,0	monster	Poporing	1031,10,0,0,0
+gef_dun00,0,0,0,0	monster	Poison Spore	1077,10,0,0,0
+gef_dun00,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+gef_dun00,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+gef_dun00,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+gef_dun00,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+gef_dun00,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+gef_dun00,0,0,0,0	monster	Red Plant	1078,10,0,0,0
+gef_dun00,0,0,0,0	monster	Black Mushroom	1084,10,0,0,0
+
+gef_dun01,0,0,0,0	monster	Drainliar	1111,90,0,0,0
+gef_dun01,0,0,0,0	monster	Nightmare	1061,90,0,0,0
+gef_dun01,0,0,0,0	monster	Ogretooth	1204,1,1800000,0,0
+gef_dun01,0,0,0,0	monster	Zombie	1015,10,0,0,0
+gef_dun01,0,0,0,0	monster	Ghoul	1036,10,0,0,0
+gef_dun01,0,0,0,0	monster	Jakk	1130,90,0,0,0
+gef_dun01,0,0,0,0	monster	Blue Plant	1079,10,0,0,0
+gef_dun01,0,0,0,0	monster	Black Mushroom	1084,10,0,0,0
+gef_dun01,0,0,0,0	monster	White Plant	1082,10,0,0,0
+
+gef_dun02,0,0,0,0	monster	Ghoul	1036,10,0,0,0
+gef_dun02,0,0,0,0	monster	Whisper	1179,90,0,0,0
+gef_dun02,0,0,0,0	monster	Hunter Fly	1035,10,0,0,0
+gef_dun02,0,0,0,0	monster	Marionette	1143,90,0,0,0
+gef_dun02,0,0,0,0	monster	Deviruchi	1109,90,0,0,0
+gef_dun02,0,0,0,0	monster	Nightmare	1061,90,0,0,0
+gef_dun02,0,0,0,0	monster	White Plant	1082,10,0,0,0
+gef_dun02,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+
+gef_dun03,0,0,0,0	monster	Hellion Revenant	1626,90,0,0,0
+gef_dun03,0,0,0,0	monster	Wraith	1192,90,0,0,0
+gef_dun03,0,0,0,0	monster	Wraith Dead	1291,90,0,0,0
+gef_dun03,0,0,0,0	monster	Wind Ghost	1263,90,0,0,0
+gef_dun03,0,0,0,0	monster	Shining Plant	1083,10,0,0,0
+gef_dun03,0,0,0,0	monster	White Plant	1082,10,0,0,0

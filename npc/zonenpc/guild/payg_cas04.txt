@@ -1,0 +1,31 @@
+-	script	Sacred Altar#f4-3::SacredAltar2	722,{
+set .@GID, GetCastleData("payg_cas04",1);
+if (.@GID == 0) {
+}
+else {
+if (getcharid(2) == .@GID) {
+if (select("^009933-^000000 เข้าปราสาท") == 1) {
+if (getcharid(2) == GetCastleData("payg_cas04",1)) {
+warp "payg_cas04",40,235;
+end;
+}
+}
+close;
+}
+mes "^FF0000[Sacred Altar]^000000";
+mes "ถูกครอบครองโดยกิลด์ : " + GetGuildName(.@GID) + "";
+}
+close;
+
+OnRecvCastlePy04:
+FlagEmblem GetCastleData("payg_cas04",1);
+end;
+}
+
+payg_cas04,271,29,0	duplicate(Gld_Agit_Manager)	Agit#payg_cas04	-1
+payg_cas04,38,284,3	duplicate(Gld_Mngr_Template)	DJ#payg_cas04	55
+payg_cas04,38,284,3	duplicate(Gld_Guard_Template)	Guardian#payg_cas04	-1
+payg_cas04,40,235,1	duplicate(Gld_Kafra_Template)	Kafra Staff#payg_cas04	117
+payg_cas04,147,48,0	duplicate(Gld_Trea_Protect)	ban_warp#payg_cas04	-1,6,6
+payg_cas04,147,48,0	duplicate(Gld_Trea_Spawn)	Treasure#payg_cas04	-1
+payg_cas04,52,48,0	duplicate(Gld_Dun_Template)	#payg_cas04	111

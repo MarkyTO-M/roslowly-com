@@ -1,0 +1,172 @@
+
+morocc,92,49,4	script	Anxerous	533,{
+skill "MC_PUSHCART",10,SKILL_PERM_GRANT;
+skill "MC_CHANGECART",10,SKILL_PERM_GRANT;
+skill "MC_VENDING",10,SKILL_PERM_GRANT;
+setcart;
+end;
+mes "[ ^3AA32CAnxerous^000000 ]";
+mes "สวัสดี, ^80FF00"+strcharinfo(0)+"^000000 ฉันคือหนึ่งใน Elemental Master ที่สามารถเรียก Guardian ประจำธาตุต่างๆมาช่วงคุณได้";
+next;
+mes "[ ^3AA32CAnxerous^000000 ]";
+mes "สนใจจะเรียก Guardian มาช่วยไหมล่ะ ?";
+next;
+menu "^FF0000•^000000 สนใจ",-,"^FF0000•^000000 ไม่ละ",cls;
+next;
+// Paste Price
+mes "[ ^3AA32CAnxerous^000000 ]";
+mes "สนใจ Guardian ของ Property อะไรละ ?";
+switch (select("^FF0000•^000000 ^FF6600Fire^000000 Property","^FF0000•^000000 ^9ACD32Wind^000000 Property","^FF0000•^000000 ^4876FFWater^000000 Property","^FF0000•^000000 ^8B5A2BEarth^000000 Property","^FF0000•^000000 ^5D478BShadow^000000 Property","^FF0000•^000000 ^FFC125Holy^000000 Property","^FF0000•^000000 ^8B1A1AUndead^000000 Property","^FF0000•^000000 ^9F79EESpiritual^000000 Property","^FF0000•^000000 ^CD00CDPoision^000000 Property","^FF0000•^000000 ^4F4F4FNatural^000000 Property","^FF0000•^000000 ยกเลิก")) {
+
+case 1: //Lord Knight Seyren
+	next;
+	mes "[ ^3AA32CAnxerous^000000 ]";
+	mes "ไฟเป็นสิ่งที่อยู่คู่กับมนุษย์มาช้านาน เป็นสิ่งที่มีพลังยิ่งใหญ่เกินกว่ามนุษย์ตัวเล็กๆอย่างเราจะเข้าใจ เป็นขุมพลังอันเร่าร้อนของมนุษย์";
+	mes "แน่ใจไหมว่าจะอัญเชิญ Guardian Property Fire ออกมาช่วยคุณ";
+		switch (select("^FF0000•^000000 ตกลง","^FF0000•^000000 ยกเลิก")) {
+			case 1:
+			summon "Lord Knight Seyren",1646,10000000;
+			close;
+			
+			case 2:
+			close;
+		 }
+
+
+case 2: //Sniper Shecil
+	next;
+	mes "[ ^3AA32CAnxerous^000000 ]";
+	mes "ลมเป็นหนึ่งใน 4 ธาตุหลักในธรรมชาติที่สวยงามกว่าทุกธาตุ เป็นสัญลักษณ์ของความว่องไวและอารมณ์ผ่อนคลาย เป็นธาตุที่มีความงดงาม";
+	mes "แน่ใจไหมว่าจะอัญเชิญ Guardian Property Wind ออกมาช่วยคุณ";
+		switch (select("^FF0000•^000000 ตกลง","^FF0000•^000000 ยกเลิก")) {
+			case 1:
+			summon "Sniper Shecil",1650,10000000;
+			close;
+			
+			case 2:
+			close;
+		 }
+
+case 3: //Ktullanux
+	next;
+	mes "[ ^3AA32CAnxerous^000000 ]";
+	mes "น้ำเป็นพลังอันยิ่งใหญ่ที่เคียงคู่ทุกผู้คนมาเป็นเวลาช้านานหลายชั่วอายุคน เป็นพลังธรรมชาติที่สวยงามมากมายเกินกว่ามนุษย์ตัวเล็กอย่างเราจะรับไหว";
+	mes "แน่ใจไหมว่าจะอัญเชิญ Guardian Property Water ออกมาช่วยคุณ";
+		switch (select("^FF0000•^000000 ตกลง","^FF0000•^000000 ยกเลิก")) {
+			case 1:
+			summon "Ktullanux",1779,10000000;
+			close;
+			
+			case 2:
+			close;
+		 }
+
+case 4: //Master Smith Harward
+	next;
+	mes "[ ^3AA32CAnxerous^000000 ]";
+	mes "ดินเป็นธาตุธรรมชาติที่ยิ่งใหญ่ไม่แพ้ธาตุอื่นๆ เป็นสัญลักษณ์ของการก่อกำเนิดและความเข้มแข็งที่แฝงไปด้วยความนุ่มนวล และเต็มไปด้วยความสงบ";
+	mes "แน่ใจไหมว่าจะอัญเชิญ Guardian Property Earth ออกมาช่วยคุณ";
+		switch (select("^FF0000•^000000 ตกลง","^FF0000•^000000 ยกเลิก")) {
+			case 1:
+			summon "Master Smith Harward",1648,10000000;
+			close;
+			
+			case 2:
+			close;
+		 }
+
+case 5: //Nidhoggr's Shadow
+	next;
+	mes "[ ^3AA32CAnxerous^000000 ]";
+	mes "เงาเป็นสัญลักษณ์ของความมืด เป็นสิ่งที่ไม่มีมนุษย์คนใดหนีได้พ้น และเป็นสิ่งที่มนุษย์น้อยคนจะเข้าใจ หากเปิดใจยอมรับอย่างพอดี ความมืดย่อมเป็นกำลังให้ผู้นั้นได้";
+	mes "แน่ใจไหมว่าจะอัญเชิญ Guardian Property Shadow ออกมาช่วยคุณ";
+		switch (select("^FF0000•^000000 ตกลง","^FF0000•^000000 ยกเลิก")) {
+			case 1:
+			summon "Nidhoggr's Shadow",2022,10000000;
+			close;
+			
+			case 2:
+			close;
+		 }
+
+case 6: //High Priest Magaleta
+	next;
+	mes "[ ^3AA32CAnxerous^000000 ]";
+	mes "ความศักดิสิทธิ์และแสงสว่างเป็นของคู่กัน สัมผัสได้ถึงพลังอันงดงามของการรักษาเยียวยาและความสงบใจได้หากคุณปรารถนา";
+	mes "แน่ใจไหมว่าจะอัญเชิญ Guardian Property Holy ออกมาช่วยคุณ";
+		switch (select("^FF0000•^000000 ตกลง","^FF0000•^000000 ยกเลิก")) {
+			case 1:
+			summon "High Priest Magaleta",1649,10000000;
+			close;
+			
+			case 2:
+			close;
+		 }
+
+case 7: //Dark Lord
+	next;
+	mes "[ ^3AA32CAnxerous^000000 ]";
+	mes "เรื่องราวและตำนานของความอมตะอยู่คู่กับมนุษย์มาช้านาน เป็นหนึ่งในยอดปรารถนาของมนุษย์ตัวเล็กอย่างเราและอีกหลายๆคน";
+	mes "แน่ใจไหมว่าจะอัญเชิญ Guardian Property Undead ออกมาช่วยคุณ";
+		switch (select("^FF0000•^000000 ตกลง","^FF0000•^000000 ยกเลิก")) {
+			case 1:
+			summon "Dark Lord",1272,10000000;
+			close;
+			
+			case 2:
+			close;
+		 }
+
+case 8: //High Wizard Katrinn
+	next;
+	mes "[ ^3AA32CAnxerous^000000 ]";
+	mes "วิญญาณอยู่คู่กับเรื่องลึกลับ สัมผัสสิ่งลึกลับในปริมาณที่เหมาะสมจะเป็นพลังให้กับคุณได้ไม่แพ้ยาดีราคาแพงแม้แต่น้อย";
+	mes "แน่ใจไหมว่าจะอัญเชิญ Guardian Property Spiritual ออกมาช่วยคุณ";
+		switch (select("^FF0000•^000000 ตกลง","^FF0000•^000000 ยกเลิก")) {
+			case 1:
+			summon "High Wizard Katrinn",1651,10000000;
+			close;
+			
+			case 2:
+			close;
+		 }
+
+case 9: //Assasin Cross Eremes
+	next;
+	mes "[ ^3AA32CAnxerous^000000 ]";
+	mes "ยาพิษมีหลังฐานในประวัติสาสตร์มนุษย์มาช้านาน เป็นทั้งสิ่งที่ให้คุณละโทษกับมนุษย์มากมาย เป็นได้ทั้งทางเลือกที่งดงามที่สุด และทางเลือกที่ย่ำแย่ที่สุด";
+	mes "แน่ใจไหมว่าจะอัญเชิญ Guardian Property Piosion ออกมาช่วยคุณ";
+		switch (select("^FF0000•^000000 ตกลง","^FF0000•^000000 ยกเลิก")) {
+			case 1:
+			summon "Assasin Cross Eremes",1647,10000000;
+			close;
+			
+			case 2:
+			close;
+		 }
+
+case 10: //RSX-0806
+	next;
+	mes "[ ^3AA32CAnxerous^000000 ]";
+	mes "ความปกติเป็นสิ่งที่มนุษย์เกลียดที่สุด และปรารถนาที่สุด เป็นพลังที่แม้จะเรียบง่าย แต่ก็ช่างยากในการทำคามเข้าใจอย่างลึกซึ้งกับมัน";
+	mes "แน่ใจไหมว่าจะอัญเชิญ Guardian Property Natural ออกมาช่วยคุณ";
+		switch (select("^FF0000•^000000 ตกลง","^FF0000•^000000 ยกเลิก")) {
+			case 1:
+			summon "RSX-0806",1623,10000000;
+			close;
+			
+			case 2:
+			close;
+		 }
+
+case 11:
+close;
+
+}
+
+//Paste Nom
+
+cls: 
+close;
+end;
+}

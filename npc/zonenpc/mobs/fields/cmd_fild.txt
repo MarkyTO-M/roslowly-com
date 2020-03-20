@@ -1,0 +1,59 @@
+cmd_fild01,0,0,0,0	monster	Alligator	1271,90,0,0,0
+cmd_fild01,0,0,0,0	monster	Savage	1166,10,0,0,0
+cmd_fild01,0,0,0,0	monster	Poporing	1031,10,0,0,0
+cmd_fild01,0,0,0,0	monster	Poison Spore	1077,10,0,0,0
+
+cmd_fild02,0,0,0,0	monster	Aster	1266,10,0,0,0
+cmd_fild02,0,0,0,0	monster	Crab	1073,10,0,0,0
+cmd_fild02,0,0,0,0	monster	Alligator	1271,90,0,0,0
+cmd_fild02,0,0,0,0	monster	Raggler	1254,10,0,0,0
+cmd_fild02,0,0,0,0	monster	Raggler	1254,10,0,0,0
+cmd_fild02,0,0,0,0	monster	Cornutus	1067,10,0,0,0
+cmd_fild02,0,0,0,0	monster	Shellfish	1074,90,0,0,0
+cmd_fild02,0,0,0,0	monster	Mobster	1313,90,0,0,0
+cmd_fild02,0,0,0,0	monster	Seal	1317,90,0,0,0
+cmd_fild02,0,0,0,0	monster	Galapago	1391,10,0,0,0
+
+cmd_fild03,0,0,0,0	monster	Pest	1256,10,0,0,0
+cmd_fild03,0,0,0,0	monster	Poporing	1031,10,0,0,0
+cmd_fild03,0,0,0,0	monster	Anolian	1206,90,0,0,0
+cmd_fild03,0,0,0,0	monster	Toad	1089,10,0,0,0
+
+cmd_fild04,0,0,0,0	monster	Aster	1266,90,0,0,0
+cmd_fild04,0,0,0,0	monster	Alligator	1271,90,0,0,0
+cmd_fild04,0,0,0,0	monster	Crab	1073,10,0,0,0
+cmd_fild04,0,0,0,0	monster	Raggler	1254,10,0,0,0
+cmd_fild04,0,0,0,0	monster	Shellfish	1074,10,0,0,0
+cmd_fild04,0,0,0,0	monster	Sea Otter	1323,180,0,0,0
+
+cmd_fild05,0,0,0,0	monster	Frilldora	1119,90,0,0,0
+cmd_fild05,0,0,0,0	monster	Alligator	1271,90,0,0,0
+cmd_fild05,0,0,0,0	monster	Stem Worm	1215,10,0,0,0
+cmd_fild05,0,0,0,0	monster	Poporing	1031,10,0,0,0
+cmd_fild05,0,0,0,0	monster	Pest	1256,10,0,0,0
+
+cmd_fild06,0,0,0,0	monster	Kobold Archer	1282,90,0,0,0
+cmd_fild06,0,0,0,0	monster	Goblin Archer	1258,90,0,0,0
+cmd_fild06,0,0,0,0	monster	Drops	1113,90,0,0,0
+cmd_fild06,0,0,0,0	monster	Harpy	1376,90,0,0,0
+
+cmd_fild07,0,0,0,0	monster	Aster	1266,10,0,0,0
+cmd_fild07,0,0,0,0	monster	Crab	1073,10,0,0,0
+cmd_fild07,0,0,0,0	monster	Raggler	1254,10,0,0,0
+cmd_fild07,0,0,0,0	monster	Drops	1113,90,0,0,0
+cmd_fild07,0,0,0,0	monster	Shellfish	1074,10,0,0,0
+
+cmd_fild08,0,0,0,0	monster	Kobold Archer	1282,90,0,0,0
+cmd_fild08,0,0,0,0	monster	Goblin Archer	1258,90,0,0,0
+cmd_fild08,0,0,0,0	monster	Stem Worm	1215,90,0,0,0
+cmd_fild08,0,0,0,0	monster	Drops	1113,10,0,0,0
+cmd_fild08,0,0,0,0	monster	Sandman	1165,90,0,0,0
+cmd_fild08,0,0,0,0	monster	Side Winder	1037,10,0,0,0
+cmd_fild08,0,0,0,0	monster	Side Winder	1037,10,0,0,0
+
+cmd_fild09,0,0,0,0	monster	Steel Chonchon	1042,10,0,0,0
+cmd_fild09,0,0,0,0	monster	Drops	1113,10,0,0,0
+cmd_fild09,0,0,0,0	monster	Anacondaq	1030,90,0,0,0
+cmd_fild09,0,0,0,0	monster	Condor	1009,90,0,0,0
+cmd_fild09,0,0,0,0	monster	Hode	1127,10,0,0,0
+cmd_fild09,0,0,0,0	monster	Gargoyle	1253,10,0,0,0

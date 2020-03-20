@@ -1,0 +1,97 @@
+-	script	npc_recall	545,{
+
+	if(getcharid(0) == getguildmasterid(getcharid(2))) {
+		set @CS1$,"คุณเป็นหัวหน้าของกิลด์";
+	} else if(getcharid(2) == 0) {
+		set @CS1$,"คุณยังไม่ได้เข้าร่วมกิลด์";
+	} else {
+		set @CS1$,"คุณเป็นสมาชิกของกิลด์";
+	}
+	if(getcharid(2) == 0) {
+		set @CS2$," ";
+	} else {
+		set @CS2$,""+getguildname(getcharid(2))+"";
+	}
+
+	if(getcharid(0) == getpartyleader(getcharid(1),2)) {
+		set @CS3$,"คุณเป็นหัวหน้าของปาร์ตี้";
+	} else if(getcharid(1) == 0) {
+		set @CS3$,"คุณยังไม่ได้เข้าร่วมปาร์ตี้";
+	} else {
+		set @CS3$,"คุณเป็นสมาชิกของปาร์ตี้";
+	}
+	if(getcharid(1) == 0) {
+		set @CS4$," ";
+	} else {
+		set @CS4$,""+getpartyname(getcharid(1))+"";
+	}
+
+	mes "[ RECALL SYSTEM ]";
+	mes "สวัสดีคุณ ^FF0000"+strcharinfo(0)+"^000000";
+	mes "สถานะของคุณขณะนี้คือ";
+	mes "^008080"+@CS1$+"^000000";
+	mes "^FF8040"+@CS2$+"^000000";
+	mes "^0000FF"+@CS3$+"^000000";
+	mes "^006611"+@CS4$+"^000000";
+
+	if(getcharid(0) == getguildmasterid(getcharid(2)) && getcharid(0) == getpartyleader(getcharid(1),2)) {
+		switch(select("- เรียกสมาชิกกิลด์","- เรียกสมาชิกปาร์ตี้","- ยกเลิก")) {
+			case 1:
+				atcommand "@guildrecall "+getcharid(2);
+				break;
+			case 2:
+				atcommand "@partyrecall "+getcharid(1);
+				break;
+			case 3:
+				break;
+		}
+	} else if(getcharid(0) == getguildmasterid(getcharid(2))) {
+		switch(select("- เรียกสมาชิกกิลด์","- ยกเลิก")) {
+			case 1:
+				atcommand "@guildrecall "+getcharid(2);
+				break;
+			case 2:
+				break;
+		}
+	} else if(getcharid(0) == getpartyleader(getcharid(1),2)) {
+		switch(select("- เรียกสมาชิกปาร์ตี้","- ยกเลิก")) {
+			case 1:
+				atcommand "@partyrecall "+getcharid(1);
+				break;
+			case 2:
+				break;
+		}
+	}
+	end;
+
+}
+
+// -- ตำแหน่ง NPC หน้าบ้านกิลด์วอ ธรรมดา
+alde_gld,59,89,4	duplicate(npc_recall)	เรียกลูกกิลด์#aldeg01	545
+alde_gld,93,237,4	duplicate(npc_recall)	เรียกลูกกิลด์#aldeg02	545
+alde_gld,144,94,4	duplicate(npc_recall)	เรียกลูกกิลด์#aldeg03	545
+alde_gld,241,254,4	duplicate(npc_recall)	เรียกลูกกิลด์#aldeg04	545
+alde_gld,265,100,4	duplicate(npc_recall)	เรียกลูกกิลด์#aldeg05	545
+
+gef_fild13,158,57,4	duplicate(npc_recall)	เรียกลูกกิลด์#gefg01-1	545
+gef_fild13,217,64,4	duplicate(npc_recall)	เรียกลูกกิลด์#gefg01-2	545
+gef_fild13,299,244,4	duplicate(npc_recall)	เรียกลูกกิลด์#gefg02	545
+gef_fild13,147,246,4	duplicate(npc_recall)	เรียกลูกกิลด์#gefg03-1	545
+gef_fild13,117,278,4	duplicate(npc_recall)	เรียกลูกกิลด์#gefg03-2	545
+gef_fild13,74,300,4	duplicate(npc_recall)	เรียกลูกกิลด์#gefg03-3	545
+gef_fild13,75,182,4	duplicate(npc_recall)	เรียกลูกกิลด์#gefg03-4	545
+gef_fild13,203,274,4	duplicate(npc_recall)	เรียกลูกกิลด์#gefg04	545
+gef_fild13,321,92,4	duplicate(npc_recall)	เรียกลูกกิลด์#gefg05-1	545
+gef_fild13,250,63,4	duplicate(npc_recall)	เรียกลูกกิลด์#gefg05-2	545
+
+pay_gld,107,232,4	duplicate(npc_recall)	เรียกลูกกิลด์#payg01	545
+pay_gld,292,109,4	duplicate(npc_recall)	เรียกลูกกิลด์#payg02	545
+pay_gld,321,286,4	duplicate(npc_recall)	เรียกลูกกิลด์#payg03	545
+pay_gld,153,174,4	duplicate(npc_recall)	เรียกลูกกิลด์#payg04	545
+pay_gld,194,275,4	duplicate(npc_recall)	เรียกลูกกิลด์#payg05	545
+
+prt_gld,147,64,4	duplicate(npc_recall)	เรียกลูกกิลด์#prtg01	545
+prt_gld,245,134,4	duplicate(npc_recall)	เรียกลูกกิลด์#prtg02	545
+prt_gld,162,140,4	duplicate(npc_recall)	เรียกลูกกิลด์#prtg03	545
+prt_gld,130,248,4	duplicate(npc_recall)	เรียกลูกกิลด์#prtg04	545
+prt_gld,190,248,4	duplicate(npc_recall)	เรียกลูกกิลด์#prtg05	545

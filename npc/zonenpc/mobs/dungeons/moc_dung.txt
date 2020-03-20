@@ -1,0 +1,30 @@
+moc_pryd01,0,0,0,0	monster	Familiar	1005,90,0,0,0
+moc_pryd01,0,0,0,0	monster	Poporing	1031,10,0,0,0
+
+moc_pryd02,0,0,0,0	monster	Poporing	1031,10,0,0,0
+moc_pryd02,0,0,0,0	monster	Drainliar	1111,10,0,0,0
+moc_pryd02,0,0,0,0	monster	Mummy	1041,90,0,0,0
+moc_pryd02,0,0,0,0	monster	Isis	1029,10,0,0,0
+moc_pryd02,0,0,0,0	monster	Soldier Skeleton	1028,90,0,0,0
+moc_pryd02,0,0,0,0	monster	Archer Skeleton	1016,90,0,0,0
+
+moc_pryd03,0,0,0,0	monster	Drainliar	1111,10,0,0,0
+moc_pryd03,0,0,0,0	monster	Mimic	1191,10,0,0,0
+moc_pryd03,0,0,0,0	monster	Matyr	1146,90,0,0,0
+moc_pryd03,0,0,0,0	monster	Mummy	1041,90,0,0,0
+moc_pryd03,0,0,0,0	monster	Verit	1032,10,0,0,0
+
+moc_pryd04,0,0,0,0	monster	Mummy	1041,90,0,0,0
+moc_pryd04,0,0,0,0	monster	Ancient Mummy	1297,90,0,0,0
+moc_pryd04,0,0,0,0	monster	Isis	1029,90,0,0,0
+moc_pryd04,0,0,0,0	monster	Mimic	1191,10,0,0,1
+moc_pryd04,0,0,0,0	monster	Matyr	1146,10,0,0,0
+
+moc_pryd05,0,0,0,0	monster	Minorous	1149,90,0,0,0
+moc_pryd05,0,0,0,0	monster	Mummy	1041,10,0,0,0
+moc_pryd05,0,0,0,0	monster	Verit	1032,90,0,0,0
+
+moc_pryd06,0,0,0,0	monster	Verit	1032,10,0,0,0
+moc_pryd06,0,0,0,0	monster	Arclouze	1194,10,0,0,0
+moc_pryd06,0,0,0,0	monster	Ancient Mummy	1297,180,0,0,0
+moc_pryd06,0,0,0,0	monster	Mimic	1191,10,0,0,0

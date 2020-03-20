@@ -1,0 +1,12 @@
+-	script	WarBaBy	-1,{
+OnPCLoadMapEvent:
+	getmapxy .@map$,.@x,.@y,0,strcharinfo(0);
+	if (.@map$ == "aldeg_cas04") {
+		set @eac, eaclass();
+		if (!(@eac&EAJL_BABY)){
+			sleep2 1000;
+			warp "SavePoint",0,0;
+		}
+	}
+}
+aldeg_cas04	mapflag	loadevent

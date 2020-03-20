@@ -1,0 +1,40 @@
+pay_fild09,0,0,0,0	monster	Beast Vincento	3601,1,7200000,0,0
+cmd_fild07,0,0,0,0	monster	Captain Skull	3602,1,7200000,0,0
+c_tower1,0,0,0,0	monster	Cherry Blue	3603,1,7200000,0,0
+odin_tem01,0,0,0,0	monster	Guardian Angel	3604,1,7200000,0,0
+ayo_dun02,0,0,0,0	monster	Crown Zero	3605,1,7200000,0,0
+moc_fild21,0,0,0,0	monster	Cyan Satan	3606,1,7200000,0,0
+ayo_fild01,0,0,0,0	monster	Daehyon	3607,1,7200000,0,0
+ice_dun02,0,0,0,0	monster	Dancer Isabelle	3608,1,7200000,0,0
+odin_tem02,0,0,0,0	monster	Dark Hollow	3609,1,7200000,0,0
+ra_fild05,0,0,0,0	monster	Diablo Baphomet	3610,1,7200000,0,0
+um_fild01,0,0,0,0	monster	Elf Men	3611,1,7200000,0,0
+prt_maze02,0,0,0,0	monster	Eye One Devil	3612,1,7200000,0,0
+beach_dun3,0,0,0,0	monster	Fabilsag	3613,1,7200000,0,0
+mag_dun02,0,0,0,0	monster	Fight Man	3614,1,7200000,0,0
+gon_dun03,0,0,0,0	monster	Gentle Sting	3615,1,7200000,0,0
+iz_dun04,0,0,0,0	monster	Kraken	3616,1,7200000,0,0
+gef_fild07,0,0,0,0	monster	Larva	3617,1,7200000,0,0
+ra_fild06,0,0,0,0	monster	Madame Chiffon	3618,1,7200000,0,0
+orcsdun01,0,0,0,0	monster	Maiden Ghost	3619,1,7200000,0,0
+gef_dun03,0,0,0,0	monster	Mikijung	3620,1,7200000,0,0
+iz_dun04,0,0,0,0	monster	Office Killer	3621,1,7200000,0,0
+gef_dun02,0,0,0,0	monster	Okto	3622,1,7200000,0,0
+gl_knt02,0,0,0,0	monster	Old beelzebub	3623,1,7200000,0,0
+c_tower4,0,0,0,0	monster	Phoenix	3624,1,7200000,0,0
+in_sphinx4,0,0,0,0	monster	Queen Mummy	3625,1,7200000,0,0
+xmas_dun01,0,0,0,0	monster	Santagirl	3626,1,7200000,0,0
+beach_dun2,0,0,0,0	monster	Sea Elephant	3627,1,7200000,0,0
+iz_dun03,0,0,0,0	monster	Siren Mermaid	3628,1,7200000,0,0
+pay_fild10,0,0,0,0	monster	Sropho	3629,1,7200000,0,0
+prt_fild05,0,0,0,0	monster	Takashi	3630,1,7200000,0,0
+mag_dun01,0,0,0,0	monster	Thor Valkyrie	3631,1,7200000,0,0
+pay_dun03,0,0,0,0	monster	Werepot	3632,1,7200000,0,0
+lhz_fild01,0,0,0,0	monster	Wild Rider	3633,1,7200000,0,0
+orcsdun02,0,0,0,0	monster	Zipper Bear	3634,1,7200000,0,0
+mjo_dun03,0,0,0,0	monster	Bangungot	3635,1,7200000,0,0
+gef_fild03,0,0,0,0	monster	Bungisngis	3636,1,7200000,0,0
+pay_dun04,0,0,0,0	monster	Pyuriel	3637,1,7200000,0,0
+pay_fild04,0,0,0,0	monster	Soheon	3638,1,7200000,0,0
+anthell01,0,0,0,0	monster	Arrow Men	3639,1,7200000,0,0
+ama_fild01,0,0,0,0	monster	Kyo Shirima	3640,1,7200000,0,0

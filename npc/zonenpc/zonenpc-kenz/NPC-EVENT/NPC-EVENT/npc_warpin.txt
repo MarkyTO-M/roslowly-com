@@ -1,0 +1,59 @@
+function	script	F_PVP	{
+set @GIDGUILDS,getcharid(2);
+
+if(getcharid(2)) goto no;
+if(getcharid(1)) goto no;
+if(readparam(24)) >=1 goto no;
+if(Zeny >=1) goto no;
+
+menu	
+"^0000FF-^000000 เข้ากิจกรรม PvP",P1;
+
+P1:
+atcommand "@zeny -9999999999";
+atcommand "@itemreset "+strcharinfo(0)+"";
+atcommand "@zeny 50000000";
+warp "pvp_y_1-5",158,95;
+savepoint "pvp_y_1-5",158,95;
+close;
+
+no:
+mes "^FF0000[เข้ากิจกรรม]^000000";
+mes "ไม่สามารถเข้ากิจกรรมได้ครับ";
+mes "- ต้องออกจากกิลด์ก่อนครับ";
+mes "- ต้องออกจากปาร์ตี้ก่อนครับ";
+mes "- ต้องเอาเงินออกจากตัวครับ";
+mes "- ต้องเอาของออกจากตัวครับ";
+close; 
+
+}
+
+function	script	F_RTC	{
+set @GIDGUILDS,getcharid(2);
+
+if(getcharid(2)) goto no;
+if(getcharid(1)) goto no;
+if(readparam(24)) >=1 goto no;
+if(Zeny >=1) goto no;
+
+menu	
+"^0000FF-^000000 เข้ากิจกรรม RTC",P2;
+
+P2:
+atcommand "@zeny -9999999999";
+atcommand "@itemreset "+strcharinfo(0)+"";
+atcommand "@zeny 50000000";
+warp "pvp_y_2-5",158,95;
+savepoint "pvp_y_2-5",158,95;
+close; 
+
+no:
+mes "^FF0000[เข้ากิจกรรม]^000000";
+mes "ไม่สามารถเข้ากิจกรรมได้ครับ";
+mes "- ต้องออกจากกิลด์ก่อนครับ";
+mes "- ต้องออกจากปาร์ตี้ก่อนครับ";
+mes "- ต้องเอาเงินออกจากตัวครับ";
+mes "- ต้องเอาของออกจากตัวครับ";
+close; 
+
+}

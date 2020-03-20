@@ -1,0 +1,114 @@
+play_cas01	mapflag	gvg_castle
+play_cas01	mapflag	nobranch
+play_cas01	mapflag	nomemo
+play_cas01	mapflag	nosave	SavePoint
+play_cas01	mapflag	noteleport
+play_cas01	mapflag	nowarp
+
+play_cas02	mapflag	gvg_castle
+play_cas02	mapflag	nobranch
+play_cas02	mapflag	nomemo
+play_cas02	mapflag	nosave	SavePoint
+play_cas02	mapflag	noteleport
+play_cas02	mapflag	nowarp
+
+gvg_cas01	mapflag	gvg_castle
+gvg_cas01	mapflag	nobranch
+gvg_cas01	mapflag	nomemo
+gvg_cas01	mapflag	nosave	SavePoint
+gvg_cas01	mapflag	noteleport
+gvg_cas01	mapflag	nowarp
+gvg_cas01	mapflag	nowarpto
+
+gvg_cas02	mapflag	gvg_castle
+gvg_cas02	mapflag	nobranch
+gvg_cas02	mapflag	nomemo
+gvg_cas02	mapflag	nosave	SavePoint
+gvg_cas02	mapflag	noteleport
+gvg_cas02	mapflag	nowarp
+gvg_cas02	mapflag	nowarpto
+
+gvg_cas03	mapflag	gvg_castle
+gvg_cas03	mapflag	nobranch
+gvg_cas03	mapflag	nomemo
+gvg_cas03	mapflag	nosave	SavePoint
+gvg_cas03	mapflag	noteleport
+gvg_cas03	mapflag	nowarp
+gvg_cas03	mapflag	nowarpto
+
+gvg_cas04	mapflag	gvg_castle
+gvg_cas04	mapflag	nobranch
+gvg_cas04	mapflag	nomemo
+gvg_cas04	mapflag	nosave	SavePoint
+gvg_cas04	mapflag	noteleport
+gvg_cas04	mapflag	nowarp
+
+gvg_cas01,259,212,0	warp	zcas011	1,1,gvg_cas01,72,240
+gvg_cas01,75,240,0	warp	zcas011-1	1,5,gvg_cas01,256,212
+gvg_cas01,232,189,0	warp	zcas012	1,1,gvg_cas01,74,261
+gvg_cas01,78,261,0	warp	zcas012-1	1,1,gvg_cas01,236,189
+gvg_cas01,229,208,0	warp	zcas013	1,1,gvg_cas01,70,282
+gvg_cas01,74,282,0	warp	zcas013-1	1,1,gvg_cas01,225,208
+gvg_cas01,7,261,0	warp	zcas014	1,1,gvg_cas01,55,30
+gvg_cas01,59,30,0	warp	zcas014-1	1,1,gvg_cas01,11,261
+
+gvg_cas01,29,28	warp	Gm.K1-1	1,1,gvg_cas01,251,42
+gvg_cas01,254,45	warp	Gm.K1-2	1,1,gvg_cas01,24,29
+gvg_cas01,29,33	warp	Gm.K1-3	1,1,gvg_cas01,289,42
+gvg_cas01,286,45	warp	Gm.K1-4	1,1,gvg_cas01,24,32
+
+//
+
+gvg_cas02,259,212,0	warp	zcas021	1,1,gvg_cas02,72,240
+gvg_cas02,75,240,0	warp	zcas021-1	1,5,gvg_cas02,256,212
+gvg_cas02,232,189,0	warp	zcas022	1,1,gvg_cas02,74,261
+gvg_cas02,78,261,0	warp	zcas022-1	1,1,gvg_cas02,236,189
+gvg_cas02,229,208,0	warp	zcas023	1,1,gvg_cas02,70,282
+gvg_cas02,74,282,0	warp	zcas023-1	1,1,gvg_cas02,225,208
+gvg_cas02,7,261,0	warp	zcas024	1,1,gvg_cas02,55,30
+gvg_cas02,59,30,0	warp	zcas024-1	1,1,gvg_cas02,11,261
+
+gvg_cas02,29,28	warp	Gm.K2-1	1,1,gvg_cas02,251,42
+gvg_cas02,254,45	warp	Gm.K2-2	1,1,gvg_cas02,24,29
+gvg_cas02,29,33	warp	Gm.K2-3	1,1,gvg_cas02,289,42
+gvg_cas02,286,45	warp	Gm.K2-4	1,1,gvg_cas02,24,32
+
+//
+
+gvg_cas03,255,76,0	warp	zcas031	1,1,gvg_cas03,24,19
+gvg_cas03,20,19,0	warp	zcas031-1	1,1,gvg_cas03,255,72
+gvg_cas03,269,79,0	warp	zcas032	1,1,gvg_cas03,53,19
+gvg_cas03,57,19,0	warp	zcas032-1	1,1,gvg_cas03,269,75
+gvg_cas03,255,64,0	warp	zcas033	1,1,gvg_cas03,245,37
+gvg_cas03,245,41,0	warp	zcas033-1	1,1,gvg_cas03,255,68
+gvg_cas03,262,71,0	warp	zcas034	1,1,gvg_cas03,39,9
+gvg_cas03,39,5,0	warp	zcas034-1	1,1,gvg_cas03,263,66
+gvg_cas03,271,68,0	warp	zcas035	0,1,gvg_cas03,261,37
+gvg_cas03,261,34,0	warp	zcas035-1	1,1,gvg_cas03,269,68
+gvg_cas03,39,84,0	warp	zcas036	1,1,gvg_cas03,29,249
+gvg_cas03,29,245,0	warp	zcas036-1	1,1,gvg_cas03,39,80
+
+gvg_cas03,24,289,0	warp	Gm.K3-1	1,1,gvg_cas03,248,287
+gvg_cas03,246,289,0	warp	Gm.K3-2	1,1,gvg_cas03,25,284
+gvg_cas03,33,289,0	warp	Gm.K3-3	1,1,gvg_cas03,289,287
+gvg_cas03,291,289,0	warp	Gm.K3-4	1,1,gvg_cas03,32,284
+
+//
+
+gvg_cas04,255,76,0	warp	zcas041	1,1,gvg_cas04,24,19
+gvg_cas04,20,19,0	warp	zcas041-1	1,1,gvg_cas04,255,72
+gvg_cas04,269,79,0	warp	zcas042	1,1,gvg_cas04,53,19
+gvg_cas04,57,19,0	warp	zcas042-1	1,1,gvg_cas04,269,75
+gvg_cas04,255,64,0	warp	zcas043	1,1,gvg_cas04,245,37
+gvg_cas04,245,41,0	warp	zcas043-1	1,1,gvg_cas04,255,68
+gvg_cas04,262,71,0	warp	zcas044	1,1,gvg_cas04,39,9
+gvg_cas04,39,5,0	warp	zcas044-1	1,1,gvg_cas04,263,66
+gvg_cas04,271,68,0	warp	zcas045	0,1,gvg_cas04,261,37
+gvg_cas04,261,34,0	warp	zcas045-1	1,1,gvg_cas04,269,68
+gvg_cas04,39,84,0	warp	zcas046	1,1,gvg_cas04,29,249
+gvg_cas04,29,245,0	warp	zcas046-1	1,1,gvg_cas04,39,80
+
+gvg_cas04,24,289,0	warp	Gm.K4-1	1,1,gvg_cas04,248,287
+gvg_cas04,246,289,0	warp	Gm.K4-2	1,1,gvg_cas04,25,284
+gvg_cas04,33,289,0	warp	Gm.K4-3	1,1,gvg_cas04,289,287
+gvg_cas04,291,289,0	warp	Gm.K4-4	1,1,gvg_cas04,32,284

@@ -1,0 +1,33 @@
+function	script	announce	{
+menu
+"• ^FF66CCประกาศด้วยสีนี้^000000",goguild1,
+"• ^CC00FFประกาศด้วยสีนี้^000000",goguild2,
+"• ^FFCC00ประกาศด้วยสีนี้^000000",goguild3,
+"• ^33FF00ประกาศด้วยสีนี้^000000",goguild4,
+"• ^FF0000ประกาศด้วยสีนี้^000000",goguild5;
+
+goguild1:
+input @Megaphone$; 
+announce strcharinfo(0)+" : " + @Megaphone$,bc_all,0xFF66CC;
+close;
+
+goguild2:
+input @Megaphone$; 
+announce strcharinfo(0)+" : " + @Megaphone$,bc_all,0xCC00FF;
+close;
+
+goguild3:
+input @Megaphone$; 
+announce strcharinfo(0)+" : " + @Megaphone$,bc_all,0xFFCC00;
+close;
+
+goguild4:
+input @Megaphone$; 
+announce strcharinfo(0)+" : " + @Megaphone$,bc_all,0x33FF00;
+close;
+
+goguild5:
+input @Megaphone$; 
+announce strcharinfo(0)+" : " + @Megaphone$,bc_all,0xFF0000;
+close;
+}

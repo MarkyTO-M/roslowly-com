@@ -1,0 +1,101 @@
+moc_fild01,0,0,0,0	monster	Baby Desert Wolf	1107,90,0,0,0
+moc_fild01,0,0,0,0	monster	Ant Egg	1097,90,0,0,0
+moc_fild01,0,0,0,0	monster	Peco Peco Egg	1047,90,0,0,0
+moc_fild01,0,0,0,0	monster	Picky	1049,10,0,0,0
+moc_fild01,0,0,0,0	monster	Drops	1113,90,0,0,0
+moc_fild01,0,0,0,0	monster	Poring	1002,10,0,0,0
+moc_fild01,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+
+moc_fild02,0,0,0,0	monster	Peco Peco	1019,90,0,0,0
+moc_fild02,0,0,0,0	monster	Ant Egg	1097,10,0,0,0
+moc_fild02,0,0,0,0	monster	Peco Peco Egg	1047,90,0,0,0
+moc_fild02,0,0,0,0	monster	Picky	1049,10,0,0,0
+moc_fild02,0,0,0,0	monster	Drops	1113,90,0,0,0
+moc_fild02,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+moc_fild02,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+
+moc_fild03,0,0,0,0	monster	Elder Willow	1033,90,0,0,0
+moc_fild03,0,0,0,0	monster	Greatest General	1277,90,0,0,0
+moc_fild03,0,0,0,0	monster	Poporing	1031,90,0,0,0
+moc_fild03,0,0,0,0	monster	Eggyra	1116,10,0,0,0
+moc_fild03,0,0,0,0	monster	Willow	1010,90,0,0,0
+moc_fild03,0,0,0,0	monster	Vagabond Wolf	1092,10,0,0,0
+moc_fild03,0,0,0,0	monster	Green Plant	1080,90,0,0,0
+
+moc_fild07,0,0,0,0	monster	Drops	1113,90,0,0,0
+moc_fild07,0,0,0,0	monster	Peco Peco Egg	1047,90,0,0,0
+moc_fild07,0,0,0,0	monster	Picky	1050,90,0,0,0
+moc_fild07,0,0,0,0	monster	Picky	1049,10,0,0,0
+
+moc_fild11,0,0,0,0	monster	Hode	1127,10,0,0,0
+moc_fild11,0,0,0,0	monster	Golem	1040,90,0,0,0
+moc_fild11,0,0,0,0	monster	Andre	1095,10,0,0,0
+moc_fild11,0,0,0,0	monster	Deniro	1105,10,0,0,0
+moc_fild11,0,0,0,0	monster	Piere	1160,10,0,0,0
+moc_fild11,0,0,0,0	monster	Ant Egg	1097,10,0,0,0
+moc_fild11,0,0,0,0	monster	Magnolia	1138,90,0,0,0
+moc_fild11,0,0,0,0	monster	Muka	1055,10,0,0,0
+
+moc_fild12,0,0,0,0	monster	Picky	1050,90,0,0,0
+moc_fild12,0,0,0,0	monster	Picky	1049,10,0,0,0
+moc_fild12,0,0,0,0	monster	Peco Peco Egg	1047,90,0,0,0
+moc_fild12,0,0,0,0	monster	Drops	1113,90,0,0,0
+
+moc_fild13,0,0,0,0	monster	Desert Wolf	1106,90,0,0,0
+moc_fild13,0,0,0,0	monster	Anacondaq	1030,90,0,0,0
+moc_fild13,0,0,0,0	monster	Boa	1025,90,0,0,0
+moc_fild13,0,0,0,0	monster	Side Winder	1037,90,0,0,0
+moc_fild13,0,0,0,0	monster	Poporing	1031,90,0,0,0
+moc_fild13,0,0,0,0	monster	Drops	1113,90,0,0,0
+moc_fild13,0,0,0,0	monster	Red Mushroom	1085,10,0,0,0
+moc_fild13,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
+
+moc_fild16,0,0,0,0	monster	Sandman	1165,90,0,0,0
+moc_fild16,0,0,0,0	monster	Hode	1127,90,0,0,0
+moc_fild16,0,0,0,0	monster	Magnolia	1138,90,0,0,0
+moc_fild16,0,0,0,0	monster	Andre	1095,10,0,0,0
+moc_fild16,0,0,0,0	monster	Deniro	1105,10,0,0,0
+moc_fild16,0,0,0,0	monster	Ant Egg	1097,10,0,0,0
+
+moc_fild17,0,0,0,0	monster	Hode	1127,90,0,0,0
+moc_fild17,0,0,0,0	monster	Steel Chonchon	1042,90,0,0,0
+moc_fild17,0,0,0,0	monster	Magnolia	1138,90,0,0,0
+moc_fild17,0,0,0,0	monster	Frilldora	1119,10,0,0,0
+moc_fild17,0,0,0,0	monster	Ant Egg	1097,10,0,0,0
+moc_fild17,0,0,0,0	monster	Scorpion	1001,10,0,0,0
+
+moc_fild17,270,106,0,0	monster	Blue Plant	1079,10,0,0,0
+moc_fild17,335,191,0,0	monster	Yellow Plant	1081,10,0,0,0
+
+moc_fild18,0,0,0,0	monster	Steel Chonchon	1042,90,0,0,0
+moc_fild18,0,0,0,0	monster	Chonchon	1011,90,0,0,0
+moc_fild18,0,0,0,0	monster	Muka	1055,90,0,0,0
+moc_fild18,0,0,0,0	monster	Metaller	1058,10,0,0,0
+moc_fild18,0,0,0,0	monster	Ant Egg	1097,10,0,0,0
+moc_fild18,0,0,0,0	monster	Dragon Fly	1091,10,0,0,0
+moc_fild18,0,0,0,0	monster	Hunter Fly	1035,10,0,0,0
+moc_fild18,143,352,0,0	monster	Yellow Plant	1081,10,0,0,0
+
+moc_fild20,0,0,0,0	monster	Ant Egg	1097,10,0,0,0
+moc_fild20,0,0,0,0	monster	Andre	1095,90,0,0,0
+moc_fild20,0,0,0,0	monster	Deniro	1105,90,0,0,0
+moc_fild20,0,0,0,0	monster	Piere	1160,90,0,0,0
+moc_fild20,0,0,0,0	monster	Metaller	1058,90,0,0,0
+moc_fild20,0,0,0,0	monster	Drops	1113,10,0,0,0
+moc_fild20,0,0,0,0	monster	Scorpion	1001,90,0,0,0
+moc_fild20,0,0,0,0	monster	Picky	1050,90,0,0,0
+moc_fild20,0,0,0,0	monster	Picky	1049,90,0,0,0
+moc_fild20,0,0,0,0	monster	Morroc's Shadow	1918,10,0,0,0
+
+moc_fild21,0,0,0,0	monster	Golem	1040,180,0,0,0
+moc_fild21,0,0,0,0	monster	Stalactic Golem	1278,90,0,0,0
+moc_fild21,0,0,0,0	monster	Lava Golem	1366,90,0,0,0
+moc_fild21,0,0,0,0	monster	Morroc's Shadow	1918,90,0,0,0
+moc_fild21,0,0,0,0	monster	Morroc's Shadow	1919,90,0,0,0
+moc_fild21,0,0,0,0	monster	Morroc's Shadow	1920,90,0,0,0
+moc_fild21,0,0,0,0	monster	Morroc's Shadow	1921,90,0,0,0
+
+moc_fild22,0,0,0,0	monster	Morroc's Shadow	1918,90,0,0,0
+moc_fild22,0,0,0,0	monster	Morroc's Shadow	1919,90,0,0,0
+moc_fild22,0,0,0,0	monster	Morroc's Shadow	1920,90,0,0,0
+moc_fild22,0,0,0,0	monster	Morroc's Shadow	1921,90,0,0,0

@@ -1,0 +1,151 @@
+home1,31,36,0	script	home1a	858,{	warp "home1",31,33;	end;	}
+home1,28,33,0	script	home1b	858,{	warp "home1",28,36;	end;	}
+
+home2,31,36,0	script	home2a	858,{	warp "home2",31,33;	end;	}
+home2,28,33,0	script	home2b	858,{	warp "home2",28,36;	end;	}
+
+home3,31,36,0	script	home3a	858,{	warp "home3",31,33;	end;	}
+home3,28,33,0	script	home3b	858,{	warp "home3",28,36;	end;	}
+
+home4,31,36,0	script	home4a	858,{	warp "home4",31,33;	end;	}
+home4,28,33,0	script	home4b	858,{	warp "home4",28,36;	end;	}
+
+home5,31,36,0	script	home5a	858,{	warp "home5",31,33;	end;	}
+home5,28,33,0	script	home5b	858,{	warp "home5",28,36;	end;	}
+
+home6,31,36,0	script	home6a	858,{	warp "home6",31,33;	end;	}
+home6,28,33,0	script	home6b	858,{	warp "home6",28,36;	end;	}
+
+home7,31,36,0	script	home7a	858,{	warp "home7",31,33;	end;	}
+home7,28,33,0	script	home7b	858,{	warp "home7",28,36;	end;	}
+
+home8,31,36,0	script	home8a	858,{	warp "home8",31,33;	end;	}
+home8,28,33,0	script	home8b	858,{	warp "home8",28,36;	end;	}
+
+home9,31,36,0	script	home9a	858,{	warp "home9",31,33;	end;	}
+home9,28,33,0	script	home9b	858,{	warp "home9",28,36;	end;	}
+
+home10,31,36,0	script	home10a	858,{	warp "home10",31,33;	end;	}
+home10,28,33,0	script	home10b	858,{	warp "home10",28,36;	end;	}
+
+home11,31,36,0	script	home11a	858,{	warp "home11",31,33;	end;	}
+home11,28,33,0	script	home11b	858,{	warp "home11",28,36;	end;	}
+
+home12,31,36,0	script	home12a	858,{	warp "home12",31,33;	end;	}
+home12,28,33,0	script	home12b	858,{	warp "home12",28,36;	end;	}
+
+home13,31,36,0	script	home13a	858,{	warp "home13",31,33;	end;	}
+home13,28,33,0	script	home13b	858,{	warp "home13",28,36;	end;	}
+
+home14,31,36,0	script	home14a	858,{	warp "home14",31,33;	end;	}
+home14,28,33,0	script	home14b	858,{	warp "home14",28,36;	end;	}
+
+home15,31,36,0	script	home15a	858,{	warp "home15",31,33;	end;	}
+home15,28,33,0	script	home15b	858,{	warp "home15",28,36;	end;	}
+
+home16,31,36,0	script	home16a	858,{	warp "home16",31,33;	end;	}
+home16,28,33,0	script	home16b	858,{	warp "home16",28,36;	end;	}
+
+home17,31,36,0	script	home17a	858,{	warp "home17",31,33;	end;	}
+home17,28,33,0	script	home17b	858,{	warp "home17",28,36;	end;	}
+
+home18,31,36,0	script	home18a	858,{	warp "home18",31,33;	end;	}
+home18,28,33,0	script	home18b	858,{	warp "home18",28,36;	end;	}
+
+home19,31,36,0	script	home19a	858,{	warp "home19",31,33;	end;	}
+home19,28,33,0	script	home19b	858,{	warp "home19",28,36;	end;	}
+
+home20,31,36,0	script	home20a	858,{	warp "home20",31,33;	end;	}
+home20,28,33,0	script	home20b	858,{	warp "home20",28,36;	end;	}
+
+home21,31,36,0	script	home21a	858,{	warp "home21",31,33;	end;	}
+home21,28,33,0	script	home21b	858,{	warp "home21",28,36;	end;	}
+
+home22,31,36,0	script	home22a	858,{	warp "home22",31,33;	end;	}
+home22,28,33,0	script	home22b	858,{	warp "home22",28,36;	end;	}
+
+home23,31,36,0	script	home23a	858,{	warp "home23",31,33;	end;	}
+home23,28,33,0	script	home23b	858,{	warp "home23",28,36;	end;	}
+
+home24,31,36,0	script	home24a	858,{	warp "home24",31,33;	end;	}
+home24,28,33,0	script	home24b	858,{	warp "home24",28,36;	end;	}
+
+home25,31,36,0	script	home25a	858,{	warp "home25",31,33;	end;	}
+home25,28,33,0	script	home25b	858,{	warp "home25",28,36;	end;	}
+
+home26,31,36,0	script	home26a	858,{	warp "home26",31,33;	end;	}
+home26,28,33,0	script	home26b	858,{	warp "home26",28,36;	end;	}
+
+home27,31,36,0	script	home27a	858,{	warp "home27",31,33;	end;	}
+home27,28,33,0	script	home27b	858,{	warp "home27",28,36;	end;	}
+
+home28,31,36,0	script	home28a	858,{	warp "home28",31,33;	end;	}
+home28,28,33,0	script	home28b	858,{	warp "home28",28,36;	end;	}
+
+home29,31,36,0	script	home29a	858,{	warp "home29",31,33;	end;	}
+home29,28,33,0	script	home29b	858,{	warp "home29",28,36;	end;	}
+
+home30,31,36,0	script	home30a	858,{	warp "home30",31,33;	end;	}
+home30,28,33,0	script	home30b	858,{	warp "home30",28,36;	end;	}
+
+//
+
+home31,31,36,0	script	home31a	858,{	warp "home31",31,33;	end;	}
+home31,28,33,0	script	home31b	858,{	warp "home31",28,36;	end;	}
+
+home32,31,36,0	script	home32a	858,{	warp "home32",31,33;	end;	}
+home32,28,33,0	script	home32b	858,{	warp "home32",28,36;	end;	}
+
+home33,31,36,0	script	home33a	858,{	warp "home33",31,33;	end;	}
+home33,28,33,0	script	home33b	858,{	warp "home33",28,36;	end;	}
+
+home34,31,36,0	script	home34a	858,{	warp "home34",31,33;	end;	}
+home34,28,33,0	script	home34b	858,{	warp "home34",28,36;	end;	}
+
+home35,31,36,0	script	home35a	858,{	warp "home35",31,33;	end;	}
+home35,28,33,0	script	home35b	858,{	warp "home35",28,36;	end;	}
+
+home36,31,36,0	script	home36a	858,{	warp "home36",31,33;	end;	}
+home36,28,33,0	script	home36b	858,{	warp "home36",28,36;	end;	}
+
+home37,31,36,0	script	home37a	858,{	warp "home37",31,33;	end;	}
+home37,28,33,0	script	home37b	858,{	warp "home37",28,36;	end;	}
+
+home38,31,36,0	script	home38a	858,{	warp "home38",31,33;	end;	}
+home38,28,33,0	script	home38b	858,{	warp "home38",28,36;	end;	}
+
+home39,31,36,0	script	home39a	858,{	warp "home39",31,33;	end;	}
+home39,28,33,0	script	home39b	858,{	warp "home39",28,36;	end;	}
+
+home40,31,36,0	script	home40a	858,{	warp "home40",31,33;	end;	}
+home40,28,33,0	script	home40b	858,{	warp "home40",28,36;	end;	}
+
+home41,31,36,0	script	home41a	858,{	warp "home41",31,33;	end;	}
+home41,28,33,0	script	home41b	858,{	warp "home41",28,36;	end;	}
+
+home42,31,36,0	script	home42a	858,{	warp "home42",31,33;	end;	}
+home42,28,33,0	script	home42b	858,{	warp "home42",28,36;	end;	}
+
+home43,31,36,0	script	home43a	858,{	warp "home43",31,33;	end;	}
+home43,28,33,0	script	home43b	858,{	warp "home43",28,36;	end;	}
+
+home44,31,36,0	script	home44a	858,{	warp "home44",31,33;	end;	}
+home44,28,33,0	script	home44b	858,{	warp "home44",28,36;	end;	}
+
+home45,31,36,0	script	home45a	858,{	warp "home45",31,33;	end;	}
+home45,28,33,0	script	home45b	858,{	warp "home45",28,36;	end;	}
+
+home46,31,36,0	script	home46a	858,{	warp "home46",31,33;	end;	}
+home46,28,33,0	script	home46b	858,{	warp "home46",28,36;	end;	}
+
+home47,31,36,0	script	home47a	858,{	warp "home47",31,33;	end;	}
+home47,28,33,0	script	home47b	858,{	warp "home47",28,36;	end;	}
+
+home48,31,36,0	script	home48a	858,{	warp "home48",31,33;	end;	}
+home48,28,33,0	script	home48b	858,{	warp "home48",28,36;	end;	}
+
+home49,31,36,0	script	home49a	858,{	warp "home49",31,33;	end;	}
+home49,28,33,0	script	home49b	858,{	warp "home49",28,36;	end;	}
+
+home50,31,36,0	script	home50a	858,{	warp "home50",31,33;	end;	}
+home50,28,33,0	script	home50b	858,{	warp "home50",28,36;	end;	}

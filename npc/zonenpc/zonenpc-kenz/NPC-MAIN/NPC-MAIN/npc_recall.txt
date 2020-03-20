@@ -1,0 +1,34 @@
+-	script	recallexpress	-1,{
+mes "^FF0000[Recall Service]^000000";
+		mes "ข้าคือหัวหน้าเรียกรวมพล";
+		mes "อยากใช้บริการไหนโปรดแจ้ง";
+menu
+"^0000FF-^000000 เรียกรวมปาร์ตี้",S1,
+"^0000FF-^000000 เรียกรวมกิลด์",S2;
+
+S1:
+set @nparty,getcharid(1);
+if (strcharinfo(0) == getpartyleader(@nparty)) goto Pmaster;
+if (strcharinfo(0) != getpartyleader(@nparty)) goto Pmember;
+
+Pmaster:
+atcommand strcharinfo(0) + "@partyrecall "+ getcharid(1) +"";
+close;
+
+Pmember:
+dispbottom "ต้องหัวหน้าปาร์ตี้เท่านั้นครับ";
+close;
+
+S2:
+set @nguild,getcharid(2);
+if (strcharinfo(0) == getguildmaster(@nguild)) goto Gmaster;
+if (getcharid(2) == @nguild) goto Mmaster;
+
+Gmaster:
+atcommand strcharinfo(0) + "@guildrecall "+ getcharid(2) +"";
+close;
+
+Mmaster:
+dispbottom "ต้องหัวหน้ากิลด์เท่านั้นครับ";
+close;
+} 

@@ -1,0 +1,1262 @@
+//===== Hercules Script ======================================
+//= Refining NPCs
+//===== By: ==================================================
+//= Syrus22 (1.1) dafide18 (1.4) Skotlex (1.5)
+//===== Current Version: =====================================
+//= 3.3
+//===== Description: =========================================
+//= Refining NPCs and Metal Salesmen.
+//===== Additional Comments: =================================
+//= 1.0 by A bunch of people!
+//=     Syrus22 - Completely redid the script using functions... also
+//=     added the option for auto safe refining and multiple refining.
+//= 1.1 Negative input bug fixed [Lupus]
+//= 1.2 Added additional reparimen in morroc and payon. Added
+//=     Christopher the blacksmith in Geffen. Edited some dialogue [kobra_k88]
+//= 1.3 New Payon Locations [Darkchild]
+//=     Corrected zeny subtraction thx to jpnmania77.[kobra_k88]
+//= 1.3a Temporary corrected an exploit. Need to check sources
+//=     to fully fix bug [Shinigami]
+//=     Fixed repairman prices [shadowlady]
+//=     Fixed bug that skips requirements thanks to sir_loon [massdriller]
+//=     Fixed itemid error thanks to -Vitamin- [massdriller]
+//= 1.4 check again item in refining procedure to avoid
+//=     hacker that can change item [dafide18]
+//= 1.5 Fixed crashing due to badly used callfunc's [Skotlex]
+//=     Lupus, don't rollback this important fix again! >.<
+//= 1.5a Corrected an unneeded callfunc, fixed the anti-bot 
+//=     exploit ruining the safe refine loop. [Skotlex]
+//= 1.5b Fixed Spelling mistakes. [Nexon] 
+//= 1.6 Replaced all breaks for ends as per the new script engine [Skotlex]
+//= 1.7 Added Einbroch Refiners (Custom names ^^;) and a duplicated BS Shop. [Poki#3]
+//= 1.8 Added Lighthalzen Refiners (Custom names again ^^;) [Poki#3]
+//= 1.8a Fixed wrong indication thanks to NeoSaro [Lupus]
+//= 1.9 Rewrote repairman, removed the Steel from repair cost [DracoRPG]
+//= 2.0 Fixed missed equppment presence check. Thx2 Coltaro [Lupus]
+//= 2.0a Added weight checks thanks to Neouni [Playtester]
+//= 2.0b Fixed the names of Lighthalzen and Einbroch refiners thanks to Maud_Dib [Kargha]
+//= 2.1 Removed Duplicates [Silent]
+//= 2.2 Changed name from "Emvertacon" to "Emveretarcon". [Samuray22]
+//=     Thanks to Barron-Monster.
+//= 2.2b Changed name from "Pharacon" to "Phracon". [Samuray22]
+//=     Thanks to Barron-Monster.
+//= 2.3 Corrected NPC names to fall within proper restrictions. [L0ne_W0lf]
+//= 2.4 Updated Refiner function. cleaner, and less dated. [L0ne_w0lf]
+//= 2.5 Rather large update to the refiner and merchants. :D [L0ne_W0lf]
+//= 2.6 Fixed a few bugs with creating pure stones. [L0ne_W0lf]
+//= 2.7 Refiner function accepts additional paramater. [L0ne_W0lf]
+//=     0 = No special features; 1 = new refining features
+//=     Updated Repairmen and function. No longer shows menu.
+//= 2.7a A couple touch-ups to the repairman function. [L0ne_w0lf]
+//= 2.8 Changed the nonexistent variable .@matname$ for getitemname(.@material). (bugreport:2340) [Samuray22]
+//= 2.8 Added proper Blacksmith Supplier to Einroch. [L0ne_W0lf]
+//=     Updated dated features comment to reflect new usage.
+//= 2.8a Small bugfix. (bugreport:2418) [Paradox924X]
+//= 2.9 Moved Morroc repairman to Morroc Ruins. [L0ne_W0lf]
+//= 3.0 Updated several NPC names and locations. [Xantara]
+//=     Added WoE map Refiners.
+//= 3.1 Added the new refinement & Ore creation NPC's for +11 and above Refinement. [Masao]
+//= 3.2 Moved some scripts to Renewal file, other minor changes. [Euphy]
+//= 3.2a Added 'disable_items' command. [Euphy]
+//= 3.3 Some official script updates. [Euphy]
+//============================================================
+
+// Christopher: Geffen Blacksmith
+//============================================================
+geffen_in,110,172,0	script	Christopher#1	1_M_SMITH,{
+	mes "[Christopher Guillenrow]";
+	mes " ยินดีต้อนรับสู่โรงงานของ Christopher";
+	mes " ท่านสามารถนำสิ่งทุกอย่างมาตีได้ที่นี่";
+	mes " แล้ว...ท่านมาที่นี่เพื่อสิ่งใดหรือ??";
+	next;
+	switch(select(" ซื้อทั่งตีเหล็ก: ซื้ออุปกรณ์ตีเหล็ก: ซื้อเหล็ก: ถลุงแร่: ยกเลิก")) {
+	case 1:
+		mes "[Christopher]";
+		mes " ทั่งตีเหล็กที่ทำจากโลหะชั้นดีทำให้ท่านสร้างอาวุธได้ดียิ่งขึ้น รู้ไหม แต่มันจะมีราคาสูงกว่าของปกติ";
+		mes " โปรดเลือกอันที่ท่านคิดว่าเหมาะสมที่สุด";
+		next;
+		switch(select(" Anvil - 30,000 เซนี: Oridecon Anvil - 120,000 เซนี: Golden Anvil - 300,000 เซนี: ทั่งตีเหล็กที่ดีกว่านี้: ยกเลิก")) {
+		case 1:
+			if (Zeny < 30000) {
+				mes "[Christopher]";
+				mes " ท่านมีเงินไม่พอ ข้าไม่สามารถมอบสิ่งของพวกนี้ให้กับท่านได้";
+				close;
+			}
+			getitem 986,1; // Anvil
+			Zeny -= 30000;
+			mes "[Christopher]";
+			mes " อันนี้ถูกที่สุดแต่ก็เป็นของมีคุณภาพ";
+			mes " ขอบคุณที่ซื้อของจากโรงงานของเรา โปรดกลับมาเมื่อท่านต้องการสิ่งอื่นๆ";
+			close;
+		case 2:
+			if (Zeny < 120000) {
+				mes "[Christopher]";
+				mes " ท่านมีเงินไม่พอ ข้าไม่สามารถมอบสิ่งของพวกนี้ให้กับท่านได้";
+				close;
+			}
+			getitem 987,1; // Oridecon_Anvil
+			Zeny -= 120000;
+			mes "[Christopher]";
+			mes " เลือกได้ดี! อย่างน้อย blacksmith ก็ควรใช้ของแบบนี้แหละ";
+			mes " ขอบคุณที่ซื้อของจากทางโรงงานของเรา โปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		case 3:
+			if (Zeny < 300000) {
+				mes "[Christopher]";
+				mes " ท่านมีเงินไม่พอ ข้าไม่สามารถมอบสิ่งของพวกนี้ให้กับท่านได้";
+				close;
+			}
+			getitem 988,1; // Golden_Anvil
+			Zeny -= 300000;
+			mes "[Christopher]";
+			mes " อันที่ท่านเลือกนี้ทำมาจากโลหะที่สวยงามและแข็งแกร่งที่สุด!";
+			mes " ด้วยสิ่งนี้";
+			mes "ท่านจะเป็นสุดยอดแห่งช่างตีเหล็ก...ในวันหนึ่ง";
+			mes " ขอบคุณที่ซื้อของจากโรงงานของเรา โปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		case 4:
+			mes "[Christopher]";
+			mes " ขอโทษที";
+			mes "ข้าไม่มีของที่แข็งแกร่งกว่าที่มีอยู่";
+			mes " ไม่รู้ว่า anvill ที่สร้่างโดย 'Ringgel' ผู้เป็นตำนานได้ถูกค้นพบหรือยัง...มันคือทั่งตีเหล็กที่สร้างจากสุดยอดของโลหะ... ท่านคงไม่สามารถหาซื้อมันได้ในร้านข้าหรือร้านใดๆ ก็ตาม";
+			close;
+		case 5:
+			mes "[Christopher]";
+			mes " โปรดกลับมาที่นี่เมื่อท่านต้องการสิ่งอื่น ขอให็โชคดี";
+			close;
+		}
+	case 2:
+		mes "[Christopher]";
+		mes " ช่างตีเหล็กที่ดีจะใช้เครื่องมือที่ดี";
+		mes " ท่านจะกลายเป็นช่างที่ดีด้วยอุปกรณืของข้า";
+		mes " โปรดเลือกสิ่งที่ท่านต้องการ";
+		next;
+		switch(select(" Portable Furnace - 150 เซนี: Iron Hammer - 1000 เซนี: Golden Hammer - 3000 เซนี: Oridecon Hammer - 5000 เซนี: ยกเลิก")) {
+		case 1:
+			mes "[Christopher]";
+			mes " นี่เป็นสิ่งที่จำเป็นสำหรับช่างตีเหล็ก!";
+			next;
+			mes "[Christopher]";
+			mes " แล้วท่านต้องการซื้อจำนวนเท่าไหร่ล่ะ? ถ้าท่านต้องการยกเลิก โปรดกำหนดตัวเลขให้เป็น '0'";
+			next;
+			while(1) {
+				input .@input;
+				if (.@input == 0) {
+					mes "[Christopher]";
+					mes " การซื้อขายถูกยกเลิกแล้ว";
+					close;
+				}
+				else if ((.@input < 0) || (.@input > 500)) {
+					mes "[Christopher]";
+					mes " ท่านซื้อของเกินจำนวนที่กำหนด";
+					next;
+				}
+				else {
+					break;
+				}
+			}
+			set .@sell,.@input * 150;
+			if (Zeny < .@sell) {
+				mes "[Christopher]";
+				mes " ท่านมีเงินไม่พอ ข้าไม่สามารถมอบสิ่งของพวกนี้ให้กับท่านได้";
+				close;
+			}
+			if (checkweight(612,.@input) == 0) {
+				mes "[Christopher]";
+				mes " น้ำหนักของท่านเกินกำหนด กรุณาตรวจสอบสัมภาระภายในตัวของท่าน?";
+				close;
+			}
+			getitem 612,.@input; // Portable_Furnace
+			Zeny -= .@sell;
+			mes "[Christopher]";
+			mes " ขอบคุณที่ซื้อของจากโรงงานของเราโปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		case 2:
+			if (Zeny < 1000) {
+				mes "[Christopher]";
+				mes " ท่านมีเงินไม่พอ ข้าไม่สามารถมอบสิ่งของพวกนี้ให้กับท่านได้";
+				close;
+			}
+			getitem 613,1; // Iron_Hammer
+			Zeny -= 1000;
+			mes "[Christopher]";
+			mes " ขอบคุณที่ซื้อของจากโรงงานของเราโปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		case 3:
+			if (Zeny < 3000) {
+				mes "[Christopher]";
+				mes " ท่านมีเงินไม่พอ ข้าไม่สามารถมอบสิ่งของพวกนี้ให้กับท่านได้";
+				close;
+			}
+			getitem 614,1; // Golden_Hammer
+			Zeny -= 3000;
+			mes "[Christopher]";
+			mes " ขอบคุณที่ซื้อของจากโรงงานของเราโปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		case 4:
+			if (Zeny < 5000) {
+				mes "[Christopher]";
+				mes " ท่านมีเงินไม่พอ ข้าไม่สามารถมอบสิ่งของพวกนี้ให้กับท่านได้";
+				close;
+			}
+			getitem 615,1; // Oridecon_Hammer
+			Zeny -= 5000;
+			mes "[Christopher]";
+			mes " ขอบคุณที่ซื้อของจากโรงงานของเราโปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		case 5:
+			mes "[Christopher]";
+			mes "โปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		}
+	case 3:
+		mes "[Christopher]";
+		mes " ข้าเห็นแล้วว่าท่านเลือกแต่ของดีเท่านั้น!";
+		mes " แล้ว ท่านต้องการโลหะแบบไหนล่ะ?";
+		next;
+		switch(select(" Phracon - 200 เซนี: Emveretarcon - 1000 เซนี: ยกเลิก")) {
+		case 1:
+			mes "[Christopher]";
+			mes " แล้วท่านต้องการซื้อจำนวนเท่าไหร่ล่ะ? ถ้าท่านต้องการยกเลิก โปรดกำหนดตัวเลขให้เป็น '0'";
+			next;
+			while(1) {
+				input .@input;
+				if (.@input == 0) {
+					mes "[Christopher]";
+					mes " การซื้อขายถูกยกเลิกแล้ว";
+					close;
+				}
+				else if ((.@input < 0) || (.@input > 500)) {
+					mes "[Christopher]";
+					mes " ท่านซื้อของเกินจำนวนที่กำหนด";
+					next;
+				}
+				else {
+					break;
+				}
+			}
+			set .@sell,.@input * 200;
+			if (Zeny < .@sell) {
+				mes "[Christopher]";
+				mes " ท่านมีเงินไม่พอ ข้าไม่สามารถมอบสิ่งของพวกนี้ให้กับท่านได้";
+				close;
+			}
+			if (checkweight(1010,.@input) == 0) {
+				mes "[Christopher]";
+				mes " น้ำหนักของท่านเกินกำหนด กรุณาตรวจสอบสัมภาระภายในตัวของท่าน?";
+				close;
+			}
+			getitem 1010,.@input; // Phracon
+			Zeny -= .@sell;
+			mes "[Christopher]";
+			mes " ขอบคุณที่ซื้อของจากโรงงานของเราโปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		case 2:
+			mes "[Christopher]";
+			mes " แล้วท่านต้องการซื้อจำนวนเท่าไหร่ล่ะ? ถ้าท่านต้องการยกเลิก โปรดกำหนดตัวเลขให้เป็น '0'";
+			next;
+			while(1) {
+				input .@input;
+				if (.@input == 0) {
+					mes "[Christopher]";
+					mes " การซื้อขายถูกยกเลิกแล้ว";
+					close;
+				}
+				else if ((.@input < 0) || (.@input > 500)) {
+					mes "[Christopher]";
+					mes " ท่านซื้อของเกินจำนวนที่กำหนด";
+					next;
+				}
+				else {
+					break;
+				}
+			}
+			set .@sell,.@input * 1000;
+			if (Zeny < .@sell) {
+				mes "[Christopher]";
+				mes " ท่านมีเงินไม่พอ ข้าไม่สามารถมอบสิ่งของพวกนี้ให้กับท่านได้";
+				close;
+			}
+			if (checkweight(1011,.@input) == 0) {
+				mes "[Christopher]";
+				mes " น้ำหนักของท่านเกินกำหนด กรุณาตรวจสอบสัมภาระภายในตัวของท่าน?";
+				close;
+			}
+			getitem 1011,.@input; // Emveretarcon
+			Zeny -= .@sell;
+			mes "[Christopher]";
+			mes " ขอบคุณที่ซื้อของจากโรงงานของเราโปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		case 3:
+			mes "[Christopher]";
+			mes "โปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		}
+	case 4:
+		mes "[Christopher]";
+		mes " ข้าสามารถถลุงแร่ Oridecon และ Elunium";
+		mes " ข้าต้องใช้แร่ดิบ 5 ชิ้นในการผลิดแร่ที่ถลุงแล้ว 1 ชิ้น";
+		mes " แล้วท่านต้องการทำอะไรล่ะ?";
+		next;
+		switch(select(" ข้าต้องการทำ Oridecon: ข้าต้องการทำ Elunium: ยกเลิก")) {
+		case 1:
+			if (countitem(756) < 5) {
+				mes "[Christopher]";
+				mes " ข้าทำให้ท่านไม่ได้ถ้าท่านไม่มี Oridecons ดิบ 5 ชิ้นมาให้ข้า";
+				close;
+			}
+			else {
+				delitem 756,5;  //Oridecon_Stone
+				getitem 984,1; // Oridecon
+				mes "[Christopher]";
+				mes " นี่ไง! Oridecon ของท่าน โปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+				close;
+			}
+		case 2:
+			if (countitem(757) < 5) {
+				mes "[Christopher]";
+				mes " ข้าทำให้ท่านไม่ได้ถ้าท่านไม่มี Elunium ดิบ 5 ชิ้นมาให้ข้า";
+				close;
+			}
+			else {
+				delitem 757,5;  //Elunium_Stone
+				getitem 985,1; // Elunium
+				mes "[Christopher]";
+				mes " นี่ไง!Elunium ของท่าน โปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+				close;
+			}
+		case 3:
+			mes "[Christopher]";
+			mes " โปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		}
+	case 5:
+		mes "[Christopher]";
+		mes " โปรดกลับมาที่นี่เมื่อท่านต้องการสิ่งอื่น ขอให้โชคดี";
+		close;
+	}
+}
+
+// Paul Spanner: Einbroch Blacksmith Supplier
+//============================================================
+ein_in01,38,29,0	script	Paul Spanner	1_M_SMITH,{
+	if (checkweight(1201,1) == 0) {
+		mes " เดี๋ยวๆ !!";
+		mes " ตอนนี้น้ำหนักของท่านเกินกำหนด";
+		mes " กลับไปตรวจสอบไอเท็มภายในตัวละครของท่านแล้วค่อยกลัยมาใหม่อีกครั้ง!";
+		close;
+	}
+	mes "[Paul Spanner]";
+	mes " ยินดีต้อนรับสหาย สู่ร้านค้าของข้า";
+	mes " ท่านสามารถนำสิ่งทุกอย่างมาตีได้ที่นี่";
+	mes " แล้ว...ท่านมาที่นี่เพื่อสิ่งใดหรือ??";
+	next;
+	switch(select(" ซื้อทั่งตีเหล็ก: ซื้ออุปกรณ์ตีเหล็ก: ซื้อเหล็ก: ถลุงแร่: ยกเลิก")) {
+	case 1:
+		mes "[Paul Spanner]";
+		mes " ทั่งตีเหล็กที่ทำจากโลหะชั้นดีทำให้ท่านสร้างอาวุธได้ดียิ่งขึ้น รู้ไหม แต่มันจะมีราคาสูงกว่าของปกติ";
+		mes " โปรดเลือกอันที่ท่านคิดว่าเหมาะสมที่สุด";
+		next;
+		switch(select(" Anvil - 30,000 เซนี: Oridecon Anvil - 120,000 เซนี: Golden Anvil - 300,000 เซนี: ทั่งตีเหล็กที่ดีกว่านี้: ยกเลิก")) {
+		case 1:
+			if (Zeny < 30000) {
+				mes "[Paul Spanner]";
+				mes " ไหนล่ะ เงินของท่าน!";
+				close;
+			}
+			getitem 986,1; //Anvil
+			Zeny -= 30000;
+			mes "[Paul Spanner]";
+			mes " อันนี้ถูกที่สุดแต่ก็เป็นของมีคุณภาพ";
+			mes " ขอบคุณที่ซื้อของจากโรงงานของเรา โปรดกลับมาเมื่อท่านต้องการสิ่งอื่นๆ";
+			close;
+		case 2:
+			if (Zeny < 120000) {
+				mes "[Paul Spanner]";
+				mes " ไหนล่ะ เงินของท่าน!";
+				close;
+			}
+			getitem 987,1; //Oridecon_Anvil
+			Zeny -= 120000;
+			mes "[Paul Spanner]";
+			mes " เลือกได้ดี! อย่างน้อย blacksmith ก็ควรใช้ของแบบนี้แหละ";
+			mes " ขอบคุณที่ซื้อของจากทางโรงงานของเรา โปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		case 3:
+			if (Zeny < 300000) {
+				mes "[Paul Spanner]";
+				mes " ไหนล่ะ เงินของท่าน!";
+				close;
+			}
+			getitem 988,1; //Golden_Anvil
+			Zeny -= 300000;
+			mes "[Paul Spanner]";
+			mes " อันที่ท่านเลือกนี้ทำมาจากโลหะที่สวยงามและแข็งแกร่งที่สุด!";
+			mes " ด้วยสิ่งนี้";
+			mes "ท่านจะเป็นสุดยอดแห่งช่างตีเหล็ก...ในวันหนึ่ง";
+			mes " ขอบคุณที่ซื้อของจากโรงงานของเรา โปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		case 4:
+			mes "[Paul Spanner]";
+			mes " ขอโทษที";
+			mes "ข้าไม่มีของที่แข็งแกร่งกว่าที่มีอยู่";
+			mes " ไม่รู้ว่า anvill ที่สร้่างโดย 'Ringgel' ผู้เป็นตำนานได้ถูกค้นพบหรือยัง...มันคือทั่งตีเหล็กที่สร้างจากสุดยอดของโลหะ... ท่านคงไม่สามารถหาซื้อมันได้ในร้านข้าหรือร้านใดๆ ก็ตาม";
+			close;
+		case 5:
+			mes "[Paul Spanner]";
+			mes " โปรดกลับมาที่นี่เมื่อท่านต้องการสิ่งอื่น ขอให็โชคดี";
+			close;
+		}
+	case 2:
+		mes "[Paul Spanner]";
+		mes " ช่างตีเหล็กที่ดีจะใช้เครื่องมือที่ดี";
+		mes " ท่านจะกลายเป็นช่างที่ดีด้วยอุปกรณืของข้า";
+		mes " โปรดเลือกสิ่งที่ท่านต้องการ";
+		next;
+		switch(select(" Portable Furnace - 150 เซนี: Iron Hammer - 1,000 เซนี: Golden Hammer - 3,000 เซนี: Oridecon Hammer - 5,000 เซนี: ยกเลิก")) {
+		case 1:
+			set .@item,612;
+			set .@item_cost,150;
+			set .@item_weight,200;
+			mes "[Paul Spanner]";
+			mes " ท่านแน่ใจใช่มั้ย? ทีจะใช้เครื่องมือนี้!";
+			next;
+			break;
+		case 2:
+			set .@item,613;
+			set .@item_cost,1000;
+			set .@item_weight,200;
+			break;
+		case 3:
+			set .@item,614;
+			set .@item_cost,3000;
+			set .@item_weight,300;
+			break;
+		case 4:
+			set .@item,615;
+			set .@item_cost,5000;
+			set .@item_weight,400;
+			break;
+		case 5:
+			mes "[Paul Spanner]";
+			mes "โปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		}
+		mes "[Paul Spanner]";
+		mes " แล้วท่านต้องการซื้อจำนวนเท่าไหร่ล่ะ? ถ้าท่านต้องการยกเลิก โปรดกำหนดตัวเลขให้เป็น '0'";
+		next;
+		while(1) {
+			input .@input;
+			if (.@input == 0) {
+				mes "[Paul Spanner]";
+				mes " การซื้อขายถูกยกเลิกแล้ว";
+				close;
+			}
+			else if ((.@input < 0) || (.@input > 500)) {
+				mes "[Paul Spanner]";
+					mes " ท่านซื้อของเกินจำนวนที่กำหนด";
+				next;
+			}
+			else {
+				break;
+			}
+		}
+		set .@sell,.@input * .@item_cost;
+		if (Zeny < .@sell) {
+			mes "[Paul Spanner]";
+				mes " ท่านมีเงินไม่พอ ข้าไม่สามารถมอบสิ่งของพวกนี้ให้กับท่านได้";
+			close;
+		}
+		if (checkweight(.@item,.@input) == 0) {
+			mes "[Paul Spanner]";
+				mes " น้ำหนักของท่านเกินกำหนด กรุณาตรวจสอบสัมภาระภายในตัวของท่าน?";
+			close;
+		}
+		Zeny -= .@sell;
+		getitem .@item,.@input;
+		mes "[Paul Spanner]";
+			mes " ขอบคุณที่ซื้อของจากร้านค้าของข้าโปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+		close;
+	case 3:
+		mes "[Paul Spanner]";
+		mes " ข้าเห็นแล้วว่าท่านเลือกแต่ของดีเท่านั้น!";
+		mes " แล้ว ท่านต้องการโลหะแบบไหนล่ะ?";
+		next;
+		switch(select(" Phracon - 200 เซนี: Emveretarcon - 1,000 เซนี: ยกเลิก")) {
+		case 1:
+			set .@item,1010;
+			set .@item_price,200;
+			break;
+		case 2:
+			set .@item,1011;
+			set .@item_price,1000;
+			break;
+		case 3:
+			mes "[Paul Spanner]";
+			mes "โปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		}
+		mes "[Paul Spanner]";
+			mes " แล้วท่านต้องการซื้อจำนวนเท่าไหร่ล่ะ? ถ้าท่านต้องการยกเลิก โปรดกำหนดตัวเลขให้เป็น '0'";
+		next;
+		while(1) {
+			input .@input;
+			if (.@input == 0) {
+				mes "[Paul Spanner]";
+					mes " การซื้อขายถูกยกเลิกแล้ว";
+				close;
+			}
+			else if ((.@input < 0) || (.@input > 500)) {
+				mes "[Paul Spanner]";
+					mes " ท่านซื้อของเกินจำนวนที่กำหนด";
+				next;
+			}
+			else {
+				break;
+			}
+		}
+		set .@sell,.@input * .@item_price;
+		if (Zeny < .@sell) {
+			mes "[Paul Spanner]";
+				mes " ท่านมีเงินไม่พอ ข้าไม่สามารถมอบสิ่งของพวกนี้ให้กับท่านได้";
+			close;
+		}
+		if (checkweight(.@item,.@input) == 0) {
+			mes "[Paul Spanner]";
+				mes " น้ำหนักของท่านเกินกำหนด กรุณาตรวจสอบสัมภาระภายในตัวของท่าน?";
+			close;
+		}
+		getitem .@item,.@input;
+		Zeny -= .@sell;
+		mes "[Paul Spanner]";
+			mes " ขอบคุณที่ซื้อของจากร้านค้าของข้าโปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+		close;
+	case 4:
+		mes "[Paul Spanner]";
+		mes " ข้าสามารถถลุงแร่ Oridecon และ Elunium";
+		mes " ข้าต้องใช้แร่ดิบ 5 ชิ้นในการผลิดแร่ที่ถลุงแล้ว 1 ชิ้น";
+		mes " แล้วท่านต้องการทำอะไรล่ะ?";
+		next;
+		switch(select(" ข้าต้องการทำ Oridecon: ข้าต้องการทำ Elunium: ยกเลิก")) {
+		case 1:
+			if (countitem(756) < 5) {
+				mes "[Paul Spanner]";
+				mes " ข้าทำให้ท่านไม่ได้ถ้าท่านไม่มี Oridecons ดิบ 5 ชิ้นมาให้ข้า";
+				close;
+			}
+			else {
+				delitem 756,5; //Oridecon_Stone
+				getitem 984,1; //Oridecon
+				mes "[Paul Spanner]";
+				mes " ขอบคุณที่เลือกใช้บริการของข้า";
+				close;
+			}
+		case 2:
+			if (countitem(757) < 5) {
+				mes "[Paul Spanner]";
+				mes " ข้าทำให้ท่านไม่ได้ถ้าท่านไม่มี Elunium ดิบ 5 ชิ้นมาให้ข้า";
+				close;
+			}
+			else {
+				delitem 757,5; //Elunium_Stone
+				getitem 985,1; //Elunium
+				mes "[Paul Spanner]";
+				mes " ขอบคุณที่เลือกใช้บริการของข้า";
+				close;
+			}
+		case 3:
+			mes "[Paul Spanner]";
+			mes " โปรดกลับมาเมื่อท่านต้องการสิ่งของอื่นๆ";
+			close;
+		}
+	case 5:
+		mes "[Paul Spanner]";
+		mes " โปรดกลับมาที่นี่เมื่อท่านต้องการสิ่งอื่น ขอให้โชคดี";
+		close;
+	}
+}
+
+// Weapon/Armor Refiners
+//============================================================
+prt_in,63,60,0	script	Hollgrehenn	4_M_03,{
+	callfunc "refinemain","Hollgrehenn",0;
+	end;
+}
+morocc_in,73,38,6	script	Aragham	4W_M_03,{
+	callfunc "refinemain","Aragham",0;
+	end;
+}
+payon_in01,90,31,4	script	Antonio	4_M_ORIENT01,{
+	callfunc "refinemain","Antonio",0;
+	end;
+}
+alberta_in,28,58,0	script	Fredrik	4_M_03,{
+	callfunc "refinemain","Fredrik",0;
+	end;
+}
+ra_temple,86,152,6	script	ช่างตี+	4W_M_03,{
+	callfunc "refinemain","ช่างตี+",0;
+	end;
+}
+ein_in01,24,87,5	script	Manthasman	4_M_DWARF,{
+	callfunc "refinemain","Manthasman Pruhag",0;
+	end;
+}
+lhz_in02,282,20,7	script	Fulerr	4_M_LGTMAN,{
+	callfunc "refinemain","Fulerr",0;
+	end;
+}
+
+//============================================================
+//= Main Refiner Function
+//============================================================
+//= To allow auto safe refining/multiple refining set the
+//= second argument to '1' in the function call.
+//= If you enable this function, be sure to edit the value of
+//= .@safe to the max safe refine in refine_db.txt as well.
+//============================================================
+function	script	refinemain	{
+	disable_items;
+	set .@features,getarg(1);
+	mes "[" + getarg(0) + "]";
+	mes " ข้าเป็นช่างอาวุธ";
+	mes "ข้าสามารถตีอุปกรณ์ให้ท่านได้ทุกชนิด";
+	mes " บอกมาเลยว่าท่านต้องการให้ข้าจัดการกับอุปกรณ์ชิ้นใด";
+	next;
+	setarray .@position$[1],"ส่วนหัว","ส่วนชุดเกราะ","มือซ้าย","มือขวา","ผ้าคลุม","รองเท้า","เครื่องประดับ","เครื่องประดับ","ส่วนหู","ส่วนตา";
+	set .@menu$,"";
+	for(set .@i,1; .@i<=10; set .@i,.@i+1)
+		set .@menu$, .@menu$+((getequipisequiped(.@i))?getequipname(.@i):.@position$[.@i]+"-[ไม่ได้สวมใส่อุปกรณ์]")+":";
+	set .@part, select(.@menu$);
+	if (!getequipisequiped(.@part)) {
+		mes "[" + getarg(0) + "]";
+		switch(.@part) {
+		case 1:
+			mes "หัวเจ้าเป็นอาวุธเหรอ...?";
+			break;
+		case 2:
+			mes "อะไรก็ช่าง...";
+			break;
+		case 3:
+			mes "ข้าไม่สามารถทำมือเจ้าให้เป็นอาวุธได้หรอก";
+			break;
+		case 4:
+			mes "ข้าไม่สามารถทำมือเจ้าให้เป็นอาวุธได้หรอก";
+			break;
+		case 5:
+			mes "เจ้าไม่รู้จักผ้าคลุมเหรอ?";
+			break;
+		case 6:
+			mes "ถ้าเจ้าต้องการทำรองเท้า";
+			mes "ไปวิ่งแข่งมาราธอนแทนละกัน";
+			break;
+		case 7:
+		case 8:
+			mes "เครื่องประดับ?.. ไม่เห็นมีอะไรเลย";
+			break;
+		case 9:
+		case 10:
+			mes "ถ้าโง่ก็ไปโรงเรียนซะ!!..";
+			break;
+		}
+		close;
+	}
+	//Check if the item is refinable...
+	if(!getequipisenableref(.@part)) {
+		mes "[" + getarg(0) + "]";
+		mes " ข้าคิดว่าข้าคงตีอุปกรณ์ชิ้นนี้ไม่ได้...";
+		close;
+	}
+	//Check if the item is identified... (Don't know why this is in here... but kept it anyway)
+	if(!getequipisidentify(.@part)) {
+		mes "[" + getarg(0) + "]";
+		mes " ไอเท็มชิ้นนี้ยังไม่ได้รับการตรวจสอบ..!!";
+		close;
+	}
+	//Check to see if the items is already +10
+	if(getequiprefinerycnt(.@part) >= 10) {
+		mes "[" + getarg(0) + "]";
+		mes " ข้าไม่สามารถตีอุปกรณ์ได้มากกว่านี้อีกแล้ว..!!";
+		close;
+	}
+	set .@refineitemid, getequipid(.@part); // save id of the item
+	set .@refinerycnt, getequiprefinerycnt(.@part); //save refinery count
+	switch(getequipweaponlv(.@part)){
+		mes "[" + getarg(0) + "]";
+	case 0: 	//Refine Armor
+		mes " ท่านต้องการให้ข้าตีเครื่องป้องกัน";
+		set .@price,2000;
+		set .@material,985;
+		set .@safe,4;
+		break;
+	case 1: 	//Refine Level 1 Weapon
+		mes " ท่านต้องการให้ข้าตีอาวุธเลเวล 1";
+		set .@price,50;
+		set .@material,1010;
+		set .@safe,7; 
+		break;
+	case 2: 	//Refine Level 2 Weapon
+		mes " ท่านต้องการให้ข้าตีอาวุธเลเวล 2";
+		set .@price,200;
+		set .@material,1011;
+		set .@safe,6; 
+		break;
+	case 3: 	//Refine Level 3 Weapon
+		mes " ท่านต้องการให้ข้าตีอาวุธเลเวล 3";
+		set .@price,5000;
+		set .@material,984;
+		set .@safe,5; 
+		break;
+	case 4: 	//Refine Level 4 Weapon
+		mes " ท่านต้องการให้ข้าตีอาวุธเลเวล 4";
+		set .@price,20000;
+		set .@material,984;
+		set .@safe,4; 
+		break;
+	case 5: 	//Refine other stuff?
+		mes " ท่านต้องการให้ข้าตีเครื่องป้องกัน";
+		set .@price,2000;
+		set .@material,985;
+		set .@safe,4; 
+		break;
+	}
+	if(.@features != 1) {
+		mes " ในการตีของชิ้นนี้ ข้าต้องการ ^003366"+getitemname(.@material)+"^000000 และค่าใช้จ่าย " + .@price + " เซนี";
+		mes " ว่าไงล่ะ?";
+		next;
+		if(select("ตกลง:ไม่") == 2){
+			mes "[" + getarg(0) + "]";
+			mes " ตามใจ... ถ้าท่านต้องการเช่นนั้น...";
+			close;
+		}
+		if(getequippercentrefinery(.@part) < 100) {
+			mes "[" + getarg(0) + "]";
+			mes " โอ้ พระเจ้าช่วย!!";
+			mes " ดูเหมือนสิ่งนี้จะถูกตีมาหลายครั้งแล้ว...";
+			mes " ถ้าเอามาตีอีกมันอาจจะเสียหายได้";
+			mes " ถ้ามันเสีย มันก็จะกลายเป็นของไร้ค่า...";
+//			switch(.@material) {
+//			case 985:
+//				mes " แตก! หมายถึงว่า ^FF0000อุปกรณ์ชิ้นนี้^000000, และ ^FF0000การ์ดต่างๆ^000000 หรือคุณสมบัติพิเศษพิเศษของเกราะนี้, ^FF0000มันจะหายไป^000000?";
+//			break;
+//			default:
+//				mes "เสียหาย, ท่านจะ ^FF0000สูญเสียอาวุธ^000000, และ ^FF0000การ์ดต่างๆ ในอาวุธ^000000";
+//			break;
+//			}
+			next;
+			mes "["+getarg(0)+"]";
+				mes " ข้าต้องเตือนท่านก่อนนะ ว่ามันอาจจะเสียหายไปอย่างถาวรหากมี Card อยู่ในนั้น มันก็จะ^FF0000เสียหายไปด้วยเช่นกัน^000000 นั่นคือของชิ้นนั้นจะหายไปจากโลกนี้เลย แล้วท่านยังอยากจะตีอีกหรือ?";
+			next;
+			if(select("ตกลง:ไม่") == 2){
+				mes "[" + getarg(0) + "]";
+				mes " โย่... ท่านไม่ต้องรีบร้อนเกินไปเชิญตามสบาย";
+				close;
+			}
+		}
+		if((countitem(.@material) < 1) || (Zeny < .@price)) {
+			mes "[" + getarg(0) + "]";
+			mes " ในการตีของชิ้นนี้ข้าต้องการ";
+			mes "^003366"+getitemname(.@material)+"^000000 และค่าใช้จ่าย " + .@price + " เซนี";
+			close;
+		}
+		Zeny -= .@price;
+		delitem .@material,1;
+
+		//custom checks
+		if(getequipisequiped(.@part) == 0) { // hacker has removed the item (not changed, why?)
+			mes "[" + getarg(0) + "]";
+			mes " ท่านไม่เห็นหรือ ท่านไม่มีวัตถุดิบ...";
+			close;
+		}
+		if(getequiprefinerycnt(.@part) != .@refinerycnt || getequipid(.@part) != .@refineitemid) { // hacker has changed the item
+			mes "[" + getarg(0) + "]";
+			emotion e_an;
+			mes " ท่านคงคิดว่าข้าโง่ซินะ?!";
+			mes " ที่คิดจะหลอกข้า ออกไปจากที่นี่ซะ!";
+			close;
+		}
+
+		if(getequippercentrefinery(.@part) <= rand(100)) {
+			failedrefitem .@part;
+			mes "[" + getarg(0) + "]";
+			emotion (!rand(5))?e_cash:e_omg;
+			mes " ก๊อง! ก๊อง! ก๊อง!";
+			set .@lose,rand(1,3);
+			if (.@lose == 1) {
+				mes " โอ้!! คณพระช่วย~~!!!!";
+				mes " โธ่เอ้ย!! ไม่นะ";
+			} else if(.@lose == 2) {
+				mes " โอ้!! คณพระช่วย~~!!!!";
+				mes " โธ่เอ้ย!! ไม่นะ";
+			} else {
+				mes " โอ้!! คณพระช่วย~~!!!!";
+				mes " โธ่เอ้ย!! ไม่นะ";
+			}
+			close;
+		}
+		mes "["+getarg(0)+"]";
+		mes " ก๊อง! ก๊อง! ก๊อง!";
+		successrefitem .@part;
+		emotion e_heh;
+		set .@win,rand(1,3);
+		if (.@win == 1) {
+			mes " เสร็จสมบูรณ์!";
+			mes " เยี่ยมมาก.. อัจฉริยะนักตีเหล็ก Aragharm Salre~";
+			mes " วันนี้ได้ทำงานที่ยอดเยี่ยมอีกชิ้นหนึ่งแล้ว";
+		} else if(.@win == 2) {
+			mes " เสร็จสมบูรณ์!";
+			mes " เยี่ยมมาก.. อัจฉริยะนักตีเหล็ก Aragharm Salre~";
+			mes " วันนี้ได้ทำงานที่ยอดเยี่ยมอีกชิ้นหนึ่งแล้ว";
+		} else {
+			mes " เสร็จสมบูรณ์!";
+			mes " เยี่ยมมาก.. อัจฉริยะนักตีเหล็ก Aragharm Salre~";
+			mes " วันนี้ได้ทำงานที่ยอดเยี่ยมอีกชิ้นหนึ่งแล้ว";
+		}
+		close;
+	}
+
+// New Refining Functions ========================
+	if(getequiprefinerycnt(.@part) < .@safe) {
+		mes "[" + getarg(0) + "]";
+		mes "I can refine this to the safe limit or a desired number of times. It's your choice.";
+		next;
+		set .@menu2,select("To the safe limit, please.","I'll decide how many times.","I've changed my mind...");
+	} else
+		set .@menu2,2;
+	switch(.@menu2){
+	case 1: 
+		set .@refinecnt,.@safe - getequiprefinerycnt(.@part);
+		break;
+	case 2:
+		next;
+		mes "[" + getarg(0) + "]";
+		mes "How many times would you like me to refine your item?";
+		next;
+		input .@refinecnt;
+		set .@refinecheck,.@refinecnt + getequiprefinerycnt(.@part);
+		if (.@refinecnt < 1 || .@refinecheck > 10) {
+			mes "[" + getarg(0) + "]";
+			mes "I can't refine this item that many times.";
+			close;
+		}
+		if(.@refinecheck > .@safe) {
+			set .@refinecheck,.@refinecheck - .@safe;
+			mes "[" + getarg(0) + "]";
+			mes "This will try to refine the equipment " + .@refinecheck + " times past the safe limit. Your equipment may be destroyed... is that ok?";
+			next;
+			if(select("Yes...","No...") == 2){
+				mes "[" + getarg(0) + "]";
+				mes "You said so... So be it.";
+				close;
+			}
+		}
+		break;
+	case 3:
+		next;
+		mes "[" + getarg(0) + "]";
+		mes "You said so... So be it.";
+		close;
+	}
+	set .@fullprice,.@price * .@refinecnt;
+	mes "[" + getarg(0) + "]";
+	mes "That will cost you " + .@refinecnt + " " + getitemname(.@material) + " and " + .@fullprice + " Zeny. Is that ok?";
+	next;
+	if(select("Yes","No...") == 2){
+		mes "[" + getarg(0) + "]";
+		mes "You said so... So be it.";
+		close;
+	}
+	if(countitem(.@material) < .@refinecnt || Zeny < .@fullprice) {
+		mes "[" + getarg(0) + "]";
+		mes "Is that all you got? Unfortunately I can't work for you at a lower price. Try putting yourself in my shoes.";
+		close;
+	}
+	Zeny -= .@fullprice;
+	delitem .@material,.@refinecnt;
+	while(.@refinecnt){
+		if (getequipisequiped(.@part) == 0) {
+			mes "[" + getarg(0) + "]";
+			mes "Look here... you don't have any items on...";
+			close;
+		}
+		if (getequipid(.@part) != .@refineitemid || (.@menu2 == 1 && getequippercentrefinery(.@part) < 100)) {
+			mes "[" + getarg(0) + "]";
+			mes "Clang... No, but did you imagine I could be so stupid?!";
+			mes "You changed it...";
+			mes "Get out before I stun you with my Hammer!!";
+			close;
+		} 
+		mes "Clang, clang!!!";
+		if(.@menu2 == 2 && getequippercentrefinery(.@part) <= rand(100)) {
+			failedrefitem .@part;
+			emotion e_omg;
+			mes "[" + getarg(0) + "]";
+			mes "WAHHHH!!! I'm so sorry... I warned you this could happen...";
+			set .@refinecnt,.@refinecnt - 1;
+			if(.@refinecnt == 0) close;
+			mes "Here's the unused Zeny and materials back...";
+			getitem .@material,.@refinecnt;
+			set .@fullprice,.@refinecnt * .@price;
+			Zeny += .@fullprice;
+			close;
+		}
+		successrefitem .@part;
+		emotion e_no1;
+		set .@refinecnt,.@refinecnt - 1;
+		next;
+	}
+	mes "[" + getarg(0) + "]";
+	mes "All finished... Come again soon.";
+	close;
+}
+
+// Material Salesmen
+//============================================================
+prt_in,56,68,5	script	Vurewell	4_M_04,{
+	callfunc "phramain","Vurewell";
+	end;
+}
+payon_in01,84,26,4	script	Begnahd	4_M_ORIENT01,{
+	callfunc "phramain","Begnahd";
+	end;
+}
+morocc_in,63,32,6	script	Sade	4W_M_03,{
+	callfunc "phramain","Sade";
+	end;
+}
+alberta_in,13,71,3	script	Kahlamanlith	4_M_04,{
+	callfunc "phramain","Kahlamanlith";
+	end;
+}
+yuno_in01,171,27,4	script	Dilemma	4_M_ORIENT01,{
+	callfunc "phramain","Dilemma";
+	end;
+}
+ein_in01,15,87,3	script	Tirehaus	4_M_04,{
+	callfunc "phramain","Tirehaus";
+	end;
+}
+lhz_in02,278,24,3	script	Krugg	4_M_04,{
+	callfunc "phramain","Krugg";
+	end;
+}
+
+// Material Salesmen Functions
+//============================================================
+function	script	phramain	{
+	if (checkweight(1201,1) == 0) {
+		mes " เดี๋ยวๆ !!";
+		mes " ตอนนี้น้ำหนักของท่านเกินกำหนด";
+		mes " กลับไปตรวจสอบไอเท็มภายในตัวละครของท่านแล้วค่อยกลัยมาใหม่อีกครั้ง!";
+		close;
+	}
+	mes "[" + getarg(0) + "]";
+	mes " ข้าขายโลหะ 2 ชนิดที่ใช้ในการหลอมอาวุธที่เป็นเหล็กหรือเหล็กกล้า";
+	mes " ข้ามี ^007777Phracon^000000 สำหรับอาวุธเลวล 1... และ";
+	mes "^007777Emveretarcon^000000";
+	mes "สำหรับอาวุธเลเวล 2";
+	mes "ข้ามีสินค้ามากมายเลย.. ฮ่าฮ่า";
+	next;
+	switch(select("Phracon - 200 เซนี:Emveretarcon - 1000 เซนี")) {
+	case 1:
+		set .@material,1010;
+		set .@price,200;
+		break;
+	case 2:
+		set .@material,1011;
+		set .@price,1000;
+		break;
+	case 3:
+		mes "[" + getarg(0) + "]";
+	mes "ท่านต้องการซื้อเท่าไหร่ล่ะ?";
+	mes "ถ้าต้องการยกเลิก";
+	mes "โปรดระบุตัวเลขให้เป็น '0.'";
+		close;
+	}
+	mes "[" + getarg(0) + "]";
+	mes "ท่านต้องการซื้อเท่าไหร่ล่ะ?";
+	mes "ถ้าต้องการยกเลิก";
+	mes "โปรดระบุตัวเลขให้เป็น '0.'";
+	next;
+	while(1) {
+		input .@input;
+		if (.@input == 0) {
+			mes "[" + getarg(0) + "]";
+			mes "การแลกเปลี่ยนถูกยกเลิก";
+			close;
+		}
+		else if (.@input < 0 || .@input > 500) {
+			mes "[" + getarg(0) + "]";
+			mes "เอาล่ะ, ไม่สามารถซื้อได้มากกว่า 500 ชิ้นต่อครั้งนะ?";
+			next;
+		}
+		else {
+			break;
+		}
+	}
+	set .@sell,.@input * .@price;
+	if (Zeny < .@sell) {
+		mes "[" + getarg(0) + "]";
+		mes " เอ่อ...";
+		mes " ท่านมีเงินไม่เพียงพอ";
+		mes " ไอเท็มจำนวน "+ .@input +" ชิ้น";
+		close;
+	}
+	if (checkweight(.@material,.@input) == 0) {
+		mes "[" + getarg(0) + "]";
+		mes " เดี๋ยวๆ !!";
+		mes " ตอนนี้น้ำหนักของท่านเกินกำหนด";
+		mes " กลับไปตรวจสอบไอเท็มภายในตัวละครของท่านแล้วค่อยกลัยมาใหม่อีกครั้ง!";
+		close;
+	}
+	getitem .@material,.@input;
+	Zeny -= .@sell;
+	mes "[" + getarg(0) + "]";
+	mes " นี่ครับ";
+	mes "ขอบคุณที่ซื้อของจากร้านของข้า";
+	close;
+}
+
+// Ori/Elu Refiners
+//============================================================
+prt_in,63,69,3	script	Dietrich	4_M_02,{
+	callfunc "orimain","Dietrich";
+	end;
+}
+payon_in01,81,31,4	script	Hakhim	4_M_ORIENT01,{
+	callfunc "orimain","Hakhim";
+	end;
+}
+morocc_in,72,32,6	script	Abdula	4W_M_03,{
+	callfunc "orimain","Abdula";
+	end;
+}
+alberta_in,21,63,5	script	Xenophon	4_M_02,{
+	callfunc "orimain","Xenophon Zolotas";
+	end;
+}
+yuno_in01,164,27,4	script	Delight	4_M_ORIENT01,{
+	callfunc "orimain","Delight";
+	end;
+}
+ra_temple,86,147,6	script	รวมElu/Ori	4_M_02,{
+	callfunc "orimain","Matestein";
+	end;
+}
+lhz_in02,281,24,5	script	Fruel	4_M_02,{
+	callfunc "orimain","Fruel";
+	end;
+}
+
+// Ori/Elu Functions
+//============================================================
+function	script	orimain	{
+	if (checkweight(1201,1) == 0) {
+		mes " เดี๋ยวๆ !!";
+		mes " ตอนนี้น้ำหนักของท่านเกินกำหนด";
+		mes " กลับไปตรวจสอบไอเท็มภายในตัวละครของท่านแล้วค่อยกลัยมาใหม่อีกครั้ง!";
+		close;
+	}
+	mes "[" + getarg(0) + "]";
+	mes " ถ้าท่านนำ Oridecons ดิบหรือ Eluniums ดิบมาให้ข้า";
+	mes "ข้าจะทำเป็นแร่บริสุทธิ์ให้ท่าน";
+	mes " และขอให้ท่านแน่ใจว่าข้าต้องได้รับแร่ดิบ 5 ชิ้นเพื่อเป็นเป็นแร่บริสุทธิ์ 1 ชิ้น";
+	next;
+	switch(select("ทำ Oridecon:ทำ Elunium:ถามเรื่อง Enchanted Stones")) {
+	case 1:
+		if (countitem(756) > 4) {
+			delitem 756,5;  //Oridecon_Stone
+			getitem 984,1; // Oridecon
+			mes "[" + getarg(0) + "]";
+			mes " นี่ไง Oridecon ของท่าน";
+			mes " ข้าพร้อมยินดีต้อนรับท่านเสมอ";
+			close;
+		}
+		else {
+			mes "[" + getarg(0) + "]";
+			mes " ฮ่าฮ่า... ท่านล้อข้าเล่นหรือไง?";
+			mes " ข้าบอกแล้วไงว่าข้าต้องมี Oridecons ดิบ 5 ชิ้นเพื่อทำเป็นแร่บริสุทธิ์ 1 ชิ้น";
+			close;
+		}
+	case 2:
+		if (countitem(757) > 4) {
+			delitem 757,5;  //Elunium_Stone
+			getitem 985,1; // Elunium
+			mes "[" + getarg(0) + "]";
+			mes " นี่ไง Elunium ของท่าน";
+			mes " ข้าพร้อมยินดีต้อนรับท่านเสมอ";
+			close;
+		}
+		else {
+			mes "[" + getarg(0) + "]";
+			mes " ฮ่าฮ่า... ท่านล้อข้าเล่นหรือไง?";
+			mes " ข้าบอกแล้วไงว่าข้าต้องมี Oridecons ดิบ 5 ชิ้นเพื่อทำเป็นแร่บริสุทธิ์ 1 ชิ้น";
+			close;
+		}
+	case 3:
+		mes "[" + getarg(0) + "]";
+		mes "Enchanted Stones...";
+		mes " เอ่อ ใน 20 ปีของชีวิตช่างหิน ข้าได้ยินเรื่องเกี่ยวกับของสิ่งนี้มาหลายครั้ง...แต่ยังไม่เคยเห็นมันมาก่อนเลย";
+		mes " จากคำบอกเล่า มี enchanted stones อยู่ 4 ชนิด";
+		mes "และแต่ละชนิดจะมีคุณสมบัติของธาตุแตกต่างกันไป - ดิน น้ำ ลม ไฟ";
+		next;
+		mes "[" + getarg(0) + "]";
+		mes " ถ้ามีคนผสม Enchant Stone ลงไปในอาวุธทื่กำลังตี";
+		mes "อาวุธชิ้นนั้นได้รับคุณสมบัติเช่นเดียวกับหิน";
+		mes " และ...ที่แน่นอน";
+		mes " ผู้ที่ตีจะต้องมีฝีมือเพียงพอในการผสมหินเข้าไปในอาวุธนั้นๆ";
+		close;
+	}
+}
+
+// Equipment Repairmen
+//============================================================
+alberta_in,31,65,4	script	Repairman#alb	4_M_04,{
+	callfunc "repairmain","Repairman";
+	end;
+}
+
+moc_ruins,107,94,4	script	Repairman#moc	4W_M_03,{
+	callfunc "repairmain","Repairman";
+	end;
+}
+
+prt_in,63,54,2	script	Repairman#prt	4_M_04,{
+	callfunc "repairmain","Grendal";
+	end;
+}
+
+yuno_in01,175,28,3	script	Repairman#juno	4_M_04,{
+	callfunc "repairmain","Repairman";
+	end;
+}
+
+geffen_in,34,166,3	script	Repairman#gef	4W_M_03,{
+	callfunc "repairmain","Repairman";
+	end;
+}
+
+aldeba_in,38,60,3	script	Repairman#alde	4_M_04,{
+	callfunc "repairmain","Repairman";
+	end;
+}
+
+lhz_in02,284,14,3	script	Repairman#lhz	4_M_04,{
+	callfunc "repairmain","Repairman";
+	end;
+}
+
+prt_gld,139,117,4	script	Repairman#prt_gld	4_M_04,{
+	callfunc "repairmain","Repairman";
+	end;
+}
+
+gef_fild13,263,117,4	script	Repairman#gef_fild	4_M_04,{
+	callfunc "repairmain","Repairman";
+	end;
+}
+
+pay_gld,295,183,4	script	Repairman#pay_gld	4_M_04,{
+	callfunc "repairmain","Repairman";
+	end;
+}
+
+alde_gld,220,152,4	script	Repairman#alde_gld	4_M_04,{
+	callfunc "repairmain","Repairman";
+	end;
+}
+
+ra_temple,75,145,4	script	Repairman#aru_gld	4_M_04,{
+	callfunc "repairmain","Repairman";
+	end;
+}
+
+sch_gld,340,80,7	script	Repairman#sch_gld	4_M_04,{
+	callfunc "repairmain","Repairman";
+	end;
+}
+
+// Equipment Repair Function
+//============================================================
+function	script	repairmain	{
+	set .@repairprice,5000;
+	mes "["+getarg(0)+"]";
+	mes " เป็นยังไงบ้าง!";
+	mes " อยากซ่อมแซมไอเท็ม";
+	mes " ถ้าอย่างนั้นก็มาถูกที่แล้ว?";
+	mes " ข้าทำให้ท่านได้ส่งมาให้ข้า";
+	next;
+	switch(select(" ใช่แล้วข้ามีไอเท็มที่ชำรุด..: ไม่เอา ไม่ต้อง")) {
+	case 1:
+		set .@checkitem,1;
+		while (1) {
+			if (getbrokenid(.@checkitem) == 0) {
+				break;
+			}
+			set .@checkitem,.@checkitem+1;
+		}
+		set .@checkitem,.@checkitem-1;
+		if (!.@checkitem) {
+			mes "["+getarg(0)+"]";
+			mes " ว้าว..!";
+			mes "ท่านรักษาของได้ดีมากเลยทีเดียว!";
+			mes "ไม่มีไอเท็มที่เสียหายเลยหรือ...!";
+			next;
+			mes "["+getarg(0)+"]";
+			mes " ถ้ามีคนแบบท่านมากๆ ข้าต้องตกงานแน่ๆ~!";
+			close;
+		}
+		mes "["+getarg(0)+"]";
+		mes " หืมม์...";
+		mes " ข้าเห็นไอเท็มที่เสียหาย...";
+		mes "มีไอเทมชำรุดในตัวคุณ,";
+		mes "" + .@checkitem + " มันร้ายแรงมากด้วย.";
+		mes "คุณต้องการจะซ่อมแซมไอเทมไหมล่ะ?";
+		next;
+		set .@totalcost,.@repairprice*.@checkitem;
+		mes "["+getarg(0)+"]";
+		mes "ค่าใช้จ่ายในการซ่อมอย่างน้อย " + .@repairprice + " Zeny. ในการซ่อมไอเทมจะต้องใช่เงินจำนวน " + .@totalcost + " Zeny! ท่านจะซ่อมหรือไม่?";
+		next;
+		switch(select("ใช่:ไม่")) {
+		case 1:
+			if (Zeny < .@totalcost) {
+				mes "["+getarg(0)+"]";
+				mes "โว้ว โว้ว...";
+				mes "เช็คกระเป๋า เจ้าก่อนว่าจะมีเงินจ่าย ไหม?! ข้าไม่สามารถซ่อมให้เจ้าได้หรอก เพราะเจ้าตังไม่พอ.";
+				close;
+			}
+			set .@checkitem2,1;
+			while (1) {
+				if (getbrokenid(.@checkitem2) == 0) {
+					break;
+				}
+				set .@checkitem2,.@checkitem2+1;
+			}
+			set .@checkitem2,.@checkitem2-1;
+			if (.@checkitem == .@checkitem2) {
+				Zeny -= .@totalcost;
+				while (.@checkitem) {
+					repair(.@checkitem);
+					set .@checkitem,.@checkitem-1;
+				}
+				mes "["+getarg(0)+"]";
+				mes "ตกลง! ทุกอย่างเสร็จแล้ว. ขณะนี้, จะต้องระวังเรื่องเล็กๆน้อยๆ. ไอเทมมันมีชีวิตนะ เจ้ารู้ไหม.";
+				close;
+			}
+			else {
+				mes "["+getarg(0)+"]";
+				mes "ฮึมม? มีบางสิ่งผิดไป กลับไปตรวจสอบไอเท็มภายในตัวท่านก่อนแล้วค่อยกลับมาหาข้า";
+				close;
+			}
+		case 2:
+			mes "["+getarg(0)+"]";
+			mes "ท่านมีไอเท็มที่ชำรุด ทางที่ดีท่านควรจะได้รับการซ่อมแซมให้เร็วที่สุด!";
+			close;
+		}
+	case 2:
+		mes "["+getarg(0)+"]";
+		mes " เฮ้อ...";
+		mes " ท่านคงไม่มีธุระกับข้าถ้าท่านไม่มีไอเท็มจะต้องซ่อมแซม";
+		close;
+	}
+}

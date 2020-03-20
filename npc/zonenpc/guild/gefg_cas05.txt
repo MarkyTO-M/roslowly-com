@@ -1,0 +1,31 @@
+-	script	Mersetzdeitz#g5-2::Mersetzdeitz2	-1,{
+set .@GID, GetCastleData("gefg_cas05",1);
+if (.@GID == 0) {
+}
+else {
+if (getcharid(2) == .@GID) {
+if (select("^009933-^000000 เข้าปราสาท") == 1) {
+if (getcharid(2) == GetCastleData("gefg_cas05",1)) {
+warp "gefg_cas05",165,31;
+end;
+}
+}
+close;
+}
+mes "^FF0000[Mersetzdeitz]^000000";
+mes "ถูกครอบครองโดยกิลด์ : " + GetGuildName(.@GID) + "";
+}
+close;
+
+OnRecvCastleG05:
+FlagEmblem GetCastleData("gefg_cas05",1);
+end;
+}
+
+gefg_cas05,194,184,0	duplicate(Gld_Agit_Manager)	Agit#gefg_cas05	-1
+gefg_cas05,70,52,3	duplicate(Gld_Mngr_Template)	Byohre#gefg_cas05	55
+gefg_cas05,70,52,3	duplicate(Gld_Guard_Template)	Guardian#gefg_cas05	-1
+gefg_cas05,61,52,3	duplicate(Gld_Kafra_Template)	Kafra Staff#gefg_cas05	117
+gefg_cas05,144,110,0	duplicate(Gld_Trea_Protect)	ban_warp#gefg_cas05	-1,6,6
+gefg_cas05,144,110,0	duplicate(Gld_Trea_Spawn)	Treasure#gefg_cas05	-1
+gefg_cas05,66,29,0	duplicate(Gld_Dun_Template)	#gefg_cas05	111

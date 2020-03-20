@@ -1,0 +1,350 @@
+pvp_y_1-5,156,100,4	shop	Shop#pvp	636,714:-1,662:-1,547:-1,505:-1,521:-1,578:-1,610:-1,611:-1,601:-1,602:-1,501:50,502:200,503:550,504:1200,506:40,525:-1,523:-1,717:-1,716:-1,715:-1,645:-1,656:-1,657:-1,1750:-1,1751:-1,1752:-1,1753:-1,1754:-1,1755:-1,1756:-1,1757:-1,1758:-1,1759:-1,1760:-1,1761:-1,1762:-1,1763:-1,1764:-1,1765:-1,1766:-1,1767:-1,1768:-1,1769:-1,1065:-1,1771:-1,1025:-1
+pvp_y_2-5,156,100,4	shop	Shop#rtc	636,714:-1,662:-1,547:-1,505:-1,521:-1,578:-1,610:-1,611:-1,601:-1,602:-1,501:50,502:200,503:550,504:1200,506:40,525:-1,523:-1,717:-1,716:-1,715:-1,645:-1,656:-1,657:-1,1750:-1,1751:-1,1752:-1,1753:-1,1754:-1,1755:-1,1756:-1,1757:-1,1758:-1,1759:-1,1760:-1,1761:-1,1762:-1,1763:-1,1764:-1,1765:-1,1766:-1,1767:-1,1768:-1,1769:-1,1065:-1,1771:-1,1025:-1
+
+pvp_y_1-5,158,100,4	script	Heal#pvp	619,{callfunc "healpvp" ,15,3,1; end; }
+pvp_y_2-5,158,100,4	script	Heal#rtc	619,{callfunc "healpvp" ,15,3,1; end; }
+
+pvp_y_1-5,160,100,4	script	Kafra#pvp	622,{callfunc "kafrapvp"; end; }
+pvp_y_2-5,160,100,4	script	Kafra#rtc	622,{callfunc "kafrapvp"; end; }
+
+function	script	healpvp	{
+emotion 10,1;
+specialeffect2 572;
+sc_start SC_BLESSING,.@tmptime,10;
+sc_start SC_INCREASEAGI,.@tmptime,10;
+percentheal 100,100;
+}
+
+function	script	kafrapvp	{
+menu 
+"^0000FF-^000000 รับสกิลเสริม",S5,
+"^0000FF-^000000 เช่าพาหนะ",S2,
+"^0000FF-^000000 Reset ตัวละคร",S4;
+
+S5:
+if (Class==Job_Knight) || (Class==Job_Lord_Knight) || (Class == 4054) || (Class == 4060) goto L_sKnight;
+if (Class==Job_Assassin) || (Class==Job_Assassin_Cross) goto L_sAssassin;
+if (Class==Job_Bard) || (Class==Job_Clown) goto L_sBard;
+if (Class==Job_Dancer) || (Class==Job_Gypsy) goto L_sDancer;
+if (Class==Job_Blacksmith) || (Class==Job_Whitesmith) goto L_sBlacksmithf;
+if (Class==Job_Crusader) || (Class==Job_Paladin) goto L_sCrusader;
+if (Class==Job_Hunter) || (Class==Job_Sniper) goto L_sHunter;
+if (Class==Job_Monk) || (Class==Job_Champion) goto L_sMonk;
+if (Class==Job_Priest) || (Class==Job_High_Priest) goto L_sPriest;
+if (Class==Job_Rogue) || (Class==Job_Stalker) goto L_sRogue;
+if (Class==Job_Sage) || (Class==Job_Professor) goto L_sSage;
+if (Class==Job_Wizard) || (Class==Job_High_Wizard) goto L_sWizard;
+if (BaseClass==Job_Novice) goto L_sSuperN;
+if (BaseClass==Job_Swordman) goto L_sSword;
+if (BaseClass==Job_Mage) goto L_sMage;
+if (BaseClass==Job_Archer) goto L_sArcher;
+if (BaseClass==Job_Acolyte) goto L_sAcolyte;
+if (BaseClass==Job_Merchant) goto L_sMerchant;
+if (BaseClass==Job_Thief) goto L_sThief;
+if (class == 24) goto noskillup;
+if (class == 25) goto noskillup;
+if (class == 4046) goto noskillup;
+if (class == 4047) goto noskillup;
+if (class == 4049) goto noskillup;
+close;
+
+L_sKnight:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sKnight1,"",L_no;
+
+L_sKnight1:
+skill 157,0,0;
+skill 142,1,0;
+skill 144,1,0;
+skill 145,1,0;
+skill 146,1,0;
+skill 1001,1,0;
+goto L_stop;
+
+L_sAssassin:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sAssassin1,"",L_no;
+
+L_sAssassin1:
+skill 142,1,0;
+skill 149,1,0;
+skill 150,1,0;
+skill 151,1,0;
+skill 152,1,0;
+skill 1003,1,0;
+skill 1004,1,0;
+goto L_stop;
+
+L_sBard:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sBard1,"",L_no;
+
+L_sBard1:
+skill 142,1,0;
+skill 147,1,0;
+skill 148,1,0;
+skill 1010,1,0;
+goto L_stop;
+
+L_sDancer:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sDancer1,"",L_no;
+
+L_sDancer1:
+skill 142,1,0;
+skill 147,1,0;
+skill 148,1,0;
+skill 1011,1,0;
+goto L_stop;
+
+L_sBlacksmithf:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sBlacksmithf1,"",L_no;
+
+L_sBlacksmithf1:
+skill 142,1,0;
+skill 153,1,0;
+skill 154,1,0;
+skill 155,1,0;
+skill 1013,1,0;
+skill 1012,1,0;
+goto L_stop;
+
+L_sCrusader:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sCrusader1,"",L_no;
+
+L_sCrusader1:
+skill 142,1,0;
+skill 144,1,0;
+skill 145,1,0;
+skill 146,1,0;
+skill 1002,1,0;
+goto L_stop;
+
+L_sHunter:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sHunter1,"",L_no;
+
+L_sHunter1:
+skill 142,1,0;
+skill 147,1,0;
+skill 148,1,0;
+skill 1009,1,0;
+goto L_stop;
+
+L_sMonk:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sMonk1,"",L_no;
+
+L_sMonk1:
+skill 142,1,0;
+skill 156,1,0;
+skill 1015,1,0;
+skill 1016,1,0;
+goto L_stop;
+
+L_sPriest:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sPriest1,"",L_no;
+
+L_sPriest1:
+skill 142,1,0;
+skill 156,1,0;
+skill 1014,1,0;
+goto L_stop;
+
+L_sRogue:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sRogue1,"",L_no;
+
+L_sRogue1:
+skill 142,1,0;
+skill 149,1,0;
+skill 150,1,0;
+skill 151,1,0;
+skill 152,1,0;
+skill 1005,1,0;
+goto L_stop;
+
+L_sSage:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sSage1,"",L_no;
+
+L_sSage1:
+skill 142,1,0;
+skill 157,1,0;
+skill 1007,1,0;
+skill 1008,1,0;
+skill 1017,1,0;
+skill 1018,1,0;
+skill 1019,1,0;
+goto L_stop;
+
+L_sWizard:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sWizard1,"",L_no;
+
+L_sWizard1:
+skill 142,1,0;
+skill 157,1,0;
+skill 1006,1,0;
+goto L_stop;
+
+L_sSuperN:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sSuperN1,"",L_no;
+
+L_sSuperN1:
+skill 142,1,0;
+if(BaseJob==0) skill 143,1,0;
+goto L_stop;
+
+L_sSword:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sSword1,"",L_no;
+
+L_sSword1:
+skill 142,1,0;
+skill 144,1,0;
+skill 145,1,0;
+skill 146,1,0;
+goto L_stop;
+
+L_sMage:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sMage1,"",L_no;
+
+L_sMage1:
+skill 142,1,0;
+skill 157,1,0;
+goto L_stop;
+
+L_sArcher:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sArcher1,"",L_no;
+
+L_sArcher1:
+skill 142,1,0;
+skill 147,1,0;
+skill 148,1,0;
+goto L_stop;
+
+L_sAcolyte:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sAcolyte1,"",L_no;
+
+L_sAcolyte1:
+skill 142,1,0;
+skill 156,1,0;
+goto L_stop;
+
+L_sMerchant:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sMerchant1,"",L_no;
+
+L_sMerchant1:
+skill 142,1,0;
+skill 153,1,0;
+skill 154,1,0;
+skill 155,1,0;
+skill 238,1,0;
+goto L_stop;
+
+L_sThief:
+menu "^0000FF-^000000 รับสกิลเสริม",L_sThief1,"",L_no;
+
+L_sThief1:
+skill 142,1,0;
+skill 149,1,0;
+skill 150,1,0;
+skill 151,1,0;
+skill 152,1,0;
+goto L_stop;
+
+L_no:      
+close;
+
+L_stop:    
+close;
+
+noskillup:
+close;
+
+S4:
+menu 
+"^0000FF-^000000 Reset Skill",L0,
+"^0000FF-^000000 Reset Stat",L1,
+"^0000FF-^000000 Reset Skill & Stat",L2;
+
+L0:
+  ResetSkill;
+  close;
+
+L1:
+  ResetStatus;
+  close;
+
+L2:
+  ResetSkill;
+  ResetStatus;
+  close;
+
+S2:
+menu 
+"^0000FF-^000000 เช่า Pecopeco",L_Peco,
+"^0000FF-^000000 เช่า Folcon",L_Falcon,
+"^0000FF-^000000 เช่า Cart",L_Cart;
+
+L_Cart:
+if(Class == 5) goto L_Cart_Ok;
+if(Class == 10) goto L_Cart_Ok;
+if(Class == 18) goto L_Cart_Ok;
+if(Class == 23) goto L_Cart_Ok;
+if(Class == 4006) goto L_Cart_Ok;
+if(Class == 4011) goto L_Cart_Ok;
+if(Class == 4019) goto L_Cart_Ok;
+if(Class == 4028) goto L_Cart_Ok;
+if(Class == 4033) goto L_Cart_Ok;
+if(Class == 4041) goto L_Cart_Ok;
+if(Class == 4045) goto L_Cart_Ok;
+if(Class == 4058) goto L_Cart_Ok;
+if(Class == 4064) goto L_Cart_Ok;
+if(Class == 4071) goto L_Cart_Ok;
+if(Class == 4078) goto L_Cart_Ok;
+if(Class == 4100) goto L_Cart_Ok;
+if(Class == 4107) goto L_Cart_Ok;
+close;
+
+L_Cart_Ok:
+setcart;
+goto L_Quit2;
+
+L_Falcon:
+if(Class == 11) goto L_Falc_Ok;
+if(Class == 4012) goto L_Falc_Ok;
+if(Class == 4034) goto L_Falc_Ok;
+close;
+
+L_Falc_Ok:
+setfalcon;
+goto L_Quit2;
+
+L_Peco:
+if (Class == 7) goto L_Peco_Ok;
+if (Class == 14) goto L_Peco_Ok;
+if (Class == 4008) goto L_Peco_Ok;
+if (Class == 4015) goto L_Peco_Ok;
+if (Class == 4030) goto L_Peco_Ok;
+if (Class == 4037) goto L_Peco_Ok;
+close;
+
+L_Peco_Ok:
+setriding;
+goto L_Quit2;
+
+L_Quit2:
+close;
+}
+
+pvp_y_1-5	mapflag	nosave	SavePoint
+pvp_y_1-5	mapflag	noreturn
+pvp_y_1-5	mapflag	nomemo
+pvp_y_1-5	mapflag	nobranch
+pvp_y_1-5	mapflag	noteleport
+pvp_y_1-5	mapflag	nocommand	40
+pvp_y_1-5	mapflag	nowarp
+pvp_y_1-5	mapflag	nowarpto
+pvp_y_1-5	mapflag	nodrop
+
+pvp_y_2-5	mapflag	nosave	SavePoint
+pvp_y_2-5	mapflag	noreturn
+pvp_y_2-5	mapflag	nomemo
+pvp_y_2-5	mapflag	nobranch
+pvp_y_2-5	mapflag	noteleport
+pvp_y_2-5	mapflag	nocommand	40
+pvp_y_2-5	mapflag	nowarp
+pvp_y_2-5	mapflag	nowarpto
+pvp_y_2-5	mapflag	nodrop

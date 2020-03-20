@@ -1,0 +1,414 @@
+//===== eAthena Script ======================================= 
+//= Armor Enchanter
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= eAhena SVN
+//===== Description: ========================================= 
+//= [Aegis Conversion]
+//= Add a +1, 2, or 3, of a random stat to specified armor.
+//============================================================ 
+
+-	script	enchan	-1,{
+	mes "[^FF0000พนักงานเสริมพลัง^000000]";
+	mes "ข้าเป็นคนออฟชั่นไอเท็มที่เก่งที่สุด";
+	mes "ออฟชั่นได้ดังนี้ ";
+	mes "1. เกราะ";
+	mes "2. โล่";
+	mes "3. ผ้าคลุม";
+	mes "4. รองเท้า";
+	next;
+	setarray .@position$[1],"no","^0000FF- ^000000เสริมพลังชุดเกราะ","^0000FF- ^000000เสริมพลังโล่","no","^0000FF- ^000000เสริมพลังผ้าคลุม","^0000FF- ^000000เสริมพลังรองเท้า";
+	set .@menu$,"";
+	deletearray .@arr;
+	set .@j, 1;
+	for( set .@i,2; .@i <= 6; set .@i,.@i+1 )
+	{
+		if ((.@i == 3) && (getiteminfo(getequipid(3),5) == 32) && (getequipisequiped(.@i))) { // Only catch shields
+			set .@menu$, .@menu$ + .@position$[.@i] + " " + "[" + getequipname(.@i) + "]";
+			set .@arr[.@j], .@i;
+			set .@j, .@j + 1;
+			set .@menu$, .@menu$ + ":";
+		}
+		if(getequipisequiped(.@i) && (.@i != 4) && (.@i != 3)) {
+			set .@menu$, .@menu$ + .@position$[.@i] + " " + "[" + getequipname(.@i) + "]";
+			set .@arr[.@j], .@i;
+			set .@j, .@j + 1;
+			set .@menu$, .@menu$ + ":";
+		}
+	}
+	if (.@menu$ == "") {
+		mes "[^FF0000พนักงานเสริมพลัง^000000]";
+		mes "โปรดตรวจสอบไอเท็มที่สวมใส่";
+		close;
+	}
+	// Calibrating menu
+	set .@part, select(.@menu$,":^0000FF- ^000000ยกเลิก");
+	if (.@arr[.@part] == 2) {
+		set .@part, 2;
+	} else if (.@arr[.@part] == 3) {
+		set .@part, 3;
+	} else if (.@arr[.@part] == 5) {
+		set .@part, 5;
+	} else if (.@arr[.@part] == 6) {
+		set .@part, 6;
+	} else {
+		mes "[^FF0000พนักงานเสริมพลัง^000000]";
+		mes "ขอบคุณที่สละเวลา";
+		mes "ไว้เจอกันคราวหน้า";
+		close;
+	}
+		
+		
+	mes "[^FF0000พนักงานเสริมพลัง^000000]";
+	mes "ไอเท็มที่คุณเลือกคือ ^0000FF"+getequipname(.@part)+"^000000";
+	mes "กรุณาเลือกเมนูที่ต้องการครับ";
+	next;
+	set .@menu, select("^0000FF- ^000000ดำเนินการ:^0000FF- ^000000ดูรายละเอียด:^0000FF- ^000000ยกเลิก");
+	if (.@menu == 1) {
+		set .@enchant_type, 0;
+		set .@slot_num, select("^0000FF- ^000000เสริมพลังช่องที่ 1:^0000FF- ^000000เสริมพลังช่องที่ 2:^0000FF- ^000000เสริมพลังช่องที่ 3");
+		if ((.@slot_num <= 0) || (.@slot_num > 3)) {
+			mes "[^FF0000พนักงานเสริมพลัง^000000]";
+			mes "เกิดข้อผิดพลาด";
+			mes "กรุณาลองใหม่อีกครั้ง";
+			close;
+		}
+		set .@equip_cardid, getequipcardid(.@part,(4 - .@slot_num));
+		set .@itemid, getequipid(.@part);
+		if (.@slot_num == 1) {
+			set .@equip_cardid2, getequipcardid(.@part,(4 - .@slot_num - 1));
+			set .@equip_cardid3, getequipcardid(.@part,(4 - .@slot_num - 2));
+			if (.@equip_cardid <= 0) {
+				mes "[^FF0000พนักงานเสริมพลัง^000000]";
+				mes "เสริมพลังช่องที่ 1";
+				mes "โอกาสสำเร็จ ^00770050%^000000";
+				mes "โอกาสล้มเหลว ^FF000050%^000000";
+				//mes "โอกาสที่ไอเท็มจะหายไป ^FF00000%^000000";
+				mes "ใช้เงินจำนวน ^0000FF100,000 zeny^000000";
+				mes "และใช้ ^0000FFลูกแก้ว Option 1 ชิ้น^000000";
+				mes "ท่านต้องการเสริมพลังใช่หรือไม่";
+			} else {
+				mes "[^FF0000พนักงานเสริมพลัง^000000]";
+				mes "ไอเท็มชิ้นนี้ถูกเสริมพลังไปแล้ว";
+				if (.@equip_cardid == 4700) set .@name_status$, "STR + 1";
+				else if (.@equip_cardid == 4701) set .@name_status$, "AGI + 1";
+				else if (.@equip_cardid == 4702) set .@name_status$, "VIT + 1";
+				else if (.@equip_cardid == 4703) set .@name_status$, "INT + 1";
+				else if (.@equip_cardid == 4704) set .@name_status$, "DEX + 1";
+				else if (.@equip_cardid == 4705) set .@name_status$, "LUK + 1";
+				else if (.@equip_cardid == 4706) set .@name_status$, "ATK + 5";
+				else if (.@equip_cardid == 4707) set .@name_status$, "DEF + 3";
+				else if (.@equip_cardid == 4708) set .@name_status$, "MDEF + 3";
+				else if (.@equip_cardid == 4709) set .@name_status$, "CRI + 3";
+				else set .@name_status$, "^FF0000ว่าง";
+				
+				if (.@equip_cardid3 == 4710) set .@name_status2$, "ป้องกันมนุษย์ + 1%";
+				else if (.@equip_cardid2 == 4711) set .@name_status2$, "ป้องกันโจมตีไกล + 1%";
+				else if (.@equip_cardid2 == 4712) set .@name_status2$, "โจมตีมนุษย์ + 1%";
+				else if (.@equip_cardid2 == 4713) set .@name_status2$, "โจมตีโจมตีไกล + 1%";
+				else if (.@equip_cardid2 == 4714) set .@name_status2$, "ป้องกันบอส + 3%";
+				else if (.@equip_cardid2 == 4715) set .@name_status2$, "โจมตีบอสแรง + 3%";
+				else set .@name_status2$, "^FF0000ว่าง";
+
+				if (.@equip_cardid2 == 4716) set .@name_status3$, "ASPD+1";
+				else if (.@equip_cardid3 == 4717) set .@name_status3$, "Max HP+2%";
+				else if (.@equip_cardid3 == 4718) set .@name_status3$, "Max SP+2%";
+				else if (.@equip_cardid3 == 4719) set .@name_status3$, "Matk+3%";
+				else set .@name_status3$, "^FF0000ว่าง";
+				
+				mes " ช่องที่ 1 [^0000FF"+.@name_status$+"^000000]";
+				mes " ช่องที่ 2 [^0000FF"+.@name_status3$+"^000000]";
+				mes " ช่องที่ 3 [^0000FF"+.@name_status2$+"^000000]";
+				mes "ท่านต้องการสุ่มพลังใหม่ใช่หรือไม่";
+			}
+		} else if (.@slot_num == 2) {	
+
+			set .@equip_cardid2, getequipcardid(.@part,(4 - .@slot_num + 1));
+			set .@equip_cardid3, getequipcardid(.@part,(4 - .@slot_num - 1));
+			if (.@equip_cardid2 <= 0) {
+				mes "[^FF0000พนักงานเสริมพลัง^000000]";
+				mes "การเสริมพลังช่องที่ 2";
+				mes "ต้องเสริมพลังช่องที่ 1 ก่อน";
+				close;
+			}
+			if (.@equip_cardid <= 0) {
+				mes "[^FF0000พนักงานเสริมพลัง^000000]";
+				mes "เสริมพลังช่องที่ 2";
+				mes "โอกาสสำเร็จ ^00770040%^000000";
+				mes "โอกาสล้มเหลว ^FF000060%^000000";
+				//mes "โอกาสที่ไอเท็มจะหายไป ^FF00001%^000000";
+				mes "ใช้เงินจำนวน ^0000FF200,000 zeny^000000";
+				mes "และใช้ ^0000FFลูกแก้ว Option 1 ชิ้น^000000";
+				mes "ท่านต้องการเสริมพลังใช่หรือไม่";
+			} else {
+				mes "[^FF0000พนักงานเสริมพลัง^000000]";
+				mes "ไอเท็มชิ้นนี้ถูกเสริมพลังไปแล้ว";
+				if (.@equip_cardid2 == 4700) set .@name_status$, "STR + 1";
+				else if (.@equip_cardid2 == 4701) set .@name_status$, "AGI + 1";
+				else if (.@equip_cardid2 == 4702) set .@name_status$, "VIT + 1";
+				else if (.@equip_cardid2 == 4703) set .@name_status$, "INT + 1";
+				else if (.@equip_cardid2 == 4704) set .@name_status$, "DEX + 1";
+				else if (.@equip_cardid2 == 4705) set .@name_status$, "LUK + 1";
+				else if (.@equip_cardid2 == 4706) set .@name_status$, "ATK + 5";
+				else if (.@equip_cardid2 == 4707) set .@name_status$, "DEF + 3";
+				else if (.@equip_cardid2 == 4708) set .@name_status$, "MDEF + 3";
+				else if (.@equip_cardid2 == 4709) set .@name_status$, "CRI + 3";
+				else set .@name_status$, "^FF0000ว่าง";
+				
+				if (.@equip_cardid3 == 4710) set .@name_status2$, "ป้องกันมนุษย์ + 1%";
+				else if (.@equip_cardid == 4711) set .@name_status2$, "ป้องกันโจมตีไกล + 1%";
+				else if (.@equip_cardid == 4712) set .@name_status2$, "โจมตีมนุษย์ + 1%";
+				else if (.@equip_cardid == 4713) set .@name_status2$, "โจมตีโจมตีไกล + 1%";
+				else if (.@equip_cardid == 4714) set .@name_status2$, "ป้องกันบอส + 3%";
+				else if (.@equip_cardid == 4715) set .@name_status2$, "โจมตีบอสแรง + 3%";
+				else set .@name_status2$, "^FF0000ว่าง";
+
+				if (.@equip_cardid == 4716) set .@name_status3$, "ASPD+1";
+				else if (.@equip_cardid3 == 4717) set .@name_status3$, "Max HP+2%";
+				else if (.@equip_cardid3 == 4718) set .@name_status3$, "Max SP+2%";
+				else if (.@equip_cardid3 == 4719) set .@name_status3$, "Matk+3%";
+				else set .@name_status3$, "^FF0000ว่าง";
+				
+				mes " ช่องที่ 1 [^0000FF"+.@name_status$+"^000000]";
+				mes " ช่องที่ 2 [^0000FF"+.@name_status2$+"^000000]";
+				mes " ช่องที่ 3 [^0000FF"+.@name_status3$+"^000000]";
+				mes "ท่านต้องการสุ่มพลังใหม่ใช่หรือไม่";
+			}
+		} else if (.@slot_num == 3) {	
+
+			set .@equip_cardid2, getequipcardid(.@part,(4 - .@slot_num + 1));
+			set .@equip_cardid3, getequipcardid(.@part,(4 - .@slot_num + 2));
+			if (.@equip_cardid2 <= 0) {
+				mes "[^FF0000พนักงานเสริมพลัง^000000]";
+				mes "การเสริมพลังช่องที่ 3";
+				mes "ต้องเสริมพลังช่องที่ 2 ก่อน";
+				close;
+			}
+			if (.@equip_cardid <= 0) {
+				mes "[^FF0000พนักงานเสริมพลัง^000000]";
+				mes "เสริมพลังช่องที่ 3";
+				mes "โอกาสสำเร็จ ^00770030%^000000";
+				mes "โอกาสล้มเหลว ^FF000070%^000000";
+				//mes "โอกาสที่ไอเท็มจะหายไป ^FF000010%^000000";
+				mes "ใช้เงินจำนวน ^0000FF400,000 zeny^000000";
+				mes "และใช้ ^0000FFลูกแก้ว Option 1 ชิ้น^000000";
+				mes "ท่านต้องการเสริมพลังใช่หรือไม่";
+			} else {
+				mes "[^FF0000พนักงานเสริมพลัง^000000]";
+				mes "ไอเท็มชิ้นนี้ถูกเสริมพลังไปแล้ว";
+				if (.@equip_cardid3 == 4700) set .@name_status$, "STR + 1";
+				else if (.@equip_cardid3 == 4701) set .@name_status$, "AGI + 1";
+				else if (.@equip_cardid3 == 4702) set .@name_status$, "VIT + 1";
+				else if (.@equip_cardid3 == 4703) set .@name_status$, "INT + 1";
+				else if (.@equip_cardid3 == 4704) set .@name_status$, "DEX + 1";
+				else if (.@equip_cardid3 == 4705) set .@name_status$, "LUK + 1";
+				else if (.@equip_cardid3 == 4706) set .@name_status$, "ATK + 5";
+				else if (.@equip_cardid3 == 4707) set .@name_status$, "DEF + 3";
+				else if (.@equip_cardid3 == 4708) set .@name_status$, "MDEF + 3";
+				else if (.@equip_cardid3 == 4709) set .@name_status$, "CRI + 3";
+				else set .@name_status$, "^FF0000ว่าง";
+				
+				if (.@equip_cardid == 4710) set .@name_status2$, "ป้องกันมนุษย์ + 1%";
+				else if (.@equip_cardid2 == 4711) set .@name_status2$, "ป้องกันโจมตีไกล + 1%";
+				else if (.@equip_cardid2 == 4712) set .@name_status2$, "โจมตีมนุษย์ + 1%";
+				else if (.@equip_cardid2 == 4713) set .@name_status2$, "โจมตีโจมตีไกล + 1%";
+				else if (.@equip_cardid2 == 4714) set .@name_status2$, "ป้องกันบอส + 3%";
+				else if (.@equip_cardid2 == 4715) set .@name_status2$, "โจมตีบอสแรง + 3%";
+				else set .@name_status2$, "^FF0000ว่าง";
+
+				if (.@equip_cardid2 == 4716) set .@name_status3$, "ASPD+1";
+				else if (.@equip_cardid == 4717) set .@name_status3$, "Max HP+2%";
+				else if (.@equip_cardid == 4718) set .@name_status3$, "Max SP+2%";
+				else if (.@equip_cardid == 4719) set .@name_status3$, "Matk+3%";
+				else set .@name_status3$, "^FF0000ว่าง";
+				
+				mes " ช่องที่ 1 [^0000FF"+.@name_status$+"^000000]";
+				mes " ช่องที่ 2 [^0000FF"+.@name_status2$+"^000000]";
+				mes " ช่องที่ 3 [^0000FF"+.@name_status3$+"^000000]";
+				mes "ท่านต้องการสุ่มพลังใหม่ใช่หรือไม่";
+			}
+		}
+		next;
+		if (.@enchant_type == 0) {
+			set .@rand_bonus, rand(4700,4709);
+			if (.@slot_num == 1) {
+				set .@rand_bonus, rand(4700,4709);
+				set .@zeny_cost, 100000;
+			} else if (.@slot_num == 2) {
+				set .@rand_bonus, rand(4716,4719);
+				set .@zeny_cost, 200000;
+			} else if (.@slot_num == 3) {
+				set .@rand_bonus, rand(4710,4715);
+				set .@zeny_cost, 400000;
+			}
+			
+			if (select("^0000FF- ^000000ใช่ ข้าต้องการ:^0000FF- ^000000ยกเลิก") == 2) close;
+
+			// Check Zeny
+			if (Zeny < .@zeny_cost) {
+				mes "[^FF0000พนักงานเสริมพลัง^000000]";
+				mes "ขออภัยท่านมีจำนวนเงินไม่พอ";
+				close;
+			}
+			// Check item
+				if(countitem(31025)<1) 
+				{
+					mes "[^FF0000พนักงานเสริมพลัง^000000]";
+					mes "^0000FFข้าต้องการลูกแก้วออฟชั่น^000000";
+					mes "^0000FFจำนวน 1 ea ต่อการออฟชั่น 1 ครั้ง^000000";
+					close;
+				} else {
+					delitem 31025,1;
+				}
+
+
+			
+			if (getequipid(.@part) != .@itemid) {
+				mes "[^FF0000พนักงานเสริมพลัง^000000]";
+				mes "เกิดข้อพลาดผลาด";
+				mes "กรุณาลองใหม่ภายหลัง";
+			}
+			set Zeny, Zeny - .@zeny_cost;
+			if (.@slot_num == 1) set .@percent,50;
+			else if (.@slot_num == 2) set .@percent,40;
+			else if (.@slot_num == 3) set .@percent,30;
+			set .@random_percent,rand(0,100);
+			if (.@random_percent > .@percent) {
+				mes "[^FF0000พนักงานเสริมพลัง^000000]";
+				mes "การเสริมพลังล้มเหลว";
+				if (.@slot_num == 2) {
+					if (.@random_percent <= .@percent+0) {
+						specialeffect2 155;
+						if(countitem(675)>0) {
+							delitem 675,1;
+							mes "^FF0000Enchand Coin ถูกใช้ไปแล้ว^000000";
+							mes "^FF0000ไอเท็มดังกล่าวไม่หายไป^000000";
+						} else {
+							mes "^FF0000ไอเท็มดังกล่าวถูกทำลาย^000000";
+							failedoption(.@part);
+						}
+					} else { specialeffect2 101; }
+				} else if (.@slot_num == 3) {
+					if (.@random_percent <= .@percent+0) {
+						specialeffect2 155;
+						if(countitem(675)>0) {
+							delitem 675,1;
+							mes "^FF0000Enchand Coin ถูกใช้ไปแล้ว^000000";
+							mes "^FF0000ไอเท็มดังกล่าวไม่หายไป^000000";
+						} else {
+							mes "^FF0000ไอเท็มดังกล่าวถูกทำลาย^000000";
+							failedoption(.@part);
+						}
+					} else { specialeffect2 101; }
+				} else { specialeffect2 101; }
+				mes "ขอบคุณที่สละเวลา";
+				next;
+			}
+			else {
+				mes "[^FF0000พนักงานเสริมพลัง^000000]";
+				mes "การเสริมพลังสำเร็จ";
+				
+				if (.@rand_bonus == 4700) set .@name_status$, "STR + 1";
+				else if (.@rand_bonus == 4701) set .@name_status$, "AGI + 1";
+				else if (.@rand_bonus == 4702) set .@name_status$, "VIT + 1";
+				else if (.@rand_bonus == 4703) set .@name_status$, "INT + 1";
+				else if (.@rand_bonus == 4704) set .@name_status$, "DEX + 1";
+				else if (.@rand_bonus == 4705) set .@name_status$, "LUK + 1";
+				else if (.@rand_bonus == 4706) set .@name_status$, "ATK + 5";
+				else if (.@rand_bonus == 4707) set .@name_status$, "DEF + 3";
+				else if (.@rand_bonus == 4708) set .@name_status$, "MDEF + 3";
+				else if (.@rand_bonus == 4709) set .@name_status$, "CRI + 3";
+				else if (.@rand_bonus == 4710) set .@name_status$, "ป้องกันมนุษย์ + 1%";
+				else if (.@rand_bonus == 4711) set .@name_status$, "ป้องกันโจมตีไกล + 1%";
+				else if (.@rand_bonus == 4712) set .@name_status$, "โจมตีมนุษย์ + 1%";
+				else if (.@rand_bonus == 4713) set .@name_status$, "โจมตีโจมตีไกล + 1%";
+				else if (.@rand_bonus == 4714) set .@name_status$, "ป้องกันบอส + 3%";
+				else if (.@rand_bonus == 4715) set .@name_status$, "โจมตีบอสแรง + 3%";
+				else if (.@rand_bonus == 4716) set .@name_status$, "ASPD+1";
+				else if (.@rand_bonus == 4717) set .@name_status$, "Max HP+2%";
+				else if (.@rand_bonus == 4718) set .@name_status$, "Max SP+2%";
+				else if (.@rand_bonus == 4719) set .@name_status$, "Matk+3%";
+				else set .@name_status$, "^FF0000เกิดข้อผิดพลาด";
+				
+				mes " >> ^0000FF"+.@name_status$+"^000000 <<";
+				mes "ขอบคุณที่ใช้บริการ";
+				set .@refine, getequiprefinerycnt(.@part);
+				for (set .@i, 0; .@i < 4; set .@i, .@i + 1)
+					set .@cardid[.@i], getequipcardid(.@part,.@i);
+				successoption .@part, .@rand_bonus, .@slot_num;
+				specialeffect2 154;
+				next;
+			}
+			
+		}
+		close;
+	} else if (.@menu == 2) {
+		mes "[^FF0000พนักงานเสริมพลัง^000000]";
+		mes "สามารถเสริมพลังให้ไอเท็มได้ ^FF00003^000000 พลัง";
+		mes "โอกาสสำเร็จจะแตกต่างกันไป";
+		mes "จำเป็นต้องเสริมพลังช่อง^FF0000ก่อนหน้า^000000";
+		mes "จึงจะสามารถเสริมพลังช่อง^FF0000ต่อไป^000000ได้";
+		mes "^FF0000(ผลของการตีบวกและการ์ดยังคงอยู่)^000000";
+		mes "สามารถ ^0000FF ออฟชั่นซ้ำได้จนกว่าจะพอใจ^000000";
+		next;
+		mes "[^FF0000พนักงานเสริมพลัง^000000]";
+		mes "พลังช่องที่ ^0000FF1^000000";
+		mes "โอกาสสำเร็จ ^00770050%^000000";
+		mes "โอกาสล้มเหลว ^FF000050%^000000";
+		//mes "โอกาสที่ไอเท็มจะหายไป ^FF00000%^000000";
+		mes "ใช้เงินจำนวน ^0000FF100,000 zeny^000000";
+		mes "และใช้ ^0000FFลูกแก้ว Option 1 ชิ้น^000000";
+		next;
+		mes "[^FF0000พนักงานเสริมพลัง^000000]";
+		mes "โดยพลังช่องที่ 1 สุ่มพลังดังนี้";
+		mes "- STR+1";
+		mes "- AGI+1";
+		mes "- VIT+1";
+		mes "- INT+1";
+		mes "- DEX+1";
+		mes "- LUK+1";
+		mes "- Atk+5";
+		mes "- Def+3";
+		mes "- Mdef+3";
+		mes "- CRITICAL + 3";
+		next;
+		mes "[^FF0000พนักงานเสริมพลัง^000000]";
+		mes "พลังช่องที่ ^0000FF2^000000";
+		mes "โอกาสสำเร็จ ^00770040%^000000";
+		mes "โอกาสล้มเหลว ^FF000060%^000000";
+		//mes "โอกาสที่ไอเท็มจะหายไป ^FF000010%^000000";
+		mes "ใช้เงินจำนวน ^0000FF200,000 zeny^000000";
+		mes "และใช้ ^0000FFลูกแก้ว Option 1 ชิ้น^000000";
+		next;
+		mes "[^FF0000พนักงานเสริมพลัง^000000]";
+		mes "โดยพลังช่องที่ 3 สุ่มพลังดังนี้";
+		mes "- Max HP + 2%";
+		mes "- Max SP + 2%";
+		mes "- Matk + 3%";
+		mes "- ASPD + 1";
+		next;
+		mes "[^FF0000พนักงานเสริมพลัง^000000]";
+		mes "โดยพลังช่องที่ 3 สุ่มพลังดังนี้";
+		mes "- ป้องกันมนุษย์ + 1%";
+		mes "- ป้องกันโจมตีไกล + 1%";
+		mes "- โจมตีมนุษย์ + 1%";
+		mes "- โจมตีโจมตีไกล + 1%";
+		mes "- ป้องกันบอส + 3%";
+		mes "- โจมตีบอสแรง + 3%";
+		next;
+		mes "[^FF0000พนักงานเสริมพลัง^000000]";
+		mes "พลังช่องที่ ^0000FF3^000000";
+		mes "โอกาสสำเร็จ ^00770030%^000000";
+		mes "โอกาสล้มเหลว ^FF000070%^000000";
+		//mes "โอกาสที่ไอเท็มจะหายไป ^FF000015%^000000";
+		mes "ใช้เงินจำนวน ^0000FF400,000 zeny^000000";
+		mes "และใช้ ^0000FFลูกแก้ว Option 1 ชิ้น^000000";
+		close;
+	} else {
+		close;
+	}
+OnInit:
+	waitingroom "๐ เสริมพลังไอเท็ม ๐", 0;
+	end;
+}

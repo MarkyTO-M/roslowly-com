@@ -1,0 +1,70 @@
+//============================================================
+//=สคลิปทั้งหมดในนี้
+//=เขียนขึ้นใหม่
+//=ปรับแต่งแก้ไขใหม่และแปลไทยโดย Pcmedias : by Ittiphol Live
+//============================================================
+
+
+-	script	BroadC	-1,{
+	mes "[Broadcast Service]";
+	mes .Npc_Name$;
+	mes "ค่าบริการประกาศ 250,000z";
+	next;
+	menu "ลงประกาศข้อความ",Use1,"ยกเลิก",Lno;
+
+Use1:
+if (Zeny < 250000) goto Lout1;
+mes .Npc_Name$;
+mes "ใส่ข้อความของคุณ";
+input .@bc$;
+Zeny = Zeny-250000;
+announce strcharinfo(0)+": "+.@bc$,0;
+goto Lno;
+
+OnInit:
+	// waitingroom "ลงประกาศ",0;
+	.Npc_Name$ = "Broadcaster";
+	end;
+Lno:
+mes "ขอบคุณ.";
+end;
+
+Lout1:
+	mes "250,000z สำหรับค่าบริการ";
+end;
+}
+
+
+prontera,144,108,3	duplicate(BroadC)	BroadcastService#pro	857
+izlude,122,148,6	duplicate(BroadC)	BroadcastService#izl	857
+geffen,139,56,3	duplicate(BroadC)	BroadcastService#gef	857
+gef_fild10,80,348,3	duplicate(BroadC)	BroadcastService#gef_	857
+payon,176,119,3	duplicate(BroadC)	BroadcastService#pay	857
+morocc,167,97,3	duplicate(BroadC)	BroadcastService#mor	857
+morocc,170,258,3	duplicate(BroadC)	BroadcastService#mor2	857
+alberta,109,74,3	duplicate(BroadC)	BroadcastService#alb	857
+comodo,218,148,3	duplicate(BroadC)	BroadcastService#com	857
+umbala,97,165,3	duplicate(BroadC)	BroadcastService#umb	857
+aldebaran,146,114,3	duplicate(BroadC)	BroadcastService#ald	857
+yuno,144,122,3	duplicate(BroadC)	BroadcastService#yun	857
+mjolnir_02,91,357,3	duplicate(BroadC)	BroadcastService#mjo	857
+xmas,138,147,3	duplicate(BroadC)	BroadcastService#xma	857
+amatsu,100,162,3	duplicate(BroadC)	BroadcastService#ama	857
+gonryun,152,122,3	duplicate(BroadC)	BroadcastService#gon	857
+niflheim,212,182,3	duplicate(BroadC)	BroadcastService#nif	857
+louyang,206,109,3	duplicate(BroadC)	BroadcastService#lou	857
+ayothaya,209,169,3	duplicate(BroadC)	BroadcastService#ayo	857
+einbroch,51,203,3	duplicate(BroadC)	BroadcastService#ein	857
+lighthalzen,172,110,3	duplicate(BroadC)	BroadcastService#lig	857
+einbech,189,123,3	duplicate(BroadC)	BroadcastService#ein2	857
+hugel,82,151,3	duplicate(BroadC)	BroadcastService#hug	857
+rachel,129,144,3	duplicate(BroadC)	BroadcastService#rac	857
+veins,212,139,3	duplicate(BroadC)	BroadcastService#vei	857
+moscovia,217,191,3	duplicate(BroadC)	BroadcastService#mos	857
+brasilis,201,224,3	duplicate(BroadC)	BroadcastService#bra	857
+dewata,206,190,3	duplicate(BroadC)	BroadcastService#dew	857
+malaya,229,204,3	duplicate(BroadC)	BroadcastService#mal	857
+lasagna,199,198,3	duplicate(BroadC)	BroadcastService#las	857
+glast_01,186,268,3	duplicate(BroadC)	BroadcastService#gla	857
+dicastes01,188,209,3	duplicate(BroadC)	BroadcastService#dic	857
+mid_camp,199,288,4	duplicate(BroadC)	BroadcastService#mid	857

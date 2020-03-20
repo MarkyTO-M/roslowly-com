@@ -1,0 +1,34 @@
+morocc	mapflag	noicewall
+
+aldeg_cas01	mapflag	noicewall
+aldeg_cas02	mapflag	noicewall
+aldeg_cas03	mapflag	noicewall
+aldeg_cas04	mapflag	noicewall
+aldeg_cas05	mapflag	noicewall
+gefg_cas01	mapflag	noicewall
+gefg_cas02	mapflag	noicewall
+gefg_cas03	mapflag	noicewall
+gefg_cas04	mapflag	noicewall
+gefg_cas05	mapflag	noicewall
+payg_cas01	mapflag	noicewall
+payg_cas02	mapflag	noicewall
+payg_cas03	mapflag	noicewall
+payg_cas04	mapflag	noicewall
+payg_cas05	mapflag	noicewall
+prtg_cas01	mapflag	noicewall
+prtg_cas02	mapflag	noicewall
+prtg_cas03	mapflag	noicewall
+prtg_cas04	mapflag	noicewall
+prtg_cas05	mapflag	noicewall
+
+gvg_cas01	mapflag	noicewall
+gvg_cas02	mapflag	noicewall
+gvg_cas03	mapflag	noicewall
+gvg_cas04	mapflag	noicewall
+
+1@tower	mapflag	noicewall
+2@tower	mapflag	noicewall
+3@tower	mapflag	noicewall
+4@tower	mapflag	noicewall
+5@tower	mapflag	noicewall
+6@tower	mapflag	noicewall

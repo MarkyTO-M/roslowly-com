@@ -1,0 +1,123 @@
+//*********************************************************************************************************************************************************************************
+//***--Topic  :		***\( ^ ~ ^ )/***
+//***--Gold Exchanger
+//***
+//*********************************************************************************************************************************************************************************
+//***-- Script by :		***\( ^ ~ ^ )/***
+//***-- Emistry
+//***
+//*********************************************************************************************************************************************************************************
+//***-- Contact Info :	***\( ^ ~ ^ )/***
+//***-- My Email : Equinox1991@Gmail.com
+//***
+//*********************************************************************************************************************************************************************************
+//***-- Messages :		***\( ^ ~ ^ )/***
+//***-- Drop me a private message or email if you are looking for my helps ^^.
+//***-- Beside that, I am looking for a Server to work with ^^ .  
+//***-- I will do my best to help you ^^.
+//***-- More Details ? PM Me ^^.
+//***
+//*********************************************************************************************************************************************************************************
+//***Although these scripts might not suit or follow with what you have requested completely. But i still wish you can give it a try before reject the works.
+//***
+//*********************************************************************************************************************************************************************************
+
+
+
+
+morocc,119,97,5	script	พนักงานแลกเหรียญ	853,{
+mes "[^0000FF  Gold Exchanger^000000  ]";
+if (getgmlevel()>60){
+GMCP:
+mes "Hello GM,..";
+mes "Welcome to the Gold Exchanger CP.";
+mes "----^76EE00 Current Info^000000 ----";
+mes "[^0000FFBuy^000000] Gold Price : ["+ $NPCBuyGold +" Z]  ";
+mes "[^0000FFSell^000000] Gold Price : ["+ $NPCSellGold +" Z]  ";
+mes "Notes : ";
+mes "^FF0000Buy^000000 mean NPC buy gold with this price.";
+mes "^FF0000Sell^000000 mean NPC sell gold with this price.";
+next;
+switch(select("Continue:Set NPC Buy Cost:Set NPC Sell Cost")){
+Case 1:	
+	goto PlayerCP;
+Case 2:
+	mes "[^0000FF  Gold Exchanger^000000  ]";
+	mes "Please input the New Gold Cost.";
+	mes "Note : ";
+	mes "^FF0000This is the price for a NPC to buy the Gold from players.";
+	input $NPCBuyGold;
+	next;
+	goto GMCP;
+Case 3:
+	mes "[^0000FF  Gold Exchanger^000000  ]";
+	mes "Please input the New Gold Cost.";
+	mes "Note : ";
+	mes "^FF0000This is the price for a NPC to sell the Gold to players.";
+	input $NPCSellGold;
+	next;
+	goto GMCP;	
+	}
+end;
+}
+
+PlayerCP:
+if($NPCBuyGold > $NPCSellGold){set $NPCBuyGold,($NPCSellGold + 1000);}
+mes "สวัสดี!";
+mes "ผมรับซื้อ และ ขาย เหรียญ  สำหรับเล่น Slot Machine";
+mes "----^76EE00 ราคาเหรียญวันนี้^000000 ----";
+mes "[^0000FFราคารับซื้อ^000000] Slot Coin : ["+ $NPCBuyGold +" Z]  ";
+mes "[^0000FFราคาขาย^000000] Slot Coin : ["+ $NPCSellGold +" Z]  ";
+next;
+switch(select("ข้าต้องการซื้อเหรียญ:ข้าต้องการขายเหรียญ")){
+Case 1:
+	mes "[^0000FFพนักงานแลกเหรียญ^000000  ]";
+	mes "โปรดใส่จำนวน เหรียญ ที่คุณต้องการจะซื้อ";
+	mes "1 เหรียญ  = "+ $NPCSellGold +" Zeny";
+	input @BuyAmount;
+	set @GoldBuyCost,@BuyAmount*$NPCSellGold;
+	if(@BuyAmount == 0) goto L_End;
+	if( Zeny < @GoldBuyCost ) goto L_Money;
+	set Zeny,Zeny - @GoldBuyCost;
+	getitem 7647,@BuyAmount;
+	dispbottom "คุณซื้อ "+@BuyAmount+" เหรียญจาก NPC";
+	end;
+Case 2:
+	mes "[^0000FFพนักงานแลกเหรียญ^000000  ]";
+	mes "โปรดใส่จำนวน เหรียญ ที่คุณต้องการจะขาย";
+	mes "1 เหรียญ  = "+ $NPCBuyGold +" Zeny";
+	input @SellAmount;
+	set @GoldSellCost,@SellAmount*$NPCBuyGold;
+	if(@SellAmount == 0) goto L_End;
+	if( countitem(7647) < @SellAmount ) goto L_Money;
+	set Zeny,Zeny + @GoldSellCost;
+	delitem 7647,@SellAmount;
+	dispbottom "คุณได้รับ "+@GoldSellCost+" Zeny จาก NPC";
+	end;
+	}
+end;
+
+L_Money:
+	next;
+	mes "[^0000FF  Coin Exchanger^000000  ]";
+	mes "คุณไม่มีสิ่งที่เราต้องการ";
+	end;	
+L_End:
+	next;
+	mes "[^0000FF  Coin Exchanger^000000  ]";
+	mes "ไว้พบกันใหม่โอกาสหน้า";
+	end;
+	
+OnInit:
+
+waitingroom "40/15 แลก Lucky Coin",0;
+
+set  $NPCBuyGold,15000;
+set  $NPCSellGold,40000;
+end;
+}
+
+prontera,136,171,5	duplicate(พนักงานแลกเหรียญ)	พนักงานแลกเหรียญ#02	853
+morocc,165,55,5	duplicate(พนักงานแลกเหรียญ)	พนักงานแลกเหรียญ#03	853
+morocc,181,102,5	duplicate(พนักงานแลกเหรียญ)	พนักงานแลกเหรียญ#04	853
+morocc,221,45,5	duplicate(พนักงานแลกเหรียญ)	พนักงานแลกเหรียญ#05	853

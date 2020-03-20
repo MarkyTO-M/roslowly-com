@@ -1,0 +1,116 @@
+-	shop	makeacid_A	-1,678:-1,7135:-1,7136:-1,7139:-1,12118:-1,12119:-1,12120:-1,12121:-1,12114:-1,12115:-1,12116:-1,12117:-1
+
+function	script	makeacid_Buy	{
+if(@bought_nameid == 678) {	setarray @itemuse[0], 713, 657, 972, 937, 7033, 952, 939;	setarray @itemusemany[0], 1, 1, 1, 1, 1, 1, 1;	set @zenyuse, 500;		}
+else if(@bought_nameid == 7135) {	setarray @itemuse[0], 7134, 713, 970, 1059;		setarray @itemusemany[0], 1, 1, 1, 1;		set @zenyuse, 500;		}
+else if(@bought_nameid == 7136) {	setarray @itemuse[0], 7134, 713, 929;			setarray @itemusemany[0], 1, 1, 1;			set @zenyuse, 500;		}
+else if(@bought_nameid == 7139) {	setarray @itemuse[0], 7134, 713, 970, 929, 1044;		setarray @itemusemany[0], 1, 1, 1, 1, 1;		set @zenyuse, 500;		}
+else if(@bought_nameid == 12118) {	setarray @itemuse[0], 7134, 1093, 716, 1012;		setarray @itemusemany[0], 1, 1, 1, 2;		set @zenyuse, 500;		}
+else if(@bought_nameid == 12119) {	setarray @itemuse[0], 7134, 1093, 717, 950;		setarray @itemusemany[0], 1, 1, 1, 3;		set @zenyuse, 500;		}
+else if(@bought_nameid == 12120) {	setarray @itemuse[0], 7134, 1093, 715, 7126;		setarray @itemusemany[0], 1, 1, 1, 2;		set @zenyuse, 500;		}
+else if(@bought_nameid == 12121) {	setarray @itemuse[0], 7134, 1093, 717, 1057;		setarray @itemusemany[0], 1, 1, 1, 3;		set @zenyuse, 500;		}
+else if(@bought_nameid == 12114) {	setarray @itemuse[0], 7433, 904;				setarray @itemusemany[0], 1, 3;			set @zenyuse, 500;		}
+else if(@bought_nameid == 12115) {	setarray @itemuse[0], 7433, 946;				setarray @itemusemany[0], 1, 3;			set @zenyuse, 500;		}
+else if(@bought_nameid == 12116) {	setarray @itemuse[0], 7433, 947;				setarray @itemusemany[0], 1, 3;			set @zenyuse, 500;		}
+else if(@bought_nameid == 12117) {	setarray @itemuse[0], 7433, 1013;				setarray @itemusemany[0], 1, 3;			set @zenyuse, 500;		}
+return;
+}
+
+-	script	makeacid	-1,{
+mes"^FF0000[พนักงานทำยา]^000000";
+next;
+switch(select("^0000FF-^000000 ทำยา")) {
+case 1:	callfunc "Shop_sumore","makeacid_A",1;
+}
+OnBuyItem:
+callfunc "makeacid_ItemBuy";
+}
+
+function	script	Shop_makeacid	{	npcshopattach getarg(0),1;	close2;	callshop getarg(0),getarg(1);	end;	}
+
+function	script	makeacid_ItemBuy	{
+for (set .@g,0; .@g < getarraysize(@bought_nameid); set .@g,.@g+1) {
+sleep2 1;
+set @bought_nameid,@bought_nameid[.@g];
+deletearray @itemuse[0],getarraysize(@itemuse);
+deletearray @itemusemany[0],getarraysize(@itemusemany);
+set @broken,0;	set @zenyuse, 0;
+callfunc "makeacid_Buy";
+if(@itemuse[0] <= 0)	goto check;	
+set .@r,0;	set .@up,0;	set @itemgetmany,0;
+for( set .@r,0; .@r < getarraysize(@itemuse); set .@r,.@r+1 ) {
+if(.@up >= getarraysize(@itemuse)) break;
+set .@itemup[.@up], countitem(@itemuse[.@up])/@itemusemany[.@up];
+if(.@up == 0) set @itemgetmany,.@itemup[.@up];
+if(@itemgetmany > .@itemup[.@up]) set @itemgetmany,.@itemup[.@up];
+set .@up,.@up+1;
+continue;
+}
+check:
+dispbottom "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=";
+if(@itemuse[0] <= 0){
+if (0 == getitemslots( @bought_nameid[.@g])){	dispbottom "";	}
+if (1 <= getitemslots( @bought_nameid[.@g])){	dispbottom "";	}
+}
+else if (@itemgetmany == 0){
+if (0 == getitemslots( @bought_nameid[.@g])){	dispbottom "";	}
+if (1 <= getitemslots( @bought_nameid[.@g])){	dispbottom "";	}
+set .@d,0;
+for( set .@i,0; .@i < getarraysize(@itemuse); set .@i,.@i+1 ) {
+if(.@d >= getarraysize(@itemuse)) break;
+
+if (0 == getitemslots( @itemuse[.@d])){	dispbottom "ต้องการ "+getitemname(@itemuse[.@d])+" "+@itemusemany[.@d]+" ea ครับ";	}
+if (1 <= getitemslots( @itemuse[.@d])){	dispbottom "ต้องการ "+getitemname(@itemuse[.@d])+" ["+getitemslots( @itemuse[.@d])+"] "+@itemusemany[.@d]+" ea ครับ";	}
+set .@d,.@d+1;
+continue;
+}
+if(@zenyuse != 0) {	dispbottom "ต้องการ เงิน "+ @zenyuse +" Zeny ครับ";	}
+if(@broken != 0) {	set .@failmake,100-@broken;	dispbottom "";	}
+}
+else if (@bought_quantity[.@g] > @itemgetmany){
+dispbottom "คุณมี "+getitemname(@itemuse[.@d])+" ไม่พอครับ";
+}
+else if (Zeny < (@zenyuse*@bought_quantity[.@g])){	
+if (@bought_quantity[.@g] == 1)	dispbottom "คุณมีเงินไม่พอครับ";
+else if (@bought_quantity[.@g] >= 2)	dispbottom "คุณมีเงินไม่พอครับ";
+}
+else if ((@bought_quantity[.@g] <= @itemgetmany) && (Zeny >= (@zenyuse*@bought_quantity[.@g]))){
+set .@r,0;	set .@up,0;
+for( set .@r,0; .@r < getarraysize(@itemuse); set .@r,.@r+1 ) {
+if(.@up >= getarraysize(@itemuse)) break;
+delitem @itemuse[.@up],@itemusemany[.@up]*@bought_quantity[.@g];
+dispbottom "";
+set .@up,.@up+1;
+continue;
+}
+if(@zenyuse != 0) {	
+set Zeny,(Zeny-@zenyuse*@bought_quantity[.@g]);
+dispbottom "";
+}
+if(@broken != 0) {	
+set .@RTget,rand(1,100);
+if(@broken < .@RTget) {
+specialeffect2 155;
+dispbottom "";
+set @bought_quantity[.@g],0;
+}
+if(@broken >= .@RTget) {
+specialeffect2 154;
+dispbottom "";
+}
+} 
+if(@broken == 0) {
+}
+getitem @bought_nameid[.@g],@bought_quantity[.@g];
+dispbottom "การทำยาเรียบร้อยครับ";
+}
+}
+dispbottom "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=";
+deletearray @bought_nameid[0],getarraysize(@bought_nameid);
+deletearray @bought_quantity[0],getarraysize(@bought_quantity);
+deletearray @itemuse[0],getarraysize(@itemuse);
+deletearray @itemusemany[0],getarraysize(@itemusemany);
+set @broken,0;	set @zenyuse, 0;
+close;
+end;
+}

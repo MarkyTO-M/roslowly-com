@@ -1,0 +1,31 @@
+morocc,0,0,0	script	TreasureEvent	-1,{
+close;
+trevstart:
+set $@trevent,rand(30,70);
+set $@ftrevent,0;
+announce "[ กิจกรรม ล่ากล่องสมบัติ เริ่มแล้ว มีกล่องเกิดขึ้นจำนวน [ "+$@trevent+" กล่อง ]",0;
+monster "morocc",0,0,"กล่องสมบัติ",1325,$@trevent,"TreasureEvent::OnTreasureDie";
+end;
+
+OnTreasureDie:
+set $@ftrevent,$@ftrevent+1;
+if($@ftrevent!=$@trevent)
+getitem 7539,rand(20,50);
+	announce "[ PlayBox ] : กล่องใบที่ [ "+$@ftrevent+" ] ถูกพบโดยคุณ [ "+strcharinfo(0)+" ]",0;
+end;
+
+trevend:
+if($@ftrevent!=$@trevent)
+announce "[ กิจกรรม ล่ากล่องสมบัติ จบลงแล้ว ]",0;
+killmonster "morocc","TreasureEvent::OnTreasureDie";
+end;
+OnTimeout:
+end;
+
+OnMinute54:
+goto trevstart;
+end;
+OnMinute55:
+goto trevend;
+end;
+}
