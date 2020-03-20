@@ -9,3 +9,6 @@ http://128.199.64.182/pp_page/roslowly-com-runserver.zip
 แตกไฟลืไว้ทที่ ROOT ของ Folder Git Repo
 เปิดเซฺิฟเวอร์ด้วยไฟล์ runserver.bat (Windows)
 * ต้องเปิด MyhSQL Server ไว้ด้วยนะห้ามปิด
+
+=== Contributor ==
+MarkyTO
