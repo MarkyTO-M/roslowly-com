@@ -24,7 +24,7 @@ morocc,129,59,4	script	พนักงานถอดการ์ด#eAcustom	1_F_ORIENT_04,{
 	mes "มันอันตรายมาก มีโอกาสสำเร็จ 90% เท่านั้น !!";
 	mes "หากไม่สำเร็จ";
 	mes "ไอเทมของท่านจะหายไปทันที";
-	mes "* ค่าใช้จ่าย 10,000 Zeny";
+	mes "* ค่าใช้จ่าย 100,000 Zeny";
 	next;
 	
 	if(select("ตกลง:ยกเลิก") == 2) {
@@ -140,23 +140,9 @@ morocc,129,59,4	script	พนักงานถอดการ์ด#eAcustom	1_F_ORIENT_04,{
 			getitem2 .@part,1,1,.@equip_refine,0,0,0,0,0;
 			end;
 		}
-	}else{
-		if(.@equip_card[0] != 0){
-			getitem .@equip_card[0],1;
-		}
-		if(.@equip_card[1] != 0){
-			getitem .@equip_card[1],1;
-		}
-		if(.@equip_card[2] != 0){
-			getitem .@equip_card[2],1;
-		}
-		if(.@equip_card[3] != 0){
-			getitem .@equip_card[3],1;
-		}
-		getitem2 .@part,1,1,.@equip_refine,0,0,0,0,0;
-		end;
 	}
 	
+	end;
 	OnInit: 
 	waitingroom "บริการถอดการ์ด",0; 
 	end;
