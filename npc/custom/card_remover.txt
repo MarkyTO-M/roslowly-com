@@ -83,7 +83,7 @@ morocc,129,59,4	script	พนักงานถอดการ์ด#eAcustom	1_F_ORIENT_04,{
 	set .@successful_rand,rand(100);
 	set .@successful,0;
 	
-	if(.@successful_rand >= 90){set .@successful,1;}
+	if(.@successful_rand <= 90){set .@successful,1;}
 	
 	if(.@successful == 0 ){
 		mes "[ถอดการ์ด]";
